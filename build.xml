@@ -1,0 +1,51 @@
+<project name="Webapp Precompilation" default="all" basedir=".">
+
+   <import file="${tomcat.home}${file.separator}catalina-tasks.xml"/>
+
+   <target name="jspc">
+
+    <jasper
+             validateXml="false"
+             uriroot="${webapp.path}"
+             webXmlFragment="${webapp.path}${file.separator}WEB-INF${file.separator}generated_web.xml"
+             outputDir="${webapp.path}${file.separator}WEB-INF${file.separator}src" />
+
+  </target>
+
+  <target name="compile">
+
+    <mkdir dir="${webapp.path}${file.separator}WEB-INF${file.separator}classes"/>
+    <mkdir dir="${webapp.path}${file.separator}WEB-INF${file.separator}lib"/>
+
+    <javac destdir="${webapp.path}${file.separator}WEB-INF${file.separator}classes"
+           optimize="off"
+           debug="on" failonerror="false"
+           srcdir="${webapp.path}${file.separator}WEB-INF${file.separator}src"
+           excludes="**/*.smap">
+      <classpath>
+        <pathelement location="${webapp.path}${file.separator}WEB-INF${file.separator}classes"/>
+        <fileset dir="${webapp.path}${file.separator}WEB-INF${file.separator}lib">
+          <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${tomcat.home}"/>
+        <fileset dir="${tomcat.home}">
+          <include name="*.jar"/>
+        </fileset>
+      </classpath>
+      <include name="**" />
+      <exclude name="tags${file.separator}**" />
+    </javac>
+
+  </target>
+
+  <target name="all" depends="jspc,compile">
+  </target>
+
+  <target name="cleanup">
+    <delete>
+        <fileset dir="${webapp.path}${file.separator}WEB-INF${file.separator}src"/>
+        <fileset dir="${webapp.path}${file.separator}WEB-INF${file.separator}classes${file.separator}org${file.separator}apache${file.separator}jsp"/>
+    </delete>
+  </target>
+
+</project>
