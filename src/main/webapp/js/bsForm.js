@@ -49,13 +49,13 @@ function bsInitJs(){
   BSSTATE["WhoPi"]={};
 }
 
-function bsGetAjxCf(method, url) {
+function bsGtAjxCf(method, url) {
   if (bsAnyOpFrmChd()) {
     var funcYes = function() {
       document.getElementById('dlgCnf').close();
       bsGtAjx(method,url);
     };
-    bsShwCnf(BSMSG["bsIfFrmChd"], funcYes);
+    bsShwCnf(BSMSG["FrmChd"], funcYes);
   } else {
     bsGtAjx(method,url);
   }

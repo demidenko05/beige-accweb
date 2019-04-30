@@ -88,7 +88,7 @@
           ${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}
           <button onclick="document.getElementById('dlgI18n').close();" class="btn-close btn-confirm">x</button>
         </div>
-        <form id="lngPrefFrm" action="?rnd=main" method="POST">
+        <form id="lngPrefFrm" action="?" method="POST">
           <div>
             <table class="tbl-fieldset">
               <tbody>
@@ -98,7 +98,7 @@
                   </td>
                   <td>
                     <div class="input-line">
-                      <select name="lang" onchange="bsInpChn(this);">
+                      <select name="lng" onchange="bsInpChn(this);">
                         <c:forEach var="it" items="${rvs.lngs}">
                           <c:set var="itmSel" value=""/>
                           <c:if test="${rvs.upf.lng.iid eq it.iid}">
@@ -119,7 +119,7 @@
                       <select name="dcSp" onchange="bsInpChn(this);">
                         <c:forEach var="it" items="${rvs.dcSps}">
                           <c:set var="itmSel" value=""/>
-                          <c:if test="${rvs.upf.dcSp eq it.iid}">
+                          <c:if test="${rvs.upf.dcSp.iid eq it.iid}">
                             <c:set var="itmSel" value="selected"/>
                           </c:if>
                           <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme)}</option>

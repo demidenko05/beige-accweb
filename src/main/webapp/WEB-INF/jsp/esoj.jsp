@@ -14,8 +14,15 @@
     <c:if test="${not empty numJsAf}">
       <c:set var="jscr" value="${jscr}${numJsAf}"/>
     </c:if>
-   {"trgNm": null, "cont": null,
-    "trgPrNm": null, "jscr": "${utJsp.toJsonStr(jscr)}"}      
+    <c:set var="lsPlNm" value="lstMnPl" scope="request"/>
+    <c:set var="prfFlOrFrm" value="${lsPlNm}" scope="request"/>
+    <c:set var="rndLst" value="lj" scope="request"/>
+    <c:import url="/WEB-INF/jsp/lst.jsp" varReader="rdEnts" charEncoding="UTF-8">
+      {"trgNm": "${lsPlNm}lst", "cont": "${utJsp.toJsonStrCls(rdEnts)}",
+        "trgPrNm": null, "jscr": "${utJsp.toJsonStr(jscr)}"},
+    </c:import>
+    {"trgNm": "frmSbPl", "cont": "",
+      "trgPrNm": null, "jscr": null}
   ]
 }
 </c:import>

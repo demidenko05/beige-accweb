@@ -13,7 +13,7 @@
       <button onclick="bsClsDlgCf('${frPlNm}Ed')" class="btn-close">x</button>
     </div>
     <form id="${frPlNm}EdFrm" action="srv" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="act" value="entSv,entEd,lst">
+      <input type="hidden" name="act" value="${acEntSv},entEd,lst">
       <input type="hidden" name="ent" value="${cls.simpleName}">
       <input type="hidden" name="msgSuc" value="${msgSuc}">
       <input type="hidden" name="pg" value="${param.pg}">
@@ -36,12 +36,13 @@
       </table>
       <jsp:include page="fm/${hldUvd.stg(cls,'fmAc')}.jsp"/>
     </form>
-    <c:if test="${!ent.isNew && hldUvd.owdEntsMp != null}">
+    <c:if test="${!ent.isNew && hldUvd.owdEntsMp != null && hldUvd.owdEntsMp.size() gt 0}">
       <c:forEach var="olme" items="${hldUvd.owdEntsMp}">
         <c:set var="olme" value="${olme}" scope="request"/>
         <c:set var="cls" value="${olme.key}" scope="request"/>
         <jsp:include page="ow/owl.jsp"/>
       </c:forEach>
+      <c:set var="cls" value="${hldUvd.cls}" scope="request"/>
     </c:if>
   </div>
 </dialog>
