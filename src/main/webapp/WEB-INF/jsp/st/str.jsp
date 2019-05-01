@@ -1,2 +1,2 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-${hldUvd.toStr(cls,fdNm,mdl)}
+${hldUvd.toStr(rvs,cls,fdNm,mdl)}

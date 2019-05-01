@@ -12,10 +12,10 @@
   [{"trgNm": "${lsPlNm}", "cont": "${utJsp.toJsonStrCls(rdEnts)}",
     "trgPrNm": null, "jscr": null},
     <c:if test="${param.jscr == null}">
-      <c:set var="jscr" value="${hldUvd.setJs(usdDp, lsPlNm)}"/>
+      <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp, lsPlNm)}"/>
     </c:if>
     <c:if test="${param.jscr != null}">
-      <c:set var="jscr" value="${hldUvd.setJs(usdDp)}${param.jscr}"/>
+      <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp)}${param.jscr}"/>
     </c:if>
    {"trgNm": null, "cont": null,
     "trgPrNm": null, "jscr": "${utJsp.toJsonStr(jscr)}"}      

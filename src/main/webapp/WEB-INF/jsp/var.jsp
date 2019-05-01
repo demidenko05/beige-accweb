@@ -5,10 +5,10 @@
 <c:if test="${not empty param.mbl}">
   <c:set var="flyPar" value="&mbl=${param.mbl}" scope="request"/>
 </c:if>
-<c:forEach var="entry" items="${hldUvd.fltMp}">
+<c:forEach var="entry" items="${rvs.uvs.fltMp}">
   <c:set var="flyPar" value="${flyPar}&${entry.key}=${entry.value}" scope="request"/>
 </c:forEach>
-<c:forEach var="entry" items="${hldUvd.ordMp}">
+<c:forEach var="entry" items="${rvs.uvs.ordMp}">
   <c:set var="flyPar" value="${flyPar}&${entry.key}=${entry.value}" scope="request"/>
 </c:forEach>
 <c:forEach items="${param}" var="par">
@@ -16,4 +16,4 @@
     <c:set var="flyPar" value="${flyPar}&${par.key}=${par.value}" scope="request"/>
   </c:if>
 </c:forEach>
-<c:set var="cls" value="${hldUvd.cls}" scope="request"/>
+<c:set var="cls" value="${rvs.uvs.cls}" scope="request"/>

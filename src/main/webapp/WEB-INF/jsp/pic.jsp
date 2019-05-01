@@ -10,7 +10,7 @@
     <jsp:include page="${param.mbl}ls/roHe.jsp"/>
     <th class="column-actions">${i18n.getMsg('Actions', rvs.upf.lng.iid)}</th>
   </tr>
-  <c:forEach var="ent" items="${hldUvd.ents}">
+  <c:forEach var="ent" items="${rvs.uvs.ents}">
     <c:set var="ent" value="${ent}" scope="request"/>
     <tr>
       <jsp:include page="${param.mbl}ls/roDe.jsp"/>

@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="pages">
-  <c:forEach var="page" items="${hldUvd.pgs}">
+  <c:forEach var="page" items="${rvs.uvs.pgs}">
     <c:if test="${page.val eq '...'}">
       <span class="page-inactive">...</span>
     </c:if>

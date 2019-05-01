@@ -21,7 +21,7 @@
       <c:if test="${not empty param.mbl}">
         <input type="hidden" name="mbl" value="${param.mbl}">
       </c:if>
-      <c:forEach var="fn" items="${hldUvd.lstFds}">
+      <c:forEach var="fn" items="${hldUvd.lazLstFds(cls)}">
         <c:set var="fdNm" value="${fn}" scope="request"/>
         <c:if test="${not empty hldUvd.stg(cls,fn,'flt')}">
           <jsp:include page="../${param.mbl}fl/${hldUvd.stg(cls,fn,'flt')}.jsp"/>
@@ -31,22 +31,22 @@
         ${i18n.getMsg("OrderBy", rvs.upf.lng.iid)}
         <c:set var="ordByNm" value="${prfFlOr}ordBy" scope="request"/>
         <c:set var="ordByDeNm" value="${prfFlOr}ordByDe"/>
-        <c:if test="${hldUvd.ordMp[ordByNm] != 'disabled'}"> <c:set var="isChkd" value=""/> </c:if>
-        <c:if test="${hldUvd.ordMp[ordByNm] == 'disabled'}"> <c:set var="isChkd" value="checked"/> </c:if>
+        <c:if test="${rvs.uvs.ordMp[ordByNm] != 'disabled'}"> <c:set var="isChkd" value=""/> </c:if>
+        <c:if test="${rvs.uvs.ordMp[ordByNm] == 'disabled'}"> <c:set var="isChkd" value="checked"/> </c:if>
         <label>
           <input type="radio" name="${ordByNm}" value="disabled" ${isChkd} onchange="bsInpChn(this);">
           ${i18n.getMsg("disabled", rvs.upf.lng.iid)}
         </label>
-        <c:forEach var="fn" items="${hldUvd.lstFds}">
+        <c:forEach var="fn" items="${hldUvd.lazLstFds(cls)}">
           <c:set var="fdNm" value="${fn}" scope="request"/>
           <c:if test="${not empty hldUvd.stg(cls,fn,'ord')}">
             <jsp:include page="../or/${hldUvd.stg(cls,fn,'ord')}.jsp"/>
           </c:if>
         </c:forEach>
-        <c:if test="${hldUvd.ordMp[ordByDeNm] != 'on'}"> <c:set var="isChkd" value=""/> </c:if>
-        <c:if test="${hldUvd.ordMp[ordByDeNm] == 'on'}"> <c:set var="isChkd" value="checked"/> </c:if>
+        <c:if test="${rvs.uvs.ordMp[ordByDeNm] != 'on'}"> <c:set var="isChkd" value=""/> </c:if>
+        <c:if test="${rvs.uvs.ordMp[ordByDeNm] == 'on'}"> <c:set var="isChkd" value="checked"/> </c:if>
         <label>
-          <input type="checkbox" name="${ordByDeNm}" value="${hldUvd.ordMp[ordByDeNm]}" ${isChkd} onchange="bsInpChn(this);">
+          <input type="checkbox" name="${ordByDeNm}" ${isChkd} onchange="bsInpChn(this);">
           ${i18n.getMsg("orderByDesc", rvs.upf.lng.iid)}
         </label>
       </div>

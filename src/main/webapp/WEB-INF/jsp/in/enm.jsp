@@ -7,7 +7,7 @@
   <td>
     <div class="input-line">
       <c:set var="reqd" value=""/>
-      <c:if test="${stgOrm.lazFldStg(cls,fdNm,'def').contains('not null')}">
+      <c:if test="${hldUvd.lazNulb(cls,fdNm)}">
         <c:set var="reqd" value="required"/>
       </c:if>
       <c:set var="selDis" value=""/>

@@ -317,13 +317,13 @@ function bsPick(pidEnt, pigEnt, piFld, adPr){
           if (BSSTATE["WhoPi"][piPl + pidEnt + "adPr"] == adPr) {
               piForEnt.showModal();
           } else {
-            piRnd = "phdj";
+            piRnd = "pdhj";
           }
         } else {
           bsShwErr(BSMSG['2_pis_opened_already_for'] + pidEnt);
         }
       } else {
-        piRnd = "phdj";
+        piRnd = "pdhj";
       }
     }
   } else {

@@ -8,10 +8,10 @@
 <c:set var="prfFlOrFrm" value="${lsPlNm}" scope="request"/>
 <c:set var="prfFlOr" value="fop" scope="request"/>
 <c:if test="${param.jscr == null}">
-<c:set var="jscr" value="${hldUvd.setJs(null,null)}"/>
+<c:set var="jscr" value="${hldUvd.setJs(rvs,null,null)}"/>
 </c:if>
 <c:if test="${param.jscr != null}">
-  <c:set var="jscr" value="${hldUvd.setJs(null,null)}${param.jscr}"/>
+  <c:set var="jscr" value="${hldUvd.setJs(rvs,null,null)}${param.jscr}"/>
 </c:if>
 <c:import url="/WEB-INF/jsp/pic.jsp" varReader="rdEnts" charEncoding="UTF-8">
 {"mlTrRsp":

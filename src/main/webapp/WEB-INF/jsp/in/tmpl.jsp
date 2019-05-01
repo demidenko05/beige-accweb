@@ -10,7 +10,7 @@
       <c:if test="${hldUvd.lazNulb(cls,fdNm)}">
         <c:set var="reqd" value="required"/>
       </c:if>
-      <input type="${inpTy}" ${auFoc} ${reqd} name="${cls.simpleName}.${fdNm}" value="${hldUvd.toStr(cls,fdNm,ent[fdNm])}" onchange="bsInpChn(this);" ${inpAdd}/> 
+      <input type="${inpTy}" ${auFoc} ${reqd} name="${cls.simpleName}.${fdNm}" value="${hldUvd.toStr(rvs,cls,fdNm,ent[fdNm])}" onchange="bsInpChn(this);" ${inpAdd}/> 
       <c:set var="auFoc" value="" scope="request"/>
     </div>
   </td>

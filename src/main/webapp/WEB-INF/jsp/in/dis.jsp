@@ -8,7 +8,6 @@
     <div class="input-line">
       <c:set var="mdl" value="${ent[fdNm]}" scope="request"/> 
       <jsp:include page="../st/${hldUvd.stg(cls,fdNm,'str')}.jsp"/>
-      <input type="hidden" name="${cls.simpleName}.${fdNm}" value="${hldUvd.toStr(rvs,cls,fdNm,ent[fdNm])}"/> 
     </div>
   </td>
 </tr>

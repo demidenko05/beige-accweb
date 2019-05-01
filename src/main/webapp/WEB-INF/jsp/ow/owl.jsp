@@ -7,13 +7,13 @@
 <c:set var="liAc" value="${hldUvd.stg(cls,'liAc')}"/>
 <table>
   <tr>
-    <jsp:include page="roHe.jsp"/>
+    <jsp:include page="../ls/roHe.jsp"/>
     <th class="column-actions">${i18n.getMsg('Actions', rvs.upf.lng.iid)}</th>
   </tr>
   <c:forEach var="entt" items="${olme.value}">
     <c:set var="ent" value="${entt}" scope="request"/>
     <tr>
-      <jsp:include page="roDe.jsp"/>
+      <jsp:include page="../ls/roDe.jsp"/>
       <td class="column-actions">
         <c:if test="${not empty liAc}">
           <jsp:include page="${liAc}.jsp"/>

@@ -27,7 +27,7 @@
       </c:forEach>
       <table class="tbl-fieldset">
       <c:set var="auFoc" value="autofocus" scope="request"/>
-      <c:forEach var="fn" items="${hldUvd.lstFds}">
+      <c:forEach var="fn" items="${hldUvd.lazLstFds(cls)}">
         <c:set var="fdNm" value="${fn}" scope="request"/>
         <c:if test="${not empty hldUvd.stg(cls,fn,'inWr')}">
           <jsp:include page="fm/${hldUvd.stg(cls,fn,'inWr')}.jsp"/>
@@ -36,13 +36,13 @@
       </table>
       <jsp:include page="fm/${hldUvd.stg(cls,'fmAc')}.jsp"/>
     </form>
-    <c:if test="${!ent.isNew && hldUvd.owdEntsMp != null && hldUvd.owdEntsMp.size() gt 0}">
-      <c:forEach var="olme" items="${hldUvd.owdEntsMp}">
+    <c:if test="${!ent.isNew && rvs.uvs.owdEntsMp != null && rvs.uvs.owdEntsMp.size() gt 0}">
+      <c:forEach var="olme" items="${rvs.uvs.owdEntsMp}">
         <c:set var="olme" value="${olme}" scope="request"/>
         <c:set var="cls" value="${olme.key}" scope="request"/>
         <jsp:include page="ow/owl.jsp"/>
       </c:forEach>
-      <c:set var="cls" value="${hldUvd.cls}" scope="request"/>
+      <c:set var="cls" value="${rvs.uvs.cls}" scope="request"/>
     </c:if>
   </div>
 </dialog>
