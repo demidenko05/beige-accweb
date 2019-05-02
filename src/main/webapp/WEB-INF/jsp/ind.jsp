@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/bsCmn.css" />
   <link rel="icon" type="image/png"  href="img/favicon.png">
-  <title>Beigesoft™ Accounting All In One</title>
+  <title>${i18n.getMsg("app_name", rvs.upf.lng.iid)}</title>
 </head>
 <body>
   <div class="navbar">
@@ -29,8 +29,9 @@
       </div>
     </div>
     <div class="dropdown">
-      <a href="#" class="dropdown-btn">${i18n.getMsg("Admin", rvs.upf.lng.iid)}</a>
+      <a href="#" class="dropdown-btn">${i18n.getMsg("Advanced", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
+        <a href="adm/srv">${i18n.getMsg("Admin", rvs.upf.lng.iid)}</a>
         <a href="imp/">${i18n.getMsg("ImportDatabase", rvs.upf.lng.iid)}</a>
         <a href="mng/">${i18n.getMsg("SoftwareManagement", rvs.upf.lng.iid)}</a>
       </div>

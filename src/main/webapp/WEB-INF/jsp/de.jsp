@@ -1,16 +1,15 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<dialog id="${frPlNm}EdDlg" class="dlg" oncancel="return false;">
+<dialog id="${frPlNm}DlDlg" class="dlg" oncancel="return false;">
   <div class="form-std">
     <div class="dialog-title">
       ${i18n.getMsg("Delete", rvs.upf.lng.iid)} ${i18n.getMsg(cls.simpleName, rvs.upf.lng.iid)}
-      <button onclick="bsClsDlgCf('${frPlNm}Ed')" class="btn-close">x</button>
+      <button onclick="bsClsDlgCf('${frPlNm}Dl')" class="btn-close">x</button>
     </div>
-    <form id="${frPlNm}EdFrm" action="srv" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="act" value="${acsDl},lst">
-      <input type="hidden" name="rnd" value="${rndd}">
+    <form id="${frPlNm}DlFrm" action="srv" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="act" value="${param.acsDl},lst">
+      <input type="hidden" name="rnd" value="${param.rndd}">
       <input type="hidden" name="ent" value="${cls.simpleName}">
-      <input type="hidden" name="msgSuc" value="delete_ok">
       <input type="hidden" name="pg" value="${param.pg}">
       <c:if test="${not empty param.mbl}">
         <input type="hidden" name="mbl" value="${param.mbl}">

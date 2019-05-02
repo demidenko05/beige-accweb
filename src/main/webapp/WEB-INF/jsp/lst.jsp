@@ -16,7 +16,7 @@
       <jsp:include page="${param.mbl}ls/roDe.jsp"/>
       <td class="column-actions">
         <c:if test="${not empty liAc}">
-          <jsp:include page="ac/${liAc}.jsp"/>
+          <jsp:include page="ls/${liAc}.jsp"/>
         </c:if>
       </td>
     </tr>

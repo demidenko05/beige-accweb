@@ -6,23 +6,16 @@
 <c:set var="ent" value="${rvs.uvs.ent}" scope="request"/>
 <c:set var="frPlNm" value="frmMnPl" scope="request"/>
 <c:set var="acEntSv" value="entSv" scope="request"/>
-<c:import url="/WEB-INF/jsp/ed.jsp" varReader="rdEdEn" charEncoding="UTF-8">
+<c:import url="/WEB-INF/jsp/de.jsp" varReader="rdEdEn" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",
     "trgPrNm": null, "jscr": null},
-    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}EdDlg');bsShwSuc('${i18n.getMsg(rvs.msgSuc, rvs.upf.lng.iid)}');"/>
+    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}DlDlg');"/>
     <c:if test="${not empty numJsAf}">
       <c:set var="jscr" value="${jscr}${numJsAf}"/>
     </c:if>
-    <c:set var="lsPlNm" value="lstMnPl" scope="request"/>
-    <c:set var="prfFlOrFrm" value="${lsPlNm}" scope="request"/>
-    <c:set var="rndLst" value="lj" scope="request"/>
-    <c:import url="/WEB-INF/jsp/lst.jsp" varReader="rdEnts" charEncoding="UTF-8">
-      {"trgNm": "${lsPlNm}lst", "cont": "${utJsp.toJsonStrCls(rdEnts)}",
-        "trgPrNm": null, "jscr": "${utJsp.toJsonStr(jscr)}"},
-    </c:import>
-    {"trgNm": "frmSbPl", "cont": "",
-      "trgPrNm": null, "jscr": null}
+   {"trgNm": null, "cont": null,
+    "trgPrNm": null, "jscr": "${utJsp.toJsonStr(jscr)}"}      
   ]
 }
 </c:import>

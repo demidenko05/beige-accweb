@@ -10,7 +10,7 @@
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",
     "trgPrNm": null, "jscr": null}
-    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}EdDlg');"/>
+    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}EdDlg');bsShwSuc('${i18n.getMsg(rvs.msgSuc, rvs.upf.lng.iid)}');"/>
     <c:if test="${not empty numJsAf}">
       <c:set var="jscr" value="${jscr}${numJsAf}"/>
     </c:if>

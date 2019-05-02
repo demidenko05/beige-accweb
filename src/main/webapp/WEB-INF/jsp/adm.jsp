@@ -21,24 +21,16 @@
 
   <div class="navbar">
     <div class="dropdown">
-      <a href="#" class="dropdown-btn">${i18n.getMsg("Common", rvs.upf.lng.iid)}</a>
-      <div class="dropdown-content">
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Lng&pg=1');">${i18n.getMsg("Lngs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Cntr&pg=1');">${i18n.getMsg("Cntrs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcSp&pg=1');">${i18n.getMsg("DcSps", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcGrSp&pg=1');">${i18n.getMsg("DcGrSps", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsPrf&pg=1');">${i18n.getMsg("UsPrfs", rvs.upf.lng.iid)}</a>
-        <a href="ntr?prc=RefrI18n" target="_blank">${i18n.getMsg("RefrI18n", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CsvMth&pg=1');">${i18n.getMsg("CsvMths", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MaFrn&pg=1');">${i18n.getMsg("MaFrns", rvs.upf.lng.iid)}</a>
-      </div>
-    </div>
-    <div class="dropdown">
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
-        <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=About');">${i18n.getMsg("about", rvs.upf.lng.iid)}</a>
-        <a href="srv">Refresh</a>
         <a href="../">Home</a>
+        <a href="srv">Refresh</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmCon&pg=1');">${i18n.getMsg("EmaCons", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmRcp&pg=1');">${i18n.getMsg("EmaRcps", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmAdr&pg=1');">${i18n.getMsg("EmaAdrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmMsg&pg=1');">${i18n.getMsg("EmMsgs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsTmc&pg=1');">${i18n.getMsg("UsTmc", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsRlTmc&pg=1');">${i18n.getMsg("UsRlTmcs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
         <c:if test="${not empty pageContext['request'].userPrincipal}">
           <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} Logout</a>

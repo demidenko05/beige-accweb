@@ -55,7 +55,7 @@ function bsGtAjxCf(method, url) {
       document.getElementById('dlgCnf').close();
       bsGtAjx(method,url);
     };
-    bsShwCnf(BSMSG["FrmChd"], funcYes);
+    bsShwCnf(BSMSG["formHasBeenChanged"], funcYes);
   } else {
     bsGtAjx(method,url);
   }
@@ -148,7 +148,7 @@ function bsClsDlgCf(idDomBase) {
       document.getElementById(idDomBase + "Dlg").close();
       document.getElementById('dlgCnf').close();
     };
-    bsShwCnf(BSMSG["FrmChd"], funcYes);
+    bsShwCnf(BSMSG["formHasBeenChanged"], funcYes);
   } else {
     document.getElementById(idDomBase + "Dlg").close();
   }
