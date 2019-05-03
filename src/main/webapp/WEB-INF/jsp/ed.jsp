@@ -10,7 +10,7 @@
       ${i18n.getMsg(actTi, rvs.upf.lng.iid)} ${i18n.getMsg(cls.simpleName, rvs.upf.lng.iid)}
       <button onclick="bsClsDlgCf('${frPlNm}Ed')" class="btn-close">x</button>
     </div>
-    <form id="${frPlNm}EdFrm" action="srv" method="POST" enctype="multipart/form-data">
+    <form id="${frPlNm}EdFrm" action="${frAct}" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="act" value="${acEntSv},entEd,lst">
       <input type="hidden" name="ent" value="${cls.simpleName}">
       <input type="hidden" name="pg" value="${param.pg}">

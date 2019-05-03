@@ -5,13 +5,13 @@
 <jsp:useBean id="usdDp" class="java.util.HashMap" scope="request"/>
 <c:set var="ent" value="${rvs.uvs.ent}" scope="request"/>
 <c:set var="frPlNm" value="frmSbPl" scope="request"/>
-<c:set var="acEntSv" value="entFoSv" scope="request"/>
-<c:set var="frAct" value="srv" scope="request"/>
-<c:import url="/WEB-INF/jsp/ed.jsp" varReader="rdEdEn" charEncoding="UTF-8">
+<c:set var="acsDl" value="entFoDl,entEd" scope="request"/>
+<c:set var="rndd" value="esoj" scope="request"/>
+<c:import url="/WEB-INF/jsp/de.jsp" varReader="rdEdEn" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",
     "trgPrNm": null, "jscr": null},
-    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}EdDlg');"/>
+    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}DlDlg');"/>
     <c:if test="${not empty numJsAf}">
       <c:set var="jscr" value="${jscr}${numJsAf}"/>
     </c:if>

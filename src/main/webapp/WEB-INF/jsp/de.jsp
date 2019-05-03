@@ -7,8 +7,8 @@
       <button onclick="bsClsDlgCf('${frPlNm}Dl')" class="btn-close">x</button>
     </div>
     <form id="${frPlNm}DlFrm" action="srv" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="act" value="${param.acsDl},lst">
-      <input type="hidden" name="rnd" value="${param.rndd}">
+      <input type="hidden" name="act" value="${acsDl},lst">
+      <input type="hidden" name="rnd" value="${rndd}">
       <input type="hidden" name="ent" value="${cls.simpleName}">
       <input type="hidden" name="pg" value="${param.pg}">
       <c:if test="${not empty param.mbl}">

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="var.jsp"/>
+<jsp:include page="tml/var.jsp"/>
 <c:set var="lsPlNm" value="lstMnPl" scope="request"/>
 <c:set var="prfFlOrFrm" value="${lsPlNm}" scope="request"/>
 <c:set var="rndLst" value="lj" scope="request"/>

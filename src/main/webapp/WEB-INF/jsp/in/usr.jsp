@@ -6,15 +6,17 @@
   </td>
   <td>
     <div class="input-line">
-      <c:set var="reqd" value=""/>
-      <c:if test="${hldUvd.lazNulb(cls,fdNm)}">
-        <c:set var="reqd" value="required"/>
+      <c:if test="${ent.isNew}">
+        <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${ent[fdNm].usr}" onchange="bsInpChn(this);">
+        <input id="${cls.simpleName}${fdNm}Id" required type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].usr}">
+        <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,fdNm).simpleName}','${cls.simpleName}','${fdNm}','&pic=usr&mbl=${param.mbl}');">...</button>
+        <c:set var="auFoc" value="" scope="request"/>
+        <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}${fdNm}');">X</button>
       </c:if>
-      <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${ent[fdNm].usr}" onchange="bsInpChn(this);">
-      <input id="${cls.simpleName}${fdNm}Id" ${required} type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].usr}">
-      <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,fdNm).simpleName}','${cls.simpleName}','${fdNm}','&pic=usr&mbl=${param.mbl}');">...</button>
-      <c:set var="auFoc" value="" scope="request"/>
-      <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}${fdNm}');">X</button>
+      <c:if test="${!ent.isNew}">
+        <input disabled="disabled" type="text" value="${ent[fdNm].usr}">
+        <input type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].usr}">
+      </c:if>
     </div>
   </td>
 </tr>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:include page="var.jsp"/>
+<jsp:include page="tml/var.jsp"/>
 <jsp:useBean id="usdDp" class="java.util.HashMap" scope="request"/>
 <c:set var="lsPlNm" value="pisPl" scope="request"/>
 <c:set var="rndLst" value="pj" scope="request"/>

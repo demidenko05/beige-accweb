@@ -7,8 +7,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" media="print" href="../css/beige.print-a4.css" />
-  <link rel="stylesheet" type="text/css" href="../css/beige.reports.css" />
+  <link rel="stylesheet" type="text/css" href="../css/bsPrn.css" />
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <title>${i18n.getMsg("RefrI18n", rvs.upf.lng.iid)} <fmt:formatDate value="${now}" type="both" timeStyle="short"/></title>
 </head>

@@ -90,6 +90,10 @@ See LICENSE in base folder
     <param-name>uvdDir</param-name>
     <param-value>uvd</param-value>
   </context-param>
+  <context-param>
+    <param-name>uplDir</param-name>
+    <param-value>upl</param-value>
+  </context-param>
   <listener>
     <listener-class>org.beigesoft.web.CntxLstn</listener-class>
   </listener>
@@ -182,6 +186,37 @@ See LICENSE in base folder
   <servlet-mapping>
     <servlet-name>adm</servlet-name>
     <url-pattern>/adm/srv/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>uplAdm</servlet-name>
+    <servlet-class>
+      org.beigesoft.web.WUplSng
+    </servlet-class>
+    <init-param>
+      <param-name>hndNms</param-name>
+      <param-value>HndI18nRq,hnAdEnRq</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dirJsp</param-name>
+      <param-value>/WEB-INF/jsp/</param-value>
+    </init-param>
+    <init-param>
+      <param-name>defJsp</param-name>
+      <param-value>adm</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logNm</param-name>
+      <param-value>logStd</param-value>
+    </init-param>
+    <multipart-config>
+      <max-file-size>2000000</max-file-size>
+      <max-request-size>3000000</max-request-size>
+      <file-size-threshold>2000000</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>uplAdm</servlet-name>
+    <url-pattern>/adm/upl/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ntrSec</servlet-name>
