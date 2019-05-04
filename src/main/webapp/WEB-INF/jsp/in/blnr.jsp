@@ -6,7 +6,7 @@
   </td>
   <td>
     <div class="input-line">
-      <input type="hidden" name="${cls.simpleName}.${fdNm}" value="">
+      <input type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm]}">
       <c:if test="${ent[fdNm]}">${i18n.getMsg("Yes", rvs.upf.lng.iid)}></c:if>
       <c:if test="${!ent[fdNm]}">${i18n.getMsg("No", rvs.upf.lng.iid)}</c:if>
     </div>

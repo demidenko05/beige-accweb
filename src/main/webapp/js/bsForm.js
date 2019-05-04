@@ -47,7 +47,7 @@ window.onload=function(e){
 
 function bsInitJs(){
   BSSTATE["WhoPi"]={};
-}
+};
 
 function bsGtAjxCf(method, url) {
   if (bsAnyOpFrmChd()) {
@@ -166,6 +166,14 @@ function bsSbFrmAjxCf(pIdFrm, pIsMustHasChanges, pAddParams) {
     if (bsChkFrm(frm, pIsMustHasChanges)) {
       bsSndFrmAjx(frm, pAddParams);
     }
+  };
+  bsShwCnf(BSMSG['are_you_sure'], funcYes);
+};
+//get AJAX with conformation
+function bsGtAjxCnf(method, url) {
+  var funcYes = function() {
+    document.getElementById('dlgCnf').close();
+    bsGtAjx(method,url);
   };
   bsShwCnf(BSMSG['are_you_sure'], funcYes);
 };

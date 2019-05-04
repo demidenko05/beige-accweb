@@ -31,7 +31,6 @@
       <c:if test="${!ent.isNew && rvs.uvs.owdEntsMp != null && rvs.uvs.owdEntsMp.size() gt 0}">
         <c:forEach var="olme" items="${rvs.uvs.owdEntsMp}">
           <c:set var="cls" value="${olme.key}" scope="request"/>
-          <jsp:include page="ow/owl.jsp"/>
           <c:set var="nameEnts" value="${cls.simpleName}s"/>
           <div class="title-list"> ${i18n.getMsg(nameEnts, rvs.upf.lng.iid)} </div>
           <table>
@@ -41,9 +40,10 @@
               </c:forEach>
             </tr>
             <c:forEach var="entt" items="${olme.value}">
-              <c:set var="ent" value="${ent}" scope="request"/>
+              <c:set var="ent" value="${entt}" scope="request"/>
               <tr>
                 <c:forEach var="fn" items="${hldUvd.lazLstFds(cls)}">
+                  <c:set var="fdNm" value="${fn}" scope="request"/>
                   <c:set var="mdl" value="${ent[fn]}" scope="request"/>
                   <td><jsp:include page="st/${hldUvd.stg(cls,fn,'str')}.jsp"/></td>
                 </c:forEach>

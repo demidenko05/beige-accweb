@@ -36,6 +36,7 @@ import org.beigesoft.mdlp.UsTmc;
 import org.beigesoft.mdlp.UsRlTmc;
 import org.beigesoft.fct.IFctAsm;
 import org.beigesoft.fct.FctBlc;
+import org.beigesoft.web.FctMail;
 import org.beigesoft.jdbc.FctMysql;
 
 /**
@@ -60,6 +61,7 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     this.fctBlc.getFbdEnts().add(UsTmc.class);
     this.fctBlc.getFbdEnts().add(UsRlTmc.class);
     this.fctBlc.getFctsAux().add(new FctMysql());
+    this.fctBlc.getFctsAux().add(new FctMail<ResultSet>());
   }
 
   /**

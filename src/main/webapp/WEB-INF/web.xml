@@ -102,7 +102,6 @@ See LICENSE in base folder
     <servlet-class>
       org.beigesoft.web.WHndsJsp
     </servlet-class>
-    <load-on-startup>1</load-on-startup>
     <init-param>
       <param-name>hndNms</param-name>
       <param-value>HndI18nRq</param-value>
