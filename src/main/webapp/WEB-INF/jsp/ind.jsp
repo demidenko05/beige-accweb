@@ -32,8 +32,11 @@
       <a href="#" class="dropdown-btn">${i18n.getMsg("Advanced", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
         <a href="adm/srv">${i18n.getMsg("Admin", rvs.upf.lng.iid)}</a>
-        <a href="imp/">${i18n.getMsg("ImportDatabase", rvs.upf.lng.iid)}</a>
-        <a href="mng/">${i18n.getMsg("SoftwareManagement", rvs.upf.lng.iid)}</a>
+        <a href="/adm/ntr?prc=DbImp">${i18n.getMsg("ImportDatabase", rvs.upf.lng.iid)}</a>
+        <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
+          <a href="mdb/">${i18n.getMsg("Databases", rvs.upf.lng.iid)}</a>
+        </c:if>
+        <a href="adm/ntr?prc=MngSft">${i18n.getMsg("SoftwareManagement", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="nav-right">

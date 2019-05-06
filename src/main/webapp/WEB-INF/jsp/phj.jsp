@@ -7,7 +7,7 @@
 <c:set var="rndLst" value="pj" scope="request"/>
 <c:set var="prfFlOrFrm" value="${lsPlNm}" scope="request"/>
 <c:set var="prfFlOr" value="fop" scope="request"/>
-<c:import url="/WEB-INF/jsp/pih.jsp" varReader="rdEnts" charEncoding="UTF-8">
+<c:import url="/WEB-INF/jsp/tml/pih.jsp" varReader="rdEnts" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${lsPlNm}", "cont": "${utJsp.toJsonStrCls(rdEnts)}",
     "trgPrNm": null, "jscr": null},

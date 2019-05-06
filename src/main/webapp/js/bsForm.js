@@ -30,25 +30,30 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * author Yury Demidenko
  */
  
-//Conversation state variables
+//Conversation state variables:
 var BSSTATE = {
-    "WhoPi" : {},
-  };
-  
+  "WhoPi" : {},
+};
 window.onbeforeunload = function(e) {
   if(bsAnyOpFrmChd()) {
-    return BSMSG["bsIfFrmChd"];
+    return BSMSG["formHasBeenChanged"];
   }
 };
-
 window.onload=function(e){
   bsInitJs();
 };
-
 function bsInitJs(){
   BSSTATE["WhoPi"]={};
 };
-
+//Invoices GET AJAX with conformation
+function bsGtAjxCnf(method, url) {
+  var funcYes = function() {
+    document.getElementById('dlgCnf').close();
+    bsGtAjx(method,url);
+  };
+  bsShwCnf(BSMSG['are_you_sure'], funcYes);
+};
+//Invokes GET AJAX carefully (checks if any opened form changed)
 function bsGtAjxCf(method, url) {
   if (bsAnyOpFrmChd()) {
     var funcYes = function() {
@@ -60,7 +65,49 @@ function bsGtAjxCf(method, url) {
     bsGtAjx(method,url);
   }
 };
-//any Opened Form Has Been Changed
+//Submits form by AJAX with conformation:
+function bsSbFrmAjxCf(pIdFrm, pIsMustHasChanges, pAddParams) {
+  var funcYes = function() {
+    document.getElementById('dlgCnf').close();
+    var frm = document.getElementById(pIdFrm);
+    if (bsChkFrm(frm, pIsMustHasChanges)) {
+      bsSndFrmAjx(frm, pAddParams);
+    }
+  };
+  bsShwCnf(BSMSG['are_you_sure'], funcYes);
+};
+//Submits form by AJAX:
+function bsSbFrmAjx(pIdFrm, pIsMustHasChanges, pAddParams) {
+  var frm = document.getElementById(pIdFrm);
+  if (bsChkFrm(frm, pIsMustHasChanges)) {
+    bsSndFrmAjx(frm, pAddParams);
+  }
+};
+//Submits form and opens new tab:
+function bsSbFrmNw(pIdFrm, pIsMustHasChanges) {
+  var frm = document.getElementById(pIdFrm);
+  if (bsChkFrm(frm, pIsMustHasChanges)) {
+    frm.submit();
+    bsRemFrmCngs(frm);
+  }
+};
+//Submits form with conformation:
+function bsCnfSbm(inpSbmt, msg) {
+  var funcYes = function() {
+    inpSbmt.form.submit();
+    document.getElementById('dlgCnf').close();
+  };
+  bsShwCnf(msg, funcYes);
+};
+//Sets new address(URL) with conformation:
+function bsCnfHref(inpHref, msg) {
+  var funcYes = function() {
+    window.location.assign(inpHref.href);
+    document.getElementById('dlgCnf').close();
+  };
+  bsShwCnf(msg, funcYes);
+};
+//Any opened form has been changed:
 function bsAnyOpFrmChd() {
   var forms = document.querySelectorAll('form');
   for(var i=0; i < forms.length; i++) {
@@ -71,7 +118,7 @@ function bsAnyOpFrmChd() {
   }
   return false;
 };
-
+//Input value has been changed:
 function bsInpChn(inpt) {
   switch (inpt.type) {
   case "select-one":
@@ -107,7 +154,7 @@ function bsInpChn(inpt) {
     return false;
   }
 };
-//checkable changed
+//Checkable changed event:
 function bsChekbChd(inpt) {
   if(inpt.checked != inpt.defaultChecked && !inpt.labels[0].classList.contains('changed')) {
     inpt.labels[0].classList.add('changed');
@@ -118,7 +165,7 @@ function bsChekbChd(inpt) {
   }
   return false;
 };
-
+//Filter's operator changed event:
 function bsFltOprChd(inpt, nameInput) {
   bsInpChn(inpt);
   var isDisabled = !(inpt.options[inpt.selectedIndex].value == "gt"
@@ -126,72 +173,13 @@ function bsFltOprChd(inpt, nameInput) {
     || inpt.options[inpt.selectedIndex].value == "eq");
   document.getElementById(nameInput).disabled = isDisabled;
 };
-
+//String filter's operator changed event:
 function bsFltStrChd(inpt, nameInput1) {
   bsInpChn(inpt);
   var isDisabled = (inpt.options[inpt.selectedIndex].value == "disabled");
   document.getElementById(nameInput1).disabled = isDisabled;
 };
-
-function bsOpnDlg(idDlg) {
-  document.getElementById(idDlg).showModal();
-};
-
-function bsClsDlg(nameDlg) {
-  document.getElementById(nameDlg).close();
-};
-//close Dlg Careful
-function bsClsDlgCf(idDomBase) {
-  var pFrm=document.getElementById(idDomBase + "Frm");
-  if (bsIfFrmChd(pFrm)) {
-    var funcYes = function() {
-      document.getElementById(idDomBase + "Dlg").close();
-      document.getElementById('dlgCnf').close();
-    };
-    bsShwCnf(BSMSG["formHasBeenChanged"], funcYes);
-  } else {
-    document.getElementById(idDomBase + "Dlg").close();
-  }
-};
-//clears changes and closes dialog:
-function bsClChnCsDlg(idDomBase) {
-  document.getElementById(idDomBase + "Dlg").close();
-  bsRemFrmCngs(document.getElementById(idDomBase + "Frm"));
-};
-//submits form by AJAX with conformation:
-function bsSbFrmAjxCf(pIdFrm, pIsMustHasChanges, pAddParams) {
-  var funcYes = function() {
-    document.getElementById('dlgCnf').close();
-    var frm = document.getElementById(pIdFrm);
-    if (bsChkFrm(frm, pIsMustHasChanges)) {
-      bsSndFrmAjx(frm, pAddParams);
-    }
-  };
-  bsShwCnf(BSMSG['are_you_sure'], funcYes);
-};
-//get AJAX with conformation
-function bsGtAjxCnf(method, url) {
-  var funcYes = function() {
-    document.getElementById('dlgCnf').close();
-    bsGtAjx(method,url);
-  };
-  bsShwCnf(BSMSG['are_you_sure'], funcYes);
-};
-//submits form by AJAX:
-function bsSbFrmAjx(pIdFrm, pIsMustHasChanges, pAddParams) {
-  var frm = document.getElementById(pIdFrm);
-  if (bsChkFrm(frm, pIsMustHasChanges)) {
-    bsSndFrmAjx(frm, pAddParams);
-  }
-};
-function bsSbFrmNw(pIdFrm, pIsMustHasChanges) {
-  var frm = document.getElementById(pIdFrm);
-  if (bsChkFrm(frm, pIsMustHasChanges)) {
-    frm.submit();
-    bsRemFrmCngs(frm);
-  }
-};
-
+//Checks/validates form:
 function bsChkFrm(pFrm, pIsMustHasChanges) {
   if (!pFrm.checkValidity()){
     document.getElementById(pFrm.id + 'Fs').click();
@@ -217,7 +205,7 @@ function bsChkFrm(pFrm, pIsMustHasChanges) {
   }
   return true;
 };
-
+//Checks if form changed:
 function bsIfFrmChd(pFrm) {
   var childrenChanged = pFrm.querySelectorAll(".changed");
   if (childrenChanged.length > 0) {
@@ -225,7 +213,7 @@ function bsIfFrmChd(pFrm) {
   }
   return false;
 };
-
+//Removes form's changes:
 function bsRemFrmCngs(pFrm) {
   inputs = pFrm.querySelectorAll(".changed");
   for (var i=0; i < inputs.length; i++) {
@@ -275,7 +263,47 @@ function bsRemFrmCngs(pFrm) {
     inputs[i].defaultValue=inputs[i].value;
   }
 };
-
+//Makes related input requiring:
+function bsMkRelInp(pInp, pIdRelInp) {
+  var inpRel = document.getElementById(pIdRelInp);
+  if (pInp.value != "") {
+    inpRel.required = true;
+  } else {
+    inpRel.required = false;
+    inpRel.value = "";
+  }
+};
+//Already uploaded file path changed:
+function bsFlUpPhChd(pInp, pInpFlUpNm, pInpParNmFlUpNm) {
+  if (pInp.value != "") {
+    var inpFileUp = document.getElementById(pInpFlUpNm);
+    inpFileUp.value = "";
+    if (inpFileUp.required) {
+      pInp.required = true;
+      inpFileUp.required = false;
+    }
+    bsInpChn(inpFileUp);
+    var inpParamNameFileToUpload = document.getElementById(pInpParNmFlUpNm);
+    inpParamNameFileToUpload.disabled = true;
+  }
+  bsInpChn(pInp);
+};
+//File upload changed:
+function bsFlUpChd(pInp, pInpFileUpPathNm, pInpParNmFlUpNm) {
+  if (pInp.value != "") {
+    var inpFileUpPath = document.getElementById(pInpFileUpPathNm);
+    inpFileUpPath.value = "";
+    if (inpFileUpPath.required) {
+      pInp.required = true;
+      inpFileUpPath.required = false;
+    }
+    bsInpChn(inpFileUpPath);
+    var inpParamNameFileToUpload = document.getElementById(pInpParNmFlUpNm);
+    inpParamNameFileToUpload.disabled = false;
+  }
+  bsInpChn(pInp);
+};
+//Selects/sets entity by picker:
 function bsSelEnt(entityId, entityAp, idDomBasePicker) {
   whoPicking = BSSTATE["WhoPi"][idDomBasePicker];
   document.getElementById(whoPicking["pigEnt"] + whoPicking["piFld"] +"Id").setAttribute("value", entityId);
@@ -288,7 +316,7 @@ function bsSelEnt(entityId, entityAp, idDomBasePicker) {
   inpApVsb.onchange();
   document.getElementById(idDomBasePicker+"Dlg").close();
 };
-
+//Clears pickable entity:
 function bsClrSelEnt(idDomBaseProperty) {
   var inpId = document.getElementById(idDomBaseProperty + "Id");
   if (inpId.value != "") {
@@ -302,7 +330,7 @@ function bsClrSelEnt(idDomBaseProperty) {
     inpApVsb.onchange();
   }
 };
-
+//Opens entity picker:
 function bsPick(pidEnt, pigEnt, piFld, adPr){
   var piPl = "pisPl";
   var piForEnt = document.getElementById(piPl + pidEnt + "Dlg");
@@ -328,7 +356,7 @@ function bsPick(pidEnt, pigEnt, piFld, adPr){
             piRnd = "pdhj";
           }
         } else {
-          bsShwErr(BSMSG['2_pis_opened_already_for'] + pidEnt);
+          bsShwErr(BSMSG['2_pickers_opened_already_for'] + pidEnt);
         }
       } else {
         piRnd = "pdhj";
@@ -348,127 +376,58 @@ function bsPick(pidEnt, pigEnt, piFld, adPr){
   }
   BSSTATE["WhoPi"][piPl + pidEnt] = {pigEnt: pigEnt, piFld: piFld};
 };
-
-function bsCnfHref(inpHref, msg) {
-  var funcYes = function() {
-    window.location.assign(inpHref.href);
-    document.getElementById('dlgCnf').close();
-  };
-  bsShwCnf(msg, funcYes);
+//Opens HTML5 dialog:
+function bsOpnDlg(idDlg) {
+  document.getElementById(idDlg).showModal();
 };
-
-function bsCnfSbm(inpSbmt, msg) {
-  var funcYes = function() {
-    inpSbmt.form.submit();
-    document.getElementById('dlgCnf').close();
-  };
-  bsShwCnf(msg, funcYes);
+//Closes HTML5 dialog:
+function bsClsDlg(nameDlg) {
+  document.getElementById(nameDlg).close();
 };
-//shows confirm dialog:
+//Closes HTML5 dialog with conformation:
+function bsClsDlgCf(idDomBase) {
+  var pFrm=document.getElementById(idDomBase + "Frm");
+  if (bsIfFrmChd(pFrm)) {
+    var funcYes = function() {
+      document.getElementById(idDomBase + "Dlg").close();
+      document.getElementById('dlgCnf').close();
+    };
+    bsShwCnf(BSMSG["formHasBeenChanged"], funcYes);
+  } else {
+    document.getElementById(idDomBase + "Dlg").close();
+  }
+};
+//Clears changes and closes dialog:
+function bsClChnCsDlg(idDomBase) {
+  document.getElementById(idDomBase + "Dlg").close();
+  bsRemFrmCngs(document.getElementById(idDomBase + "Frm"));
+};
+//Shows confirm dialog:
 function bsShwCnf(msg, yesHandler) {
   document.getElementById("cnfPl").innerHTML = msg;
   document.getElementById("dlgCnf").showModal();
   document.getElementById("cnfYes").onclick = yesHandler;
 };
-
+//Shows warning dialog:
 function bsShwWrn(msg) {
   document.getElementById("wrnPl").innerHTML = msg;
   document.getElementById("dlgWrn").showModal();
 };
-
+//Shows error dialog:
 function bsShwErr(msg) {
   document.getElementById("errPl").innerHTML = msg;
   document.getElementById("dlgErr").showModal();
 };
-
+//Shows success dialog:
 function bsShwSuc(msg) {
   document.getElementById("sucPl").innerHTML = msg;
   document.getElementById("dlgSuc").style.display = "block";
   setTimeout(bsClsSuc, 3000);
 };
-
+//Closes success dialog:
 function bsClsSuc() {
   document.getElementById("dlgSuc").style.display = "none";
 };
-
-function bsClcTot(pInp, nameEntity, pPriceNm, pDecPl, pRm) {
-  var inpPrice = document.getElementById(nameEntity + pPriceNm);
-  var price = bsStrFlt(inpPrice.value);
-  var inpQuantity = document.getElementById(nameEntity + "itsQuantity");
-  var quantity = bsStrFlt(inpQuantity.value);
-  var inpTotal = document.getElementById(nameEntity + "itsTotal");
-  var total = bsRound(price * quantity, pDecPl, pRm);
-  var totals = bsNumStr(total.toString(), pDecPl);
-  inpTotal.value = totals;
-  var inpTotalVsb = document.getElementById(nameEntity + "itsTotalVsb");
-  if (inpTotalVsb != null) {
-    inpTotalVsb.value = totals;
-    bsInpChn(inpTotalVsb);
-  } else {
-    bsInpChn(inpTotal);
-  }
-  bsInpChn(pInp);
-};
-
-function bsClcPri(pInp, nameEntity, pPriceNm, pDecPl, pRm) {
-  var inpTotal = document.getElementById(nameEntity + "itsTotal");
-  var total = bsStrFlt(inpTotal.value);
-  var inpQuantity = document.getElementById(nameEntity + "itsQuantity");
-  var quantity = bsStrFlt(inpQuantity.value);
-  var inpPrice = document.getElementById(nameEntity + pPriceNm);
-  var price = bsRound(total/quantity, pDecPl, pRm);
-  var prices = bsNumStr(price.toString(), pDecPl);
-  inpPrice.value = prices;
-  var inpPriceVsb = document.getElementById(nameEntity + pPriceNm + "Vsb");
-  if (inpPriceVsb != null) {
-    inpPriceVsb.value = prices;
-    bsInpChn(inpPriceVsb);
-  } else {
-    bsInpChn(inpPrice);
-  }
-  bsInpChn(pInp);
-};
-//makes Related Input
-function bsMkRelInp(pInp, pIdRelInp) {
-  var inpRel = document.getElementById(pIdRelInp);
-  if (pInp.value != "") {
-    inpRel.required = true;
-  } else {
-    inpRel.required = false;
-    inpRel.value = "";
-  }
-};
-//file upload path changed:
-function bsFlUpPhChd(pInp, pInpFlUpNm, pInpParNmFlUpNm) {
-  if (pInp.value != "") {
-    var inpFileUp = document.getElementById(pInpFlUpNm);
-    inpFileUp.value = "";
-    if (inpFileUp.required) {
-      pInp.required = true;
-      inpFileUp.required = false;
-    }
-    bsInpChn(inpFileUp);
-    var inpParamNameFileToUpload = document.getElementById(pInpParNmFlUpNm);
-    inpParamNameFileToUpload.disabled = true;
-  }
-  bsInpChn(pInp);
-};
-//file upload changed:
-function bsFlUpChd(pInp, pInpFileUpPathNm, pInpParNmFlUpNm) {
-  if (pInp.value != "") {
-    var inpFileUpPath = document.getElementById(pInpFileUpPathNm);
-    inpFileUpPath.value = "";
-    if (inpFileUpPath.required) {
-      pInp.required = true;
-      inpFileUpPath.required = false;
-    }
-    bsInpChn(inpFileUpPath);
-    var inpParamNameFileToUpload = document.getElementById(pInpParNmFlUpNm);
-    inpParamNameFileToUpload.disabled = false;
-  }
-  bsInpChn(pInp);
-};
-
 /*
  * <p>Initializes BS inputs for class "bsNum[dpm]", where dpm:
  * 0 - 0 DP; 1 - 1 DP; 2m - 2DP, nmin -999 999 999 999 999.99.
@@ -499,7 +458,6 @@ function bsIniInpNum(pUsedDpm, pParent) {
     }
   });
 };
-
 /*
  * <p>Initializes BS inputs for class "bsNum[step]", where step:
  * 0d25 - 0.25, 1 - 1, 2d5 - 2.5.

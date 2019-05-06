@@ -26,21 +26,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 var BSMSG={};
-BSMSG["yes"]="Да";
-BSMSG["no"]="Нет";
-BSMSG["cancel"]="Отмены";
-BSMSG["apply"]="Применить";
-BSMSG["validationError"]="Неправильные данные!";
 BSMSG["formHasBeenChanged"]="Изменения будут утеряны! Вы уверены?";
 BSMSG["nothingToSend"]="Данные не изменены!";
 BSMSG['select_child']="Выберите элемент!";
-BSMSG['thisAccountHasNoSubaccount']="Данный счет не имеет субсчетов!";
-BSMSG['choose_depending_entity']="Выберите сначала зависомый элемент!";
-BSMSG["saved_successful"]="Запись успешна!";
-BSMSG["deleted_successful"]="Удаление успешно!";
 BSMSG["2_pickers_opened_already_for"]="Два селектора уже открыты для ";
 BSMSG["are_you_sure"]="Вы уверены?";
-BSMSG['choose_subacc_type']="Выберите тип субсчета!";
-BSMSG['account_successful']="Документ проведен!";
-BSMSG['choose_account_first']="Выберите счет!";
 BSMSG['enterEitherAlreadyOrLoadNew']="Введите URL уже загруженного файла или выберите файл для загрузки!";

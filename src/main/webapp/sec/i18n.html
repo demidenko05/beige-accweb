@@ -336,6 +336,24 @@
       </div>
     </div>
     <div>
+      <div>
+        <label>Date time with seconds:</label>    
+      </div>
+      <div>
+        <input name="dtsc" type="datetime-local" step="1" onchange="document.getElementById('dtlds').value=new Date(this.value).getTime();">
+        <input id="dtlds" type="text">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>Date time with milliseconds:</label>    
+      </div>
+      <div>
+        <input name="dtmsc" type="datetime-local" step="0.001" onchange="document.getElementById('dtldms').value=new Date(this.value).getTime();">
+        <input id="dtldms" type="text">
+      </div>
+    </div>
+    <div>
       <button type="submit" >Apply</button>
     </div>
   </form>

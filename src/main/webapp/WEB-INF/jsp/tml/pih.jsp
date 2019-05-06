@@ -14,5 +14,5 @@
 </dialog>
 <c:set var="flOr" value="${hldUvd.stg(cls, 'flOr')}"/>
 <c:if test="${not empty flOr}">
-  <jsp:include page="tml/${flOr}.jsp"/>
+  <jsp:include page="${flOr}.jsp"/>
 </c:if>

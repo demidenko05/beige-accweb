@@ -13,7 +13,7 @@
 <c:if test="${param.jscr != null}">
   <c:set var="jscr" value="${hldUvd.setJs(rvs,null,null)}${param.jscr}"/>
 </c:if>
-<c:import url="/WEB-INF/jsp/pic.jsp" varReader="rdEnts" charEncoding="UTF-8">
+<c:import url="/WEB-INF/jsp/tml/pic.jsp" varReader="rdEnts" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${lsPlNm}${param.ent}lst", "cont": "${utJsp.toJsonStrCls(rdEnts)}",
     "trgPrNm": null, "jscr": "${utJsp.toJsonStr(jscr)}"}

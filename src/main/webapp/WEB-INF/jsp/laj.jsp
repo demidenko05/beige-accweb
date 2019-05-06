@@ -6,7 +6,7 @@
 <c:set var="prfFlOrFrm" value="${lsPlNm}" scope="request"/>
 <c:set var="rndLst" value="lj" scope="request"/>
 <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsShwSuc('${i18n.getMsg(rvs.msgSuc, rvs.upf.lng.iid)}');"/>
-<c:import url="/WEB-INF/jsp/lst.jsp" varReader="rdEnts" charEncoding="UTF-8">
+<c:import url="/WEB-INF/jsp/tml/lst.jsp" varReader="rdEnts" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "frmMnPl", "cont": "",
     "trgPrNm": null, "jscr": null},

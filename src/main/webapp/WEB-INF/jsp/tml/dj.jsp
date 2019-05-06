@@ -4,7 +4,7 @@
 <jsp:include page="var.jsp"/>
 <c:set var="ent" value="${rvs.uvs.ent}" scope="request"/>
 <jsp:useBean id="usdDp" class="java.util.HashMap" scope="request"/>
-<c:import url="/WEB-INF/jsp/de.jsp" varReader="rdEdEn" charEncoding="UTF-8">
+<c:import url="/WEB-INF/jsp/tml/de.jsp" varReader="rdEdEn" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",
     "trgPrNm": null, "jscr": null},

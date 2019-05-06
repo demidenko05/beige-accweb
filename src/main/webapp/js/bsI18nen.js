@@ -27,18 +27,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 var BSMSG={};
 BSMSG["are_you_sure"]="Are you sure?";
-BSMSG["cancel"]="Cancel";
-BSMSG["apply"]="Apply";
-BSMSG["validationError"]="Validation Error!";
-BSMSG["formHasBeenChanged"]="Form has hanges! Changes will be lost! Are you sure?";
+BSMSG["formHasBeenChanged"]="Form has сhanges! Changes will be lost! Are you sure?";
 BSMSG["nothingToSend"]="There is nothing to send!";
 BSMSG['select_child']="Select entity!";
-BSMSG['thisAccountHasNoSubaccount']="This account has no subaccount!";
-BSMSG['choose_depending_entity']="Choose depending entity first!";
-BSMSG["saved_successful"]="Entity has been saved!";
-BSMSG["deleted_successful"]="Entity has been deleted!";
 BSMSG["2_pickers_opened_already_for"]="2 pickers already opened for ";
-BSMSG['choose_subacc_type']="Choose subaccount type first!";
-BSMSG['account_successful']="Document has been accounted!";
-BSMSG['choose_account_first']="Choose account first!";
 BSMSG['enterEitherAlreadyOrLoadNew']="Enter either URL already uploaded file or choose new one to upload!";

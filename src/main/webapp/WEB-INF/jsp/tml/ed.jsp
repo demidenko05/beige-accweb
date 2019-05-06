@@ -27,17 +27,17 @@
       <c:forEach var="fn" items="${hldUvd.lazLstFds(cls)}">
         <c:set var="fdNm" value="${fn}" scope="request"/>
         <c:if test="${not empty hldUvd.stg(cls,fn,'inWr')}">
-          <jsp:include page="fm/${hldUvd.stg(cls,fn,'inWr')}.jsp"/>
+          <jsp:include page="../fm/${hldUvd.stg(cls,fn,'inWr')}.jsp"/>
         </c:if>
       </c:forEach>
       </table>
-      <jsp:include page="fm/${hldUvd.stg(cls,'fmAc')}.jsp"/>
+      <jsp:include page="../fm/${hldUvd.stg(cls,'fmAc')}.jsp"/>
     </form>
     <c:if test="${!ent.isNew && rvs.uvs.owdEntsMp != null && rvs.uvs.owdEntsMp.size() gt 0}">
       <c:forEach var="olme" items="${rvs.uvs.owdEntsMp}">
         <c:set var="olme" value="${olme}" scope="request"/>
         <c:set var="cls" value="${olme.key}" scope="request"/>
-        <jsp:include page="ow/owl.jsp"/>
+        <jsp:include page="../ow/owl.jsp"/>
       </c:forEach>
       <c:set var="cls" value="${rvs.uvs.cls}" scope="request"/>
     </c:if>
