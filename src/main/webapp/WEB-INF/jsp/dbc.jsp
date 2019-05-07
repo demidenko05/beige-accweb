@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Clear current database then get identical copy of another one</title>
-  <link rel="stylesheet" href="../static/css/beige.common.css">
+  <link rel="stylesheet" href="../css/bsCmn.css">
   <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 <body style="padding: 20px;">
@@ -16,25 +16,25 @@
     <div class="dialog-title">
       ${i18n.getMsg("get_db_copy", rvs.upf.lng.iid)}
     </div>
-    <form method="post" action="replicator">
+    <form method="post" action="txt">
       <table class="tbl-fieldset">
         <tr>
           <td>
-            <label>${i18n.getMsg("user_name", rvs.upf.lng.iid)}:</label>
+            <label>${i18n.getMsg("usr", rvs.upf.lng.iid)}:</label>
           </td>
           <td>
             <div style="display: flex;">
-              <input name="userName" value="">
+              <input name="usr" value="">
             </div>
           </td>
         </tr>
         <tr>
           <td>
-            <label>${i18n.getMsg("user_pass", rvs.upf.lng.iid)}:</label>
+            <label>${i18n.getMsg("pwd", rvs.upf.lng.iid)}:</label>
           </td>
           <td>
             <div style="display: flex;">
-              <input type="password" name="userPass" value="">
+              <input type="password" name="pwd" value="">
             </div>
           </td>
         </tr>
@@ -44,7 +44,7 @@
           </td>
           <td>
             <div style="display: flex;">
-              <b>https://</b> <input name="urlSource" value="localhost:8443/beigesoft-webcrud2/adm/">
+              <b>https://</b> <input name="urlSrc" value="localhost:8443/beige-web/adm/xml">
             </div>
           </td>
         </tr>
@@ -54,16 +54,16 @@
           </td>
           <td>
             <div style="display: flex;">
-              <input type="number" name="maxRecords" value="100">
-              <input type="hidden" name="replicatorName" value="importFullDatabaseCopy">
-              <input type="hidden" name="writerName" value="dbWriterXmlFullImport">
+              <input type="number" name="maxRecs" value="100">
+              <input type="hidden" name="prc" value="DbImp">
+              <input type="hidden" name="prcExp" value="DbExp">
             </div>
           </td>
         </tr>
       </table>
       <div>
         <c:set var="cdagcMsg" value="${i18n.getMsg('clear_db_and_get_copy', rvs.upf.lng.iid)}"/>
-        <input type="submit" onclick="confirmSubmit(this, '${cdagcMsg}'); return false;"/>
+        <input type="submit" onclick="msCnfSbm(this, '${cdagcMsg}'); return false;"/>
       </div>
     </form>
   </div>

@@ -87,6 +87,10 @@ See LICENSE in base folder
     <param-value>mysql</param-value>
   </context-param>
   <context-param>
+    <param-name>dbcpDir</param-name>
+    <param-value>dbcp</param-value>
+  </context-param>
+  <context-param>
     <param-name>uvdDir</param-name>
     <param-value>uvd</param-value>
   </context-param>
@@ -154,6 +158,33 @@ See LICENSE in base folder
   <servlet-mapping>
     <servlet-name>srv</servlet-name>
     <url-pattern>/sec/srv/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ntrSec</servlet-name>
+    <servlet-class>
+      org.beigesoft.web.WHndsJsp
+    </servlet-class>
+    <init-param>
+      <param-name>hndNms</param-name>
+      <param-value>HndI18nRq,hnNtRqSc</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dirJsp</param-name>
+      <param-value>/WEB-INF/jsp/</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logNm</param-name>
+      <param-value>logStd</param-value>
+    </init-param>
+    <multipart-config>
+      <max-file-size>10000</max-file-size>
+      <max-request-size>50000</max-request-size>
+      <file-size-threshold>10000</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ntrSec</servlet-name>
+    <url-pattern>/sec/ntr/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>adm</servlet-name>
@@ -245,21 +276,21 @@ See LICENSE in base folder
     <url-pattern>/adm/ntr/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ntrSec</servlet-name>
+    <servlet-name>rplTxt</servlet-name>
     <servlet-class>
-      org.beigesoft.web.WHndsJsp
+      org.beigesoft.web.WWriter
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,hnNtRqSc</param-value>
-    </init-param>
-    <init-param>
-      <param-name>dirJsp</param-name>
-      <param-value>/WEB-INF/jsp/</param-value>
+      <param-value>HndI18nRq,hnNtRqAd</param-value>
     </init-param>
     <init-param>
       <param-name>logNm</param-name>
       <param-value>logStd</param-value>
+    </init-param>
+    <init-param>
+      <param-name>contTy</param-name>
+      <param-value>text/html; charset=UTF-8</param-value>
     </init-param>
     <multipart-config>
       <max-file-size>10000</max-file-size>
@@ -268,8 +299,35 @@ See LICENSE in base folder
     </multipart-config>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ntrSec</servlet-name>
-    <url-pattern>/sec/ntr/*</url-pattern>
+    <servlet-name>rplTxt</servlet-name>
+    <url-pattern>/adm/txt/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>rplXml</servlet-name>
+    <servlet-class>
+      org.beigesoft.web.WWriter
+    </servlet-class>
+    <init-param>
+      <param-name>hndNms</param-name>
+      <param-value>HndI18nRq,hnNtRqAd</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logNm</param-name>
+      <param-value>logStd</param-value>
+    </init-param>
+    <init-param>
+      <param-name>contTy</param-name>
+      <param-value>text/xml; charset=UTF-8</param-value>
+    </init-param>
+    <multipart-config>
+      <max-file-size>10000</max-file-size>
+      <max-request-size>50000</max-request-size>
+      <file-size-threshold>10000</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>rplXml</servlet-name>
+    <url-pattern>/adm/xml/*</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>15</session-timeout>
