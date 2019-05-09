@@ -35,14 +35,14 @@ import org.beigesoft.fct.IFctAsm;
 import org.beigesoft.fct.FctBlc;
 import org.beigesoft.fct.FctDbCp;
 import org.beigesoft.web.FctMail;
-import org.beigesoft.jdbc.FctMysql;
+import org.beigesoft.jdbc.FctPostgr;
 
 /**
- * <p>Final configuration factory for MySql JDBC.</p>
+ * <p>Final configuration factory for Postgres JDBC.</p>
  *
  * @author Yury Demidenko
  */
-public class FctAppMyl implements IFctAsm<ResultSet> {
+public class FctAppPstg implements IFctAsm<ResultSet> {
 
   /**
    * <p>Main only factory.</p>
@@ -53,9 +53,9 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
    * <p>Only constructor.</p>
    * @throws Exception - an exception
    */
-  public FctAppMyl() throws Exception {
+  public FctAppPstg() throws Exception {
     this.fctBlc = new FctBlc<ResultSet>();
-    this.fctBlc.getFctsAux().add(new FctMysql());
+    this.fctBlc.getFctsAux().add(new FctPostgr());
     this.fctBlc.getFctsAux().add(new FctDbCp<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctMail<ResultSet>());
   }

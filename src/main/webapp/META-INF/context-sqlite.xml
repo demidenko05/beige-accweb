@@ -32,11 +32,11 @@
     -->
 
   <Realm className="org.apache.catalina.realm.JDBCRealm" 
-    connectionURL="jdbc:sqlite:../webapps/beigesoft-webcrud/beigeaccountingtest.sqlite"
+    connectionURL="jdbc:sqlite:../webapps/beige-web/beigeacc.sqlite"
     driverName="org.sqlite.JDBC"
-    roleNameCol="ITSROLE"
-    userCredCol="ITSPASSWORD"
-    userNameCol="ITSUSER"
-    userRoleTable="USERROLETOMCAT"
-    userTable="USERTOMCAT"/>  
+    roleNameCol="ROL"
+    userCredCol="PWD"
+    userNameCol="USR"
+    userRoleTable="USRLTMC"
+    userTable="USTMC"/>  
 </Context>

@@ -1,6 +1,8 @@
 site: https://sites.google.com/site/beigesoftware
 
-Beigesoft™ Accounting All In One final standard WEB application.
+Beigesoft™ Accounting All In One final standard WEB application (WAR).
+
+debug range #10 (10000..10999)
 
 It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.
@@ -8,10 +10,13 @@ It's based on previous beigesoft-webcrud and weboio projects.
 To install application on Apache Tomcat 7/8:
 1. you should have MySql server with created user and empty database
 2. make sure that Tomcat has libraries: HikariCP-2.4.3.jar, mysql-connector-java-5.1.40.jar, slf4j-api-1.7.12.jar (versions may be different)
-3. Unpack WAR file and change user/password/database with yours ones in WEB-INF/web.xml:
-dbUrl-[yourdburl]
-dbUsr-[yourdbusername]
-dbPwd-[yourdbuserpass]
+3. Unpack WAR file and change user/password/database with yours ones in WEB-INF/classes/mysql/cmnst.xml:
+...
+<entry key="dbUsr">[yourdbusername]</entry>
+<entry key="dbPsw">[yourdbuserpass]</entry>
+<entry key="dbUrl">jdbc:mysql://localhost/[yourdb]</entry>
+<entry key="checkTbl">select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='[yourdb]' and TABLE_NAME=':tblNm';</entry>
+...
 
 change security roles in web.xml
 

@@ -16,7 +16,7 @@ See LICENSE in base folder
   </jsp-property-group>
   <context-param>
     <param-name>fctAppCls</param-name>
-    <param-value>org.beigesoft.war.FctAppMyl</param-value>
+    <param-value>org.beigesoft.war.FctAppPstg</param-value>
   </context-param>
   <context-param>
     <param-name>newDbId</param-name>
@@ -68,7 +68,7 @@ See LICENSE in base folder
   </context-param>
   <context-param>
     <param-name>ormDir</param-name>
-    <param-value>mysql</param-value>
+    <param-value>postgres</param-value>
   </context-param>
   <context-param>
     <param-name>dbcpDir</param-name>
