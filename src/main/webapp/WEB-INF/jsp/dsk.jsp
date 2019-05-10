@@ -43,6 +43,9 @@
         <c:if test="${not empty pageContext['request'].userPrincipal}">
           <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} Logout</a>
         </c:if>
+        <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
+          <a href="ntr?prc=PrcUsrPwd">${i18n.getMsg("change_password", rvs.upf.lng.iid)}</a>
+        </c:if>
       </div>
     </div>
   </div>  

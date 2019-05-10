@@ -34,7 +34,7 @@
         <a href="adm/srv">${i18n.getMsg("Admin", rvs.upf.lng.iid)}</a>
         <a href="adm/ntr?rnd=dbc">${i18n.getMsg("ImportDatabase", rvs.upf.lng.iid)}</a>
         <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
-          <a href="mdb/">${i18n.getMsg("Databases", rvs.upf.lng.iid)}</a>
+          <a href="adm/ntr?prc=PrcMngDb">${i18n.getMsg("Databases", rvs.upf.lng.iid)}</a>
         </c:if>
         <a href="adm/ntr?prc=MngSft">${i18n.getMsg("SoftwareManagement", rvs.upf.lng.iid)}</a>
       </div>

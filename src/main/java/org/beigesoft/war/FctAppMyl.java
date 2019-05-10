@@ -34,6 +34,8 @@ import java.sql.ResultSet;
 import org.beigesoft.fct.IFctAsm;
 import org.beigesoft.fct.FctBlc;
 import org.beigesoft.fct.FctDbCp;
+import org.beigesoft.hld.IAttrs;
+import org.beigesoft.rdb.Orm;
 import org.beigesoft.web.FctMail;
 import org.beigesoft.jdbc.FctMysql;
 
@@ -104,5 +106,21 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
   @Override
   public final FctBlc<ResultSet> getFctBlc() {
     return this.fctBlc;
+  }
+
+  /**
+   * <p>Initializes factory.</p>
+   * @param pRvs request scoped vars
+   * @param pCtxAttrs context attributes
+   * @throws Exception - an exception, e.g. if bean exists
+   */
+  @Override
+  public final void init(final Map<String, Object> pRvs,
+    final IAttrs pCtxAttrs) throws Exception {
+    //creating/upgrading DB on start:
+    Orm<ResultSet> orm = this.fctBlc.lazOrm(pRvs);
+    orm.init(pRvs);
+      //free memory:
+    orm.getSetng().release();
   }
 }
