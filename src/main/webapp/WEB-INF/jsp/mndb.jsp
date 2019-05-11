@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="../img/favicon.png">
-  <script type="text/javascript" src="../js/bsFrm.js"></script>
+  <script type="text/javascript" src="../js/bsForm.js"></script>
   <script type="text/javascript" src="../js/bsI18n${rvs.upf.lng.iid}.js"></script>
   <link rel="stylesheet" href="../css/bsCmn.css">
   <title>${i18n.getMsg("mngDatabase", rvs.upf.lng.iid)}</title>
@@ -106,7 +106,8 @@
         </tr>
       </table>
       <div style="text-align: center;">
-        <input class="btn" type="submit" onclick="bsCnfSbm(this, 'Create?'); return false;"/>
+        <c:set var="cremsg" value="${i18n.getMsg('Create', rvs.upf.lng.iid)}"/>
+        <button class="btn" onclick="bsCnfSbm(this, '${cremsg}?'); return false;">${cremsg}</button>
       </div>
     </form>
   </div>
@@ -136,10 +137,10 @@
           ${i18n.getMsg("Conformation", rvs.upf.lng.iid)}.
           <button onclick="document.getElementById('dlgCnf').close();" class="btn-close btn-confirm">x</button>
         </div>
-        <div id="confirmPlace" class="msg-place">
+        <div id="cnfPl" class="msg-place">
         </div>
         <div class="dlg-actions">
-          <button id="confirmYes" class="btn btn-act btn-confirm">${i18n.getMsg("Yes", rvs.upf.lng.iid)}</button>
+          <button id="cnfYes" class="btn btn-act btn-confirm">${i18n.getMsg("Yes", rvs.upf.lng.iid)}</button>
           <button onclick="document.getElementById('dlgCnf').close();" class="btn btn-act btn-confirm">${i18n.getMsg("No", rvs.upf.lng.iid)}</button>
         </div>
      </div>

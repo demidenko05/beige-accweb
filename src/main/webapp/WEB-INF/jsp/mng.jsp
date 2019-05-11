@@ -71,10 +71,10 @@
           Conformation.
           <button onclick="document.getElementById('dlgCnf').close();" class="btn-close btn-confirm">x</button>
         </div>
-        <div id="idCfPl" class="msg-place">
+        <div id="cnfPl" class="msg-place">
         </div>
         <div class="dlg-actions">
-          <button id="idCfYe" class="btn btn-act btn-confirm">${i18n.getMsg("Yes", rvs.upf.lng.iid)}</button>
+          <button id="cnfYes" class="btn btn-act btn-confirm">${i18n.getMsg("Yes", rvs.upf.lng.iid)}</button>
           <button onclick="document.getElementById('dlgCnf').close();" class="btn btn-act btn-confirm">${i18n.getMsg("No", rvs.upf.lng.iid)}</button>
         </div>
      </div>
