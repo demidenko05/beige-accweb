@@ -28,16 +28,25 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package org.beigesoft.war;
 
+import java.util.Set;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.sql.ResultSet;
 
 import org.beigesoft.fct.IFctAsm;
+import org.beigesoft.fct.IFctNm;
 import org.beigesoft.fct.FctBlc;
 import org.beigesoft.fct.FctDbCp;
 import org.beigesoft.hld.IAttrs;
+import org.beigesoft.hld.IHlNmClSt;
 import org.beigesoft.rdb.Orm;
+import org.beigesoft.prc.IPrcEnt;
 import org.beigesoft.web.FctMail;
 import org.beigesoft.jdbc.FctMysql;
+import org.beigesoft.acc.fct.FctAcc;
+import org.beigesoft.acc.fct.FctEnPrc;
+import org.beigesoft.acc.hld.HlAcEnPr;
 
 /**
  * <p>Final configuration factory for MySql JDBC.</p>
@@ -60,6 +69,15 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     this.fctBlc.getFctsAux().add(new FctMysql());
     this.fctBlc.getFctsAux().add(new FctDbCp<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctMail<ResultSet>());
+    this.fctBlc.getFctsAux().add(new FctAcc<ResultSet>());
+    Set<IFctNm<IPrcEnt<?, ?>>> fcsenpr = new HashSet<IFctNm<IPrcEnt<?, ?>>>();
+    FctEnPrc<ResultSet> fcep = new FctEnPrc<ResultSet>();
+    fcep.setFctBlc(this.fctBlc);
+    fcsenpr.add(fcep);
+    this.fctBlc.getFctDt().setFctsPrcEnt(fcsenpr);
+    Set<IHlNmClSt> hldsAcEnPr = new LinkedHashSet<IHlNmClSt>();
+    hldsAcEnPr.add(new HlAcEnPr());
+    this.fctBlc.getFctDt().setHldsAcEnPr(hldsAcEnPr);
   }
 
   /**

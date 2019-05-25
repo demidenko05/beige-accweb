@@ -11,7 +11,16 @@
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",
     "trgPrNm": null, "jscr": null}
-    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}EdDlg');bsShwSuc('${i18n.getMsg(rvs.msgSuc, rvs.upf.lng.iid)}');"/>
+    <c:set var="jscr" value="${hldUvd.setJs(rvs,usdDp,frPlNm)}bsOpnDlg('${frPlNm}EdDlg');"/>
+    <c:if test="${not empty rvs.msgSuc}">
+      <c:set var="jscr" value="${jscr}bsShwSuc('${i18n.getMsg(rvs.msgSuc, rvs.upf.lng.iid)}');"/>
+    </c:if>
+    <c:if test="${not empty rvs.msgWrn}">
+      <c:set var="jscr" value="${jscr}bsShwSuc('${i18n.getMsg(rvs.msgWrn, rvs.upf.lng.iid)}');"/>
+    </c:if>
+    <c:if test="${not empty rvs.msgErr}">
+      <c:set var="jscr" value="${jscr}bsShwSuc('${i18n.getMsg(rvs.msgErr, rvs.upf.lng.iid)}');"/>
+    </c:if>
     <c:if test="${not empty numJsAf}">
       <c:set var="jscr" value="${jscr}${numJsAf}"/>
     </c:if>

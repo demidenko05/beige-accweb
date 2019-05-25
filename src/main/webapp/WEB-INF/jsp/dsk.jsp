@@ -21,6 +21,15 @@
 
   <div class="navbar">
     <div class="dropdown">
+      <a href="#" class="dropdown-btn">${i18n.getMsg("Accounting", rvs.upf.lng.iid)}</a>
+      <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Expn&pg=1');">${i18n.getMsg("Expns", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Bnka&pg=1');">${i18n.getMsg("Bnkas", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Itm&pg=1');">${i18n.getMsg("Itms", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmCt&pg=1');">${i18n.getMsg("ItmCts", rvs.upf.lng.iid)}</a>
+      </div>
+    </div>
+    <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Common", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Lng&pg=1');">${i18n.getMsg("Lngs", rvs.upf.lng.iid)}</a>

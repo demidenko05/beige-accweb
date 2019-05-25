@@ -354,6 +354,15 @@
       </div>
     </div>
     <div>
+      <div>
+        <label>Month:</label>    
+      </div>
+      <div>
+        <input name="dtmnth" type="month" onchange="document.getElementById('dtlmnth').value=new Date(this.value).getTime();">
+        <input id="dtlmnth" type="text">
+      </div>
+    </div>
+    <div>
       <button type="submit" >Apply</button>
     </div>
   </form>
