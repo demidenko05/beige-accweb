@@ -1,6 +1,6 @@
 site: https://sites.google.com/site/beigesoftware
 
-Beigesoft™ Accounting All In One final standard WEB application (WAR).
+Beigesoft™ Enterprise Information System final standard WEB application (WAR).
 
 debug range #10 (10000..10999)
 

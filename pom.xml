@@ -7,8 +7,8 @@
   <artifactId>beige-accweb</artifactId>
   <packaging>war</packaging>
 
-  <name>Beigesoft™ Accounting All In One WEB-application.</name>
-  <description>This is WEB interface based on standard JEE MVC servlet, JSP, JSTL.
+  <name>Beigesoft™ Enterprise Information System WEB-application.</name>
+  <description>This is WEB interface based on standard JEE MVC servlet, JSP, JSTL, beige-web.
   </description>
   <url>https://sites.google.com/site/beigesoftware</url>
   <inceptionYear>2019</inceptionYear>
@@ -166,17 +166,17 @@
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-acc</artifactId>
       <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.beigesoft</groupId>
-      <artifactId>beige-accweb-jar</artifactId>
-      <version>1.0-SNAPSHOT</version>
       <exclusions>
         <exclusion>
           <groupId>com.zaxxer</groupId>
           <artifactId>HikariCP</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.beigesoft</groupId>
+      <artifactId>beige-web-jar</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.taglibs</groupId>
@@ -188,6 +188,13 @@
       <artifactId>taglibs-standard-impl</artifactId>
       <version>1.2.5</version>
     </dependency>
+    <dependency>
+      <groupId>org.beigesoft</groupId>
+      <artifactId>beige-web</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>war</type>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -196,6 +203,15 @@
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.1.0</version>
+        <configuration>
+          <overlays>
+            <overlay />
+            <overlay>
+              <groupId>org.beigesoft</groupId>
+              <artifactId>beige-web</artifactId>
+            </overlay>
+          </overlays>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
