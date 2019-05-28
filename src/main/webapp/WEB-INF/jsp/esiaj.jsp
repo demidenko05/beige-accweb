@@ -5,8 +5,6 @@
 <jsp:useBean id="usdDp" class="java.util.HashMap" scope="request"/>
 <c:set var="ent" value="${rvs.uvs.ent}" scope="request"/>
 <c:set var="frPlNm" value="frmMnPl" scope="request"/>
-<c:set var="acEntSv" value="entSv" scope="request"/>
-<c:set var="frAct" value="srv" scope="request"/>
 <c:import url="/WEB-INF/jsp/tml/edia.jsp" varReader="rdEdEn" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",

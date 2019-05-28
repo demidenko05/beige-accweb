@@ -4,15 +4,14 @@
 <c:if test="${ent.isNew}">
   <c:set var="actTi" value="New"/>
 </c:if>
-<c:set var="cls" value="${rvs.uvs.cls}" scope="request"/>
 <dialog id="${frPlNm}EdDlg" class="dlg" oncancel="return false;">
   <div class="form-std">
     <div class="dialog-title">
       ${i18n.getMsg(actTi, rvs.upf.lng.iid)} ${i18n.getMsg(cls.simpleName, rvs.upf.lng.iid)}
       <button onclick="bsClsDlgCf('${frPlNm}Ed')" class="btn-close">x</button>
     </div>
-    <form id="${frPlNm}EdFrm" action="${frAct}" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="act" value="${acEntSv},entEd,lst">
+    <form id="${frPlNm}EdFrm" action="srv" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="act" value="entSv,entEd,lst">
       <input type="hidden" name="ent" value="${cls.simpleName}">
       <input type="hidden" name="pg" value="${param.pg}">
       <c:if test="${not empty param.mbl}">
@@ -46,7 +45,7 @@
       <table>
         <tr>
           <c:if test="${empty param.mbl}">
-            <th>${i18n.getMsg('iid', rvs.upf.lng.iid)}</th>
+            <th>${i18n.getMsg('iid', rvs.upf.lng.iid)}</th><th>${i18n.getMsg('dat', rvs.upf.lng.iid)}</th>
             <th>${i18n.getMsg('acDb', rvs.upf.lng.iid)}</th><th>${i18n.getMsg('sadNm', rvs.upf.lng.iid)}</th>
             <th>${i18n.getMsg('acCr', rvs.upf.lng.iid)}</th><th>${i18n.getMsg('sacNm', rvs.upf.lng.iid)}</th>
             <th>${i18n.getMsg('amount', rvs.upf.lng.iid)}</th><th>${i18n.getMsg('dscr', rvs.upf.lng.iid)}</th>
@@ -59,11 +58,15 @@
           </c:if>
           <th class="column-actions">${i18n.getMsg('Actions', rvs.upf.lng.iid)}</th>
         </tr>
-        <c:forEach var="entr" items="${rvs.entrs}">
+        <c:forEach var="entr" items="${ent.entrs}">
           <tr>
             <c:set var="isFst" value="${true}" scope="request"/>
             <c:set var="fdNm" value="iid" scope="request"/>
             <c:set var="mdl" value="${entr.iid}" scope="request"/>
+            <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+            <c:set var="isFst" value="${false}" scope="request"/>
+            <c:set var="fdNm" value="dat" scope="request"/>
+            <c:set var="mdl" value="${entr.dat}" scope="request"/>
             <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
             <c:if test="${empty param.mbl}">
               <td>${entr.acDb.nme}</td><td>${entr.sadNm}</td>
@@ -90,7 +93,7 @@
         </c:forEach>
       </table>
       <div class="pages">
-        <button onclick="bsGtAjxCf('GET', 'srv?rnd=eaej&act=entCr&ent=${rvs.entrCls.simpleName}&${rvs.entrCls.simpleName}.srid=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');" class="btn">
+        <button onclick="bsGtAjxCf('GET', 'srv?rnd=eaej&act=entCr&ent=${rvs.entrCls.simpleName}&${rvs.entrCls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');" class="btn">
           ${i18n.getMsg("New", rvs.upf.lng.iid)}
         </button>
       </div>

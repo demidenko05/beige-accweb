@@ -54,19 +54,8 @@ function setUom(uomId, uomName, idDomBasePicker) {
   }
   var btnTaxDestination = document.getElementById(whoPicking["pigEnt"] + "btnTaxDestination");
   if (btnTaxDestination != null) {
-    //revialing dest tax cat:
+    //revealing dest tax cat:
     btnTaxDestination.style.display="block";
-  }
-};
-
-
-function openPickerSubacc(entitySimpleName, accName, subaccName, paramsAdd) {
-  var inpAccId = document.getElementById(entitySimpleName + accName + "Id");
-  if (inpAccId.value == "") {
-    showError(BSMSG['choose_account_first']);
-  } else {
-    openEntityPicker('SubaccountLine', entitySimpleName, subaccName, "&fltordPitsOwnerValId="
-      + inpAccId.value + "&fltordPitsOwnerOpr=eq&fltordPforcedFor=itsOwner" + paramsAdd);
   }
 };
 
@@ -89,24 +78,6 @@ function selectChooseableSpecType(typeId, typeAp, idDomBasePicker) {
   var inpApVsb = document.getElementById(whoPicking["pigEnt"] + whoPicking["piFld"] + "TyApVsb");
   inpApVsb.value = typeAp;
   inpApVsb.onchange();
-};
-
-/**
- * <p>Select sub-account simple implementation.
- * Sub-account picker is enable if account is chosen despite of
- * it no has sub-account.
- * </p>
- **/
-function clearSubacc(entitySimpleName, accName, subaccName) {
-  var isDisabled = (document.getElementById(entitySimpleName + accName + "Id").value == '');
-  document.getElementById(entitySimpleName + subaccName + "Choose").disabled = isDisabled;
-  document.getElementById(entitySimpleName + subaccName + "Clear").disabled = isDisabled;
-  document.getElementById(entitySimpleName + subaccName + "Ap").value = "";
-  document.getElementById(entitySimpleName + subaccName + "Ty").value = "";
-  document.getElementById(entitySimpleName + subaccName + "Id").value = "";
-  var inpVsb = document.getElementById(entitySimpleName + subaccName + "ApVsb");
-  inpVsb.value = "";
-  inpVsb.onchange();
 };
 
 function clearSubaccLine(entitySimpleName) {
