@@ -10,7 +10,8 @@
       <input type="hidden" name="act" value="entSv,entEd,lst">
       <input type="hidden" name="ent" value="${cls.simpleName}">
       <input type="hidden" name="pg" value="${param.pg}">
-      <input type="hidden" name="owVr" value="${owVr}">
+      <input type="hidden" name="owVr" value="${rvs.owVr}">
+      <input type="hidden" name="Entr.srId" value="${ent.srId}">
       <c:if test="${not empty param.mbl}">
         <input type="hidden" name="mbl" value="${param.mbl}">
       </c:if>
@@ -27,9 +28,12 @@
         <c:set var="fdNm" value="acDb" scope="request"/>
         <c:set var="saNm" value="sadNm" scope="request"/>
         <c:set var="saId" value="sadId" scope="request"/>
+        <c:set var="saTy" value="sadTy" scope="request"/>
         <jsp:include page="../${param.mbl}in/acc.jsp"/>
+        <c:set var="fdNm" value="acCr" scope="request"/>
         <c:set var="saNm" value="sacNm" scope="request"/>
         <c:set var="saId" value="sacId" scope="request"/>
+        <c:set var="saTy" value="sacTy" scope="request"/>
         <jsp:include page="../${param.mbl}in/acc.jsp"/>
         <tr>
           <td>

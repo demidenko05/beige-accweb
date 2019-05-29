@@ -17,7 +17,7 @@
       <c:set var="jscr" value="${jscr}bsShwWrn('${i18n.getMsg(rvs.msgWrn, rvs.upf.lng.iid)}');"/>
     </c:if>
     <c:if test="${not empty rvs.msgErr}">
-      <c:set var="jscr" value="${jscr}bsShwWrn('${i18n.getMsg(rvs.msgErr, rvs.upf.lng.iid)}');"/>
+      <c:set var="jscr" value="${jscr}bsShwErr('${i18n.getMsg(rvs.msgErr, rvs.upf.lng.iid)}');"/>
     </c:if>
     <c:if test="${not empty numJsAf}">
       <c:set var="jscr" value="${jscr}${numJsAf}"/>

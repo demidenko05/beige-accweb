@@ -12,6 +12,7 @@
   <script type="text/javascript" src="../js/bsInpNum.js"></script>
   <script type="text/javascript" src="../js/bsAjax.js"></script>
   <script type="text/javascript" src="../js/bsForm.js"></script>
+  <script type="text/javascript" src="../js/bsAcc.js"></script>
   <script type="text/javascript" src="../js/bsI18n${rvs.upf.lng.iid}.js"></script>
   <link rel="stylesheet" href="../css/bsCmn.css" />
   <link rel="icon" type="image/png"  href="../img/favicon.png">
@@ -23,10 +24,12 @@
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Accounting", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=AcStg&pg=1');">${i18n.getMsg("AcStgs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Expn&pg=1');">${i18n.getMsg("Expns", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Bnka&pg=1');">${i18n.getMsg("Bnkas", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Itm&pg=1');">${i18n.getMsg("Itms", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmCt&pg=1');">${i18n.getMsg("ItmCts", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Acnt&pg=1');">${i18n.getMsg("Acnts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=InEntr&pg=1');">${i18n.getMsg("InEntrs", rvs.upf.lng.iid)}</a>
       </div>
     </div>
