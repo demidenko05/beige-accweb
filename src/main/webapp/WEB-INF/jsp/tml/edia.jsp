@@ -58,45 +58,51 @@
           </c:if>
           <th class="column-actions">${i18n.getMsg('Actions', rvs.upf.lng.iid)}</th>
         </tr>
-        <c:forEach var="entr" items="${ent.entrs}">
+        <c:forEach var="ent" items="${ent.entrs}">
+          <c:set var="ent" value="${ent}" scope="request"/>
           <tr>
             <c:set var="isFst" value="${true}" scope="request"/>
             <c:set var="fdNm" value="iid" scope="request"/>
-            <c:set var="mdl" value="${entr.iid}" scope="request"/>
+            <c:set var="mdl" value="${ent.iid}" scope="request"/>
             <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
             <c:set var="isFst" value="${false}" scope="request"/>
             <c:set var="fdNm" value="dat" scope="request"/>
-            <c:set var="mdl" value="${entr.dat}" scope="request"/>
+            <c:set var="mdl" value="${ent.dat}" scope="request"/>
             <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
             <c:if test="${empty param.mbl}">
-              <td>${entr.acDb.nme}</td><td>${entr.sadNm}</td>
-              <td>${entr.acCr.nme}</td><td>${entr.sacNm}</td>
-              <c:if test="${entr.cred.compareTo(java.math.Bigdecimal.ZERO) == 0}">
-                <td style="text-align: right;">${hldUvd.toStr(rvs,cls,'debt',entr.debt)}</td>
+              <td>${ent.acDb.nme}</td><td>${ent.sadNm}</td>
+              <td>${ent.acCr.nme}</td><td>${ent.sacNm}</td>
+              <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) == 0}">
+                <td style="text-align: right;">${hldUvd.toStr(rvs,cls,'debt',ent.debt)}</td>
               </c:if>
-              <c:if test="${entr.cred.compareTo(java.math.Bigdecimal.ZERO) != 0}">
-                <td style="text-align: right;">${hldUvd.toStr(rvs,cls,'cred',entr.cred)}</td>
+              <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) != 0}">
+                <td style="text-align: right;">${hldUvd.toStr(rvs,cls,'cred',ent.cred)}</td>
               </c:if>
-              <td>${entr.dscr}</td>
+              <td>${ent.dscr}</td>
             </c:if>
             <c:if test="${not empty param.mbl}">
-              | ${entr.acDb.nme} | ${entr.sadNm}
-              | ${entr.acCr.nme} | ${entr.sacNm}
-              | ${hldUvd.toStr(rvs,cls,'debt',entr.debt)} | ${entr.dscr}
+              | ${ent.acDb.nme} | ${ent.sadNm}
+              | ${ent.acCr.nme} | ${ent.sacNm}
+              |<c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) == 0}">${hldUvd.toStr(rvs,cls,'debt',ent.debt)}</c:if>
+               <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) != 0}">${hldUvd.toStr(rvs,cls,'cred',ent.cred)}</c:if>
+              | ${ent.dscr}
             </c:if>
             <td class="column-actions">
-              <c:set var="idPar" value="${hldUvd.idHtml(rvs,entr)}"/>
-              <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=eaej&act=entCp&ent=${cls.simpleName}&${idPar}&${cls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Copy", rvs.upf.lng.iid)}</button>
-              <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=eaej&act=entRv&ent=${cls.simpleName}&${idPar}&${cls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Reverse", rvs.upf.lng.iid)}</button>
+              <c:if test="${empty ent.rvId}">
+                <c:set var="idPar" value="${hldUvd.idHtml(rvs,ent)}"/>
+                <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=eaej&act=entCp&ent=${cls.simpleName}&${idPar}&${cls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Copy", rvs.upf.lng.iid)}</button>
+                <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=eaej&act=entRv&ent=${cls.simpleName}&${idPar}&${cls.simpleName}.rvId=${ent.iid}&${cls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Reverse", rvs.upf.lng.iid)}</button>
+              </c:if>
             </td>
           </tr>
         </c:forEach>
       </table>
       <div class="pages">
-        <button onclick="bsGtAjxCf('GET', 'srv?rnd=eaej&act=entCr&ent=${rvs.entrCls.simpleName}&${rvs.entrCls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');" class="btn">
+        <button onclick="bsGtAjxCf('GET', 'srv?rnd=eaej&act=entCr&ent=${cls.simpleName}&${cls.simpleName}.srId=${rvs.uvs.ent.iid}&owVr=${rvs.uvs.ent.ver}&pg=${param.pg}${flyPar}');" class="btn">
           ${i18n.getMsg("New", rvs.upf.lng.iid)}
         </button>
       </div>
+      <c:set var="ent" value="${rvs.uvs.ent}" scope="request"/>
       <c:set var="cls" value="${rvs.uvs.cls}" scope="request"/>
     </c:if>      
   </div>
