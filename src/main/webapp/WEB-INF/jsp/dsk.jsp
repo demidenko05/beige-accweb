@@ -32,6 +32,7 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Acnt&pg=1');">${i18n.getMsg("Acnts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=InEntr&pg=1');">${i18n.getMsg("InEntrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Entr&pg=1');">${i18n.getMsg("Entrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnsj');">${i18n.getMsg("balance_sheet", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">

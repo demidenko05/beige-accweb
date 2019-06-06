@@ -175,6 +175,37 @@ See LICENSE in base folder
     <url-pattern>/sec/ntr/*</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>flRep</servlet-name>
+    <servlet-class>
+      org.beigesoft.web.WReport
+    </servlet-class>
+    <init-param>
+      <param-name>hndNm</param-name>
+      <param-value>HndFlRpRq</param-value>
+    </init-param>
+    <init-param>
+      <param-name>hndNms</param-name>
+      <param-value>HndI18nRq,HndAcc</param-value>
+    </init-param>
+    <init-param>
+      <param-name>contTy</param-name>
+      <param-value>application/pdf</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logNm</param-name>
+      <param-value>logStd</param-value>
+    </init-param>
+    <multipart-config>
+      <max-file-size>10000</max-file-size>
+      <max-request-size>50000</max-request-size>
+      <file-size-threshold>10000</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>flRep</servlet-name>
+    <url-pattern>/sec/flr/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>adm</servlet-name>
     <servlet-class>
       org.beigesoft.web.WHndsJsp

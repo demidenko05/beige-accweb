@@ -19,6 +19,9 @@
   <div id="trgInf">
   </div>
 
+  <div id="frmRep">
+  </div>
+
   <dialog id="dlgCnf" class="dlg dlg-alert">
       <div class="confirm">
         <div class="dialog-title confirm-title">

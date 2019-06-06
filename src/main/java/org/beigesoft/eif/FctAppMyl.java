@@ -36,8 +36,10 @@ import java.sql.ResultSet;
 
 import org.beigesoft.fct.IFctAsm;
 import org.beigesoft.fct.IFctPrcEnt;
+import org.beigesoft.fct.IFctPrcFl;
 import org.beigesoft.fct.FctBlc;
 import org.beigesoft.fct.FctDbCp;
+import org.beigesoft.fct.FctFlRep;
 import org.beigesoft.hld.IAttrs;
 import org.beigesoft.hld.IHlNmClSt;
 import org.beigesoft.rdb.Orm;
@@ -45,6 +47,7 @@ import org.beigesoft.web.FctMail;
 import org.beigesoft.jdbc.FctMysql;
 import org.beigesoft.acc.fct.FctAcc;
 import org.beigesoft.acc.fct.FctEnPrc;
+import org.beigesoft.acc.fct.FctPrcFl;
 import org.beigesoft.acc.hld.HlAcEnPr;
 
 /**
@@ -69,11 +72,17 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     this.fctBlc.getFctsAux().add(new FctDbCp<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctMail<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctAcc<ResultSet>());
+    this.fctBlc.getFctsAux().add(new FctFlRep<ResultSet>());
     Set<IFctPrcEnt> fcsenpr = new HashSet<IFctPrcEnt>();
     FctEnPrc<ResultSet> fcep = new FctEnPrc<ResultSet>();
     fcep.setFctBlc(this.fctBlc);
     fcsenpr.add(fcep);
     this.fctBlc.getFctDt().setFctsPrcEnt(fcsenpr);
+    Set<IFctPrcFl> fcspf = new HashSet<IFctPrcFl>();
+    FctPrcFl<ResultSet> fcpf = new FctPrcFl<ResultSet>();
+    fcpf.setFctBlc(this.fctBlc);
+    fcspf.add(fcpf);
+    this.fctBlc.getFctDt().setFctrsPrcFl(fcspf);
     Set<IHlNmClSt> hldsBsEnPr = new LinkedHashSet<IHlNmClSt>();
     hldsBsEnPr.add(new HlAcEnPr());
     this.fctBlc.getFctDt().setHldsBsEnPr(hldsBsEnPr);
