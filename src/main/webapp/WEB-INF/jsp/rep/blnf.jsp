@@ -4,12 +4,12 @@
 <dialog id="frmRepDlg" class="dlg" oncancel="return false;">
   <div class="form-std">
     <div class="dialog-title">
-      ${i18n.getMsg("balance_sheet", rvs.upf.lng.iid)}
+      ${i18n.getMsg("trial_balance", rvs.upf.lng.iid)}
       <button onclick="bsClsDlgCf('frmRep')" class="btn-close">x</button>
     </div>
-    <form id="frmRepFrm" action="pdf" method="GET" target="_blank">
-      <input id="prcNm" type="hidden" name="prc" value="PrcBlnSht">
-      <input type="hidden" name="rnd" value="blns">
+    <form id="frmRepFrm" action="ntr" method="GET" target="_blank">
+      <input type="hidden" name="prc" value="PrcBln">
+      <input type="hidden" name="rnd" value="bln">
 
       <table class="tbl-fieldset">
         <tr>
@@ -24,8 +24,7 @@
         </tr>
       </table>
       <div class="form-actions">
-        <button type="button" onclick="this.form.action='pdf';document.getElementById('prcNm').value='PrcBlnSht';bsSbFrmNw('frmRepFrm', false);">${i18n.getMsg("ReportPdf", rvs.upf.lng.iid)}</button>
-        <button type="button" onclick="this.form.action='ntr';document.getElementById('prcNm').value='PrBlShTr';bsSbFrmNw('frmRepFrm', false);">${i18n.getMsg("Report", rvs.upf.lng.iid)}</button>
+        <button type="button" onclick="bsSbFrmNw('frmRepFrm', false);">${i18n.getMsg("Report", rvs.upf.lng.iid)}</button>
         <button type="button" onclick="bsClsDlgCf('frmRep');">${i18n.getMsg("Close", rvs.upf.lng.iid)}</a>
       </div>
     </form>

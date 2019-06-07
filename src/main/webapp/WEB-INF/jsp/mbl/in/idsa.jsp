@@ -14,6 +14,8 @@
     <td>
       <label for="MaFrn.clsNm">${i18n.getMsg("confirm_reason", rvs.upf.lng.iid)}</label>
     </td>
+  <tr>
+  </tr>
     <td>
       <div class="input-line">
         <select ${auFoc} name="cnfSacChNm" onchange="bsInpChn(this);">

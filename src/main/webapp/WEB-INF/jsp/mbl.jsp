@@ -24,14 +24,14 @@
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Accounting", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=AcStg&pg=1');">${i18n.getMsg("AcStgs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Expn&pg=1');">${i18n.getMsg("Expns", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Bnka&pg=1');">${i18n.getMsg("Bnkas", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Itm&pg=1');">${i18n.getMsg("Itms", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmCt&pg=1');">${i18n.getMsg("ItmCts", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Acnt&pg=1');">${i18n.getMsg("Acnts", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=InEntr&pg=1');">${i18n.getMsg("InEntrs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Entr&pg=1');">${i18n.getMsg("Entrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=AcStg&pg=1&mbl=mbl/');">${i18n.getMsg("AcStgs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Expn&pg=1&mbl=mbl/');">${i18n.getMsg("Expns", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Bnka&pg=1&mbl=mbl/');">${i18n.getMsg("Bnkas", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Itm&pg=1&mbl=mbl/');">${i18n.getMsg("Itms", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmCt&pg=1&mbl=mbl/');">${i18n.getMsg("ItmCts", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Acnt&pg=1&mbl=mbl/');">${i18n.getMsg("Acnts", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=InEntr&pg=1&mbl=mbl/');">${i18n.getMsg("InEntrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Entr&pg=1&mbl=mbl/');">${i18n.getMsg("Entrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnj');">${i18n.getMsg("trial_balance", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnsj');">${i18n.getMsg("balance_sheet", rvs.upf.lng.iid)}</a>
       </div>
@@ -39,14 +39,14 @@
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Common", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Lng&pg=1');">${i18n.getMsg("Lngs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Cntr&pg=1');">${i18n.getMsg("Cntrs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcSp&pg=1');">${i18n.getMsg("DcSps", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcGrSp&pg=1');">${i18n.getMsg("DcGrSps", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsPrf&pg=1');">${i18n.getMsg("UsPrfs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Lng&pg=1&mbl=mbl/');">${i18n.getMsg("Lngs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Cntr&pg=1&mbl=mbl/');">${i18n.getMsg("Cntrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcSp&pg=1&mbl=mbl/');">${i18n.getMsg("DcSps", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcGrSp&pg=1&mbl=mbl/');">${i18n.getMsg("DcGrSps", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsPrf&pg=1&mbl=mbl/');">${i18n.getMsg("UsPrfs", rvs.upf.lng.iid)}</a>
         <a href="ntr?prc=RefrI18n" target="_blank">${i18n.getMsg("RefrI18n", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CsvMth&pg=1');">${i18n.getMsg("CsvMths", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MaFrn&pg=1');">${i18n.getMsg("MaFrns", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CsvMth&pg=1&mbl=mbl/');">${i18n.getMsg("CsvMths", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MaFrn&pg=1&mbl=mbl/');">${i18n.getMsg("MaFrns", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">

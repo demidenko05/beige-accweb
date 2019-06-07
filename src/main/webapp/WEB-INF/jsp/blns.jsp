@@ -63,7 +63,7 @@
         <c:if test="${currIdx == rvs.blnSht.toLnLi + 2}">
           <td colspan="2"><b>${i18n.getMsg("OwnersEquityTitle", rvs.upf.lng.iid)}</b></td>
         </c:if>
-        <c:if test="${(currIdx gt rvs.blnSht.toLnLi + 2) && (currIdx lt rvs.blnSht.toLnLi + rvs.blnSht.totalLinesOwnersEquity + 3)}">
+        <c:if test="${(currIdx gt rvs.blnSht.toLnLi + 2) && (currIdx lt rvs.blnSht.toLnLi + rvs.blnSht.toLnOe + 3)}">
           <td>
             ${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).accName}
           </td>
@@ -76,11 +76,11 @@
             </c:if>
           </td>
         </c:if>
-        <c:if test="${currIdx == rvs.blnSht.toLnLi + rvs.blnSht.totalLinesOwnersEquity + 3}">
+        <c:if test="${currIdx == rvs.blnSht.toLnLi + rvs.blnSht.toLnOe + 3}">
           <td align="center"><b>${i18n.getMsg("total_oe", rvs.upf.lng.iid)}</b></td>
           <td align="right"><b>${numStr.frmt(rvs.blnSht.totOwe.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}</b></td>
         </c:if>
-        <c:if test="${currIdx gt rvs.blnSht.toLnLi + rvs.blnSht.totalLinesOwnersEquity + 3}">
+        <c:if test="${currIdx gt rvs.blnSht.toLnLi + rvs.blnSht.toLnOe + 3}">
           <td></td>
           <td></td>
         </c:if>

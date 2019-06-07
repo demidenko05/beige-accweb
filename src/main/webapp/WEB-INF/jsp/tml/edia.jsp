@@ -22,6 +22,7 @@
           <input type="hidden" name="${par.key}" value="${par.value}">
         </c:if>
       </c:forEach>
+      <c:set var="auFoc" value="autofocus" scope="request"/>
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
         <jsp:include page="../${param.mbl}in/ida.jsp"/>

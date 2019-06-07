@@ -29,6 +29,7 @@
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
         <jsp:include page="../${param.mbl}in/ida.jsp"/>
+        <c:set var="auFoc" value="autofocus" scope="request"/>
         <c:if test="${empty ent.rvId}">  
           <c:set var="fdNm" value="dat" scope="request"/>
           <jsp:include page="../${param.mbl}in/dtTm.jsp"/>
@@ -120,7 +121,7 @@
       </table>
       <div class="form-actions">
         <input style="display: none" id="${frPlNm}EdFrmFa" type="submit"/>
-        <button type="button" onclick="bsSbFrmAjx('${frPlNm}EdFrm', true, 'rnd=esiaj');">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
+        <button type="button" onclick="bsSbFrmAjx('${frPlNm}EdFrm', true, 'rnd=esiaej');">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
         <button type="button" onclick="bsClsDlgCf('${frPlNm}Ed');">${i18n.getMsg("Close", rvs.upf.lng.iid)}</a>
       </div>
     </form>

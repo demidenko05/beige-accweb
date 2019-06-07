@@ -10,6 +10,8 @@
   <td>
     <label for="MaFrn.saTy">${i18n.getMsg("saTy", rvs.upf.lng.iid)}</label>
   </td>
+<tr>
+</tr>
   <td>
     <div class="input-line">
       <select required name="Acnt.saTy" onchange="bsInpChn(this);">

@@ -175,7 +175,7 @@ See LICENSE in base folder
     <url-pattern>/sec/ntr/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>flRep</servlet-name>
+    <servlet-name>pdfRep</servlet-name>
     <servlet-class>
       org.beigesoft.web.WReport
     </servlet-class>
@@ -202,8 +202,8 @@ See LICENSE in base folder
     </multipart-config>
   </servlet>
   <servlet-mapping>
-    <servlet-name>flRep</servlet-name>
-    <url-pattern>/sec/flr/*</url-pattern>
+    <servlet-name>pdfRep</servlet-name>
+    <url-pattern>/sec/pdf/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>adm</servlet-name>
