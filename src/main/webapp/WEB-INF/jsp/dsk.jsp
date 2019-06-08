@@ -52,12 +52,12 @@
     <div class="dropdown">
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
-        <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=About');">${i18n.getMsg("about", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=About');">${i18n.getMsg("About", rvs.upf.lng.iid)}</a>
         <a href="srv">Refresh</a>
         <a href="../">Home</a>
         <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
         <c:if test="${not empty pageContext['request'].userPrincipal}">
-          <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} Logout</a>
+          <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
         </c:if>
         <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
           <a href="ntr?prc=PrcUsrPwd">${i18n.getMsg("change_password", rvs.upf.lng.iid)}</a>

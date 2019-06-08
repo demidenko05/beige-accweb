@@ -59,7 +59,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <label>${i18n.getMsg("lang", rvs.upf.lng.iid)}</label>
+                    <label>${i18n.getMsg("lng", rvs.upf.lng.iid)}</label>
                   </td>
                   <td>
                     <div class="input-line">
@@ -87,7 +87,7 @@
                           <c:if test="${rvs.upf.dcSp.iid eq it.iid}">
                             <c:set var="itmSel" value="selected"/>
                           </c:if>
-                          <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme)}</option>
+                          <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme, rvs.upf.lng.iid)}</option>
                         </c:forEach>
                       </select>
                     </div>
@@ -95,7 +95,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <label>${i18n.getMsg("decimalGroupSep", rvs.upf.lng.iid)}</label>
+                    <label>${i18n.getMsg("dcGrSp", rvs.upf.lng.iid)}</label>
                   </td>
                   <td>
                     <div class="input-line">
@@ -105,7 +105,7 @@
                           <c:if test="${rvs.upf.dcGrSp.iid eq it.iid}">
                             <c:set var="itmSel" value="selected"/>
                           </c:if>
-                          <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme)}</option>
+                          <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme, rvs.upf.lng.iid)}</option>
                         </c:forEach>
                       </select>
                     </div>
