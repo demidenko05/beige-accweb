@@ -13,7 +13,7 @@
 <body>
   <div style="text-align: center;">
     <h4>
-      ${rvs.as.org} <br>
+      ${rvs.astg.org} <br>
       ${i18n.getMsg("balance_sheet", rvs.upf.lng.iid)} <br>
       <fmt:formatDate value="${rvs.blnSht.dat}" type="date" dateStyle="LONG"/>
      </h4>
@@ -31,10 +31,10 @@
           </td>
           <td align="right">
             <c:if test="${rvs.blnSht.lns.get(currIdx - 1).debit.doubleValue() != 0}">
-              ${numStr.frmt(rvs.blnSht.lns.get(currIdx - 1).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}
+              ${numStr.frmt(rvs.blnSht.lns.get(currIdx - 1).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}
             </c:if>
             <c:if test="${rvs.blnSht.lns.get(currIdx - 1).credit.doubleValue() != 0}">
-              (${numStr.frmt(rvs.blnSht.lns.get(currIdx - 1).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)})
+              (${numStr.frmt(rvs.blnSht.lns.get(currIdx - 1).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)})
             </c:if>
           </td>
         </c:if>
@@ -49,16 +49,16 @@
           </td>
           <td align="right">
             <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).credit.doubleValue() != 0}">
-              ${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}
+              ${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}
             </c:if>
             <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).debit.doubleValue() != 0}">
-              (${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)})
+              (${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)})
             </c:if>
           </td>
         </c:if>
         <c:if test="${currIdx == rvs.blnSht.toLnLi + 1}">
           <td align="center"><b>${i18n.getMsg("total_l", rvs.upf.lng.iid)}</b></td>
-          <td align="right"><b>${numStr.frmt(rvs.blnSht.totLia.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}</b></td>
+          <td align="right"><b>${numStr.frmt(rvs.blnSht.totLia.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
         </c:if>
         <c:if test="${currIdx == rvs.blnSht.toLnLi + 2}">
           <td colspan="2"><b>${i18n.getMsg("OwnersEquityTitle", rvs.upf.lng.iid)}</b></td>
@@ -69,16 +69,16 @@
           </td>
           <td align="right">
             <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).credit.doubleValue() != 0}">
-              ${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}
+              ${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}
             </c:if>
             <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).debit.doubleValue() != 0}">
-              (${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)})
+              (${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)})
             </c:if>
           </td>
         </c:if>
         <c:if test="${currIdx == rvs.blnSht.toLnLi + rvs.blnSht.toLnOe + 3}">
           <td align="center"><b>${i18n.getMsg("total_oe", rvs.upf.lng.iid)}</b></td>
-          <td align="right"><b>${numStr.frmt(rvs.blnSht.totOwe.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}</b></td>
+          <td align="right"><b>${numStr.frmt(rvs.blnSht.totOwe.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
         </c:if>
         <c:if test="${currIdx gt rvs.blnSht.toLnLi + rvs.blnSht.toLnOe + 3}">
           <td></td>
@@ -88,9 +88,9 @@
     </c:forEach>
     <tr>
       <td align="center"><b>${i18n.getMsg("total_assets", rvs.upf.lng.iid)}</b></td>
-      <td align="right"><b>${numStr.frmt(rvs.blnSht.totAss.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)} ${rvs.as.curr.nme}</b></td>
+      <td align="right"><b>${numStr.frmt(rvs.blnSht.totAss.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
       <td align="center"><b>${i18n.getMsg("total_l_oe", rvs.upf.lng.iid)}</b></td>
-      <td align="right"><b>${numStr.frmt(rvs.blnSht.totLia.add(rvs.blnSht.totOwe).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)} ${rvs.as.curr.nme}</b></td>
+      <td align="right"><b>${numStr.frmt(rvs.blnSht.totLia.add(rvs.blnSht.totOwe).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
     </tr>
   </table>
 </body>

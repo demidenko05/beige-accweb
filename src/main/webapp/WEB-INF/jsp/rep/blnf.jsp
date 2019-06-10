@@ -14,7 +14,7 @@
       <table class="tbl-fieldset">
         <tr>
           <td>
-            <label for="dt">${i18n.getMsg("dt", rvs.upf.lng.iid)}:</label>
+            <label for="dt">${i18n.getMsg("dat", rvs.upf.lng.iid)}:</label>
           </td>
         </tr>
         <tr>

@@ -12,7 +12,7 @@
   <jsp:include page="reo.jsp"/>
   <tr>
     <td>
-      <label for="MaFrn.clsNm">${i18n.getMsg("confirm_reason", rvs.upf.lng.iid)}</label>
+      <label for="cnfSacChNm">${i18n.getMsg("confirm_reason_changing_name", rvs.upf.lng.iid)}</label>
     </td>
   <tr>
   </tr>

@@ -15,7 +15,7 @@
   <div style="text-align: center;">
     <h4>
       ${i18n.getMsg("trial_balance", rvs.upf.lng.iid)} <fmt:formatDate value="${rvs.blnDt}" type="both" dateStyle="LONG" timeStyle="SHORT"/> <br>
-      ${rvs.as.org}
+      ${rvs.astg.org}
     </h4>
   </div>
   <table>
@@ -38,16 +38,16 @@
         </td>
         <td>
           ${blLn.saNm}</td>
-        <td class="debt-cred">${numStr.frmt(blLn.debt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}</td>
-        <td class="debt-cred">${numStr.frmt(blLn.cred.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)}</td>
+        <td class="debt-cred">${numStr.frmt(blLn.debt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+        <td class="debt-cred">${numStr.frmt(blLn.cred.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
       </tr>
       <c:set var="debtTotal" value="${blLn.debt + debtTotal}"/>
       <c:set var="credTotal" value="${blLn.cred + credTotal}"/>
     </c:forEach>
     <tr>
-      <td colspan="2" class="total"><b>${i18n.getMsg("itsTotal", rvs.upf.lng.iid)}:</b></td>
-      <td class="total"><b>${numStr.frmt(debtTotal.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)} ${rvs.as.curr.nme}</b></td>
-      <td class="total"><b>${numStr.frmt(credTotal.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.as.rpDp,rvs.upf.dgInGr)} ${rvs.as.curr.nme}</b></td>
+      <td colspan="2" class="total"><b>${i18n.getMsg("tot", rvs.upf.lng.iid)}:</b></td>
+      <td class="total"><b>${numStr.frmt(debtTotal.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
+      <td class="total"><b>${numStr.frmt(credTotal.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
     </tr>
   </table>
 

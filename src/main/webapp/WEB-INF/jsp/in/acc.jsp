@@ -10,7 +10,7 @@
       <input id="Entr${fdNm}Id" type="hidden" name="Entr.${fdNm}" value="${ent[fdNm].iid}">
       <button ${auFoc} type="button" class="btn" onclick="bsPick('Acnt','Entr','${fdNm}','&mbl=${param.mbl}');">...</button>
       <c:set var="auFoc" value="" scope="request"/>
-      <button type="button" class="btn" onclick="bsClrSelEnt('Entr${fdNm}');">X</button>
+      <button type="button" class="btn" onclick="bsClrSelEnt('Entr${fdNm}');bsClearSac('Entr','${saNm}');">X</button>
     </div>
   </td>
 </tr>
@@ -26,8 +26,8 @@
       <c:if test="${empty ent[saTy]}">
         <c:set var="dis" value="disabled"/>
       </c:if>
-      <button id="Entr${fdNm}SaPi" ${dis} type="button" class="btn" onclick="bsPickSac('${fdNm}','${saNm}','&mbl=${param.mbl}');">...</button>
-      <button id="Entr${fdNm}SaCl" ${dis} type="button" class="btn" onclick="bsClearSac('${saNm}');">X</button>
+      <button id="Entr${fdNm}SaPi" ${dis} type="button" class="btn" onclick="bsPickSac('${fdNm}','Entr','${saNm}','&mbl=${param.mbl}');">...</button>
+      <button id="Entr${fdNm}SaCl" ${dis} type="button" class="btn" onclick="bsClearSac('Entr','${saNm}');">X</button>
     </div>
   </td>
 </tr>
