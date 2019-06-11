@@ -199,6 +199,11 @@
 
   <build>
     <finalName>${project.artifactId}</finalName>
+    <!--<resources>
+      <resource>Ensure the last resources
+        <directory>..${file.separator}beige-acc${file.separator}src${file.separator}main${file.separator}resources</directory>
+      </resource>
+    </resources>-->
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>

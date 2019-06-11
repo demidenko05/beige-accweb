@@ -33,7 +33,6 @@
           <c:if test="${blLn.acNm != accCurr}">
             <c:set var="accCurr" value="${blLn.acNm}"/>
             ${blLn.acNm}
-            ${blLn.acNm}
           </c:if>
         </td>
         <td>

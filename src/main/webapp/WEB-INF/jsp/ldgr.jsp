@@ -14,10 +14,10 @@
 <body>
   <div style="text-align: center;">
     <h4>
-      ${i18n.getMsg("Ledger", rvs.upf.lng.iid)} ${i18n.getMsg("from", rvs.upf.lng.iid)} <fmt:formatDate value="${rvs.dt1}"/>
-      ${i18n.getMsg("to", rvs.upf.lng.iid)} <fmt:formatDate value="${rvs.dt2}"/> <br>
+      ${i18n.getMsg("Ledger", rvs.upf.lng.iid)} ${i18n.getMsg("from", rvs.upf.lng.iid)} <fmt:formatDate value="${rvs.dt1}" type="both" timeStyle="short"/>
+      ${i18n.getMsg("to", rvs.upf.lng.iid)} <fmt:formatDate value="${rvs.dt2}" type="both" timeStyle="short"/> <br>
       ${rvs.astg.org} <br>
-      ${i18n.getMsg("acnt", rvs.upf.lng.iid)}: ${param.accNm.nme}
+      ${i18n.getMsg("Acnt", rvs.upf.lng.iid)}: ${param.accNm}
       <c:if test="${not empty param.saNm}">
         , <c:out value="${param.saNm}"/>
       </c:if>
@@ -28,12 +28,12 @@
       <th>${i18n.getMsg("dat", rvs.upf.lng.iid)}</th>
       <th>${i18n.getMsg("dscr", rvs.upf.lng.iid)}</th>
       <th>${i18n.getMsg("coracc", rvs.upf.lng.iid)}</th>
-      <th class="debt-cred-th">${i18n.getMsg("Debit", rvs.upf.lng.iid)}</th>
-      <th class="debt-cred-th">${i18n.getMsg("Credit", rvs.upf.lng.iid)}</th>
-      <th class="debt-cred-th">${i18n.getMsg("Balance", rvs.upf.lng.iid)}</th>
+      <th class="debt-cred-th">${i18n.getMsg("debt", rvs.upf.lng.iid)}</th>
+      <th class="debt-cred-th">${i18n.getMsg("cred", rvs.upf.lng.iid)}</th>
+      <th class="debt-cred-th">${i18n.getMsg("blnc", rvs.upf.lng.iid)}</th>
     </tr>
-    <c:if test="${param.saNm == null && param.accNm.saTy != null}">
-      <c:forEach var="enr" items="${ldgPrv.lnsMp}">
+    <c:if test="${empty param.saNm}">
+      <c:forEach var="enr" items="${rvs.ldgPrv.lnsMp}">
         <tr>
           <td colspan="3" class="total">${enr.key}:</td>
           <td class="total">${numStr.frmt(enr.value.debt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
@@ -44,43 +44,41 @@
     </c:if>
     <tr>
       <td colspan="3" class="total"><b>${i18n.getMsg("Previous", rvs.upf.lng.iid)}:</b></td>
-      <td class="total"><b>${numStr.frmt(ldgPrv.debtAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
-      <td class="total"><b>${numStr.frmt(ldgPrv.credAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
-      <td class="total"><b>${numStr.frmt(ldgPrv.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
+      <td class="total"><b>${numStr.frmt(rvs.ldgPrv.debitAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
+      <td class="total"><b>${numStr.frmt(rvs.ldgPrv.creditAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
+      <td class="total"><b>${numStr.frmt(rvs.ldgPrv.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
     </tr>
-    <c:forEach var="ldgDeLn" items="${ldgDe.lns}">
+    <c:forEach var="ldgDeLn" items="${rvs.ldgDe.lns}">
       <c:set var="subAccAppear" value=""/>
-      <c:if test="${param.saNm == null && param.accNm.saTy != null}">
-        <c:set var="subAccAppear" value="${ldgDeLn.subacc}, ${ldgDeLn.blncSa.add(ldgPrv.lnsMp[ldgDeLn.subacc].blnc)},"/>
+      <c:if test="${empty param.saNm && ldgDeLn.subacc != null}">
+        <c:set var="subAccAppear" value="${ldgDeLn.subacc}, ${ldgDeLn.blncSa},"/>
       </c:if>
       <tr>
         <td><fmt:formatDate value="${ldgDeLn.dat}" type="both" timeStyle="short"/></td>
         <td>${subAccAppear} ${ldgDeLn.dscr}</td>
         <td>${ldgDeLn.crAcNm}
-          <c:if test="${not empty ldgDeLn.crSaNm}">
-            - ${ldgDeLn.crSaNm}
-          </c:if>
+          <c:if test="${not empty ldgDeLn.crSaNm}">- ${ldgDeLn.crSaNm}</c:if>
         </td>
         <td class="debt-cred">${numStr.frmt(ldgDeLn.debt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
         <td class="debt-cred">${numStr.frmt(ldgDeLn.cred.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
-        <td class="debt-cred">${numStr.frmt(ldgDeLn.blnc.add(ldgPrv.balanceAcc).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+        <td class="debt-cred">${numStr.frmt(ldgDeLn.blnc,rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
       </tr>
     </c:forEach>
-    <c:if test="${param.saNm == null && param.accNm.saTy != null}">
-      <c:forEach var="enr" items="${ldgPrv.lnsMp}">
+    <c:if test="${empty param.saNm}">
+      <c:forEach var="ky" items="${rvs.ldgDe.saDbTo.keySet()}">
         <tr>
-          <td colspan="3" class="total">${enr.key}:</td>
-          <td class="total">${numStr.frmt(enr.value.debt.add(ldgDe.saDbTo[enr.key]).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
-          <td class="total">${numStr.frmt(enr.value.cred.add(ldgDe.saCrTo[enr.key]).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
-          <td class="total">${numStr.frmt(enr.value.blnc.add(ldgDe.saBlnTo[enr.key]).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+          <td colspan="3" class="total">${ky}:</td>
+          <td class="total">${numStr.frmt(rvs.ldgDe.saDbTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+          <td class="total">${numStr.frmt(rvs.ldgDe.saCrTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+          <td class="total">${numStr.frmt(rvs.ldgDe.saBlnTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
         </tr>
       </c:forEach>
     </c:if>
     <tr>
       <td colspan="3" class="total"><b>${i18n.getMsg("tot", rvs.upf.lng.iid)}:</b></td>
-      <td class="total"><b>${numStr.frmt(ldgPrv.debtAcc.add(ldgDe.debtAcc).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
-      <td class="total"><b>${numStr.frmt(ldgPrv.credAcc.add(ldgDe.credAcc).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
-      <td class="total"><b>${numStr.frmt(ldgPrv.balanceAcc.add(ldgDe.balanceAcc).toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
+      <td class="total"><b>${numStr.frmt(rvs.ldgDe.debitAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
+      <td class="total"><b>${numStr.frmt(rvs.ldgDe.creditAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
+      <td class="total"><b>${numStr.frmt(rvs.ldgDe.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
     </tr>
   </table>
 </body>

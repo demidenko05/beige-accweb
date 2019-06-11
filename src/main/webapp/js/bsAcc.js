@@ -39,6 +39,7 @@ function bsPickSac(pFdNm, pPikng, pSaNm, pAdPr) {
 //Clears subacc picker:
 function bsClearSac(pPikng, pSaNm) {
   document.getElementById(pPikng + pSaNm + "Id").value = "";
+  document.getElementById(pPikng + pSaNm + "Ap").value = "";
   var saApVsb = document.getElementById(pPikng  + pSaNm + "ApVsb");
   saApVsb.value = "";
   bsInpChn(saApVsb);
