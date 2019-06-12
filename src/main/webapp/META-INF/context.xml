@@ -32,7 +32,7 @@
     -->
 
   <Realm className="org.apache.catalina.realm.JDBCRealm" 
-    connectionURL="jdbc:mysql://localhost/beigeacc?user=beigeaccounting&amp;password=beigeaccounting"
+    connectionURL="jdbc:mysql://localhost/bseif?user=beigeaccounting&amp;password=beigeaccounting"
     driverName="com.mysql.jdbc.Driver"
     roleNameCol="ROL"
     userCredCol="PWD"

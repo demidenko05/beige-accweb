@@ -12,7 +12,7 @@
   </td>
   <td>
     <div class="input-line">
-      <select required name="Acnt.saTy" onchange="bsInpChn(this);">
+      <select name="Acnt.saTy" onchange="bsInpChn(this);">
         <option value="" ${emptsel}>-</option>
         <c:forEach var="enr" items="${hlTySac.clsMp}">
           <c:if test="${ent.saTy ne enr.key}">

@@ -32,7 +32,7 @@
     -->
 
   <Realm className="org.apache.catalina.realm.JDBCRealm" 
-    connectionURL="jdbc:sqlite:../webapps/beige-web/beigeacc.sqlite"
+    connectionURL="jdbc:sqlite:../webapps/beige-accweb-sqlt/bseif.sqlite"
     driverName="org.sqlite.JDBC"
     roleNameCol="ROL"
     userCredCol="PWD"
