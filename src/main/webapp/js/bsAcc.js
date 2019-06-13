@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 function bsPickSac(pFdNm, pPikng, pSaNm, pAdPr) {
   var acId=document.getElementById(pPikng + pFdNm + "Id").value;
   if(acId!="") {
-    bsPick("Sacnt", pPikng, pSaNm, "&fopownrVlId='" + acId + "'&fopownrOpr=eq&fopfrcd=ownr"+ pAdPr);
+    bsPick("Sacnt", pPikng, pSaNm, "&fopownrVlId=" + acId + "&fopownrOpr=eq&fopfrcd=ownr"+ pAdPr);
   } else {
     bsShwErr(BSMSG["choose_account_first"]);
   }

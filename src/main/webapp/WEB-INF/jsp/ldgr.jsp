@@ -46,12 +46,28 @@
       <td colspan="3" class="total"><b>${i18n.getMsg("Previous", rvs.upf.lng.iid)}:</b></td>
       <td class="total"><b>${numStr.frmt(rvs.ldgPrv.debitAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
       <td class="total"><b>${numStr.frmt(rvs.ldgPrv.creditAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
-      <td class="total"><b>${numStr.frmt(rvs.ldgPrv.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</b></td>
+      <c:if test="${rvs.ldgPrv.balanceAcc.compareTo(java.math.BigDecimal.ZERO) eq -1}">
+        <c:set var="blnPrv">
+          <span class='rdBlnc'>${numStr.frmt(rvs.ldgPrv.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</span>
+        </c:set>
+      </c:if>
+      <c:if test="${rvs.ldgPrv.balanceAcc.compareTo(java.math.BigDecimal.ZERO) ne -1}">
+        <c:set var="blnPrv" value="${numStr.frmt(rvs.ldgPrv.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}"/>
+      </c:if>
+      <td class="total"><b>${blnPrv}</b></td>
     </tr>
     <c:forEach var="ldgDeLn" items="${rvs.ldgDe.lns}">
       <c:set var="subAccAppear" value=""/>
       <c:if test="${empty param.saNm && ldgDeLn.subacc != null}">
-        <c:set var="subAccAppear" value="${ldgDeLn.subacc}, ${ldgDeLn.blncSa},"/>
+        <c:if test="${ldgDeLn.blncSa.compareTo(java.math.BigDecimal.ZERO) eq -1}">
+          <c:set var="blnSa">
+            <span class='rdBlnc'>${ldgDeLn.blncSa}</span>
+          </c:set>
+        </c:if>
+        <c:if test="${ldgDeLn.blncSa.compareTo(java.math.BigDecimal.ZERO) ne -1}">
+          <c:set var="blnSa" value="${ldgDeLn.blncSa}"/>
+        </c:if>
+        <c:set var="subAccAppear" value="${ldgDeLn.subacc}, ${blnSa},"/>
       </c:if>
       <tr>
         <td><fmt:formatDate value="${ldgDeLn.dat}" type="both" timeStyle="short"/></td>
@@ -61,7 +77,15 @@
         </td>
         <td class="debt-cred">${numStr.frmt(ldgDeLn.debt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
         <td class="debt-cred">${numStr.frmt(ldgDeLn.cred.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
-        <td class="debt-cred">${numStr.frmt(ldgDeLn.blnc,rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+        <c:if test="${ldgDeLn.blnc.compareTo(java.math.BigDecimal.ZERO) eq -1}">
+          <c:set var="blnLn">
+            <span class='rdBlnc'>${numStr.frmt(ldgDeLn.blnc,rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</span>
+          </c:set>
+        </c:if>
+        <c:if test="${ldgDeLn.blnc.compareTo(java.math.BigDecimal.ZERO) ne -1}">
+          <c:set var="blnLn" value="${numStr.frmt(ldgDeLn.blnc,rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}"/>
+        </c:if>
+        <td class="debt-cred">${blnLn}</td>
       </tr>
     </c:forEach>
     <c:if test="${empty param.saNm}">
@@ -70,7 +94,15 @@
           <td colspan="3" class="total">${ky}:</td>
           <td class="total">${numStr.frmt(rvs.ldgDe.saDbTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
           <td class="total">${numStr.frmt(rvs.ldgDe.saCrTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
-          <td class="total">${numStr.frmt(rvs.ldgDe.saBlnTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</td>
+          <c:if test="${rvs.ldgDe.saBlnTo[ky].compareTo(java.math.BigDecimal.ZERO) eq -1}">
+            <c:set var="blnSaEnd">
+              <span class='rdBlnc'>${numStr.frmt(rvs.ldgDe.saBlnTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</span>
+            </c:set>
+          </c:if>
+          <c:if test="${rvs.ldgDe.saBlnTo[ky].compareTo(java.math.BigDecimal.ZERO) ne -1}">
+            <c:set var="blnSaEnd" value="${numStr.frmt(rvs.ldgDe.saBlnTo[ky].toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}"/>
+          </c:if>
+          <td class="total">${blnSaEnd}</td>
         </tr>
       </c:forEach>
     </c:if>
@@ -78,7 +110,15 @@
       <td colspan="3" class="total"><b>${i18n.getMsg("tot", rvs.upf.lng.iid)}:</b></td>
       <td class="total"><b>${numStr.frmt(rvs.ldgDe.debitAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
       <td class="total"><b>${numStr.frmt(rvs.ldgDe.creditAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
-      <td class="total"><b>${numStr.frmt(rvs.ldgDe.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b></td>
+      <c:if test="${rvs.ldgDe.balanceAcc.compareTo(java.math.BigDecimal.ZERO) eq -1}">
+        <c:set var="blnEnd">
+          <span class='rdBlnc'>${numStr.frmt(rvs.ldgDe.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}</span>
+        </c:set>
+      </c:if>
+      <c:if test="${rvs.ldgDe.balanceAcc.compareTo(java.math.BigDecimal.ZERO) ne -1}">
+        <c:set var="blnEnd" value="${numStr.frmt(rvs.ldgDe.balanceAcc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}"/>
+      </c:if>
+      <td class="total"><b>${blnEnd} ${rvs.astg.curr.nme}</b></td>
     </tr>
   </table>
 </body>

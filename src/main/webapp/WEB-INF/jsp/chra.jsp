@@ -39,7 +39,9 @@
           ${acc.nme}
         </td>
         <td>
-          ${acc.subacc}
+          <c:if test="${not empty acc.sacntId}">
+            (${acc.sacntId}) ${acc.subacc}
+          </c:if>
         </td>
         <td>
           <c:if test="${not empty acc.blTy}">
