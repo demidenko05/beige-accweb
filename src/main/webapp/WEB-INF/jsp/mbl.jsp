@@ -33,9 +33,9 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Acnt&pg=1&mbl=mbl/');">${i18n.getMsg("Acnts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=InEntr&pg=1&mbl=mbl/');">${i18n.getMsg("InEntrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Entr&pg=1&mbl=mbl/');">${i18n.getMsg("Entrs", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnj');">${i18n.getMsg("trial_balance", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnsj');">${i18n.getMsg("balance_sheet", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=ldgj');">${i18n.getMsg("Ledger", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnj&mbl=mbl/');">${i18n.getMsg("trial_balance", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=blnsj&mbl=mbl/');">${i18n.getMsg("balance_sheet", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=ldgj&mbl=mbl/');">${i18n.getMsg("Ledger", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
@@ -53,7 +53,7 @@
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=About');">${i18n.getMsg("About", rvs.upf.lng.iid)}</a>
-        <a href="srv?rnd=mbl">Refresh</a>
+        <a href="srv?rnd=mbl&mbl=mbl">Refresh</a>
         <a href="../">Home</a>
         <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Lng&pg=1&mbl=mbl/');">${i18n.getMsg("Lngs", rvs.upf.lng.iid)}</a>
@@ -68,7 +68,7 @@
           <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
         </c:if>
         <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
-          <a href="ntr?prc=PrcUsrPwd">${i18n.getMsg("change_password", rvs.upf.lng.iid)}</a>
+          <a href="ntr?prc=PrcUsrPwd&mbl=mbl/">${i18n.getMsg("change_password", rvs.upf.lng.iid)}</a>
         </c:if>
       </div>
     </div>
