@@ -8,7 +8,7 @@
 </c:if>
 <tr>
   <td>
-    <label for="MaFrn.saTy">${i18n.getMsg("saTy", rvs.upf.lng.iid)}</label>
+    <label for="Acnt.saTy">${i18n.getMsg("saTy", rvs.upf.lng.iid)}</label>
   </td>
 <tr>
 </tr>
