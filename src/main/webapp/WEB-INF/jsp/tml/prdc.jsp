@@ -15,16 +15,10 @@
 <body>
   <div class="entity-title">${i18n.getMsg(cls.simpleName, rvs.upf.lng.iid)}, <fmt:formatDate value="${now}" type="both" timeStyle="short"/></div>
   <div class="entity">
-    <c:forEach var="fn" items="${hldUvd.lazFrmFds(cls)}">
-      <c:set var="fdNm" value="${fn}" scope="request"/>
-      <c:if test="${not empty hldUvd.stg(cls,fn,'inWr')}">
-        <c:set var="mdl" value="${ent[fn]}" scope="request"/>
-        ${i18n.getMsg(fn, rvs.upf.lng.iid)}:
-        <jsp:include page="../st/${hldUvd.stgNn(cls,fn,'str')}.jsp"/><br>
-      </c:if>
-    </c:forEach>
-    <br>
-    <jsp:include page="penr.jsp"/><br>
+    <jsp:include page="prnt.jsp"/>
+    <c:if test="${not empty rvs.entrs}">
+      <jsp:include page="penr.jsp"/>
+    </c:if>
   </div>
 </body>
 </html>

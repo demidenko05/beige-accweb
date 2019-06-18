@@ -59,7 +59,7 @@
           </c:if>
           <th class="column-actions">${i18n.getMsg('Actions', rvs.upf.lng.iid)}</th>
         </tr>
-        <c:forEach var="ent" items="${ent.entrs}">
+        <c:forEach var="ent" items="${rvs.entrs}">
           <c:set var="ent" value="${ent}" scope="request"/>
           <tr>
             <c:set var="isFst" value="${true}" scope="request"/>
