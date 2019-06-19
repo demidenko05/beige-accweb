@@ -42,6 +42,7 @@
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Common", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Uom&pg=1');">${i18n.getMsg("Uoms", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Tax&pg=1');">${i18n.getMsg("Taxs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=TxCt&pg=1');">${i18n.getMsg("TxCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=TxDst&pg=1');">${i18n.getMsg("TxDsts", rvs.upf.lng.iid)}</a>
@@ -52,6 +53,8 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcrCt&pg=1');">${i18n.getMsg("DcrCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DbCr&pg=1');">${i18n.getMsg("DbCrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PrepFr&pg=1');">${i18n.getMsg("PrepFrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PrepTo&pg=1');">${i18n.getMsg("PrepTos", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PurInv&pg=1');">${i18n.getMsg("PurInvs", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
