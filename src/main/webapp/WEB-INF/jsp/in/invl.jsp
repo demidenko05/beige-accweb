@@ -4,7 +4,7 @@
 <c:if test="${txbl && stIb && (stAg || ent.ownr.inTx)}">
   <c:set var="calcTotalFnNm" value="calcTotalTax"/>
   <c:set var="calcPriceFnNm" value="calcPriceTax"/>
-  <c:set var="taxParam" value=",${ent.ownr.inTx},${rvs.astg.prDp},${rvs.astg.salTaxRoundMode.ordinal()}"/>
+  <c:set var="taxParam" value=",${ent.ownr.inTx},${rvs.astg.prDp},${rvs.astg.stRm.ordinal()}"/>
 </c:if>
 <c:if test="${!(txbl && stIb && (stAg || ent.ownr.inTx))}">
   <c:set var="calcTotalFnNm" value="calcTotal"/>
@@ -103,7 +103,7 @@
       <label>
          ${i18n.getMsg("txCt", rvs.upf.lng.iid)}
         <c:if test="${empty ent.txCt && not empty ent.ownr.dbcr.txDs}">
-          <button type="button" id="${ent.getClass().simpleName}btTxDs" class="btn" onclick="if (document.getElementById('${invLnItId}').value != '') { getHtmlByAjax('GET', 'nontransact/?nmPrc=PrcRevealTaxCat&nmRnd=revealTaxCatJson&flyPrIncTax=${ent.ownr.inTx}&nmEnt=${ent.getClass().simpleName}&taxDestId=${ent.ownr.dbcr.txDs.itsId}&itemId=' + document.getElementById('${invLnItId}').value + '');}">${i18n.getMsg("Reveal", rvs.upf.lng.iid)}</button>
+          <button type="button" id="${ent.getClass().simpleName}btTxDs" class="btn" onclick="if (document.getElementById('${invLnItId}').value != '') { bsGtAjx('GET', 'ntr/?prc=RvTxCt&rnd=rvTxCtJn&flyinTx=${ent.ownr.inTx}&ent=${ent.getClass().simpleName}&txDsId=${ent.ownr.dbcr.txDs.iid}&itmId=' + document.getElementById('${invLnItId}').value + '');}">${i18n.getMsg("Reveal", rvs.upf.lng.iid)}</button>
         </c:if>
       </label>
     </td>

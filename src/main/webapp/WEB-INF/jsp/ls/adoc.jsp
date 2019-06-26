@@ -8,7 +8,7 @@
     <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=edj&act=entEd&ent=${cls.simpleName}&${idPar}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Edit", rvs.upf.lng.iid)}</button>
     <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=dej&act=entCd&ent=${cls.simpleName}&${idPar}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Delete", rvs.upf.lng.iid)}</button>
   </c:if>
-  <c:if test="${ent.mdEnr}">
+  <c:if test="${ent.mdEnr && empty ent.rvId}">
     <button class="btn" onclick="bsGtAjx('GET', 'srv/?rnd=revj&act=entRv&ent=${cls.simpleName}&${cls.simpleName}.rvId=${ent.iid}&${idPar}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Reverse", rvs.upf.lng.iid)}</button>
   </c:if>
 </c:if>

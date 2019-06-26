@@ -2,7 +2,7 @@ site: https://sites.google.com/site/beigesoftware
 
 Beigesoft™ Enterprise Information System final standard WEB application (WAR).
 
-debug range #10 (10000..10999)
+debug range #14 (14000..14999)
 
 It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.

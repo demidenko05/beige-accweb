@@ -43,6 +43,8 @@
       <a href="#" class="dropdown-btn">${i18n.getMsg("Common", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Uom&pg=1&mbl=mbl/');">${i18n.getMsg("Uoms", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Wrh&pg=1&mbl=mbl/');">${i18n.getMsg("Wrhs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=WrhPl&pg=1&mbl=mbl/');">${i18n.getMsg("WrhPls", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Tax&pg=1&mbl=mbl/');">${i18n.getMsg("Taxs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=TxCt&pg=1&mbl=mbl/');">${i18n.getMsg("TxCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=TxDst&pg=1&mbl=mbl/');">${i18n.getMsg("TxDsts", rvs.upf.lng.iid)}</a>
