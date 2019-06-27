@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="txbl" value="${rvs.astg.stExs && !ent.omTx}" scope="request"/>
-<c:set var="stIb" value="${!rvs.astg.stIb}" scope="request"/>
+<c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
 <c:set var="inTx" value="${ent.inTx}" scope="request"/>
 <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
 <c:if test="${cls.simpleName eq 'PurInv'}">

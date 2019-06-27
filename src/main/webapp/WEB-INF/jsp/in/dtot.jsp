@@ -32,16 +32,14 @@
   <c:if test="${empty ent.cuFr}">
     <tr>
       <td>
-        <label>${i18n.getMsg("subt", rvs.upf.lng.iid)}+${i18n.getMsg("toTx", rvs.upf.lng.iid)}=${i18n.getMsg("tot", rvs.upf.lng.iid)}</label>
+        <label>${i18n.getMsg("toTx", rvs.upf.lng.iid)}, ${i18n.getMsg("tot", rvs.upf.lng.iid)}</label>
       </td>
       <td>
         <div class="input-line">
-          <c:set var="mdl" value="${ent.subt}" scope="request"/> 
-          <jsp:include page="../st/${hldUvd.stgNn(cls,'subt','str')}.jsp"/>
           <c:set var="mdl" value="${ent.toTx}" scope="request"/> 
-          +<jsp:include page="../st/${hldUvd.stgNn(cls,'toTx','str')}.jsp"/>
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'toTx','str')}.jsp"/>,
           <c:set var="mdl" value="${ent.tot}" scope="request"/> 
-          =<jsp:include page="../st/${hldUvd.stgNn(cls,'tot','str')}.jsp"/>
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'tot','str')}.jsp"/>
         </div>
       </td>
     </tr>
@@ -49,16 +47,14 @@
   <c:if test="${not empty ent.cuFr}">
     <tr>
       <td>
-        <label>${i18n.getMsg("suFc", rvs.upf.lng.iid)}+${i18n.getMsg("txFc", rvs.upf.lng.iid)}=${i18n.getMsg("toFc", rvs.upf.lng.iid)}</label>
+        <label>${i18n.getMsg("txFc", rvs.upf.lng.iid)}, ${i18n.getMsg("toFc", rvs.upf.lng.iid)}</label>
       </td>
       <td>
         <div class="input-line">
-          <c:set var="mdl" value="${ent.suFc}" scope="request"/> 
-          <jsp:include page="../st/${hldUvd.stgNn(cls,'suFc','str')}.jsp"/>
           <c:set var="mdl" value="${ent.txFc}" scope="request"/> 
-          +<jsp:include page="../st/${hldUvd.stgNn(cls,'txFc','str')}.jsp"/>
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'txFc','str')}.jsp"/>,
           <c:set var="mdl" value="${ent.toFc}" scope="request"/> 
-          =<jsp:include page="../st/${hldUvd.stgNn(cls,'toFc','str')}.jsp"/>
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'toFc','str')}.jsp"/>
         </div>
       </td>
     </tr>

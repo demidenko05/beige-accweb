@@ -1,40 +1,65 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="txbl" value="${rvs.astg.stExs && !ent.ownr.omTx}" scope="request"/>
+<c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
+<c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
 <c:if test="${txbl && stIb && (stAg || ent.ownr.inTx)}">
-  <c:set var="calcTotalFnNm" value="calcTotalTax"/>
-  <c:set var="calcPriceFnNm" value="calcPriceTax"/>
+  <c:set var="calcTotalFnNm" value="bsClcToTx"/>
+  <c:set var="calcPriceFnNm" value="bsClcPriTx"/>
   <c:set var="taxParam" value=",${ent.ownr.inTx},${rvs.astg.prDp},${rvs.astg.stRm.ordinal()}"/>
 </c:if>
 <c:if test="${!(txbl && stIb && (stAg || ent.ownr.inTx))}">
-  <c:set var="calcTotalFnNm" value="calcTotal"/>
-  <c:set var="calcPriceFnNm" value="calcPrice"/>
+  <c:set var="calcTotalFnNm" value="bsClcTot"/>
+  <c:set var="calcPriceFnNm" value="bsClcPri"/>
   <c:set var="taxParam" value=""/>
 </c:if>
 <tr>
   <td>
+    <label for="${cls.simpleName}itmApVsb">${i18n.getMsg('itm', rvs.upf.lng.iid)}</label>
+  </td>
+  <td>
+    <div class="input-line">
+      <input class="picked-appearence" id="${cls.simpleName}itmApVsb" disabled="disabled" type="text" value="${prApr}">
+      <input id="${cls.simpleName}itmId" required type="hidden" name="${cls.simpleName}.itm" value="${ent.itm.iid}">
+      <c:if test="${txbl}"><c:set var="picItm" value="iuot"/><c:set var="flyUom" value="&flyinTx=${ent.ownr.inTx}"/></c:if>
+      <c:if test="${!txbl}"><c:set var="picItm" value="iuom"/></c:if>
+      <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','&flyPi=${picItm}${flyUom}&mbl=${param.mbl}');">...</button>
+      <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}itm');">X</button>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <label for="${cls.simpleName}uomApVsb">${i18n.getMsg('uom', rvs.upf.lng.iid)}</label>
+  </td>
+  <td>
+    <div class="input-line">
+      <input class="picked-appearence" id="${cls.simpleName}uomApVsb" disabled="disabled" type="text" value="${prApr}">
+      <input id="${cls.simpleName}uomId" required type="hidden" name="${cls.simpleName}.uom" value="${ent.uom.iid}">
+      <button type="button" class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'uom').simpleName}','${cls.simpleName}','uom','&mbl=${param.mbl}');">...</button>
+      <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}uom');">X</button>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
     <label for="${ent.getClass().simpleName}.pri">
-      <c:if test="${not empty ent.ownr.cuFr}">
-        ${i18n.getMsg("prFc", rvs.upf.lng.iid)}
-      </c:if>
-      <c:if test="${empty ent.ownr.cuFr}">
-        ${i18n.getMsg("pri", rvs.upf.lng.iid)}
-      </c:if>
-      <c:if test="${txbl && ent.ownr.inTx}">
-        ${i18n.getMsg("include_taxes", rvs.upf.lng.iid)}
-      </c:if>
-      <c:if test="${txbl && !ent.ownr.inTx}">
-        ${i18n.getMsg("without_taxes", rvs.upf.lng.iid)}
-      </c:if>
+      <c:if test="${not empty ent.ownr.cuFr}">${i18n.getMsg("prFc", rvs.upf.lng.iid)}</c:if>
+      <c:if test="${empty ent.ownr.cuFr}">${i18n.getMsg("pri", rvs.upf.lng.iid)}</c:if>
+      <c:if test="${txbl && ent.ownr.inTx}">${i18n.getMsg("include_taxes", rvs.upf.lng.iid)}</c:if>
+      <c:if test="${txbl && !ent.ownr.inTx}">${i18n.getMsg("without_taxes", rvs.upf.lng.iid)}</c:if>
     </label>
   </td>
   <td>
     <div class="input-line">
+      <c:if test="${cls.simpleName eq 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.csDp}"/></c:if>
+      <c:if test="${cls.simpleName ne 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.prDp}"/></c:if>
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.prFc" value="${ent.prFc}"/> 
+        <input type="text" class="bsNum${priDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.prFc" value="${ent.prFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.pri" value="${ent.pri}"/> 
+        <input type="text" class="bsNum${priDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.pri" value="${ent.pri}"/> 
       </c:if>
     </div>
   </td>
@@ -116,9 +141,7 @@
   <c:if test="${stIb && (stAg || ent.ownr.inTx)}">
     <tr>
       <td>
-        <label>
-           ${i18n.getMsg("rate", rvs.upf.lng.iid)}
-        </label>
+        <label>${i18n.getMsg("rate", rvs.upf.lng.iid)}</label>
       </td>
       <td>
         <div class="input-line">
@@ -137,9 +160,7 @@
     </tr>
     <tr>
       <td>
-        <label>
-           ${i18n.getMsg("toTx", rvs.upf.lng.iid)}
-        </label>
+        <label>${i18n.getMsg("toTx", rvs.upf.lng.iid)}</label>
       </td>
       <td>
         <div class="input-line">
@@ -149,10 +170,11 @@
     </tr>      
   </c:if>
 </c:if>
+<c:set target="${usdDp}" property="${priDp.toString()}" value="${priDp.toString()}"/>
 <c:set target="${usdDp}" property="${rvs.astg.prDp.toString()}" value="${rvs.astg.prDp.toString()}"/>
 <c:set target="${usdDp}" property="${rvs.astg.quDp.toString()}" value="${rvs.astg.quDp.toString()}"/>
-<c:set var="numJsAfl" value="jQuery('#${ent.getClass().simpleName}tot').on('change', function(){${calcPriceFnNm}(this,'${ent.getClass().simpleName}','pri',${rvs.astg.prDp},${rvs.astg.rdMd.ordinal()}${taxParam});});"/>
-<c:set var="numJsAfl" value="${numJsAfl}jQuery('.changingTot').on('change', function(){${calcTotalFnNm}(this,'${ent.getClass().simpleName}','pri',${rvs.astg.prDp},${rvs.astg.rdMd.ordinal()}${taxParam});});"/>
+<c:set var="numJsAfl" value="jQuery('#${ent.getClass().simpleName}tot').on('change', function(){${calcPriceFnNm}(this,'${ent.getClass().simpleName}','pri',${rvs.astg.prDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
+<c:set var="numJsAfl" value="${numJsAfl}jQuery('.changingTot').on('change', function(){${calcTotalFnNm}(this,'${ent.getClass().simpleName}','pri',${rvs.astg.prDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
 <c:if test="${not empty numJsAf}">
   <c:set var="numJsAf" value="${numJsAf}${numJsAfl}" scope="request"/>
 </c:if>

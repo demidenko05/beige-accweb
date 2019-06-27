@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${txbl && stIb}">
+<c:if test="${txbl && !stIb}">
   <c:if test="${not empty txDs}">
     ${txDs.nme}: ${i18n.getMsg("stRm", rvs.upf.lng.iid)}=${i18n.getMsg(txDs.stRm, rvs.upf.lng.iid)},
     ${i18n.getMsg("stIb", rvs.upf.lng.iid)}=${i18n.getMsg(txDs.stIb, rvs.upf.lng.iid)},
@@ -20,7 +20,7 @@
   </c:forEach>
   <br> <b>${i18n.getMsg("toTx", rvs.upf.lng.iid)}: ${numStr.frmt(taxesTl.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.astg.curr.nme}</b>
 </c:if>
-<c:if test="${txbl && !stIb}">
+<c:if test="${txbl && stIb}">
   <div class="title-list">${i18n.getMsg("Taxs", rvs.upf.lng.iid)}:</div>
   <c:if test="${not empty txDs}">
     ${txDs.nme}: ${i18n.getMsg("stRm", rvs.upf.lng.iid)}=${i18n.getMsg(txDs.stRm, rvs.upf.lng.iid)},
