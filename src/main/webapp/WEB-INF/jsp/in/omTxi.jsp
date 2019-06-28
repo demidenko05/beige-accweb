@@ -1,21 +1,19 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="txbl" value="${rvs.astg.stExs && !ent.omTx}" scope="request"/>
-<c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
+<c:if test="${ent.getClass().simpleName eq 'PurInv'}"><c:set var="txbl" value="${rvs.astg.stExp && !ent.omTx}" scope="request"/></c:if>
+<c:if test="${ent.getClass().simpleName eq 'SalInv'}"><c:set var="txbl" value="${rvs.astg.stExs && !ent.omTx}" scope="request"/></c:if>
+<c:if test="${txbl && empty ent.dbcr.txDs}">
+  <c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
+  <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
+  <c:set var="stRm" value="${rvs.astg.stRm}" scope="request"/>
+</c:if>
+<c:if test="${txbl && not empty ent.dbcr.txDs}">
+  <c:set var="stIb" value="${ent.dbcr.txDs.stIb}" scope="request"/>
+  <c:set var="stAg" value="${ent.dbcr.txDs.stAg}" scope="request"/>
+  <c:set var="stRm" value="${ent.dbcr.txDs.stRm}" scope="request"/>
+</c:if>
 <c:set var="inTx" value="${ent.inTx}" scope="request"/>
-<c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
-<c:if test="${cls.simpleName eq 'PurInv'}">
-  <c:set var="stExtract" value="${rvs.astg.stExp}"/>
-</c:if>
-<c:if test="${cls.simpleName eq 'SalInv'}">
-  <c:set var="stExtract" value="${rvs.astg.stExs}"/>
-</c:if>
-<c:if test="${stExtract}">
-  <c:if test="${ent.dbcr != null && ent.dbcr.txDs != null}">
-    <c:set var="txDs" value="${ent.dbcr.txDs}" scope="request"/>
-    <c:set var="stIb" value="${!ent.dbcr.txDs.stIb}" scope="request"/>
-    <c:set var="stAg" value="${ent.dbcr.txDs.stAg}" scope="request"/>
-  </c:if>
+<c:if test="${txbl}">
   <c:if test="${ent.tot.doubleValue() == 0}">
     <tr>
       <td>

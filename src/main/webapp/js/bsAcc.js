@@ -78,9 +78,9 @@ function bsSetCost(pCost, pIdDmPi) {
     inpCost.value = pCost;
     if (inpCostVsb != null) {
       inpCostVsb.value = pCost;
-      inpCostVsb.onchange();
+      bsInpChn(inpCostVsb);
     } else {
-      inpCost.onchange();
+      bsInpChn(inpCost);
     }
   }
 };
@@ -93,7 +93,7 @@ function bsSetUom(uomId, uomName, pIdDmPi) {
     inpUomId.value = uomId;
     var uomApVsb = document.getElementById(whoPicking["pigEnt"] + "uomApVsb");
     uomApVsb.value = uomName;
-    uomApVsb.onchange();
+    bsInpChn(uomApVsb);
   }
   var btTxDs = document.getElementById(whoPicking["pigEnt"] + "btTxDs");
   if (btTxDs != null) {
@@ -109,7 +109,7 @@ function bsSelSac(saId, subaccType, subaccAp, pIdDmPi) {
   document.getElementById(whoPicking["pigEnt"] + whoPicking["piFld"] + "Id").value = saId;
   var inpVsb = document.getElementById(whoPicking["pigEnt"] + whoPicking["piFld"] + "ApVsb");
   inpVsb.value = subaccAp;
-  inpVsb.onchange();
+  bsInpChn(inpVsb);
   document.getElementById(pIdDmPi+"Dlg").close();
 };
 
@@ -120,7 +120,7 @@ function selectChooseableSpecType(typeId, typeAp, pIdDmPi) {
   inpAp.setAttribute("value", typeAp);
   var inpApVsb = document.getElementById(whoPicking["pigEnt"] + whoPicking["piFld"] + "TyApVsb");
   inpApVsb.value = typeAp;
-  inpApVsb.onchange();
+  bsInpChn(inpApVsb);
 };
 //clears subacc
 function bsClrSal(entitySimpleName) {
@@ -135,7 +135,7 @@ function selectAccSubacc(pEntId, pEntAp, pIdDmPi) {
   document.getElementById(whoPicking["pigEnt"] +"saNmAp").setAttribute("value", pEntAp);
   var inpApVsb = document.getElementById(whoPicking["pigEnt"] + "saNmApVsb");
   inpApVsb.value = pEntAp;
-  inpApVsb.onchange();
+  bsInpChn(inpApVsb);
   document.getElementById(pIdDmPi+"Dlg").close();
 };
 
@@ -171,7 +171,7 @@ function bsSelWgRtPlAm(rate, plAm, pIdDmPi) {
       bsInpChn(inpPlusAmount);
     }
     inpPercentage.value = rate;
-    inpPercentage.onchange();
+    bsInpChn(inpPercentage);
   }
 };
 
@@ -334,7 +334,7 @@ function selectCsvPath(pVal, pPathAppr) {
     CsvClfldPh.value = arr[1];
   }
   dataPath.value = pPathAppr;
-  dataPath.onchange();
+  bsInpChn(dataPath);
 };
 
 function clearCsvPath() {
@@ -344,7 +344,7 @@ function clearCsvPath() {
   CsvClfldPh.value = "";
   CsvCldtIdx.value = "";
   dataPath.value = "";
-  dataPath.onchange();
+  bsInpChn(dataPath);
 };
 
 function openCsvPathPicker(pPath, pReadNm) {

@@ -1,15 +1,26 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="txbl" value="${rvs.astg.stExs && !ent.ownr.omTx}" scope="request"/>
-<c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
-<c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
-<c:if test="${txbl && stIb && (stAg || ent.ownr.inTx)}">
+<c:if test="${ent.ownr.getClass().simpleName eq 'PurInv'}"><c:set var="txbl" value="${rvs.astg.stExp && !ent.ownr.omTx}" scope="request"/></c:if>
+<c:if test="${ent.ownr.getClass().simpleName eq 'SalInv'}"><c:set var="txbl" value="${rvs.astg.stExs && !ent.ownr.omTx}" scope="request"/></c:if>
+<c:if test="${txbl && empty ent.ownr.dbcr.txDs}">
+  <c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
+  <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
+  <c:set var="stRm" value="${rvs.astg.stRm}" scope="request"/>
+</c:if>
+<c:if test="${txbl && not empty ent.ownr.dbcr.txDs}">
+  <c:set var="stIb" value="${ent.ownr.dbcr.txDs.stIb}" scope="request"/>
+  <c:set var="stAg" value="${ent.ownr.dbcr.txDs.stAg}" scope="request"/>
+  <c:set var="stRm" value="${ent.ownr.dbcr.txDs.stRm}" scope="request"/>
+</c:if>
+<c:if test="${cls.simpleName eq 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.csDp}"/></c:if>
+<c:if test="${cls.simpleName ne 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.prDp}"/></c:if>
+<c:if test="${txbl && !stIb && (stAg || ent.ownr.inTx)}">
   <c:set var="calcTotalFnNm" value="bsClcToTx"/>
   <c:set var="calcPriceFnNm" value="bsClcPriTx"/>
-  <c:set var="taxParam" value=",${ent.ownr.inTx},${rvs.astg.prDp},${rvs.astg.stRm.ordinal()}"/>
+  <c:set var="taxParam" value=",${ent.ownr.inTx},${priDp},${stRm.ordinal()}"/>
 </c:if>
-<c:if test="${!(txbl && stIb && (stAg || ent.ownr.inTx))}">
+<c:if test="${!(txbl && !stIb && (stAg || ent.ownr.inTx))}">
   <c:set var="calcTotalFnNm" value="bsClcTot"/>
   <c:set var="calcPriceFnNm" value="bsClcPri"/>
   <c:set var="taxParam" value=""/>
@@ -53,8 +64,6 @@
   </td>
   <td>
     <div class="input-line">
-      <c:if test="${cls.simpleName eq 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.csDp}"/></c:if>
-      <c:if test="${cls.simpleName ne 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.prDp}"/></c:if>
       <c:if test="${not empty ent.ownr.cuFr}">
         <input type="text" class="bsNum${priDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.prFc" value="${ent.prFc}"/> 
       </c:if>
@@ -127,7 +136,7 @@
     <td>
       <label>
          ${i18n.getMsg("txCt", rvs.upf.lng.iid)}
-        <c:if test="${empty ent.txCt && not empty ent.ownr.dbcr.txDs}">
+        <c:if test="${not empty ent.ownr.dbcr.txDs}">
           <button type="button" id="${ent.getClass().simpleName}btTxDs" class="btn" onclick="if (document.getElementById('${invLnItId}').value != '') { bsGtAjx('GET', 'ntr/?prc=RvTxCt&rnd=rvTxCtJn&flyinTx=${ent.ownr.inTx}&ent=${ent.getClass().simpleName}&txDsId=${ent.ownr.dbcr.txDs.iid}&itmId=' + document.getElementById('${invLnItId}').value + '');}">${i18n.getMsg("Reveal", rvs.upf.lng.iid)}</button>
         </c:if>
       </label>
@@ -138,21 +147,23 @@
       </div>
     </td>
   </tr>
-  <c:if test="${stIb && (stAg || ent.ownr.inTx)}">
+  <c:if test="${!stIb && (stAg || ent.ownr.inTx)}">
     <tr>
       <td>
         <label>${i18n.getMsg("rate", rvs.upf.lng.iid)}</label>
       </td>
       <td>
         <div class="input-line">
-           <c:if test="${empty ent.txCt && not empty ent.ownr.dbcr.txDs}">
+          <c:if test="${not empty ent.ownr.dbcr.txDs}">
             <c:set var="agRt" value=""/>
           </c:if>
-          <c:if test="${empty ent.txCt && empty ent.ownr.dbcr.txDs}">
-            <c:set var="agRt" value="${numStr.frmt('0.0',rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.txDp,rvs.upf.dgInGr)}"/>
-          </c:if>
-          <c:if test="${not empty ent.txCt}">
-            <c:set var="agRt" value="${numStr.frmt(ent.txCt.agRt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.txDp,rvs.upf.dgInGr)}"/>
+          <c:if test="${empty ent.ownr.dbcr.txDs}">
+            <c:if test="${not empty ent.txCt}">
+              <c:set var="agRt" value="${numStr.frmt(ent.txCt.agRt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.txDp,rvs.upf.dgInGr)}"/>
+            </c:if>
+            <c:if test="${empty ent.txCt}">
+              <c:set var="agRt" value="${numStr.frmt('0.0',rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.txDp,rvs.upf.dgInGr)}"/>
+            </c:if>
           </c:if>
           <input type="text" disabled id="${ent.getClass().simpleName}rate" value="${agRt}"/> 
         </div>
@@ -173,8 +184,8 @@
 <c:set target="${usdDp}" property="${priDp.toString()}" value="${priDp.toString()}"/>
 <c:set target="${usdDp}" property="${rvs.astg.prDp.toString()}" value="${rvs.astg.prDp.toString()}"/>
 <c:set target="${usdDp}" property="${rvs.astg.quDp.toString()}" value="${rvs.astg.quDp.toString()}"/>
-<c:set var="numJsAfl" value="jQuery('#${ent.getClass().simpleName}tot').on('change', function(){${calcPriceFnNm}(this,'${ent.getClass().simpleName}','pri',${rvs.astg.prDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
-<c:set var="numJsAfl" value="${numJsAfl}jQuery('.changingTot').on('change', function(){${calcTotalFnNm}(this,'${ent.getClass().simpleName}','pri',${rvs.astg.prDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
+<c:set var="numJsAfl" value="jQuery('#${ent.getClass().simpleName}tot').on('change', function(){${calcPriceFnNm}(this,'${ent.getClass().simpleName}','pri',${priDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
+<c:set var="numJsAfl" value="${numJsAfl}jQuery('.changingTot').on('change', function(){${calcTotalFnNm}(this,'${ent.getClass().simpleName}','pri',${priDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
 <c:if test="${not empty numJsAf}">
   <c:set var="numJsAf" value="${numJsAf}${numJsAfl}" scope="request"/>
 </c:if>
