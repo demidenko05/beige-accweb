@@ -13,7 +13,7 @@
   </c:if>
 </c:if>
 <c:if test="${not empty ent.cuFr}">
-  <th>${i18n.getMsg("priFc", rvs.upf.lng.iid)}</th>
+  <th>${i18n.getMsg("prFc", rvs.upf.lng.iid)}</th>
   <c:if test="${txbl && !inTx || txb && stIb}">
     <th>${i18n.getMsg("suFc", rvs.upf.lng.iid)}</th>
   </c:if>

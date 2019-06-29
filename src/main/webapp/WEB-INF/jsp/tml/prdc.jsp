@@ -19,6 +19,9 @@
     <c:if test="${not empty rvs.entrs}">
       <jsp:include page="penr.jsp"/>
     </c:if>
+    <c:if test="${not empty rvs.whEnrs}">
+      <jsp:include page="pwenr.jsp"/>
+    </c:if>
   </div>
 </body>
 </html>
