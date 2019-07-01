@@ -8,6 +8,7 @@
   <c:set var="stRm" value="${rvs.astg.stRm}" scope="request"/>
 </c:if>
 <c:if test="${txbl && not empty ent.dbcr.txDs}">
+  <c:set var="txDs" value="${ent.dbcr.txDs}" scope="request"/>
   <c:set var="stIb" value="${ent.dbcr.txDs.stIb}" scope="request"/>
   <c:set var="stAg" value="${ent.dbcr.txDs.stAg}" scope="request"/>
   <c:set var="stRm" value="${ent.dbcr.txDs.stRm}" scope="request"/>

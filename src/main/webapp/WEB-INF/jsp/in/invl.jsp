@@ -31,7 +31,7 @@
   </td>
   <td>
     <div class="input-line">
-      <input class="picked-appearence" id="${cls.simpleName}itmApVsb" disabled="disabled" type="text" value="${prApr}">
+      <input class="picked-appearence" id="${cls.simpleName}itmApVsb" disabled="disabled" type="text" value="${ent.itm.nme}">
       <input id="${cls.simpleName}itmId" required type="hidden" name="${cls.simpleName}.itm" value="${ent.itm.iid}">
       <c:if test="${txbl}"><c:set var="picItm" value="iuot"/><c:set var="flyUom" value="&flyinTx=${ent.ownr.inTx}"/></c:if>
       <c:if test="${!txbl}"><c:set var="picItm" value="iuom"/></c:if>
@@ -46,7 +46,7 @@
   </td>
   <td>
     <div class="input-line">
-      <input class="picked-appearence" id="${cls.simpleName}uomApVsb" disabled="disabled" type="text" value="${prApr}">
+      <input class="picked-appearence" id="${cls.simpleName}uomApVsb" disabled="disabled" type="text" value="${ent.uom.nme}">
       <input id="${cls.simpleName}uomId" required type="hidden" name="${cls.simpleName}.uom" value="${ent.uom.iid}">
       <button type="button" class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'uom').simpleName}','${cls.simpleName}','uom','&mbl=${param.mbl}');">...</button>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}uom');">X</button>
@@ -55,7 +55,7 @@
 </tr>
 <tr>
   <td>
-    <label for="${ent.getClass().simpleName}.pri">
+    <label for="${cls.simpleName}.pri">
       <c:if test="${not empty ent.ownr.cuFr}">${i18n.getMsg("prFc", rvs.upf.lng.iid)}</c:if>
       <c:if test="${empty ent.ownr.cuFr}">${i18n.getMsg("pri", rvs.upf.lng.iid)}</c:if>
       <c:if test="${txbl && ent.ownr.inTx}">${i18n.getMsg("include_taxes", rvs.upf.lng.iid)}</c:if>
@@ -65,28 +65,28 @@
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${priDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.prFc" value="${ent.prFc}"/> 
+        <input type="text" class="bsNum${priDp} changingTot" required id="${cls.simpleName}pri" name="${cls.simpleName}.prFc" value="${ent.prFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${priDp} changingTot" required id="${ent.getClass().simpleName}pri" name="${ent.getClass().simpleName}.pri" value="${ent.pri}"/> 
+        <input type="text" class="bsNum${priDp} changingTot" required id="${cls.simpleName}pri" name="${cls.simpleName}.pri" value="${ent.pri}"/> 
       </c:if>
     </div>
   </td>
 </tr>
 <tr>
   <td>
-    <label for="${ent.getClass().simpleName}.quan">${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
+    <label for="${cls.simpleName}.quan">${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
   </td>
   <td>
     <div class="input-line">
-      <input type="text" class="bsNum${rvs.astg.quDp} changingTot" required id="${ent.getClass().simpleName}quan" name="${ent.getClass().simpleName}.quan" value="${ent.quan}"/> 
+      <input type="text" class="bsNum${rvs.astg.quDp} changingTot" required id="${cls.simpleName}quan" name="${cls.simpleName}.quan" value="${ent.quan}"/> 
     </div>
   </td>
 </tr>
 <c:if test="${!txbl || ent.ownr.inTx}">
 <tr>
   <td>
-    <label for="${ent.getClass().simpleName}.tot">
+    <label for="${cls.simpleName}.tot">
       <c:if test="${not empty ent.ownr.cuFr}">
         ${i18n.getMsg("toFc", rvs.upf.lng.iid)}
       </c:if>
@@ -98,10 +98,10 @@
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${ent.getClass().simpleName}tot" name="${ent.getClass().simpleName}.toFc" value="${ent.toFc}"/> 
+        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.toFc" value="${ent.toFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${ent.getClass().simpleName}tot" name="${ent.getClass().simpleName}.tot" value="${ent.tot}"/> 
+        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.tot" value="${ent.tot}"/> 
       </c:if>
     </div>
   </td>
@@ -110,7 +110,7 @@
 <c:if test="${!(!txbl || ent.ownr.inTx)}">
 <tr>
   <td>
-    <label for="${ent.getClass().simpleName}.tot">
+    <label for="${cls.simpleName}.tot">
       <c:if test="${not empty ent.ownr.cuFr}">
         ${i18n.getMsg("suFc", rvs.upf.lng.iid)}
       </c:if>
@@ -122,10 +122,10 @@
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${ent.getClass().simpleName}tot" name="${ent.getClass().simpleName}.suFc" value="${ent.suFc}"/> 
+        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.suFc" value="${ent.suFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${ent.getClass().simpleName}tot" name="${ent.getClass().simpleName}.subt" value="${ent.subt}"/> 
+        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.subt" value="${ent.subt}"/> 
       </c:if>
     </div>
   </td>
@@ -137,13 +137,13 @@
       <label>
          ${i18n.getMsg("txCt", rvs.upf.lng.iid)}
         <c:if test="${not empty ent.ownr.dbcr.txDs}">
-          <button type="button" id="${ent.getClass().simpleName}btTxDs" class="btn" onclick="if (document.getElementById('${invLnItId}').value != '') { bsGtAjx('GET', 'ntr/?prc=RvTxCt&rnd=rvTxCtJn&flyinTx=${ent.ownr.inTx}&ent=${ent.getClass().simpleName}&txDsId=${ent.ownr.dbcr.txDs.iid}&itmId=' + document.getElementById('${invLnItId}').value + '');}">${i18n.getMsg("Reveal", rvs.upf.lng.iid)}</button>
+          <button type="button" id="${cls.simpleName}btTxDs" class="btn" onclick="if (document.getElementById('${cls.simpleName}itmId').value != '') { bsGtAjx('GET', 'ntr/?prc=RvTxCt&flyinTx=${ent.ownr.inTx}&ent=${cls.simpleName}&txDsId=${ent.ownr.dbcr.txDs.iid}&itmId=' + document.getElementById('${cls.simpleName}itmId').value + '');}">${i18n.getMsg("Reveal", rvs.upf.lng.iid)}</button>
         </c:if>
       </label>
     </td>
     <td>
       <div class="input-line">
-        <input type="text" disabled id="${ent.getClass().simpleName}txCt" value="${ent.txCt.nme}"/> 
+        <input type="text" disabled id="${cls.simpleName}txCt" value="${ent.txCt.nme}"/> 
       </div>
     </td>
   </tr>
@@ -165,7 +165,7 @@
               <c:set var="agRt" value="${numStr.frmt('0.0',rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.txDp,rvs.upf.dgInGr)}"/>
             </c:if>
           </c:if>
-          <input type="text" disabled id="${ent.getClass().simpleName}rate" value="${agRt}"/> 
+          <input type="text" disabled id="${cls.simpleName}rate" value="${agRt}"/> 
         </div>
       </td>
     </tr>
@@ -175,7 +175,7 @@
       </td>
       <td>
         <div class="input-line">
-          <input type="text" required id="${ent.getClass().simpleName}toTx" name="${ent.getClass().simpleName}.toTx" class="bsNum${rvs.astg.prDp}" value="${ent.toTx}" onchange="bsInpChn(this);"/> 
+          <input type="text" required id="${cls.simpleName}toTx" name="${cls.simpleName}.toTx" class="bsNum${rvs.astg.prDp}" value="${ent.toTx}" onchange="bsInpChn(this);"/> 
         </div>
       </td>
     </tr>      
@@ -184,8 +184,8 @@
 <c:set target="${usdDp}" property="${priDp.toString()}" value="${priDp.toString()}"/>
 <c:set target="${usdDp}" property="${rvs.astg.prDp.toString()}" value="${rvs.astg.prDp.toString()}"/>
 <c:set target="${usdDp}" property="${rvs.astg.quDp.toString()}" value="${rvs.astg.quDp.toString()}"/>
-<c:set var="numJsAfl" value="jQuery('#${ent.getClass().simpleName}tot').on('change', function(){${calcPriceFnNm}(this,'${ent.getClass().simpleName}','pri',${priDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
-<c:set var="numJsAfl" value="${numJsAfl}jQuery('.changingTot').on('change', function(){${calcTotalFnNm}(this,'${ent.getClass().simpleName}','pri',${priDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
+<c:set var="numJsAfl" value="jQuery('#${cls.simpleName}tot').on('change', function(){${calcPriceFnNm}(this,'${cls.simpleName}','pri',${priDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
+<c:set var="numJsAfl" value="${numJsAfl}jQuery('.changingTot').on('change', function(){${calcTotalFnNm}(this,'${cls.simpleName}','pri',${priDp},${rvs.astg.rndm.ordinal()}${taxParam});});"/>
 <c:if test="${not empty numJsAf}">
   <c:set var="numJsAf" value="${numJsAf}${numJsAfl}" scope="request"/>
 </c:if>

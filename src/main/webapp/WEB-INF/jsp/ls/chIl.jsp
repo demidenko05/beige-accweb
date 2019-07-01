@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${empty ent.cuFr}">
+<c:if test="${empty rvs.uvs.ent.cuFr}">
   <th>${i18n.getMsg("pri", rvs.upf.lng.iid)}</th>
   <c:if test="${txbl && !inTx || txb && stIb}">
     <th>${i18n.getMsg("subt", rvs.upf.lng.iid)}</th>
@@ -12,7 +12,7 @@
     <th>${i18n.getMsg("tot", rvs.upf.lng.iid)}</th>
   </c:if>
 </c:if>
-<c:if test="${not empty ent.cuFr}">
+<c:if test="${not empty rvs.uvs.ent.cuFr}">
   <th>${i18n.getMsg("prFc", rvs.upf.lng.iid)}</th>
   <c:if test="${txbl && !inTx || txb && stIb}">
     <th>${i18n.getMsg("suFc", rvs.upf.lng.iid)}</th>

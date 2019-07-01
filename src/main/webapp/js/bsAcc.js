@@ -35,7 +35,6 @@ function bsPickSac(pFdNm, pPikng, pSaNm, pAdPr) {
     bsShwErr(BSMSG["choose_account_first"]);
   }
 };
-
 //Clears subacc picker:
 function bsClearSac(pPikng, pSaNm) {
   document.getElementById(pPikng + pSaNm + "Id").value = "";
@@ -44,7 +43,6 @@ function bsClearSac(pPikng, pSaNm) {
   saApVsb.value = "";
   bsInpChn(saApVsb);
 };
-
 //Selects/sets account by picker:
 function bsSelAcc(pEntId, pEntAp, pIdDmPi, pSaId) {
   var whoPicking = BSSTATE["WhoPi"][pIdDmPi];
@@ -67,8 +65,6 @@ function bsSelAcc(pEntId, pEntAp, pIdDmPi, pSaId) {
   }
   document.getElementById(pIdDmPi+"Dlg").close();
 };
-
-
 //set known or from returned invoice line cost for picked item, cost is already rounded and internationalized string value
 function bsSetCost(pCost, pIdDmPi) {
   var whoPicking = BSSTATE["WhoPi"][pIdDmPi];
@@ -84,8 +80,7 @@ function bsSetCost(pCost, pIdDmPi) {
     }
   }
 };
-
-//set UOM for picked item
+//set UOM for picked item:
 function bsSetUom(uomId, uomName, pIdDmPi) {
   var whoPicking = BSSTATE["WhoPi"][pIdDmPi];
   var inpUomId = document.getElementById(whoPicking["pigEnt"] + "uomId");
@@ -100,6 +95,12 @@ function bsSetUom(uomId, uomName, pIdDmPi) {
     //revealing dest tax cat:
     btTxDs.style.display="block";
   }
+};
+//clears subacc:
+function bsClrSal(entitySimpleName) {
+  document.getElementById(entitySimpleName + "saId").setAttribute("value", "");
+  document.getElementById(entitySimpleName + "saNmAp").setAttribute("value", "");
+  document.getElementById(entitySimpleName + "saNmApVsb").setAttribute("value", "");
 };
 
 function bsSelSac(saId, subaccType, subaccAp, pIdDmPi) {
@@ -122,12 +123,6 @@ function selectChooseableSpecType(typeId, typeAp, pIdDmPi) {
   inpApVsb.value = typeAp;
   bsInpChn(inpApVsb);
 };
-//clears subacc
-function bsClrSal(entitySimpleName) {
-  document.getElementById(entitySimpleName + "saId").setAttribute("value", "");
-  document.getElementById(entitySimpleName + "saNmAp").setAttribute("value", "");
-  document.getElementById(entitySimpleName + "saNmApVsb").setAttribute("value", "");
-};
 
 function selectAccSubacc(pEntId, pEntAp, pIdDmPi) {
   var whoPicking = BSSTATE["WhoPi"][pIdDmPi];
@@ -139,23 +134,23 @@ function selectAccSubacc(pEntId, pEntAp, pIdDmPi) {
   document.getElementById(pIdDmPi+"Dlg").close();
 };
 
-function bsMkWgToTx(pInp, nameEntity, totalGross, pTaxDp, pTaxRm) {
-  var inpAllowance = document.getElementById(nameEntity + "alwc");
-  var inpPlusAmount = document.getElementById(nameEntity + "plAm");
-  var inpPercentage = document.getElementById(nameEntity + "rate");
+function bsMkWgToTx(pInp, pEntNm, totalGross, pTxDp, pTxRm) {
+  var inpAllowance = document.getElementById(pEntNm + "alwc");
+  var inpPlusAmount = document.getElementById(pEntNm + "plAm");
+  var inpPercentage = document.getElementById(pEntNm + "rate");
   var alwc = bsStrFlt(inpAllowance.value);
   var plAm = bsStrFlt(inpPlusAmount.value);
   var rate = bsStrFlt(inpPercentage.value);
-  var inpTotal = document.getElementById(nameEntity + "tot");
-  var total = bsRound(plAm + (totalGross - alwc) * rate / 100, pTaxDp, pTaxRm);
-  inpTotal.value = bsNumStr(total.toString(), pTaxDp);
+  var inpTotal = document.getElementById(pEntNm + "tot");
+  var total = bsRound(plAm + (totalGross - alwc) * rate / 100, pTxDp, pTxRm);
+  inpTotal.value = bsNumStr(total.toString(), pTxDp);
   bsInpChn(inpTotal);
   bsInpChn(pInp);
 };
 
-function bsClrWgTxs(nameEntity) {
-  var inpTotalWageTaxes = document.getElementById(nameEntity + "toWgTx");
-  var inpTotalWageTaxesVsb = document.getElementById(nameEntity + "toWgTxVsb");
+function bsClrWgTxs(pEntNm) {
+  var inpTotalWageTaxes = document.getElementById(pEntNm + "toWgTx");
+  var inpTotalWageTaxesVsb = document.getElementById(pEntNm + "toWgTxVsb");
   inpTotalWageTaxes.value = 0;
   inpTotalWageTaxesVsb.value = 0;
   bsInpChn(inpTotalWageTaxesVsb);
@@ -355,17 +350,17 @@ function openCsvPathPicker(pPath, pReadNm) {
     bsGtAjx('GET', pPath + pReadNm);
   }
 };
-
-function bsClcPriTx(pInp, nameEntity, pPriceNm, pPriceDp, pPriceRm, pIsTaxIncluded, pTaxDp, pTaxRm) {
-  var inpTotal = document.getElementById(nameEntity + "tot");
+//calculate price and tax cause total/quantity changed:
+function bsClcPriTx(pInp, pEntNm, pPriNm, pPrDp, pPriceRm, pInTx, pTxDp, pTxRm) {
+  var inpTotal = document.getElementById(pEntNm + "tot");
   var total = bsStrFlt(inpTotal.value);
-  bsClcTx(nameEntity, total, pIsTaxIncluded, pTaxDp, pTaxRm);
-  var inpQuantity = document.getElementById(nameEntity + "quan");
+  bsClcTx(pEntNm, total, pInTx, pTxDp, pTxRm);
+  var inpQuantity = document.getElementById(pEntNm + "quan");
   var quantity = bsStrFlt(inpQuantity.value);
-  var inpPrice = document.getElementById(nameEntity + pPriceNm);
-  var price = bsRound(total/quantity, pPriceDp, pPriceRm);
-  inpPrice.value = bsNumStr(price.toString(), pPriceDp);
-  var inpPriceVsb = document.getElementById(nameEntity + pPriceNm + "Vsb");
+  var inpPrice = document.getElementById(pEntNm + pPriNm);
+  var price = bsRound(total/quantity, pPrDp, pPriceRm);
+  inpPrice.value = bsNumStr(price.toString(), pPrDp);
+  var inpPriceVsb = document.getElementById(pEntNm + pPriNm + "Vsb");
   if (inpPriceVsb != null) {
     inpPriceVsb.value = inpPrice.value;
     bsInpChn(inpPriceVsb);
@@ -374,16 +369,16 @@ function bsClcPriTx(pInp, nameEntity, pPriceNm, pPriceDp, pPriceRm, pIsTaxInclud
   }
   bsInpChn(pInp);
 };
-
-function bsClcToTx(pInp, nameEntity, pPriceNm, pPriceDp, pPriceRm, pIsTaxIncluded, pTaxDp, pTaxRm) {
-  var inpPrice = document.getElementById(nameEntity + pPriceNm);
+//calculate total and tax cause price/quantity changed:
+function bsClcToTx(pInp, pEntNm, pPriNm, pPrDp, pPriceRm, pInTx, pTxDp, pTxRm) {
+  var inpPrice = document.getElementById(pEntNm + pPriNm);
   var price = bsStrFlt(inpPrice.value);
-  var inpQuantity = document.getElementById(nameEntity + "quan");
+  var inpQuantity = document.getElementById(pEntNm + "quan");
   var quantity = bsStrFlt(inpQuantity.value);
-  var inpTotal = document.getElementById(nameEntity + "tot");
-  var total = bsRound(price * quantity, pPriceDp, pPriceRm);
-  inpTotal.value = bsNumStr(total.toString(), pPriceDp);
-  var inpTotalVsb = document.getElementById(nameEntity + "totVsb");
+  var inpTotal = document.getElementById(pEntNm + "tot");
+  var total = bsRound(price * quantity, pPrDp, pPriceRm);
+  inpTotal.value = bsNumStr(total.toString(), pPrDp);
+  var inpTotalVsb = document.getElementById(pEntNm + "totVsb");
   if (inpTotalVsb != null) {
     inpTotalVsb.value = inpTotal.value;
     bsInpChn(inpTotalVsb);
@@ -391,19 +386,19 @@ function bsClcToTx(pInp, nameEntity, pPriceNm, pPriceDp, pPriceRm, pIsTaxInclude
     bsInpChn(inpTotal);
   }
   bsInpChn(pInp);
-  bsClcTx(nameEntity, total, pIsTaxIncluded, pTaxDp, pTaxRm);
+  bsClcTx(pEntNm, total, pInTx, pTxDp, pTxRm);
 };
-
-function bsSetTxCt(pTcRate, pTcNm, pIdDomBasePicker, pIsTaxIncluded, pTaxDp, pTaxRm, pPriceDp) {
-  var whoPicking = BSSTATE["WhoPi"][pIdDomBasePicker];
+//set tax category from selected item:
+function bsSetTxCt(pRate, pTcNm, pIdDom, pInTx, pTxDp, pTxRm, pPrDp) {
+  var whoPicking = BSSTATE["WhoPi"][pIdDom];
   var btTxDs = document.getElementById(whoPicking["pigEnt"] + "btTxDs");
   var inpTaxNm = document.getElementById(whoPicking["pigEnt"] + "txCt");
   var inpTaxRate = document.getElementById(whoPicking["pigEnt"] + "rate");
   if (btTxDs == null) {
     inpTaxNm.value = pTcNm;
     if (inpTaxRate != null) { // aggregate or only rate
-      inpTaxRate.value = bsNumStr(pTcRate.toString(), pTaxDp);
-      bsClcTxFrTo(whoPicking["pigEnt"], pIsTaxIncluded, pPriceDp, pTaxRm);
+      inpTaxRate.value = bsNumStr(pRate.toString(), pTxDp);
+      bsClcTxFrTo(whoPicking["pigEnt"], pInTx, pPrDp, pTxRm);
       bsInpChn(inpTaxRate);
     }
   } else {
@@ -411,61 +406,61 @@ function bsSetTxCt(pTcRate, pTcNm, pIdDomBasePicker, pIsTaxIncluded, pTaxDp, pTa
     inpTaxNm.value = "";
     if (inpTaxRate != null) { // aggregate or only rate
       inpTaxRate.value = "";
-      bsClcTxFrTo(whoPicking["pigEnt"], pIsTaxIncluded, pPriceDp, pTaxRm);
+      bsClcTxFrTo(whoPicking["pigEnt"], pInTx, pPrDp, pTxRm);
       bsInpChn(inpTaxRate);
     }
   }
   bsInpChn(inpTaxNm);
 };
-
-function bsSetDstTx(pTcRate, pTcNm, pEntityName, pIsTaxIncluded, pTaxDp, pTaxRm, pPriceDp) {
-  var inpTaxNm = document.getElementById(pEntityName + "txCt");
+//set revealed tax category from tax destination:
+function bsSetDstTx(pRate, pTcNm, pEntNm, pInTx, pTxDp, pTxRm, pPrDp) {
+  var inpTaxNm = document.getElementById(pEntNm + "txCt");
   inpTaxNm.value = pTcNm;
   bsInpChn(inpTaxNm);
-  var inpTaxRate = document.getElementById(pEntityName + "rate");
+  var inpTaxRate = document.getElementById(pEntNm + "rate");
   if (inpTaxRate != null) { // aggregate or only rate
-    inpTaxRate.value = bsNumStr(pTcRate.toString(), pTaxDp);
+    inpTaxRate.value = bsNumStr(pRate.toString(), pTxDp);
     bsInpChn(inpTaxRate);
-    bsClcTxFrTo(pNameEntity, pIsTaxIncluded, pPriceDp, pTaxRm);
+    bsClcTxFrTo(pEntNm, pInTx, pPrDp, pTxRm);
   }
-  var btTxDs = document.getElementById(pEntityName + "btTxDs");
+  var btTxDs = document.getElementById(pEntNm + "btTxDs");
   btTxDs.style.display="none";
 };
-
-function bsClcTxFrTo(nameEntity, pIsTaxIncluded, pPriceDp, pTaxRm) {
-  var inpTotal = document.getElementById(nameEntity + "tot");
+//calculate tax after setting tax category:
+function bsClcTxFrTo(pEntNm, pInTx, pPrDp, pTxRm) {
+  var inpTotal = document.getElementById(pEntNm + "tot");
   var total = bsStrFlt(inpTotal.value);
-  bsClcTx(nameEntity, total, pIsTaxIncluded, pPriceDp, pTaxRm);
+  bsClcTx(pEntNm, total, pInTx, pPrDp, pTxRm);
 };
-
-function bsClcTx(pNameEntity, pTotal, pIsTaxIncluded, pPriceDp, pTaxRm) {
-  var inpTaxRate = document.getElementById(pNameEntity + "rate");
-  var inpTaxTotal = document.getElementById(pNameEntity + "toTx");
+//calculate tax:
+function bsClcTx(pEntNm, pTot, pInTx, pPrDp, pTxRm) {
+  var inpTaxRate = document.getElementById(pEntNm + "rate");
+  var inpTaxTotal = document.getElementById(pEntNm + "toTx");
   var taxTotal;
   if (inpTaxRate.value == "") {
     taxTotal = 0.0;
   } else {
     var taxRate = bsStrFlt(inpTaxRate.value);
-    if (pIsTaxIncluded) {
-      taxTotal = bsRound(pTotal-(pTotal/(1.0+taxRate/100.0)),  pPriceDp, pTaxRm);
+    if (pInTx) {
+      taxTotal = bsRound(pTot-(pTot/(1.0+taxRate/100.0)),  pPrDp, pTxRm);
     } else {
-      taxTotal = bsRound(pTotal*taxRate/100.0,  pPriceDp, pTaxRm);
+      taxTotal = bsRound(pTot*taxRate/100.0,  pPrDp, pTxRm);
     }
   }
-  inpTaxTotal.value = bsNumStr(taxTotal.toString(), pPriceDp);
+  inpTaxTotal.value = bsNumStr(taxTotal.toString(), pPrDp);
   bsInpChn(inpTaxTotal);
 };
-
-function bsClcTot(pInp, nameEntity, pPriceNm, pDecPl, pRm) {
-  var inpPrice = document.getElementById(nameEntity + pPriceNm);
+//calculate total = price*quantity
+function bsClcTot(pInp, pEntNm, pPriNm, pDecPl, pRm) {
+  var inpPrice = document.getElementById(pEntNm + pPriNm);
   var price = bsStrFlt(inpPrice.value);
-  var inpQuantity = document.getElementById(nameEntity + "quan");
+  var inpQuantity = document.getElementById(pEntNm + "quan");
   var quantity = bsStrFlt(inpQuantity.value);
-  var inpTotal = document.getElementById(nameEntity + "tot");
+  var inpTotal = document.getElementById(pEntNm + "tot");
   var total = bsRound(price * quantity, pDecPl, pRm);
   var totals = bsNumStr(total.toString(), pDecPl);
   inpTotal.value = totals;
-  var inpTotalVisible = document.getElementById(nameEntity + "totVsb");
+  var inpTotalVisible = document.getElementById(pEntNm + "totVsb");
   if (inpTotalVisible != null) {
     inpTotalVisible.value = totals;
     bsInpChn(inpTotalVisible);
@@ -474,17 +469,17 @@ function bsClcTot(pInp, nameEntity, pPriceNm, pDecPl, pRm) {
   }
   bsInpChn(pInp);
 };
-
-function bsClcPri(pInp, nameEntity, pPriceNm, pDecPl, pRm) {
-  var inpTotal = document.getElementById(nameEntity + "tot");
+//calculate price = total/quantity
+function bsClcPri(pInp, pEntNm, pPriNm, pDecPl, pRm) {
+  var inpTotal = document.getElementById(pEntNm + "tot");
   var total = bsStrFlt(inpTotal.value);
-  var inpQuantity = document.getElementById(nameEntity + "quan");
+  var inpQuantity = document.getElementById(pEntNm + "quan");
   var quantity = bsStrFlt(inpQuantity.value);
-  var inpPrice = document.getElementById(nameEntity + pPriceNm);
+  var inpPrice = document.getElementById(pEntNm + pPriNm);
   var price = bsRound(total/quantity, pDecPl, pRm);
   var prices = bsNumStr(price.toString(), pDecPl);
   inpPrice.value = prices;
-  var inpPriceVisible = document.getElementById(nameEntity + pPriceNm + "Vsb");
+  var inpPriceVisible = document.getElementById(pEntNm + pPriNm + "Vsb");
   if (inpPriceVisible != null) {
     inpPriceVisible.value = prices;
     bsInpChn(inpPriceVisible);
