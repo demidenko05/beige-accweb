@@ -169,8 +169,8 @@ function bsSelWgRtPlAm(rate, plAm, pIdDmPi) {
     bsInpChn(inpPercentage);
   }
 };
-
-function makeFltrPaymentTot(pInp, pIdSelFlt) {
+//makes filter invoice total payment:
+function bsMkFltPaTo(pInp, pIdSelFlt) {
   var fldWas;
   var fldIs;
   if (pInp.options[pInp.selectedIndex].value == "TOT") {
