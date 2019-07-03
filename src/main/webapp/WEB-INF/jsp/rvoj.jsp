@@ -4,9 +4,9 @@
 <jsp:include page="tml/var.jsp"/>
 <jsp:useBean id="usdDp" class="java.util.HashMap" scope="request"/>
 <c:set var="ent" value="${rvs.uvs.ent}" scope="request"/>
-<c:set var="acLst" value="entSv," scope="request"/>
-<c:set var="rnRv" value="lcfj" scope="request"/>
-<c:set var="frPlNm" value="frmMnPl" scope="request"/>
+<c:set var="acLst" value="entSv,entEd," scope="request"/>
+<c:set var="rnRv" value="esj" scope="request"/>
+<c:set var="frPlNm" value="frmSbPl" scope="request"/>
 <c:import url="/WEB-INF/jsp/tml/rev.jsp" varReader="rdEdEn" charEncoding="UTF-8">
 {"mlTrRsp":
   [{"trgNm": "${frPlNm}", "cont": "${utJsp.toJsonStrCls(rdEdEn)}",

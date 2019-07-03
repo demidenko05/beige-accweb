@@ -174,15 +174,21 @@ function bsMkFltPaTo(pInp, pIdSelFlt) {
   var fldWas;
   var fldIs;
   if (pInp.options[pInp.selectedIndex].value == "TOT") {
-    fltIs = "TOT";
-    fltWas = "TOFC";
+    toIs = "TOT";
+    paIs = "TOPA";
+    toWas = "TOFC";
+    paWas = "PAFC";
   } else {
-    fltIs = "TOFC";
-    fltWas = "TOT";
+    toIs = "TOFC";
+    paIs = "PAFC";
+    toWas = "TOT";
+    paWas = "TOPA";
   }
   var selFlt = document.getElementById(pIdSelFlt);
   for (var i=0; i < selFlt.options.length; i++) {
-    selFlt.options[i].value = selFlt.options[i].value.replace(fltWas, fltIs);
+    var nv = selFlt.options[i].value.replace(toWas, toIs);
+    nv = nv.replace(paWas, paIs);
+    selFlt.options[i].value = nv;
   }  
 };
 
