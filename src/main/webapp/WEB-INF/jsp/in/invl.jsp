@@ -18,7 +18,7 @@
 <c:if test="${txbl && !stIb && (stAg || ent.ownr.inTx)}">
   <c:set var="calcTotalFnNm" value="bsClcToTx"/>
   <c:set var="calcPriceFnNm" value="bsClcPriTx"/>
-  <c:set var="taxParam" value=",${ent.ownr.inTx},${priDp},${stRm.ordinal()}"/>
+  <c:set var="taxParam" value=",${ent.ownr.inTx},${rvs.astg.prDp},${stRm.ordinal()}"/>
 </c:if>
 <c:if test="${!(txbl && !stIb && (stAg || ent.ownr.inTx))}">
   <c:set var="calcTotalFnNm" value="bsClcTot"/>
