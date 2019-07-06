@@ -22,6 +22,9 @@
     <c:if test="${not empty rvs.whEnrs}">
       <jsp:include page="pwenr.jsp"/>
     </c:if>
+    <c:if test="${not empty rvs.driEnrs}">
+      <jsp:include page="pdien.jsp"/>
+    </c:if>
   </div>
 </body>
 </html>

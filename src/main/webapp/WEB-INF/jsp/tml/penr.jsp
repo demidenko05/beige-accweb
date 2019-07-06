@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cls" value="${rvs.entrCls}" scope="request"/>
 <c:set var="nameEnts" value="${cls.simpleName}s"/>
-<div class="title-list">${i18n.getMsg(nameEnts, rvs.upf.lng.iid)}</div>
+<div class="title-list">${i18n.getMsg(nameEnts, rvs.upf.lng.iid)}:</div>
 <table>
   <tr>
     <c:if test="${empty param.mbl}">
