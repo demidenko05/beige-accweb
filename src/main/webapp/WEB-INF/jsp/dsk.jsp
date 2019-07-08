@@ -66,6 +66,7 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=WrhPl&pg=1');">${i18n.getMsg("WrhPls", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmCt&pg=1');">${i18n.getMsg("ItmCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Itm&pg=1');">${i18n.getMsg("Itms", rvs.upf.lng.iid)}</a>
+        <a href="ntr?prc=PrWrhItm" target="_blank">${i18n.getMsg("items_warehouse", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">

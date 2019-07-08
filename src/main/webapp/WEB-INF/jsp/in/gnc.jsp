@@ -1,8 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:if test="${ent.ownr.getClass().simpleName eq 'PurInv'}"><c:set var="txbl" value="${rvs.astg.stExp && !ent.ownr.omTx}" scope="request"/></c:if>
-<c:if test="${ent.ownr.getClass().simpleName eq 'SalInv'}"><c:set var="txbl" value="${rvs.astg.stExs && !ent.ownr.omTx}" scope="request"/></c:if>
+<c:set var="txbl" value="${rvs.astg.stExp && !ent.ownr.omTx}" scope="request"/>
 <c:if test="${txbl && empty ent.ownr.dbcr.txDs}">
   <c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
   <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
@@ -13,8 +12,7 @@
   <c:set var="stAg" value="${ent.ownr.dbcr.txDs.stAg}" scope="request"/>
   <c:set var="stRm" value="${ent.ownr.dbcr.txDs.stRm}" scope="request"/>
 </c:if>
-<c:if test="${cls.simpleName eq 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.csDp}"/></c:if>
-<c:if test="${cls.simpleName ne 'PuInGdLn'}"><c:set var="priDp" value="${rvs.astg.prDp}"/></c:if>
+<c:set var="priDp" value="${rvs.astg.csDp}"/>
 <c:if test="${txbl && !stIb && (stAg || ent.ownr.inTx)}">
   <c:set var="calcTotalFnNm" value="bsClcToTx"/>
   <c:set var="calcPriceFnNm" value="bsClcPriTx"/>
@@ -33,10 +31,9 @@
     <div class="input-line">
       <input class="picked-appearence" id="${cls.simpleName}itmApVsb" disabled="disabled" type="text" value="${ent.itm.nme}">
       <input id="${cls.simpleName}itmId" required type="hidden" name="${cls.simpleName}.itm" value="${ent.itm.iid}">
-      <c:if test="${txbl}"><c:set var="picItm" value="iuot"/><c:set var="flyUom" value="&flyinTx=${ent.ownr.inTx}"/></c:if>
-      <c:if test="${!txbl}"><c:set var="picItm" value="iuom"/></c:if>
-      <c:if test="${cls.simpleName eq 'PuInGdLn'}"><c:set var="flCst" value="&fopknCsOpr1=eq&fopknCsVl1=0&fopfrcd=knCs"/></c:if>
-      <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','&flyPi=${picItm}${flCst}${flyUom}&mbl=${param.mbl}');">...</button>
+      <c:if test="${txbl}"><c:set var="picItm" value="iuotc"/><c:set var="flyUom" value="&flyinTx=${ent.ownr.inTx}"/></c:if>
+      <c:if test="${!txbl}"><c:set var="picItm" value="iuomc"/></c:if>
+      <button type="button" class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','&flyPi=${picItm}&fopknCsOpr1=gt&fopknCsVl1=0&fopfrcd=knCs${flyUom}&mbl=${param.mbl}');">...</button>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}itm');">X</button>
     </div>
   </td>
@@ -66,10 +63,12 @@
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${priDp} changingTot" required id="${cls.simpleName}pri" name="${cls.simpleName}.prFc" value="${ent.prFc}"/> 
+        <input type="text" class="bsNum${priDp}" id="${cls.simpleName}priVsb" value="${ent.prFc}"/> 
+        <input type="hidden" required id="${cls.simpleName}pri" name="${cls.simpleName}.prFc" value="${ent.prFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${priDp} changingTot" required id="${cls.simpleName}pri" name="${cls.simpleName}.pri" value="${ent.pri}"/> 
+        <input type="text" disabled class="bsNum${priDp}" id="${cls.simpleName}priVsb" value="${ent.pri}"/> 
+        <input type="hidden" required id="${cls.simpleName}pri" name="${cls.simpleName}.pri" value="${ent.pri}"/> 
       </c:if>
     </div>
   </td>
@@ -99,10 +98,12 @@
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.toFc" value="${ent.toFc}"/> 
+        <input type="text" disabled class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}totVsb" value="${ent.toFc}"/> 
+        <input type="hidden" id="${cls.simpleName}tot" name="${cls.simpleName}.toFc" value="${ent.toFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.tot" value="${ent.tot}"/> 
+        <input type="text" disabled class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}totVsb" value="${ent.tot}"/> 
+        <input type="hidden" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.tot" value="${ent.tot}"/> 
       </c:if>
     </div>
   </td>
@@ -123,10 +124,12 @@
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.suFc" value="${ent.suFc}"/> 
+        <input type="text" disabled class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}totVsb" value="${ent.suFc}"/> 
+        <input type="hidden" id="${cls.simpleName}tot" name="${cls.simpleName}.suFc" value="${ent.suFc}"/> 
       </c:if>
       <c:if test="${empty ent.ownr.cuFr}">
-        <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.subt" value="${ent.subt}"/> 
+        <input type="text" disabled class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}totVsb" value="${ent.subt}"/> 
+        <input type="hidden" id="${cls.simpleName}tot" name="${cls.simpleName}.subt" value="${ent.subt}"/> 
       </c:if>
     </div>
   </td>

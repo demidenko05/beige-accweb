@@ -12,10 +12,10 @@
       </c:if>
       <c:if test="${not empty ent[fdNm]}">
         <c:set var="mdl" value="${ent[fdNm]}" scope="request"/>
-        <c:set var="prApr"><jsp:include page="../st/doc.jsp"/></c:set>
+        <c:set var="prApr"><jsp:include page="../st/${hldUvd.stgNn(cls,fn,'str')}.jsp"/></c:set>
       </c:if>
       <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${prApr}">
-      <input id="${cls.simpleName}${fdNm}Id" ${required} type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].iid}">
+      <input id="${cls.simpleName}${fdNm}Id" ${reqd} type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].iid}">
       <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,fdNm).simpleName}','${cls.simpleName}','${fdNm}','&fopmdEnrVl=true&fopinvIdOpr1=isnull&foprvIdOpr1=isnull&fopfrcd=mdEnr,invId,rvId&mbl=${param.mbl}');">...</button>
       <c:set var="auFoc" value="" scope="request"/>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}${fdNm}');">X</button>
