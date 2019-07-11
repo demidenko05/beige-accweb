@@ -60,6 +60,7 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PrepFr&pg=1&mbl=mbl/');">${i18n.getMsg("PrepFrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SalInv&pg=1&mbl=mbl/');">${i18n.getMsg("SalInvs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PaymFr&pg=1&mbl=mbl/');">${i18n.getMsg("PaymFrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PurRet&pg=1&mbl=mbl/');">${i18n.getMsg("PurRets", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DriEnrSr&pg=1&mbl=mbl/');">${i18n.getMsg("DriEnrSrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Uom&pg=1&mbl=mbl/');">${i18n.getMsg("I18Uoms", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Itm&pg=1&mbl=mbl/');">${i18n.getMsg("I18Itms", rvs.upf.lng.iid)}</a>
