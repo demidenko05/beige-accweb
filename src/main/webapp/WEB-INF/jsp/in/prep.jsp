@@ -12,7 +12,7 @@
       </c:if>
       <c:if test="${not empty ent[fdNm]}">
         <c:set var="mdl" value="${ent[fdNm]}" scope="request"/>
-        <c:set var="prApr"><jsp:include page="../st/${hldUvd.stgNn(cls,fn,'str')}.jsp"/></c:set>
+        <c:set var="prApr"><jsp:include page="../st/${hldUvd.stgNn(cls,fdNm,'str')}.jsp"/></c:set>
       </c:if>
       <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${prApr}">
       <input id="${cls.simpleName}${fdNm}Id" ${reqd} type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].iid}">
