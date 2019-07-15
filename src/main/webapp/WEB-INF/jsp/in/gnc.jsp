@@ -33,7 +33,7 @@
       <input id="${cls.simpleName}itmId" required type="hidden" name="${cls.simpleName}.itm" value="${ent.itm.iid}">
       <c:if test="${txbl}"><c:set var="picItm" value="iuotc"/><c:set var="flyUom" value="&flyinTx=${ent.ownr.inTx}"/></c:if>
       <c:if test="${!txbl}"><c:set var="picItm" value="iuomc"/></c:if>
-      <button type="button" class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','&flyPi=${picItm}&fopknCsOpr1=gt&fopknCsVl1=0&fopfrcd=knCs${flyUom}&mbl=${param.mbl}');">...</button>
+      <button type="button" class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','&flyPi=${picItm}&fopknCsOpr1=gt&fopknCsVl1=0${flyUom}&mbl=${param.mbl}');">...</button>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}itm');">X</button>
     </div>
   </td>

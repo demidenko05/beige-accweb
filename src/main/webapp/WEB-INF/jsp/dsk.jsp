@@ -72,6 +72,7 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmCt&pg=1');">${i18n.getMsg("ItmCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Itm&pg=1');">${i18n.getMsg("Itms", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MovItm&pg=1');">${i18n.getMsg("MovItms", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmAdd&pg=1');">${i18n.getMsg("ItmAdds", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmUlb&pg=1');">${i18n.getMsg("ItmUlbs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Itm&pg=1');">${i18n.getMsg("I18Itms", rvs.upf.lng.iid)}</a>
         <a href="ntr?prc=PrWrhItm" target="_blank">${i18n.getMsg("items_warehouse", rvs.upf.lng.iid)}</a>
@@ -81,8 +82,8 @@
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=About');">${i18n.getMsg("About", rvs.upf.lng.iid)}</a>
-        <a href="srv">Refresh</a>
-        <a href="../">Home</a>
+        <a href="srv">${i18n.getMsg("Refresh", rvs.upf.lng.iid)}</a>
+        <a href="../">${i18n.getMsg("Home", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Lng&pg=1');">${i18n.getMsg("Lngs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Cntr&pg=1');">${i18n.getMsg("Cntrs", rvs.upf.lng.iid)}</a>

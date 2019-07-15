@@ -32,11 +32,11 @@
     -->
 
   <Realm className="org.apache.catalina.realm.JDBCRealm" 
-    connectionURL="jdbc:mysql://localhost/bseif?user=beigeaccounting&amp;password=beigeaccounting"
-    driverName="com.mysql.jdbc.Driver"
-    roleNameCol="ROL"
-    userCredCol="PWD"
-    userNameCol="USR"
-    userRoleTable="USRLTMC"
-    userTable="USTMC"/>  
+    connectionURL="jdbc:postgresql:bseis?user=beigeaccounting&amp;password=beigeaccounting"
+    driverName="org.postgresql.Driver"
+    roleNameCol="rol"
+    userCredCol="pwd"
+    userNameCol="usr"
+    userRoleTable="usrltmc"
+    userTable="ustmc"/>  
 </Context>
