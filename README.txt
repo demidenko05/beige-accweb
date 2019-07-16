@@ -6,6 +6,7 @@ debug range #14 (14000..14999)
 
 It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.
+Default configuration is PostgreSQL (web.xml) and Tomcat JEE authentication (context.xml)
 
 To install application on Apache Tomcat 7/8:
 1. you should have MySql server with created user and empty database

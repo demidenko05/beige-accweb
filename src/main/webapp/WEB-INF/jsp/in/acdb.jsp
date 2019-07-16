@@ -8,7 +8,7 @@
     <div class="input-line">
       <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${ent[fdNm].nme}">
       <input id="${cls.simpleName}${fdNm}Id" required type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].iid}">
-      <button ${auFoc} type="button" class="btn" onclick="bsPick('Acnt','${cls.simpleName}','${fdNm}','&fopusedVl=true&fopblTyVl=0&fopblTyOpr=eq&fopfrcd=used,blTy&mbl=${param.mbl}');">...</button>
+      <button ${auFoc} type="button" class="btn" onclick="bsPick('Acnt','${cls.simpleName}','${fdNm}','&fopusedVl=true&fopblTyVl=0&fopblTyOpr=eq&fopfrcd=used&mbl=${param.mbl}');">...</button>
       <c:set var="auFoc" value="" scope="request"/>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}${fdNm}');bsClearSac('${cls.simpleName}','saNm');">X</button>
     </div>
