@@ -6,15 +6,19 @@ debug range #14 (14000..14999)
 
 It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.
-Default configuration is PostgreSQL (web.xml) and Tomcat JEE authentication (context.xml)
+Default configuration is PostgreSQL (web.xml) and context.xml for Tomcat JEE JDBC authentication. For MySql rename web-mysql.xml and context-mysql.xml respectively.
 
 To install application on Apache Tomcat 7/8:
 1. you should have MySql server with created user and empty database
-2. make sure that Tomcat has libraries: HikariCP-2.4.3.jar, mysql-connector-java-5.1.40.jar, slf4j-api-1.7.12.jar (versions may be different)
-3. Unpack WAR file and change user/password/database with yours ones in WEB-INF/classes/mysql/cmnst.xml:
+2. make sure that Tomcat has libraries: HikariCP-2.4.3.jar, postgresql-9.4-1206-jdbc4.jar (or mysql-connector-java-5.1.40.jar), slf4j-api-1.7.12.jar (versions may be different)
+3. Unpack WAR file and change user/password/database with yours ones in WEB-INF/classes/potrgres(or mysql)/cmnst.xml:
 ...
+<entry key="dbUrl">[yourdb]</entry>
 <entry key="dbUsr">[yourdbusername]</entry>
 <entry key="dbPsw">[yourdbuserpass]</entry>
+...
+or MySql:
+...
 <entry key="dbUrl">jdbc:mysql://localhost/[yourdb]</entry>
 <entry key="checkTbl">select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='[yourdb]' and TABLE_NAME=':tblNm';</entry>
 ...
