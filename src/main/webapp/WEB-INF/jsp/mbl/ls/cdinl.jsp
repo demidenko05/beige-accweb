@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-| <jsp:include page="../st/${hldUvd.stgNn(cls,fdNm,'str')}.jsp"/>
+| <jsp:include page="../../st/${hldUvd.stgNn(cls,fdNm,'str')}.jsp"/>
 <c:if test="${empty ent.ownr.cuFr}">
   <c:if test="${empty cls.simpleName eq 'PuRtLn'}">
     | ${numStr.frmt(ent.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.csDp,rvs.upf.dgInGr)}

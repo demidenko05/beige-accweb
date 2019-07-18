@@ -24,6 +24,7 @@
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Co", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
+        <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Tax&pg=1&mbl=mbl/');">${i18n.getMsg("Taxs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=TxCt&pg=1&mbl=mbl/');">${i18n.getMsg("TxCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=TxDst&pg=1&mbl=mbl/');">${i18n.getMsg("TxDsts", rvs.upf.lng.iid)}</a>
@@ -34,6 +35,9 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DriEnrSr&pg=1&mbl=mbl/');">${i18n.getMsg("DriEnrSrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Srv&pg=1&mbl=mbl/');">${i18n.getMsg("I18Srvs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Buyr&pg=1&mbl=mbl/');">${i18n.getMsg("I18Buyrs", rvs.upf.lng.iid)}</a>
+        <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
+          <a href="ntr?prc=PrcUsrPwd&mbl=mbl/">${i18n.getMsg("change_password", rvs.upf.lng.iid)}</a>
+        </c:if>
       </div>
     </div>
     <div class="dropdown">
@@ -84,12 +88,17 @@
       </div>
     </div>
     <div class="dropdown">
+      <a href="#" class="dropdown-btn">${i18n.getMsg("Oth", rvs.upf.lng.iid)}</a>
+      <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MnfPrc&pg=1&mbl=mbl/');">${i18n.getMsg("MnfPrcs", rvs.upf.lng.iid)}</a>
+      </div>
+    </div>
+    <div class="dropdown">
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=About');">${i18n.getMsg("About", rvs.upf.lng.iid)}</a>
         <a href="srv?rnd=mbl&mbl=mbl">${i18n.getMsg("Refresh", rvs.upf.lng.iid)}</a>
         <a href="../">${i18n.getMsg("Home", rvs.upf.lng.iid)}</a>
-        <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
         <a href="ntr?prc=RefrI18n" target="_blank">${i18n.getMsg("RefrI18n", rvs.upf.lng.iid)}</a>
         <c:if test="${not empty pageContext['request'].userPrincipal}">
           <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
@@ -101,9 +110,6 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsPrf&pg=1&mbl=mbl/');">${i18n.getMsg("UsPrfs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CsvMth&pg=1&mbl=mbl/');">${i18n.getMsg("CsvMths", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MaFrn&pg=1&mbl=mbl/');">${i18n.getMsg("MaFrns", rvs.upf.lng.iid)}</a>
-        <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">
-          <a href="ntr?prc=PrcUsrPwd&mbl=mbl/">${i18n.getMsg("change_password", rvs.upf.lng.iid)}</a>
-        </c:if>
       </div>
     </div>
   </div>
