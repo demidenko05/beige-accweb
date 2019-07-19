@@ -91,6 +91,7 @@
       <a href="#" class="dropdown-btn">${i18n.getMsg("Oth", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=MnfPrc&pg=1&mbl=mbl/');">${i18n.getMsg("MnfPrcs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Mnfct&pg=1&mbl=mbl/');">${i18n.getMsg("Mnfcts", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">

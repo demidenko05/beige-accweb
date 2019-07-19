@@ -22,7 +22,14 @@
     <c:if test="${not empty rvs.whEnrs}">
       <jsp:include page="pwenr.jsp"/>
     </c:if>
-    <c:if test="${not empty rvs.driEnrs}">
+    <c:if test="${not empty rvs.cogsEnrs}">
+      <c:set var="driEnrCls" value="${rvs.cogsEnrCls}" scope="request"/>
+      <c:set var="driEnrs" value="${rvs.cogsEnrs}" scope="request"/>
+      <jsp:include page="pdien.jsp"/>
+    </c:if>
+    <c:if test="${not empty rvs.drItEnrs}">
+      <c:set var="driEnrCls" value="${rvs.drItEnrCls}" scope="request"/>
+      <c:set var="driEnrs" value="${rvs.drItEnrs}" scope="request"/>
       <jsp:include page="pdien.jsp"/>
     </c:if>
   </div>

@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="cls" value="${rvs.driEnrCls}" scope="request"/>
+<c:set var="cls" value="${driEnrCls}" scope="request"/>
 <c:set var="nameEnts" value="${cls.simpleName}s"/>
 <div class="title-list">${i18n.getMsg(nameEnts, rvs.upf.lng.iid)}:</div>
 <table>
@@ -18,7 +18,7 @@
       |${i18n.getMsg('dscr', rvs.upf.lng.iid)}</th>
     </c:if>
   </tr>
-  <c:forEach var="ent" items="${rvs.driEnrs}">
+  <c:forEach var="ent" items="${driEnrs}">
     <c:set var="ent" value="${ent}" scope="request"/>
     <tr>
       <c:set var="isFst" value="${true}" scope="request"/>

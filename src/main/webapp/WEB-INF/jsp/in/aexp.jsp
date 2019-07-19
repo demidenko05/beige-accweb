@@ -20,11 +20,15 @@
   </td>
   <td>
     <div class="input-line">
+      <c:set var="dis" value=""/>
+      <c:if test="${empty ent[fdNm].saTy}">
+        <c:set var="dis" value="disabled"/>
+      </c:if>
       <input class="picked-appearence" id="${cls.simpleName}saNmApVsb" disabled="disabled" type="text" value="${ent.saNm}">
       <input id="${cls.simpleName}saNmId" required type="hidden" name="${cls.simpleName}.saId" value="${ent.saId}">
       <input id="${cls.simpleName}saNmAp" type="hidden" name="${cls.simpleName}.saNm" value="${ent.saNm}">
-      <button id="${cls.simpleName}${fdNm}SaPi" type="button" class="btn" onclick="bsPickSac('${fdNm}','${cls.simpleName}','saNm','&mbl=${param.mbl}');">...</button>
-      <button id="${cls.simpleName}${fdNm}SaCl" type="button" class="btn" onclick="bsClearSac('${cls.simpleName}','saNm');">X</button>
+      <button id="${cls.simpleName}${fdNm}SaPi" ${dis} type="button" class="btn" onclick="bsPickSac('${fdNm}','${cls.simpleName}','saNm','&mbl=${param.mbl}');">...</button>
+      <button id="${cls.simpleName}${fdNm}SaCl" ${dis} type="button" class="btn" onclick="bsClearSac('${cls.simpleName}','saNm');">X</button>
     </div>
   </td>
 </tr>

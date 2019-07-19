@@ -33,10 +33,9 @@
     <div class="input-line">
       <input class="picked-appearence" id="${cls.simpleName}itmApVsb" disabled="disabled" type="text" value="${ent.itm.nme}">
       <input id="${cls.simpleName}itmId" required type="hidden" name="${cls.simpleName}.itm" value="${ent.itm.iid}">
-      <c:if test="${txbl}"><c:set var="picItm" value="iuot"/><c:set var="flyUom" value="&flyinTx=${ent.ownr.inTx}"/></c:if>
-      <c:if test="${!txbl}"><c:set var="picItm" value="iuom"/></c:if>
+      <c:if test="${txbl}"><c:set var="flyUom" value="&flyPi=iuot&flyinTx=${ent.ownr.inTx}"/></c:if>
       <c:if test="${cls.simpleName eq 'PuInGdLn'}"><c:set var="flCst" value="&fopknCsOpr1=eq&fopknCsVl1=0"/></c:if>
-      <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','&flyPi=${picItm}${flCst}${flyUom}&mbl=${param.mbl}');">...</button>
+      <button type="button" ${auFoc} class="btn" onclick="bsPick('${hldUvd.fldCls(cls,'itm').simpleName}','${cls.simpleName}','itm','${flCst}${flyUom}&mbl=${param.mbl}');">...</button>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}itm');">X</button>
     </div>
   </td>

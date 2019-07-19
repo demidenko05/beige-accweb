@@ -10,8 +10,7 @@
     <div class="input-line">
       <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${ent[fdNm].nme}">
       <input id="${cls.simpleName}${fdNm}Id" required type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].iid}">
-      <button ${auFoc} type="button" class="btn" onclick="bsPick('Acnt','${cls.simpleName}','${fdNm}','&fopusedVl=true&fopsaTyVl1=1000&fopsaTyOpr1=eq&fopfrcd=used&mbl=${param.mbl}');">...</button>
-      <c:set var="auFoc" value="" scope="request"/>
+      <button autofocus type="button" class="btn" onclick="bsPick('Acnt','${cls.simpleName}','${fdNm}','&fopusedVl=true&fopsaTyVl1=1004&fopsaTyOpr1=eq&fopfrcd=used&mbl=${param.mbl}');">...</button>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}${fdNm}');bsClearSac('${cls.simpleName}','saNm');">X</button>
     </div>
   </td>
@@ -31,8 +30,8 @@
       <input class="picked-appearence" id="${cls.simpleName}saNmApVsb" disabled="disabled" type="text" value="${ent.saNm}">
       <input id="${cls.simpleName}saNmId" required type="hidden" name="${cls.simpleName}.saId" value="${ent.saId}">
       <input id="${cls.simpleName}saNmAp" type="hidden" name="${cls.simpleName}.saNm" value="${ent.saNm}">
-      <button id="${cls.simpleName}${fdNm}SaPi" ${dis} type="button" class="btn" onclick="bsPickSac('${fdNm}','${cls.simpleName}','saNm','&mbl=${param.mbl}');">...</button>
-      <button id="${cls.simpleName}${fdNm}SaCl" ${dis} type="button" class="btn" onclick="bsClearSac('${cls.simpleName}','saNm');">X</button>
+      <button id="${cls.simpleName}${fdNm}SaPi" type="button" class="btn" onclick="bsPickSac('${fdNm}','${cls.simpleName}','saNm','&mbl=${param.mbl}');">...</button>
+      <button id="${cls.simpleName}${fdNm}SaCl" type="button" class="btn" onclick="bsClearSac('${cls.simpleName}','saNm');">X</button>
     </div>
   </td>
 </tr>
