@@ -133,18 +133,18 @@ function selectAccSubacc(pEntId, pEntAp, pIdDmPi) {
   bsInpChn(inpApVsb);
   document.getElementById(pIdDmPi+"Dlg").close();
 };
-
-function bsMkWgToTx(pInp, pEntNm, totalGross, pTxDp, pTxRm) {
-  var inpAllowance = document.getElementById(pEntNm + "alwc");
-  var inpPlusAmount = document.getElementById(pEntNm + "plAm");
-  var inpPercentage = document.getElementById(pEntNm + "rate");
-  var alwc = bsStrFlt(inpAllowance.value);
-  var plAm = bsStrFlt(inpPlusAmount.value);
-  var rate = bsStrFlt(inpPercentage.value);
-  var inpTotal = document.getElementById(pEntNm + "tot");
-  var total = bsRound(plAm + (totalGross - alwc) * rate / 100, pTxDp, pTxRm);
-  inpTotal.value = bsNumStr(total.toString(), pTxDp);
-  bsInpChn(inpTotal);
+//Makes wages tax line:
+function bsMkWgToTx(pInp, pEntNm, pWgGr, pTxDp, pTxRm) {
+  var inpAlw = document.getElementById(pEntNm + "alw");
+  var inpPlAm = document.getElementById(pEntNm + "plAm");
+  var inpRate = document.getElementById(pEntNm + "rate");
+  var alwc = bsStrFlt(inpAlw.value);
+  var plAm = bsStrFlt(inpPlAm.value);
+  var rate = bsStrFlt(inpRate.value);
+  var inpTot = document.getElementById(pEntNm + "tot");
+  var total = bsRound(plAm + (pWgGr - alwc) * rate / 100, pTxDp, pTxRm);
+  inpTot.value = bsNumStr(total.toString(), pTxDp);
+  bsInpChn(inpTot);
   bsInpChn(pInp);
 };
 

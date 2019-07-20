@@ -28,7 +28,7 @@ change security roles in web.xml
   Pack new WAR file (it is actually ZIP archive).
 4. copy WAR file inside "[tomcat_home]/webapps"
 5. type in browser address same as WAR file i.e. "https://[server-address]/beige-accweb"
-6. after creating database add users with MySql query:
+6. after creating database add users with SQL query:
 insert into USTMC (USR, PWD, VER) values ('[useradmin]', '[strongpassword]', 1);
 insert into USTMC (USR, PWD, VER) values ('[useruser]', '[strongpassword]', 1);
 insert into USRLTMC (USR, ROL, VER)  values ('[useradmin]', '[role1]', 1);
