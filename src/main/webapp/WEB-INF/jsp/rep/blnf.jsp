@@ -22,6 +22,16 @@
             <input type="datetime-local" required name="dt" value="${srvDt.to8601DateTime(now)}" onchange="bsInpChn(this);"/> 
           </td>
         </tr>
+        <tr>
+    <td>
+      <div class="input-line">
+        <select name="actAdd" onchange="bsInpChn(this);">
+          <option value="" selected>-</option>
+          <option value="recalc">${i18n.getMsg("recalculate__balances", rvs.upf.lng.iid)}</option>
+        </select>
+      </div>
+    </td>
+        </tr>
       </table>
       <div class="form-actions">
         <button type="button" onclick="bsSbFrmNw('frmRepFrm', false);">${i18n.getMsg("Report", rvs.upf.lng.iid)}</button>
