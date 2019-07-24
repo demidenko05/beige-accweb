@@ -148,6 +148,37 @@ See LICENSE in base folder
     <url-pattern>/sec/srv/*</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>uplSec</servlet-name>
+    <servlet-class>
+      org.beigesoft.web.WUplSng
+    </servlet-class>
+    <init-param>
+      <param-name>hndNms</param-name>
+      <param-value>HndI18nRq,HndAcc,hnAcEnRq</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dirJsp</param-name>
+      <param-value>/WEB-INF/jsp/</param-value>
+    </init-param>
+    <init-param>
+      <param-name>defJsp</param-name>
+      <param-value>dsk</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logNm</param-name>
+      <param-value>logStd</param-value>
+    </init-param>
+    <multipart-config>
+      <max-file-size>2000000</max-file-size>
+      <max-request-size>3000000</max-request-size>
+      <file-size-threshold>2000000</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>uplSec</servlet-name>
+    <url-pattern>/sec/upl/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ntrSec</servlet-name>
     <servlet-class>
       org.beigesoft.web.WHndsJsp

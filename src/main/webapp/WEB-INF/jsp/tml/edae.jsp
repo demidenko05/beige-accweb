@@ -52,8 +52,8 @@
           </c:if>
             <td>
               <div class="input-line">
-                <c:set target="${usdDp}" property="${rvs.cpf.maxDp}m" value="${rvs.cpf.maxDp}m"/>
-                <input type="text" class="bsNum${rvs.cpf.maxDp}m" required name="Entr.debt" value="${hldUvd.toStr(rvs,cls,'debt',ent.debt)}" onchange="bsInpChn(this);"/> 
+                <c:set target="${usdDp}" property="${rvs.astg.csDp}m" value="${rvs.astg.csDp}m"/>
+                <input type="text" class="bsNum${rvs.astg.csDp}m" required name="Entr.debt" value="${hldUvd.toStr(rvs,cls,'debt',ent.debt)}" onchange="bsInpChn(this);"/> 
               </div>
             </td>
           </tr>

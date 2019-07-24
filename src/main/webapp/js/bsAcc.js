@@ -102,7 +102,7 @@ function bsClrSal(entitySimpleName) {
   document.getElementById(entitySimpleName + "saNmAp").setAttribute("value", "");
   document.getElementById(entitySimpleName + "saNmApVsb").setAttribute("value", "");
 };
-
+//selects subacc:
 function bsSelSac(saId, subaccType, subaccAp, pIdDmPi) {
   var whoPicking = BSSTATE["WhoPi"][pIdDmPi];
   document.getElementById(whoPicking["pigEnt"] + whoPicking["piFld"] + "Ap").value = subaccAp;
@@ -147,7 +147,7 @@ function bsMkWgToTx(pInp, pEntNm, pWgGr, pTxDp, pTxRm) {
   bsInpChn(inpTot);
   bsInpChn(pInp);
 };
-
+//TODO?
 function bsClrWgTxs(pEntNm) {
   var inpTotalWageTaxes = document.getElementById(pEntNm + "toWgTx");
   var inpTotalWageTaxesVsb = document.getElementById(pEntNm + "toWgTxVsb");
@@ -155,7 +155,7 @@ function bsClrWgTxs(pEntNm) {
   inpTotalWageTaxesVsb.value = 0;
   bsInpChn(inpTotalWageTaxesVsb);
 };
-
+//TODO?
 function bsSelWgRtPlAm(rate, plAm, pIdDmPi) {
   var whoPicking = BSSTATE["WhoPi"][pIdDmPi];
   var inpPercentage = document.getElementById(whoPicking["pigEnt"] + "rate");
@@ -191,133 +191,133 @@ function bsMkFltPaTo(pInp, pIdSelFlt) {
     selFlt.options[i].value = nv;
   }  
 };
-
-function bnStLnAccentryMatchChanged(pInp) {
-  var tbPrepPayEntry = document.getElementById("bnkStLnPrepPayEntry");
-  var tbPrepPay = document.getElementById("bnkStLnPrepPay");
-  var tbPrep = document.getElementById("bnkStLnPrep");
-  var tbPay = document.getElementById("bnkStLnPay");
-  var tbEntry = document.getElementById("bnkStLnEntry");
-  var bnkStLnPrepMatch = document.getElementById("bnkStLnPrepMatch");
-  var bnkStLnPayMatch = document.getElementById("bnkStLnPayMatch");
+//Bank statement line entry matching changed:
+function bsBslEnrMtcChg(pInp) {
+  var tbPrepPayEntry = document.getElementById("bslPrPaEnr");
+  var tbPrepPay = document.getElementById("bslPrPa");
+  var tbPrep = document.getElementById("bslPrep");
+  var tbPay = document.getElementById("bslPay");
+  var tbEntry = document.getElementById("bslEnr");
+  var bslPrepMtc = document.getElementById("bslPrepMtc");
+  var bslPayMtc = document.getElementById("bslPayMtc");
   if (pInp.selectedIndex == 0) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="table"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="table"; }
     if (tbPrep != null) { tbPrep.style.display="table"; }
     if (tbPay != null) { tbPay.style.display="table"; }
     if (tbEntry != null) { tbEntry.style.display="table"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="table"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="table"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="table"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="table"; }
   } else {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="none"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="none"; }
     if (tbPrep != null) { tbPrep.style.display="none"; }
     if (tbPay != null) { tbPay.style.display="none"; }
     if (tbEntry != null) { tbEntry.style.display="none"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="none"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="none"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="none"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="none"; }
   }
 };
-
-function bnStLnPrepayMatchChanged(pInp) {
-  var tbPrepPayEntry = document.getElementById("bnkStLnPrepPayEntry");
-  var tbPrepPay = document.getElementById("bnkStLnPrepPay");
-  var tbPrep = document.getElementById("bnkStLnPrep");
-  var tbPay = document.getElementById("bnkStLnPay");
-  var tbEntry = document.getElementById("bnkStLnEntry");
-  var bnkStLnPayMatch = document.getElementById("bnkStLnPayMatch");
-  var bnkStLnAccentryMatch = document.getElementById("bnkStLnAccentryMatch");
+//Bank statement line prepayment matching changed:
+function bsBslPrMtcChg(pInp) {
+  var tbPrepPayEntry = document.getElementById("bslPrPaEnr");
+  var tbPrepPay = document.getElementById("bslPrPa");
+  var tbPrep = document.getElementById("bslPrep");
+  var tbPay = document.getElementById("bslPay");
+  var tbEntry = document.getElementById("bslEnr");
+  var bslPayMtc = document.getElementById("bslPayMtc");
+  var bslEnrMtc = document.getElementById("bslEnrMtc");
   if (pInp.selectedIndex == 0) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="table"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="table"; }
     if (tbPrep != null) { tbPrep.style.display="table"; }
     if (tbPay != null) { tbPay.style.display="table"; }
     if (tbEntry != null) { tbEntry.style.display="table"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="table"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="table"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="table"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="table"; }
   } else {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="none"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="none"; }
     if (tbPrep != null) { tbPrep.style.display="none"; }
     if (tbPay != null) { tbPay.style.display="none"; }
     if (tbEntry != null) { tbEntry.style.display="none"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="none"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="none"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="none"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="none"; }
   }
 };
-
-function bnStLnPayMatchChanged(pInp) {
-  var tbPrepPayEntry = document.getElementById("bnkStLnPrepPayEntry");
-  var tbPrepPay = document.getElementById("bnkStLnPrepPay");
-  var tbPrep = document.getElementById("bnkStLnPrep");
-  var tbPay = document.getElementById("bnkStLnPay");
-  var tbEntry = document.getElementById("bnkStLnEntry");
-  var bnkStLnPrepMatch = document.getElementById("bnkStLnPrepMatch");
-  var bnkStLnAccentryMatch = document.getElementById("bnkStLnAccentryMatch");
+//Bank statement line payment match changed:
+function bsBslPayMtchCng(pInp) {
+  var tbPrepPayEntry = document.getElementById("bslPrPaEnr");
+  var tbPrepPay = document.getElementById("bslPrPa");
+  var tbPrep = document.getElementById("bslPrep");
+  var tbPay = document.getElementById("bslPay");
+  var tbEntry = document.getElementById("bslEnr");
+  var bslPrepMtc = document.getElementById("bslPrepMtc");
+  var bslEnrMtc = document.getElementById("bslEnrMtc");
   if (pInp.selectedIndex == 0) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="table"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="table"; }
     if (tbPrep != null) { tbPrep.style.display="table"; }
     if (tbPay != null) { tbPay.style.display="table"; }
     if (tbEntry != null) { tbEntry.style.display="table"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="table"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="table"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="table"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="table"; }
   } else {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="none"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="none"; }
     if (tbPrep != null) { tbPrep.style.display="none"; }
     if (tbPay != null) { tbPay.style.display="none"; }
     if (tbEntry != null) { tbEntry.style.display="none"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="none"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="none"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="none"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="none"; }
   }
 };
-
-function bnStLnDocTypeChanged(pInp) {
-  var tbPrepPayEntry = document.getElementById("bnkStLnPrepPayEntry");
-  var tbPrepPay = document.getElementById("bnkStLnPrepPay");
-  var tbPrep = document.getElementById("bnkStLnPrep");
-  var tbPay = document.getElementById("bnkStLnPay");
-  var tbEntry = document.getElementById("bnkStLnEntry");
-  var bnkStLnPrepMatch = document.getElementById("bnkStLnPrepMatch");
-  var bnkStLnPayMatch = document.getElementById("bnkStLnPayMatch");
-  var bnkStLnAccentryMatch = document.getElementById("bnkStLnAccentryMatch");
+//Bank statement line document type changed:
+function bsBslDcTyChg(pInp) {
+  var tbPrepPayEntry = document.getElementById("bslPrPaEnr");
+  var tbPrepPay = document.getElementById("bslPrPa");
+  var tbPrep = document.getElementById("bslPrep");
+  var tbPay = document.getElementById("bslPay");
+  var tbEntry = document.getElementById("bslEnr");
+  var bslPrepMtc = document.getElementById("bslPrepMtc");
+  var bslPayMtc = document.getElementById("bslPayMtc");
+  var bslEnrMtc = document.getElementById("bslEnrMtc");
   if (pInp.selectedIndex == 0) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="none"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="none"; }
     if (tbPrep != null) { tbPrep.style.display="none"; }
     if (tbPay != null) { tbPay.style.display="none"; }
     if (tbEntry != null) { tbEntry.style.display="none"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="table"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="table"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="table"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="table"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="table"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="table"; }
   } else if (pInp.selectedIndex == 1) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="table"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="table"; }
     if (tbPrep != null) { tbPrep.style.display="table"; }
     if (tbPay != null) { tbPay.style.display="none"; }
     if (tbEntry != null) { tbEntry.style.display="none"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="none"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="none"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="none"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="none"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="none"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="none"; }
   } else if (pInp.selectedIndex == 2) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="table"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="table"; }
     if (tbPrep != null) { tbPrep.style.display="none"; }
     if (tbPay != null) { tbPay.style.display="table"; }
     if (tbEntry != null) { tbEntry.style.display="none"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="none"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="none"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="none"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="none"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="none"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="none"; }
   } else if (pInp.selectedIndex == 3) {
     if (tbPrepPayEntry != null) { tbPrepPayEntry.style.display="table"; }
     if (tbPrepPay != null) { tbPrepPay.style.display="none"; }
     if (tbPrep != null) { tbPrep.style.display="none"; }
     if (tbPay != null) { tbPay.style.display="none"; }
     if (tbEntry != null) { tbEntry.style.display="table"; }
-    if (bnkStLnPrepMatch != null) { bnkStLnPrepMatch.style.display="none"; }
-    if (bnkStLnPayMatch != null) { bnkStLnPayMatch.style.display="none"; }
-    if (bnkStLnAccentryMatch != null) { bnkStLnAccentryMatch.style.display="none"; }
+    if (bslPrepMtc != null) { bslPrepMtc.style.display="none"; }
+    if (bslPayMtc != null) { bslPayMtc.style.display="none"; }
+    if (bslEnrMtc != null) { bslEnrMtc.style.display="none"; }
   }
 };
 
