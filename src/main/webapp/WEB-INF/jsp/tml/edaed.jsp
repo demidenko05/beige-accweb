@@ -20,7 +20,7 @@
       </c:forEach>
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
-        <jsp:include page="../${param.mbl}in/ida.jsp"/>
+        <jsp:include page="../in/ida.jsp"/>
         <tr>
           <td>
             <label>${i18n.getMsg("dat", rvs.upf.lng.iid)}</label>
@@ -77,7 +77,7 @@
           </td>
         </tr>
         <c:set var="fdNm" value="dscr" scope="request"/>
-        <jsp:include page="../${param.mbl}in/txt.jsp"/>
+        <jsp:include page="../in/txt.jsp"/>
       </table>
       <div class="form-actions">
         <input style="display: none" id="${frPlNm}EdFrmFa" type="submit"/>

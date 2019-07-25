@@ -24,11 +24,11 @@
       <c:set var="isFst" value="${true}" scope="request"/>
       <c:set var="fdNm" value="iid" scope="request"/>
       <c:set var="mdl" value="${ent.iid}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:set var="isFst" value="${false}" scope="request"/>
       <c:set var="fdNm" value="dat" scope="request"/>
       <c:set var="mdl" value="${ent.dat}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:if test="${empty param.mbl}">
         <td>${ent.acDb.nme}</td><td>${ent.sadNm}</td>
         <td>${ent.acCr.nme}</td><td>${ent.sacNm}</td>

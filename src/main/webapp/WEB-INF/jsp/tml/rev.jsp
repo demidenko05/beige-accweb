@@ -21,14 +21,14 @@
       </c:forEach>
       <table class="tbl-fieldset">
       <c:set var="fdNm" value="rvId" scope="request"/>
-      <jsp:include page="../${param.mbl}in/reo.jsp"/>
+      <jsp:include page="../in/reo.jsp"/>
       <c:set var="auFoc" value="autofocus" scope="request"/>
       <c:set var="fdNm" value="dscr" scope="request"/>
-      <jsp:include page="../${param.mbl}in/txt.jsp"/>
+      <jsp:include page="../in/txt.jsp"/>
       <c:forEach var="fn" items="${hldUvd.lazFrmFds(cls)}">
         <c:if test="${fn eq 'iid'}">
           <c:set var="fdNm" value="iid" scope="request"/>
-          <jsp:include page="../${param.mbl}in/${hldUvd.stgNn(cls,fn,'inp')}.jsp"/>
+          <jsp:include page="../in/${hldUvd.stgNn(cls,fn,'inp')}.jsp"/>
         </c:if>
         <c:if test="${fn ne 'iid' && fn ne 'rvId' && fn ne 'dscr' && fn ne 'ownr'}">
           <c:set var="fdNm" value="${fn}" scope="request"/>

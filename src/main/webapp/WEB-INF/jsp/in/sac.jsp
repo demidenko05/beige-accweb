@@ -4,6 +4,7 @@
   <td>
     <label for="SacntsacApVsb">${i18n.getMsg(fdNm, rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input class="picked-appearence" id="SacntsacApVsb" disabled="disabled" type="text" value="${ent.saNm}">

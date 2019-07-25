@@ -10,6 +10,7 @@
   <td>
     <label for="Acnt.saTy">${i18n.getMsg("saTy", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <select name="Acnt.saTy" onchange="bsInpChn(this);">

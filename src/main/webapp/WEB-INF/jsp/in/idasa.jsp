@@ -10,6 +10,7 @@
     <td>
       <label for="cnfSacChNm">${i18n.getMsg("confirm_reason_changing_name", rvs.upf.lng.iid)}</label>
     </td>
+  <c:if test="${not empty param.mbl}"></tr><tr></c:if>
     <td>
       <div class="input-line">
         <select ${auFoc} name="cnfSacChNm" onchange="bsInpChn(this);">

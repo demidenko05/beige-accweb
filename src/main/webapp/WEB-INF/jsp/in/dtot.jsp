@@ -6,6 +6,7 @@
       <td>
         <label>${i18n.getMsg(fdNm, rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <c:set var="mdl" value="${ent[fdNm]}" scope="request"/> 
@@ -19,6 +20,7 @@
       <td>
         <label>${i18n.getMsg("toFc", rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <c:set var="mdl" value="${ent.toFc}" scope="request"/> 
@@ -34,6 +36,7 @@
       <td>
         <label>${i18n.getMsg("toTx", rvs.upf.lng.iid)}, ${i18n.getMsg("tot", rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <c:set var="mdl" value="${ent.toTx}" scope="request"/> 
@@ -49,6 +52,7 @@
       <td>
         <label>${i18n.getMsg("txFc", rvs.upf.lng.iid)}, ${i18n.getMsg("toFc", rvs.upf.lng.iid)}, ${i18n.getMsg("cuFr", rvs.upf.lng.iid)}, ${i18n.getMsg("exRt", rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <c:set var="mdl" value="${ent.txFc}" scope="request"/> 

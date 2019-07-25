@@ -5,6 +5,7 @@
   <td>
     <label for="${cls.simpleName}.pri">${i18n.getMsg("pri", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.csDp} changingTot" required id="${cls.simpleName}pri" name="${cls.simpleName}.pri" value="${ent.pri}"/> 
@@ -15,6 +16,7 @@
   <td>
     <label for="${cls.simpleName}.quan">${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.quDp} changingTot" required id="${cls.simpleName}quan" name="${cls.simpleName}.quan" value="${ent.quan}"/> 
@@ -25,6 +27,7 @@
   <td>
     <label for="${cls.simpleName}.tot">${i18n.getMsg("tot", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.prDp}" id="${cls.simpleName}tot" name="${cls.simpleName}.tot" value="${ent.tot}"/> 

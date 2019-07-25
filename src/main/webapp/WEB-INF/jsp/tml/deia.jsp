@@ -4,7 +4,7 @@
   <div class="form-std">
     <div class="dialog-title">
       ${i18n.getMsg("Delete", rvs.upf.lng.iid)} ${i18n.getMsg(cls.simpleName, rvs.upf.lng.iid)}
-      <button onclick="bsClsDlgCf('${frPlNm}Ed')" class="btn-close">x</button>
+      <button onclick="bsClsDlgCf('${frPlNm}Dl')" class="btn-close">x</button>
     </div>
     <form id="${frPlNm}DlFrm" action="srv" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="act" value="entDl,lst">
@@ -21,15 +21,15 @@
       <c:set var="auFoc" value="autofocus" scope="request"/>
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
-        <jsp:include page="../${param.mbl}in/idi.jsp"/>
+        <jsp:include page="../in/idi.jsp"/>
         <c:set var="fdNm" value="dat" scope="request"/>
-        <jsp:include page="../${param.mbl}in/dis.jsp"/>
+        <jsp:include page="../in/dis.jsp"/>
         <c:set var="fdNm" value="debt" scope="request"/>
-        <jsp:include page="../${param.mbl}in/dis.jsp"/>
+        <jsp:include page="../in/dis.jsp"/>
         <c:set var="fdNm" value="cred" scope="request"/>
-        <jsp:include page="../${param.mbl}in/dis.jsp"/>
+        <jsp:include page="../in/dis.jsp"/>
         <c:set var="fdNm" value="dscr" scope="request"/>
-        <jsp:include page="../${param.mbl}in/dis.jsp"/>
+        <jsp:include page="../in/dis.jsp"/>
       </table>
       <c:set var="cls" value="${rvs.entrCls}" scope="request"/>
       <c:set var="nameEnts" value="${cls.simpleName}s"/>
@@ -55,11 +55,11 @@
             <c:set var="isFst" value="${true}" scope="request"/>
             <c:set var="fdNm" value="iid" scope="request"/>
             <c:set var="mdl" value="${ent.iid}" scope="request"/>
-            <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+            <jsp:include page="../ls/ceDe.jsp"/>
             <c:set var="isFst" value="${false}" scope="request"/>
             <c:set var="fdNm" value="dat" scope="request"/>
             <c:set var="mdl" value="${ent.dat}" scope="request"/>
-            <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+            <jsp:include page="../ls/ceDe.jsp"/>
             <c:if test="${empty param.mbl}">
               <td>${ent.acDb.nme}</td><td>${ent.sadNm}</td>
               <td>${ent.acCr.nme}</td><td>${ent.sacNm}</td>

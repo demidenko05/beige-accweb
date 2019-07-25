@@ -6,6 +6,7 @@
       <td>
         <label>${i18n.getMsg("omTx", rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <select name="${ent.getClass().simpleName}.omTx" onchange="bsInpChn(this);">
@@ -24,6 +25,7 @@
         <td>
           <label>${i18n.getMsg("inTx", rvs.upf.lng.iid)}</label>
         </td>
+      <c:if test="${not empty param.mbl}"></tr><tr></c:if>
         <td>
           <div class="input-line">
             <select name="${ent.getClass().simpleName}.inTx" onchange="bsInpChn(this);">
@@ -48,6 +50,7 @@
           </c:if>
         </label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <c:if test="${!ent.omTx}">

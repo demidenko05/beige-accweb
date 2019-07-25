@@ -27,6 +27,7 @@
   <td>
     <label for="${cls.simpleName}itmApVsb">${i18n.getMsg('itm', rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input class="picked-appearence" id="${cls.simpleName}itmApVsb" disabled="disabled" type="text" value="${ent.itm.nme}">
@@ -42,6 +43,7 @@
   <td>
     <label for="${cls.simpleName}uomApVsb">${i18n.getMsg('uom', rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input class="picked-appearence" id="${cls.simpleName}uomApVsb" disabled="disabled" type="text" value="${ent.uom.nme}">
@@ -60,6 +62,7 @@
       <c:if test="${txbl && !ent.ownr.inTx}">${i18n.getMsg("without_taxes", rvs.upf.lng.iid)}</c:if>
     </label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
@@ -77,6 +80,7 @@
   <td>
     <label for="${cls.simpleName}.quan">${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.quDp} changingTot" required id="${cls.simpleName}quan" name="${cls.simpleName}.quan" value="${ent.quan}"/> 
@@ -95,6 +99,7 @@
       </c:if>
     </label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
@@ -121,6 +126,7 @@
       </c:if>
     </label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <c:if test="${not empty ent.ownr.cuFr}">
@@ -145,6 +151,7 @@
         </c:if>
       </label>
     </td>
+  <c:if test="${not empty param.mbl}"></tr><tr></c:if>
     <td>
       <div class="input-line">
         <input type="text" disabled id="${cls.simpleName}txCt" value="${ent.txCt.nme}"/> 
@@ -156,6 +163,7 @@
       <td>
         <label>${i18n.getMsg("rate", rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <c:if test="${not empty ent.ownr.dbcr.txDs}">
@@ -177,6 +185,7 @@
       <td>
         <label>${i18n.getMsg("toTx", rvs.upf.lng.iid)}</label>
       </td>
+    <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
           <input type="text" required id="${cls.simpleName}toTx" name="${cls.simpleName}.toTx" class="bsNum${rvs.astg.prDp}" value="${ent.toTx}" onchange="bsInpChn(this);"/> 

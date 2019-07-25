@@ -10,7 +10,6 @@
       <input type="hidden" name="act" value="entSv,entEd,lst">
       <input type="hidden" name="ent" value="${cls.simpleName}">
       <input type="hidden" name="pg" value="${param.pg}">
-      <input type="hidden" name="owVr" value="${rvs.owVr}">
       <c:if test="${not empty param.mbl}">
         <input type="hidden" name="mbl" value="${param.mbl}">
       </c:if>
@@ -21,12 +20,12 @@
       </c:forEach>
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
-        <jsp:include page="../${param.mbl}in/ida.jsp"/>
+        <jsp:include page="../in/ido.jsp"/>
         <c:set var="auFoc" value="autofocus" scope="request"/>
         <c:set var="fdNm" value="amnt" scope="request"/>
-        <jsp:include page="../${param.mbl}in/reo.jsp"/>
+        <jsp:include page="../in/reo.jsp"/>
         <c:set var="fdNm" value="dsSt" scope="request"/>
-        <jsp:include page="../${param.mbl}in/txt.jsp"/>
+        <jsp:include page="../in/txt.jsp"/>
       </table>
       <c:if test="${not empty rvs.preps}">
         <table class="tbl-fieldset" id="bslPrepMtc">
@@ -40,10 +39,7 @@
             <td>
               <label for="dscr">${i18n.getMsg('Preps', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <select name="prepId" onchange="bsInpChn(this);bsBslPrMtcChg(this);">
@@ -68,7 +64,7 @@
           </tr>
         </table>
       </c:if>
-      <c:if test="${not empty payms}">
+      <c:if test="${not empty rvs.payms}">
         <table class="tbl-fieldset" id="bslPayMtc">
           <c:if test="${ent.amnt.doubleValue() gt 0}">
             <c:set var="paynm" value="${i18n.getMsg('PaymFr', rvs.upf.lng.iid)}"/>
@@ -80,10 +76,7 @@
             <td>
               <label for="dscr">${i18n.getMsg('Payms', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <select name="paymId" onchange="bsInpChn(this);bsBslPayMtchCng(this);">
@@ -114,10 +107,7 @@
             <td>
               <label for="dscr">${i18n.getMsg('Entrs', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <select name="entrId" onchange="bsInpChn(this);bsBslEnrMtcChg(this);">
@@ -156,10 +146,7 @@
             <td>
               <label for="adjDocType">${i18n.getMsg("AddAdjusting", rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <select name="adjDocType" onchange="bsInpChn(this);bsBslDcTyChg(this);">
@@ -177,10 +164,7 @@
             <td>
               <label for="dbcr">${i18n.getMsg('dbcr', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <input class="picked-appearence" id="dbcrApVsb" disabled="disabled" type="text">
@@ -196,10 +180,7 @@
             <td>
               <label for="invoice">${i18n.getMsg('Invoice', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <input class="picked-appearence" id="invoiceApVsb" disabled="disabled" type="text">
@@ -238,17 +219,14 @@
             <td>
               <label for="subcorAccApVsb">${i18n.getMsg("subacc", rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <input class="picked-appearence" id="subcorAccApVsb" disabled type="text">
                 <input id="subcorAccId" type="hidden" name="subcorAccId">
                 <input id="subcorAccAp" type="hidden" name="subcorAcc">
                 <button id="corAccSaPi" type="button" class="btn" onclick="bsPickSac('corAcc','','subcorAcc','&mbl=${param.mbl}');">...</button>
-                <button id="corAccSaCl" type="button" class="btn" onclick="bsClearSac('','corAcc');">X</button>
+                <button id="corAccSaCl" type="button" class="btn" onclick="bsClearSac('','subcorAcc');">X</button>
               </div>
             </td>
           </tr>
@@ -258,10 +236,7 @@
             <td>
               <label for="accCash">${i18n.getMsg('accCash', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <input class="picked-appearence" id="accCashApVsb" disabled="disabled" type="text" onchange="bsInpChn(this);">
@@ -271,18 +246,24 @@
               </div>
             </td>
           </tr>
-          <c:set var="fdNm" value="dat" scope="request"/>
-          <jsp:include page="../${param.mbl}in/dtTm.jsp"/>
+          <tr>
+            <td>
+              <label for="dat">${i18n.getMsg("dat", rvs.upf.lng.iid)}</label>
+            </td>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
+            <td>
+              <div class="input-line">
+                <input type="datetime-local" name="dat" value="${hldUvd.toStr(rvs,cls,'dat',ent.dat)}" onchange="bsInpChn(this);"/> 
+              </div>
+            </td>
+          </tr>
         </table>
         <table class="tbl-fieldset" id="bslPrPa" style="display: none;">
           <tr>
             <td>
               <label for="toFc">${i18n.getMsg('toFc', rvs.upf.lng.iid)}</label>
             </td>
-            <c:if test="${not empty param.mbl}">
-              </tr>
-              <tr>
-            </c:if>
+            <c:if test="${not empty param.mbl}"></tr><tr></c:if>
             <td>
               <div class="input-line">
                 <input type="text" name="toFc" value="0.0" onchange="bsInpChn(this);" class="bsNum${rvs.astg.prDp}"/> 
@@ -292,7 +273,7 @@
         </table>
       </c:if>
       <div class="form-actions">
-        <input style="display: none" id="${frPlNm}EdFrmFa" type="submit"/>
+        <input style="display: none" id="${frPlNm}EdFrmFs" type="submit"/>
         <button type="button" onclick="bsSbFrmAjx('${frPlNm}EdFrm', true, 'rnd=esoj');">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
         <button type="button" onclick="bsClsDlgCf('${frPlNm}Ed');">${i18n.getMsg("Close", rvs.upf.lng.iid)}</a>
       </div>

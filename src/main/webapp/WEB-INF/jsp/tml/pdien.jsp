@@ -24,23 +24,23 @@
       <c:set var="isFst" value="${true}" scope="request"/>
       <c:set var="fdNm" value="iid" scope="request"/>
       <c:set var="mdl" value="${ent.iid}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:set var="isFst" value="${false}" scope="request"/>
       <c:set var="fdNm" value="itm" scope="request"/>
       <c:set var="mdl" value="${ent.itm}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:set var="fdNm" value="uom" scope="request"/>
       <c:set var="mdl" value="${ent.uom}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:set var="fdNm" value="quan" scope="request"/>
       <c:set var="mdl" value="${ent.quan}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:set var="fdNm" value="tot" scope="request"/>
       <c:set var="mdl" value="${ent.tot}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
       <c:set var="fdNm" value="dscr" scope="request"/>
       <c:set var="mdl" value="${ent.dscr}" scope="request"/>
-      <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+      <jsp:include page="../ls/ceDe.jsp"/>
     </tr>
   </c:forEach>
 </table>

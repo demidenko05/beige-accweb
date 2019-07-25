@@ -25,15 +25,15 @@
       <c:set var="auFoc" value="autofocus" scope="request"/>
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
-        <jsp:include page="../${param.mbl}in/ida.jsp"/>
+        <jsp:include page="../in/ida.jsp"/>
         <c:set var="fdNm" value="dat" scope="request"/>
-        <jsp:include page="../${param.mbl}in/dtTm.jsp"/>
+        <jsp:include page="../in/dtTm.jsp"/>
         <c:set var="fdNm" value="debt" scope="request"/>
-        <jsp:include page="../${param.mbl}in/reo.jsp"/>
+        <jsp:include page="../in/reo.jsp"/>
         <c:set var="fdNm" value="cred" scope="request"/>
-        <jsp:include page="../${param.mbl}in/reo.jsp"/>
+        <jsp:include page="../in/reo.jsp"/>
         <c:set var="fdNm" value="dscr" scope="request"/>
-        <jsp:include page="../${param.mbl}in/txt.jsp"/>
+        <jsp:include page="../in/txt.jsp"/>
       </table>
       <div class="form-actions">
         <input style="display: none" id="${frPlNm}EdFrmFa" type="submit"/>
@@ -65,11 +65,11 @@
             <c:set var="isFst" value="${true}" scope="request"/>
             <c:set var="fdNm" value="iid" scope="request"/>
             <c:set var="mdl" value="${ent.iid}" scope="request"/>
-            <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+            <jsp:include page="../ls/ceDe.jsp"/>
             <c:set var="isFst" value="${false}" scope="request"/>
             <c:set var="fdNm" value="dat" scope="request"/>
             <c:set var="mdl" value="${ent.dat}" scope="request"/>
-            <jsp:include page="../${param.mbl}ls/ceDe.jsp"/>
+            <jsp:include page="../ls/ceDe.jsp"/>
             <c:if test="${empty param.mbl}">
               <td>${ent.acDb.nme}</td><td>${ent.sadNm}</td>
               <td>${ent.acCr.nme}</td><td>${ent.sacNm}</td>

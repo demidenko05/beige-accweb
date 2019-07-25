@@ -6,4 +6,4 @@
 <c:if test="${not empty param.knCs}">
   <c:set var="inp" value="gnc"/>
 </c:if>
-<jsp:include page="../${param.mbl}in/${inp}.jsp"/>
+<jsp:include page="../in/${inp}.jsp"/>

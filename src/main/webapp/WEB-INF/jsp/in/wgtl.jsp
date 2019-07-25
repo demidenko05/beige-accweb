@@ -4,6 +4,7 @@
   <td>
     <label>${i18n.getMsg("grWg", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input disabled value="${ent.ownr.tot}"/> 
@@ -14,6 +15,7 @@
   <td>
     <label>${i18n.getMsg("alw", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.prDp} mkTax" required id="${ent.getClass().simpleName}alw" name="${ent.getClass().simpleName}.alw" value="${ent.alw}"/> 
@@ -24,6 +26,7 @@
   <td>
     <label>${i18n.getMsg("plAm", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.prDp} mkTax" required id="${ent.getClass().simpleName}plAm" name="${ent.getClass().simpleName}.plAm" value="${ent.plAm}"/> 
@@ -34,6 +37,7 @@
   <td>
     <label for="${ent.getClass().simpleName}.rate">${i18n.getMsg("rate", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.txDp} mkTax" required id="${ent.getClass().simpleName}rate" name="${ent.getClass().simpleName}.rate" value="${ent.rate}"/> 
@@ -44,6 +48,7 @@
   <td>
     <label for="${ent.getClass().simpleName}.tot">${i18n.getMsg("tot", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input type="text" class="bsNum${rvs.astg.prDp}" id="${ent.getClass().simpleName}tot" name="${ent.getClass().simpleName}.tot" value="${ent.tot}"/> 

@@ -4,6 +4,7 @@
   <td>
     <label for="Entr${fdNm}ApVsb">${i18n.getMsg(fdNm, rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input class="picked-appearence" id="Entr${fdNm}ApVsb" disabled="disabled" type="text" value="${ent[fdNm].nme}">
@@ -18,6 +19,7 @@
   <td>
     <label for="Entr${saNm}ApVsb">${i18n.getMsg("subacc", rvs.upf.lng.iid)}</label>
   </td>
+<c:if test="${not empty param.mbl}"></tr><tr></c:if>
   <td>
     <div class="input-line">
       <input class="picked-appearence" id="Entr${saNm}ApVsb" disabled="disabled" type="text" value="${ent[saNm]}">

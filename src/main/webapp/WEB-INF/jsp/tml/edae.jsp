@@ -28,21 +28,21 @@
       </c:forEach>
       <table class="tbl-fieldset">
         <c:set var="fdNm" value="iid" scope="request"/>
-        <jsp:include page="../${param.mbl}in/ida.jsp"/>
+        <jsp:include page="../in/ida.jsp"/>
         <c:set var="auFoc" value="autofocus" scope="request"/>
         <c:if test="${empty ent.rvId}">  
           <c:set var="fdNm" value="dat" scope="request"/>
-          <jsp:include page="../${param.mbl}in/dtTm.jsp"/>
+          <jsp:include page="../in/dtTm.jsp"/>
           <c:set var="fdNm" value="acDb" scope="request"/>
           <c:set var="saNm" value="sadNm" scope="request"/>
           <c:set var="saId" value="sadId" scope="request"/>
           <c:set var="saTy" value="sadTy" scope="request"/>
-          <jsp:include page="../${param.mbl}in/acc.jsp"/>
+          <jsp:include page="../in/acc.jsp"/>
           <c:set var="fdNm" value="acCr" scope="request"/>
           <c:set var="saNm" value="sacNm" scope="request"/>
           <c:set var="saId" value="sacId" scope="request"/>
           <c:set var="saTy" value="sacTy" scope="request"/>
-          <jsp:include page="../${param.mbl}in/acc.jsp"/>
+          <jsp:include page="../in/acc.jsp"/>
           <tr>
             <td>
               <label for="Entr.debt">${i18n.getMsg("Amount", rvs.upf.lng.iid)}</label>
@@ -117,7 +117,7 @@
           </tr>
         </c:if>
         <c:set var="fdNm" value="dscr" scope="request"/>
-        <jsp:include page="../${param.mbl}in/txt.jsp"/>
+        <jsp:include page="../in/txt.jsp"/>
       </table>
       <div class="form-actions">
         <input style="display: none" id="${frPlNm}EdFrmFa" type="submit"/>
