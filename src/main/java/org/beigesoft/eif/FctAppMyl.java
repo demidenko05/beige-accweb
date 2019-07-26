@@ -41,6 +41,8 @@ import org.beigesoft.fct.IFctPrc;
 import org.beigesoft.fct.FctBlc;
 import org.beigesoft.fct.FctDbCp;
 import org.beigesoft.fct.FctFlRep;
+import org.beigesoft.fct.IFctCnToSt;
+import org.beigesoft.fct.IFcFlFdSt;
 import org.beigesoft.hld.IAttrs;
 import org.beigesoft.hld.IHlNmClSt;
 import org.beigesoft.rdb.Orm;
@@ -50,6 +52,8 @@ import org.beigesoft.acc.fct.FctAcc;
 import org.beigesoft.acc.fct.FcEnPrAc;
 import org.beigesoft.acc.fct.FcPrNtAc;
 import org.beigesoft.acc.fct.FcPrFlAc;
+import org.beigesoft.acc.fct.FcCnToStAi;
+import org.beigesoft.acc.fct.FcFlFdAi;
 import org.beigesoft.acc.hld.HlAcEnPr;
 
 /**
@@ -93,6 +97,16 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     fctPrcNtrAc.setFctApp(this);
     fpas.add(fctPrcNtrAc);
     this.fctBlc.getFctDt().setFctsPrc(fpas);
+    Set<IFctCnToSt> fcsCnToSt = new HashSet<IFctCnToSt>();
+    FcCnToStAi<ResultSet> fcnst = new FcCnToStAi<ResultSet>();
+    fcnst.setFctBlc(this.fctBlc);
+    fcsCnToSt.add(fcnst);
+    this.fctBlc.getFctDt().setFcsCnToSt(fcsCnToSt);
+    Set<IFcFlFdSt> fcsFlFdSt = new HashSet<IFcFlFdSt>();
+    FcFlFdAi<ResultSet> ffdst = new FcFlFdAi<ResultSet>();
+    ffdst.setFctBlc(this.fctBlc);
+    fcsFlFdSt.add(ffdst);
+    this.fctBlc.getFctDt().setFcsFlFdSt(fcsFlFdSt);
   }
 
   /**
