@@ -6,6 +6,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bsNum.js"></script>
+  <script type="text/javascript" src="../js/bsInpNum.js"></script>
+  <script type="text/javascript" src="../js/bsAjax.js"></script>
+  <script type="text/javascript" src="../js/bsForm.js"></script>
+  <script type="text/javascript" src="../js/bsAcc.js"></script>
+  <script type="text/javascript" src="../js/bsI18n${rvs.upf.lng.iid}.js"></script>
   <title>${i18n.getMsg("import_acc", rvs.upf.lng.iid)}</title>
   <link rel="stylesheet" href="../css/bsCmn.css">
   <link rel="icon" type="image/png" href="../img/favicon.png">
@@ -63,8 +70,6 @@
           <td>
             <label for="rpAcMtApVsb">${i18n.getMsg("RplAcc", rvs.upf.lng.iid)}:</label>
           </td>
-        <tr>
-        </tr>
           <td>
             <div class="input-line">
               <input class="picked-appearence" id="rpAcMtApVsb" disabled="disabled" type="text">
@@ -81,5 +86,9 @@
       </div>
     </form>
   </div>
+
+  <div id="pisPl">
+  </div>
+
 </body>
 </html>

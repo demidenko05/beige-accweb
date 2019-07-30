@@ -12,6 +12,7 @@
   <script type="text/javascript" src="../js/bsInpNum.js"></script>
   <script type="text/javascript" src="../js/bsAjax.js"></script>
   <script type="text/javascript" src="../js/bsForm.js"></script>
+  <script type="text/javascript" src="../js/bsAcc.js"></script>
   <script type="text/javascript" src="../js/bsI18n${rvs.upf.lng.iid}.js"></script>
   <link rel="stylesheet" href="../css/bsCmn.css" />
   <link rel="icon" type="image/png"  href="../img/favicon.png">
@@ -26,7 +27,7 @@
         <a href="../">Home</a>
         <a href="srv">Refresh</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=RplAcc&pg=1');">${i18n.getMsg("RplAccs", rvs.upf.lng.iid)}</a>
-        <a href="ntr?rnd=acimp">${i18n.getMsg("import_acc", rvs.upf.lng.iid)}</a>
+        <a href="ntr?rnd=acimp" target="_blank">${i18n.getMsg("import_acc", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmCon&pg=1');">${i18n.getMsg("EmCons", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmAdr&pg=1');">${i18n.getMsg("EmAdrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmMsg&pg=1');">${i18n.getMsg("EmMsgs", rvs.upf.lng.iid)}</a>
