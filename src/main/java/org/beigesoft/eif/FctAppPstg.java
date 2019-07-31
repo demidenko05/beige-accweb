@@ -113,6 +113,7 @@ public class FctAppPstg implements IFctAsm<ResultSet> {
     ffdst.setFctBlc(this.fctBlc);
     fcsFlFdSt.add(ffdst);
     this.fctBlc.getFctDt().setFcsFlFdSt(fcsFlFdSt);
+    this.fctBlc.getFctDt().setIsPstg(true);
   }
 
   /**
