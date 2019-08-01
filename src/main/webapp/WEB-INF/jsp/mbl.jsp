@@ -32,6 +32,7 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Srv&pg=1&mbl=mbl/');">${i18n.getMsg("Srvs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DcrCt&pg=1&mbl=mbl/');">${i18n.getMsg("DcrCts", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DbCr&pg=1&mbl=mbl/');">${i18n.getMsg("DbCrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Prop&pg=1&mbl=mbl/');">${i18n.getMsg("Props", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=DriEnrSr&pg=1&mbl=mbl/');">${i18n.getMsg("DriEnrSrs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Srv&pg=1&mbl=mbl/');">${i18n.getMsg("I18Srvs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18Buyr&pg=1&mbl=mbl/');">${i18n.getMsg("I18Buyrs", rvs.upf.lng.iid)}</a>

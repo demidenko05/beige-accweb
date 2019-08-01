@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../css/bsPrn.css" />
-  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
   <title>${i18n.getMsg("items_warehouse", rvs.upf.lng.iid)}</title>
 </head>
 <body>

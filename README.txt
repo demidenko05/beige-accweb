@@ -8,7 +8,7 @@ It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.
 Default configuration is PostgreSQL (web.xml) and context.xml for Tomcat JEE JDBC authentication. For MySql rename web-mysql.xml and context-mysql.xml respectively.
 
-Tested/works OK on last Java8 (and Android), Tomcat 7.0.82, Maven 3.5.2
+Tested/works OK on last Java8 (and last Android 29), Tomcat 7.0.82, Maven 3.5.2, Ant 1.10.6, PostgreSQL 9.6.12, MySQL 5.5.5-10.1.38-MariaDB
 !Doesn't work on Tomcat 8.5.43, error: ...An invalid character [44] was present in the Cookie value...!
 !Maven 3.6.1 gives error findbugs!
 
