@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${ent.getClass().simpleName eq 'PurInv'}"><c:set var="txbl" value="${rvs.astg.stExp && !ent.omTx}" scope="request"/></c:if>
-<c:if test="${ent.getClass().simpleName eq 'SalInv'}"><c:set var="txbl" value="${rvs.astg.stExs && !ent.omTx}" scope="request"/></c:if>
+<c:if test="${ent.getClass().simpleName eq 'PurInv'}"><c:set var="txbl" value="${rvs.astg.stExp && !ent.omTx}" scope="request"/><c:set var="extTx" value="${rvs.astg.stExp}" scope="request"/></c:if>
+<c:if test="${ent.getClass().simpleName eq 'SalInv'}"><c:set var="txbl" value="${rvs.astg.stExs && !ent.omTx}" scope="request"/><c:set var="extTx" value="${rvs.astg.stExs}" scope="request"/></c:if>
 <c:if test="${txbl && empty ent.dbcr.txDs}">
   <c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
   <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
@@ -38,8 +38,4 @@
   <jsp:include page="nme.jsp"/>
   <c:set var="fdNm" value="exRt" scope="request"/>
   <jsp:include page="max.jsp"/>
-</c:if>
-<c:if test="${ent.tot.compareTo(java.math.BigDecimal.ZERO) ne 0}">
-  <input type="hidden" name="${ent.getClass().simpleName}.cuFr" value="${ent.cuFr}"/> 
-  <input type="hidden" name="${ent.getClass().simpleName}.exRt" value="${ent.exRt}"/> 
 </c:if>

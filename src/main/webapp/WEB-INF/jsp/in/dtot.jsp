@@ -9,8 +9,8 @@
     <c:if test="${not empty param.mbl}"></tr><tr></c:if>
       <td>
         <div class="input-line">
-          <c:set var="mdl" value="${ent[fdNm]}" scope="request"/> 
-          <jsp:include page="../st/${hldUvd.stgNn(cls,fdNm,'str')}.jsp"/>
+          <c:set var="mdl" value="${ent.tot}" scope="request"/> 
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'tot','str')}.jsp"/>
         </div>
       </td>
     </tr>
@@ -60,9 +60,9 @@
           <c:set var="mdl" value="${ent.toFc}" scope="request"/> 
           <jsp:include page="../st/${hldUvd.stgNn(cls,'toFc','str')}.jsp"/>,
           <c:set var="mdl" value="${ent.cuFr}" scope="request"/> 
-          <jsp:include page="../st/${hldUvd.stgNn(cls,'toFc','str')}.jsp"/>,
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'cuFr','str')}.jsp"/>,
           <c:set var="mdl" value="${ent.exRt}" scope="request"/> 
-          <jsp:include page="../st/${hldUvd.stgNn(cls,'toFc','str')}.jsp"/>
+          <jsp:include page="../st/${hldUvd.stgNn(cls,'exRt','str')}.jsp"/>
       </td>
     </tr>
   </c:if>
