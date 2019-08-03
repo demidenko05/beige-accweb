@@ -54,12 +54,12 @@
       <td>
         <div class="input-line">
           <c:if test="${!ent.omTx}">
-            <input disabled value="${ent.omTx}, ${ent.inTx}"/> 
+            <input disabled value="${i18n.getMsg(ent.omTx, rvs.upf.lng.iid)}, ${i18n.getMsg(ent.inTx, rvs.upf.lng.iid)}"/> 
             <input type="hidden" name="${ent.getClass().simpleName}.omTx" value="${ent.omTx}"/> 
             <input type="hidden" name="${ent.getClass().simpleName}.inTx" value="${ent.inTx}"/> 
           </c:if>
           <c:if test="${ent.omTx}">
-            <input disabled value="${ent.omTx}"/> 
+            <input disabled value="${i18n.getMsg(ent.omTx, rvs.upf.lng.iid)}"/> 
             <input type="hidden" name="${ent.getClass().simpleName}.omTx" value="${ent.omTx}"/> 
           </c:if>
         </div>

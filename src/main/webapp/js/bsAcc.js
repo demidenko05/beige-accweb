@@ -186,8 +186,9 @@ function bsMkFltPaTo(pInp, pIdSelFlt) {
   }
   var selFlt = document.getElementById(pIdSelFlt);
   for (var i=0; i < selFlt.options.length; i++) {
-    var nv = selFlt.options[i].value.replace(toWas, toIs);
-    nv = nv.replace(paWas, paIs);
+    //JS [str].replace(s1,s2); is actually replaceFirst!!!
+    var nv = selFlt.options[i].value.replace(new RegExp(toWas, "g"), toIs);
+    nv = nv.replace(new RegExp(paWas, "g"), paIs);
     selFlt.options[i].value = nv;
   }  
 };
