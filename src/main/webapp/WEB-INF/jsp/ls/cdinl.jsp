@@ -11,13 +11,13 @@
     <c:if test="${empty cls.simpleName ne 'PuRtLn'}">
       <td>${numStr.frmt(ent.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
-    <c:if test="${txbl && !inTx || txb && stIb}">
+    <c:if test="${txbl && (!inTx || !stIb)}">
       <td>${numStr.frmt(ent.subt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
     <c:if test="${txbl && !stIb}">
       <td>${numStr.frmt(ent.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
-    <c:if test="${!txbl || !stIb}">
+    <c:if test="${!txbl || inTx || !stIb}">
       <td>${numStr.frmt(ent.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
   </c:if>
@@ -28,13 +28,13 @@
     <c:if test="${empty cls.simpleName ne 'PuRtLn'}">
       <td>${numStr.frmt(ent.prFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
-    <c:if test="${txbl && !inTx || txb && stIb}">
+    <c:if test="${txbl && (!inTx || !stIb)}">
       <td>${numStr.frmt(ent.suFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
     <c:if test="${txbl && !stIb}">
       <td>${numStr.frmt(ent.txFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
-    <c:if test="${!txbl || !stIb}">
+    <c:if test="${!txbl || inTx || !stIb}">
       <td>${numStr.frmt(ent.toFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
     </c:if>
   </c:if>
@@ -48,13 +48,13 @@
     <c:if test="${empty cls.simpleName ne 'PuRtLn'}">
       | ${numStr.frmt(ent.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
-    <c:if test="${txbl && !inTx || txb && stIb}">
+    <c:if test="${txbl && (!inTx || !stIb)}">
       | ${numStr.frmt(ent.subt.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
     <c:if test="${txbl && !stIb}">
       | ${numStr.frmt(ent.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
-    <c:if test="${!txbl || !stIb}">
+    <c:if test="${!txbl || inTx || !stIb}">
       | ${numStr.frmt(ent.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
   </c:if>
@@ -65,13 +65,13 @@
     <c:if test="${empty cls.simpleName ne 'PuRtLn'}">
       | ${numStr.frmt(ent.prFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
-    <c:if test="${txbl && !inTx || txb && stIb}">
+    <c:if test="${txbl && (!inTx || !stIb)}">
       | ${numStr.frmt(ent.suFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
     <c:if test="${txbl && !stIb}">
       | ${numStr.frmt(ent.txFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
-    <c:if test="${!txbl || !stIb}">
+    <c:if test="${!txbl || inTx || !stIb}">
       | ${numStr.frmt(ent.toFc.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
     </c:if>
   </c:if>

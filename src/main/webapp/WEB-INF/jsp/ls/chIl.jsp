@@ -7,25 +7,25 @@
   <c:if test="${not empty txbl}">
     <c:if test="${empty rvs.uvs.ent.cuFr}">
       <th>${i18n.getMsg("pri", rvs.upf.lng.iid)}</th>
-      <c:if test="${txbl && !inTx || txb && stIb}">
+      <c:if test="${txbl && (!inTx || !stIb)}">
         <th>${i18n.getMsg("subt", rvs.upf.lng.iid)}</th>
       </c:if>
       <c:if test="${txbl && !stIb}">
         <th>${i18n.getMsg("toTx", rvs.upf.lng.iid)}</th>
       </c:if>
-      <c:if test="${!txbl || !stIb}">
+      <c:if test="${!txbl || inTx || !stIb}">
         <th>${i18n.getMsg("tot", rvs.upf.lng.iid)}</th>
       </c:if>
     </c:if>
     <c:if test="${not empty rvs.uvs.ent.cuFr}">
       <th>${i18n.getMsg("prFc", rvs.upf.lng.iid)}</th>
-      <c:if test="${txbl && !inTx || txb && stIb}">
+      <c:if test="${txbl && (!inTx || !stIb)}">
         <th>${i18n.getMsg("suFc", rvs.upf.lng.iid)}</th>
       </c:if>
       <c:if test="${txbl && !stIb}">
         <th>${i18n.getMsg("txFc", rvs.upf.lng.iid)}</th>
       </c:if>
-      <c:if test="${!txbl || !stIb}">
+      <c:if test="${!txbl || inTx || !stIb}">
         <th>${i18n.getMsg("toFc", rvs.upf.lng.iid)}</th>
       </c:if>
     </c:if>
@@ -38,25 +38,25 @@
   <c:if test="${not empty txbl}">
     <c:if test="${empty rvs.uvs.ent.cuFr}">
       | ${i18n.getMsg("pri", rvs.upf.lng.iid)}
-      <c:if test="${txbl && !inTx || txb && stIb}">
+      <c:if test="${txbl && (!inTx || !stIb)}">
         | ${i18n.getMsg("subt", rvs.upf.lng.iid)}
       </c:if>
       <c:if test="${txbl && !stIb}">
         | ${i18n.getMsg("toTx", rvs.upf.lng.iid)}
       </c:if>
-      <c:if test="${!txbl || !stIb}">
+      <c:if test="${!txbl || inTx || !stIb}">
         | ${i18n.getMsg("tot", rvs.upf.lng.iid)}
       </c:if>
     </c:if>
     <c:if test="${not empty rvs.uvs.ent.cuFr}">
       | ${i18n.getMsg("prFc", rvs.upf.lng.iid)}
-      <c:if test="${txbl && !inTx || txb && stIb}">
+      <c:if test="${txbl && (!inTx || !stIb)}">
         | ${i18n.getMsg("suFc", rvs.upf.lng.iid)}
       </c:if>
       <c:if test="${txbl && !stIb}">
         | ${i18n.getMsg("txFc", rvs.upf.lng.iid)}
       </c:if>
-      <c:if test="${!txbl || !stIb}">
+      <c:if test="${!txbl || inTx || !stIb}">
         | ${i18n.getMsg("toFc", rvs.upf.lng.iid)}
       </c:if>
     </c:if>

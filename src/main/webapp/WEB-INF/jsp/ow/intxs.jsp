@@ -34,6 +34,7 @@
       <th>${i18n.getMsg("tax", rvs.upf.lng.iid)}</th>
       <th>${i18n.getMsg("txb", rvs.upf.lng.iid)}</th>
       <th>${i18n.getMsg("tot", rvs.upf.lng.iid)}</th>
+      <th>${i18n.getMsg("dscr", rvs.upf.lng.iid)}</th>
       <th>${i18n.getMsg("Actions", rvs.upf.lng.iid)}</th>
     </tr>
     <c:forEach var="ent" items="${olme.value}">
@@ -48,7 +49,10 @@
           ${numStr.frmt(ent.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}
         </td>
         <td>
-          <button class="btn" onclick="bsGtAjxCf('GET', '?rnd=eoj&act=entEd&ent=${ent.getClass().simpleName}&${ent.getClass().simpleName}.iid=${ent.iid}${owVr}${flyPar}');">${i18n.getMsg("Edit", rvs.upf.lng.iid)}</button>
+          ${ent.dscr}
+        </td>
+        <td>
+          <button class="btn" onclick="bsGtAjxCf('GET', '?rnd=eoj&act=entEd&ent=${ent.getClass().simpleName}&${ent.getClass().simpleName}.iid=${ent.iid}${owVr}&pg=${param.pg}${flyPar}');">${i18n.getMsg("Edit", rvs.upf.lng.iid)}</button>
         </td>
       </tr>
       <c:set var="taxesTl" value="${ent.tot + taxesTl}"/>
