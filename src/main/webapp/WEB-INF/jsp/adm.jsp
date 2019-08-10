@@ -22,10 +22,18 @@
 
   <div class="navbar">
     <div class="dropdown">
+      <a href="#" class="dropdown-btn">${i18n.getMsg("Pricing", rvs.upf.lng.iid)}</a>
+      <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PriItm&pg=1');">${i18n.getMsg("PriItms", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=prilj');">${i18n.getMsg("priceList", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PriCt&pg=1');">${i18n.getMsg("PriCts", rvs.upf.lng.iid)}</a>
+      </div>
+    </div>
+    <div class="dropdown">
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
-        <a href="../">Home</a>
-        <a href="srv">Refresh</a>
+        <a href="../">${i18n.getMsg("Home", rvs.upf.lng.iid)}</a>
+        <a href="srv">${i18n.getMsg("Refresh", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=RplAcc&pg=1');">${i18n.getMsg("RplAccs", rvs.upf.lng.iid)}</a>
         <a href="ntr?rnd=acimp" target="_blank">${i18n.getMsg("import_acc", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=EmCon&pg=1');">${i18n.getMsg("EmCons", rvs.upf.lng.iid)}</a>
@@ -57,6 +65,9 @@
   </div>
 
   <div id="trgInf">
+  </div>
+
+  <div id="frmRep">
   </div>
 
   <dialog id="dlgCnf" class="dlg dlg-alert">

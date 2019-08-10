@@ -56,6 +56,7 @@ import org.beigesoft.acc.fct.FcPrFlAc;
 import org.beigesoft.acc.fct.FcCnToStAi;
 import org.beigesoft.acc.fct.FcFlFdAi;
 import org.beigesoft.acc.hld.HlAcEnPr;
+import org.beigesoft.ws.fct.FctWs;
 
 /**
  * <p>Final configuration factory for MySql JDBC.</p>
@@ -79,6 +80,7 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     this.fctBlc.getFctsAux().add(new FctDbCp<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctMail<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctAcc<ResultSet>());
+    this.fctBlc.getFctsAux().add(new FctWs<ResultSet>());
     this.fctBlc.getFctsAux().add(new FctFlRep<ResultSet>());
     Set<IFctPrcEnt> fcsenpr = new HashSet<IFctPrcEnt>();
     FcEnPrAc<ResultSet> fcep = new FcEnPrAc<ResultSet>();
