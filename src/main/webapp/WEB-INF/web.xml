@@ -250,6 +250,10 @@ See LICENSE in base folder
       <param-value>HndI18nRq,HndAcc</param-value>
     </init-param>
     <init-param>
+      <param-name>fileEx</param-name>
+      <param-value>csv</param-value>
+    </init-param>
+    <init-param>
       <param-name>contTy</param-name>
       <param-value>application/csv</param-value>
     </init-param>

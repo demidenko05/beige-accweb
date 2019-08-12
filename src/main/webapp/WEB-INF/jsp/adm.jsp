@@ -22,11 +22,30 @@
 
   <div class="navbar">
     <div class="dropdown">
+      <a href="#" class="dropdown-btn">${i18n.getMsg("CatGs", rvs.upf.lng.iid)}</a>
+      <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CatGs&pg=1');">${i18n.getMsg("CatGss", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CubCat&pg=1');">${i18n.getMsg("CubCats", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PicPlc&pg=1');">${i18n.getMsg("PicPlcs", rvs.upf.lng.iid)}</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="dropdown-btn">${i18n.getMsg("ItmSp", rvs.upf.lng.iid)}</a>
+      <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmSp&pg=1');">${i18n.getMsg("ItmSps", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=ItmSpGr&pg=1');">${i18n.getMsg("ItmSpGrs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=Htmlt&pg=1');">${i18n.getMsg("Htmlts", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CoSpTy&pg=1');">${i18n.getMsg("CoSpTys", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CoSp&pg=1');">${i18n.getMsg("CoSps", rvs.upf.lng.iid)}</a>
+      </div>
+    </div>
+    <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Pricing", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PriItm&pg=1');">${i18n.getMsg("PriItms", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'ntr?rnd=prilj');">${i18n.getMsg("priceList", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=PriCt&pg=1');">${i18n.getMsg("PriCts", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CurrRt&pg=1');">${i18n.getMsg("CurrRts", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
