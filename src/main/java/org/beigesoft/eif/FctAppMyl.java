@@ -57,6 +57,8 @@ import org.beigesoft.acc.fct.FcCnToStAi;
 import org.beigesoft.acc.fct.FcFlFdAi;
 import org.beigesoft.acc.hld.HlAcEnPr;
 import org.beigesoft.ws.fct.FctWs;
+import org.beigesoft.ws.fct.FcEnPrTr;
+import org.beigesoft.ws.hld.HlTrEnPr;
 
 /**
  * <p>Final configuration factory for MySql JDBC.</p>
@@ -86,6 +88,9 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     FcEnPrAc<ResultSet> fcep = new FcEnPrAc<ResultSet>();
     fcep.setFctBlc(this.fctBlc);
     fcsenpr.add(fcep);
+    FcEnPrTr<ResultSet> fcepws = new FcEnPrTr<ResultSet>();
+    fcepws.setFctBlc(this.fctBlc);
+    fcsenpr.add(fcepws);
     this.fctBlc.getFctDt().setFctsPrcEnt(fcsenpr);
     Set<IFctPrcFl> fcspf = new HashSet<IFctPrcFl>();
     FcPrFlAc<ResultSet> fcpf = new FcPrFlAc<ResultSet>();
@@ -115,6 +120,9 @@ public class FctAppMyl implements IFctAsm<ResultSet> {
     ffdst.setFctBlc(this.fctBlc);
     fcsFlFdSt.add(ffdst);
     this.fctBlc.getFctDt().setFcsFlFdSt(fcsFlFdSt);
+    Set<IHlNmClSt> hldsAdEnPr = new LinkedHashSet<IHlNmClSt>();
+    hldsAdEnPr.add(new HlTrEnPr());
+    this.fctBlc.getFctDt().setHldsAdEnPr(hldsAdEnPr);
   }
 
   /**
