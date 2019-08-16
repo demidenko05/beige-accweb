@@ -27,11 +27,11 @@
   </tr>
   <tr>
     <td>
-      <label for="fileLang">${i18n.getMsg("Lng", rvs.upf.lng.iid)}</label>
+      <label for="fiLng">${i18n.getMsg("Lng", rvs.upf.lng.iid)}</label>
     </td>
     <td>
       <div class="input-line">
-        <input required name="fileLang" onchange="bsInpChn(this);"/> 
+        <input required name="fiLng" onchange="bsInpChn(this);"/> 
       </div>
     </td>
   </tr>
@@ -53,7 +53,7 @@
   <td>
     <div class="input-line">
       <input required type="file" name="${cls.simpleName}.path" onchange="bsInpChn(this);"/> 
-      <input type="hidden" name="paramNameFileToUpload" value="${cls.simpleName}.path">
+      <input type="hidden" name="parFile" value="${cls.simpleName}.path">
     </div>
   </td>
 </tr>
