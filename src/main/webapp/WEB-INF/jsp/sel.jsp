@@ -26,16 +26,24 @@
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeItm&pg=1');">${i18n.getMsg("SeItms", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeSrv&pg=1');">${i18n.getMsg("SeSrvs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeItmPlc&pg=1');">${i18n.getMsg("SeItmPlcs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeSrvPlc&pg=1');">${i18n.getMsg("SeSrvPlcs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18SeItm&pg=1');">${i18n.getMsg("I18SeItms", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=I18SeSrv&pg=1');">${i18n.getMsg("I18SeSrvs", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("ItmSp", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeItmSpf&pg=1');">${i18n.getMsg("SeItmSpfs", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeSrvSpf&pg=1');">${i18n.getMsg("SeSrvSpfs", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
       <a href="#" class="dropdown-btn">${i18n.getMsg("Pricing", rvs.upf.lng.iid)}</a>
       <div class="dropdown-content">
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeItmPri&pg=1');">${i18n.getMsg("SeItmPris", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeSrvPri&pg=1');">${i18n.getMsg("SeSrvPris", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
