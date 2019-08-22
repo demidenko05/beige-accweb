@@ -32,6 +32,7 @@
       <a href="#" class="dropdown-btn">...</a>
       <div class="dropdown-content">
         <a href="adm/srv">${i18n.getMsg("Admin", rvs.upf.lng.iid)}</a>
+        <a href="adm/srv?rnd=asel">${i18n.getMsg("WebStoreSE", rvs.upf.lng.iid)}</a>
         <a href="sel/srv">${i18n.getMsg("SeSel", rvs.upf.lng.iid)}</a>
         <a href="adm/ntr?rnd=dbc">${i18n.getMsg("ImportDatabase", rvs.upf.lng.iid)}</a>
         <c:if test="${pageContext.servletContext.getInitParameter('ormDir') eq 'sqlite'}">

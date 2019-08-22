@@ -55,6 +55,7 @@
         <c:if test="${not empty pageContext['request'].userPrincipal}">
           <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} Logout</a>
         </c:if>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SePayMd&pg=1');">${i18n.getMsg("SePayMds", rvs.upf.lng.iid)}</a>
       </div>
     </div>
   </div>  
