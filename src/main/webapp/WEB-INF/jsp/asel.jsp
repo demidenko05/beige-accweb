@@ -44,6 +44,7 @@
       <div class="dropdown-content">
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeItmPri&pg=1');">${i18n.getMsg("SeItmPris", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=SeSrvPri&pg=1');">${i18n.getMsg("SeSrvPris", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=CuOrSe&pg=1');">${i18n.getMsg("CuOrSes", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">

@@ -55,10 +55,10 @@ function setCartItem(pItTyp, pItId, pItNm, pPrice, pQuant, pAvQuan, pLnId, pUomI
   itTyp.value = pItTyp;
   var itId = document.getElementById("itId" + pref);
   itId.value = pItId;
-  refreshCartItemTotal(pref, pPriceDp, pPriceRm);
+  bsRefCaItTo(pref, pPriceDp, pPriceRm);
 };
-
-function refreshCartItemTotal(pPref, pPriceDp, pPriceRm) {
+//refreshes cart item total:
+function bsRefCaItTo(pPref, pPriceDp, pPriceRm) {
   var price = document.getElementById("price" + pPref);
   var quant = document.getElementById("quant" + pPref);
   var total = document.getElementById("total" + pPref);
