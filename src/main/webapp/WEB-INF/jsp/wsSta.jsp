@@ -61,9 +61,9 @@
 
     <header id="top">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-      <a href="${urlPrf}?prc=wspg" class="navbar-brand navbar-brand-img"><img src="${urlPrf}img/logo-web-store.png"></a>
+      <a href="${urlPrf}?prc=WsPg" class="navbar-brand navbar-brand-img"><img src="${urlPrf}img/logo-web-store.png"></a>
       
-      <a class="navbar-brand" href="${urlPrf}?prc=wspg">${utlTradeJsp.webstoreName(rvs.tstg, rvs.i18nWebStoreList, rvs.upf.lng.iid)}</a>
+      <a class="navbar-brand" href="${urlPrf}?prc=WsPg">${utlTradeJsp.webstoreName(rvs.tstg, rvs.i18nWebStoreList, rvs.upf.lng.iid)}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -75,20 +75,20 @@
                 <li class="nav-itm dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="dropdown${status.index}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${utlTradeJsp.catlToStr(cat1l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown${status.index}">
-                    <a class="dropdown-itm" href="${urlPrf}?prc=wspg&catlId=${cat1l.catl.iid}">${i18n.getMsg("All", rvs.upf.lng.iid)}</a>
+                    <a class="dropdown-itm" href="${urlPrf}?prc=WsPg&catlId=${cat1l.catl.iid}">${i18n.getMsg("All", rvs.upf.lng.iid)}</a>
                     <c:forEach var="cat2l" items="${cat1l.subcatls}">
                       <c:if test="${cat2l.subcatls.size() gt 0}">
                         <a class="dropdown-itm" href="#" data-toggle="modal" data-target="#subcatalogsMdl${cat2l.catl.iid}">${utlTradeJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
                       </c:if>
                       <c:if test="${cat2l.subcatls.size() eq 0}">
-                        <a class="dropdown-itm" href="${urlPrf}?prc=wspg&catlId=${cat2l.catl.iid}">${utlTradeJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                        <a class="dropdown-itm" href="${urlPrf}?prc=WsPg&catlId=${cat2l.catl.iid}">${utlTradeJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
                       </c:if>
                     </c:forEach>
                   </div>
                 </li>
               </c:if>
               <c:if test="${cat1l.subcatls.size() eq 0 && cat1l.catl.isInMenu}">
-                <li class="nav-itm"><a class="nav-link" href="${urlPrf}?prc=wspg&catlId=${cat1l.catl.iid}">${utlTradeJsp.catlToStr(cat1l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></li>
+                <li class="nav-itm"><a class="nav-link" href="${urlPrf}?prc=WsPg&catlId=${cat1l.catl.iid}">${utlTradeJsp.catlToStr(cat1l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></li>
               </c:if>
             </c:forEach>
           </c:if>

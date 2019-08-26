@@ -64,13 +64,13 @@
 
   <c:set var="listFltAp" value=""/>
   <c:if test="${not empty rvs.catl}">
-    <c:set var="listFltAp" value="${utlTradeJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+    <c:set var="listFltAp" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
     <c:set var="delim" value="/"/>
     <c:if test="${not empty rvs.fltCatl && not empty rvs.fltCatl.opr}">
       <c:set var="listFltAp" value="${listFltAp} ${i18n.getMsg(rvs.fltCatl.opr, rvs.upf.lng.iid)} ("/>
       <c:set var="delim" value=""/>
       <c:forEach var="cat" items="${rvs.fltCatl.items}">
-        <c:set var="listFltAp" value="${listFltAp}${delim}${utlTradeJsp.catlToStr(cat, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+        <c:set var="listFltAp" value="${listFltAp}${delim}${utlTrJsp.catlToStr(cat, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
         <c:set var="delim" value=", "/>
       </c:forEach>
       <c:set var="listFltAp" value="${listFltAp})"/>
@@ -111,15 +111,15 @@
       </c:forEach>
     </c:if>
     <c:if test="${not empty filterUrl}">
-      <c:set var="filterUrl" value="${filterUrl}&ordb=${ordb}&ctNm=${utlTradeJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+      <c:set var="filterUrl" value="${filterUrl}&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
     <c:if test="${empty filterUrl}">
-      <c:set var="filterUrl" value="&ordb=${ordb}&ctNm=${utlTradeJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+      <c:set var="filterUrl" value="&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
     <c:if test="${not empty ordb}">
       <c:set target="${filterUrlFrm}" property="ordb" value="${ordb}"/>
     </c:if>
-    <c:set target="${filterUrlFrm}" property="ctNm" value="${utlTradeJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+    <c:set target="${filterUrlFrm}" property="ctNm" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
   </c:if>
 
   <div class="card cat-name">
@@ -231,11 +231,11 @@
       <ul class="pagination justify-content-center">
         <c:forEach var="pg" items="${rvs.pages}">
           <c:if test="${pg.cur}">
-            <li class="page-itm active"><a class="page-link" href="?prc=wspg&page=${pg.val}${filterUrl}">${pg.val}</a></li>
+            <li class="page-itm active"><a class="page-link" href="?prc=WsPg&page=${pg.val}${filterUrl}">${pg.val}</a></li>
           </c:if>
           <c:if test="${!pg.cur}">
             <c:if test="${pg.val ne '...'}">
-              <li class="page-itm"><a class="page-link" href="?prc=wspg&page=${pg.val}${filterUrl}">${pg.val}</a></li>
+              <li class="page-itm"><a class="page-link" href="?prc=WsPg&page=${pg.val}${filterUrl}">${pg.val}</a></li>
             </c:if>
             <c:if test="${pg.val eq '...'}">
               <li class="page-itm"><a class="page-link" href="#">${pg.val}</a></li>
@@ -294,7 +294,7 @@
                 <label>${i18n.getMsg("itsCatalog", rvs.upf.lng.iid)}:</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input class="form-control" disabled value="${utlTradeJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}">
+                <input class="form-control" disabled value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}">
               </div>
             </div>
             <c:if test="${not empty rvs.fltCatl}">
@@ -324,7 +324,7 @@
                           <c:set var="catSel" value="selected"/>
                         </c:if>
                       </c:forEach>
-                      <option value="${cata.iid}" ${catSel}>${utlTradeJsp.catlToStr(cata, rvs.i18nCatalogs, rvs.upf.lng.iid)}</option>
+                      <option value="${cata.iid}" ${catSel}>${utlTrJsp.catlToStr(cata, rvs.i18nCatalogs, rvs.upf.lng.iid)}</option>
                     </c:forEach>
                   </select>
                 </div>
@@ -355,22 +355,22 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="subcatalogsMdl${cat2l.catl.iid}Label"><span class="oi oi-folder" aria-hidden="true"></span> ${utlTradeJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</h5>
+                <h5 class="modal-title" id="subcatalogsMdl${cat2l.catl.iid}Label"><span class="oi oi-folder" aria-hidden="true"></span> ${utlTrJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <h5><a href="?prc=wspg&catlId=${cat2l.catl.iid}">${utlTradeJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></h5>
+                <h5><a href="?prc=WsPg&catlId=${cat2l.catl.iid}">${utlTrJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></h5>
                 <ul><c:forEach var="cat3l" items="${cat2l.subcatls}">
-                  <li><a href="?prc=wspg&catlId=${cat3l.catl.iid}">${utlTradeJsp.catlToStr(cat3l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                  <li><a href="?prc=WsPg&catlId=${cat3l.catl.iid}">${utlTrJsp.catlToStr(cat3l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
                   <c:if test="${cat3l.subcatls.size() gt 0}">
                     <ul><c:forEach var="cat4l" items="${cat3l.subcatls}">
-                      <li><a href="?prc=wspg&catlId=${cat4l.catl.iid}">${utlTradeJsp.catlToStr(cat4l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                      <li><a href="?prc=WsPg&catlId=${cat4l.catl.iid}">${utlTrJsp.catlToStr(cat4l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
                         <c:if test="${cat4l.subcatls.size() gt 0}">
                           <ul><c:forEach var="cat5l" items="${cat4l.subcatls}">
-                            <li><a href="?prc=wspg&catlId=${cat5l.catl.iid}">${utlTradeJsp.catlToStr(cat5l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                            <li><a href="?prc=WsPg&catlId=${cat5l.catl.iid}">${utlTrJsp.catlToStr(cat5l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
                               <c:if test="${cat5l.subcatls.size() gt 0}">
                                 <ul><c:forEach var="cat6l" items="${cat5l.subcatls}">
-                                  <li><a href="?prc=wspg&catlId=${cat6l.catl.iid}">${utlTradeJsp.catlToStr(cat6l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></li>
+                                  <li><a href="?prc=WsPg&catlId=${cat6l.catl.iid}">${utlTrJsp.catlToStr(cat6l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></li>
                                 </c:forEach></ul>
                               </c:if>
                             </li>

@@ -88,6 +88,9 @@
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsTmc&pg=1');">${i18n.getMsg("UsTmc", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsGtAjx('GET', 'srv?act=lst&rnd=lhj&ent=UsRlTmc&pg=1');">${i18n.getMsg("UsRlTmcs", rvs.upf.lng.iid)}</a>
         <a href="#" onclick="bsOpnDlg('dlgI18n');">${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=RefrCat&rnd=rfcat');">${i18n.getMsg("RefreshCatalog", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=RefrLst&rnd=rflst');">${i18n.getMsg("RefreshItemsInList", rvs.upf.lng.iid)}</a>
+        <a href="#" onclick="bsGtAjx('GET', 'ntr?prc=RefrLst&rnd=rflst&refrAll=1');">${i18n.getMsg("RefreshItemsInListAll", rvs.upf.lng.iid)}</a>
         <c:if test="${not empty pageContext['request'].userPrincipal}">
           <a href="../?logoff=true">${pageContext['request'].userPrincipal.name} Logout</a>
         </c:if>

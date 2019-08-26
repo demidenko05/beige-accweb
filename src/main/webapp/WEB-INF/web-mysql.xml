@@ -96,7 +96,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndTrd</param-value>
+      <param-value>HndI18nRq,HndAcc,HndTrd</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>
@@ -105,6 +105,10 @@ See LICENSE in base folder
     <init-param>
       <param-name>defJsp</param-name>
       <param-value>ind</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logNm</param-name>
+      <param-value>logStd</param-value>
     </init-param>
     <multipart-config>
       <max-file-size>10000</max-file-size>
