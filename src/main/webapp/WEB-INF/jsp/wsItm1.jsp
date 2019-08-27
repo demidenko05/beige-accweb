@@ -10,10 +10,10 @@
 <c:set target="${filterUrlFrm}" property="uoNm" value="${param.uoNm}"/>
 
 <c:if test="${rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-  <c:set var="itPrice" value="${rvs.itemPrice.itsPrice}"/>
+  <c:set var="pri" value="${rvs.itemPrice.itsPrice}"/>
 </c:if>
 <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-  <c:forEach var="cr" items="${rvs.currRates}">
+  <c:forEach var="cr" items="${rvs.currRts}">
     <c:if test="${rvs.wscurr.iid.equals(cr.curr.iid)}">
       <c:if test="${cr.rate.doubleValue() gt 0}">
         <c:set var="curRate" value="${cr.rate}"/>
@@ -23,7 +23,7 @@
       </c:if>
     </c:if>
   </c:forEach>
-  <c:set var="itPrice" value="${rvs.itemPrice.itsPrice.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
+  <c:set var="pri" value="${rvs.itemPrice.itsPrice.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
 </c:if>
 
 <div class="py-3 bg-light">
@@ -41,7 +41,7 @@
     </c:if>
       <h5>
         <c:if test="${not empty rvs.itemPrice}">
-          <b>${numStr.frmt(itPrice.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.nme}</b>
+          <b>${numStr.frmt(pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.nme}</b>
         </c:if>
         ${rvs.itmSpecLst.get(0).itm.nme}
       </h5>
@@ -54,7 +54,7 @@
 
 <div class="py-1 text-center bg-light">
   <c:if test="${empty cartItem && not empty rvs.itemPrice}">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="setCartItem(${itType}, ${rvs.itemPrice.itm.iid}, '${rvs.itemPrice.itm.nme}', ${itPrice}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itemPrice.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="setCartItem(${itType}, ${rvs.itemPrice.itm.iid}, '${rvs.itemPrice.itm.nme}', ${pri}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itemPrice.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
   </c:if>
   <c:if test="${not empty cartItem}">
     <button type="button" class="btn btn-primary" onclick="$('#cartMdl').modal('toggle');">${i18n.getMsg("open_cart", rvs.upf.lng.iid)} <span class="badge badge-secondary">${shoppingCart.totalItems}</span></button>

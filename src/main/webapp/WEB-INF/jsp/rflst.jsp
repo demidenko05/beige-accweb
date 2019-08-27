@@ -23,98 +23,98 @@
     <table>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedGdSp", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdGdSp", rvs.upf.lng.iid)}:
         </td>
         <td>
-          ${totalUpdatedGdSp}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          ${i18n.getMsg("totalUpdatedGdAv", rvs.upf.lng.iid)}:
-        </td>
-        <td>
-          ${totalUpdatedGdAv}
+          ${rvs.totUpdGdSp}
         </td>
       </tr>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedGdPr", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdGdAv", rvs.upf.lng.iid)}:
         </td>
         <td>
-            ${totalUpdatedGdPr}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          ${i18n.getMsg("totalUpdatedServSp", rvs.upf.lng.iid)}:
-        </td>
-        <td>
-          ${totalUpdatedServSp}
+          ${rvs.totUpdGdAv}
         </td>
       </tr>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedServAv", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdGdPr", rvs.upf.lng.iid)}:
         </td>
         <td>
-          ${totalUpdatedServAv}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          ${i18n.getMsg("totalUpdatedServPr", rvs.upf.lng.iid)}:
-        </td>
-        <td>
-            ${totalUpdatedServPr}
+          ${rvs.totUpdGdPr}
         </td>
       </tr>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedSeGoodSp", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdServSp", rvs.upf.lng.iid)}:
         </td>
         <td>
-          ${totalUpdatedSeGoodSp}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          ${i18n.getMsg("totalUpdatedSeGoodAv", rvs.upf.lng.iid)}:
-        </td>
-        <td>
-          ${totalUpdatedSeGoodAv}
+          ${rvs.totUpdServSp}
         </td>
       </tr>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedSeGoodPr", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdServAv", rvs.upf.lng.iid)}:
         </td>
         <td>
-            ${totalUpdatedSeGoodPr}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          ${i18n.getMsg("totalUpdatedSeServiceSp", rvs.upf.lng.iid)}:
-        </td>
-        <td>
-          ${totalUpdatedSeServiceSp}
+          ${rvs.totUpdServAv}
         </td>
       </tr>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedSeServiceAv", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdServPr", rvs.upf.lng.iid)}:
         </td>
         <td>
-          ${totalUpdatedSeServiceAv}
+            ${rvs.totUpdServPr}
         </td>
       </tr>
       <tr>
         <td>
-          ${i18n.getMsg("totalUpdatedSeServicePr", rvs.upf.lng.iid)}:
+          ${i18n.getMsg("totUpdSeGoodSp", rvs.upf.lng.iid)}:
         </td>
         <td>
-            ${totalUpdatedSeServicePr}
+          ${rvs.totUpdSeGoodSp}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ${i18n.getMsg("totUpdSeGoodAv", rvs.upf.lng.iid)}:
+        </td>
+        <td>
+          ${rvs.totUpdSeGoodAv}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ${i18n.getMsg("totUpdSeGoodPr", rvs.upf.lng.iid)}:
+        </td>
+        <td>
+          ${rvs.totUpdSeGoodPr}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ${i18n.getMsg("totUpdSeSrvSp", rvs.upf.lng.iid)}:
+        </td>
+        <td>
+          ${rvs.totUpdSeSrvSp}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ${i18n.getMsg("totUpdSeSrvAv", rvs.upf.lng.iid)}:
+        </td>
+        <td>
+          ${rvs.totUpdSeSrvAv}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ${i18n.getMsg("totUpdSeSrvPr", rvs.upf.lng.iid)}:
+        </td>
+        <td>
+          ${rvs.totUpdSeSrvPr}
         </td>
       </tr>
     </table>

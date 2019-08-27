@@ -155,7 +155,7 @@
     </c:set>
   </c:if>
   <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-    <c:forEach var="cr" items="${rvs.currRates}">
+    <c:forEach var="cr" items="${rvs.currRts}">
       <c:if test="${rvs.wscurr.iid.equals(cr.curr.iid)}">
         <c:if test="${cr.rate.doubleValue() gt 0}">
           <c:set var="curRate" value="${cr.rate}"/>
@@ -170,10 +170,10 @@
     <c:set var="uomId" value="1"/>
     <c:set var="uomNm" value="${i18n.getMsg('each')}"/>
     <c:if test="${rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-      <c:set var="itPrice" value="${itm.itsPrice}"/>
+      <c:set var="pri" value="${itm.itsPrice}"/>
     </c:if>
     <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-      <c:set var="itPrice" value="${itm.itsPrice.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
+      <c:set var="pri" value="${itm.itsPrice.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
     </c:if>
     <c:if test="${not empty itm.uom}">
       <c:set var="uomId" value="${itm.uom.iid}"/>
@@ -203,8 +203,8 @@
       ${divDscrOnly}
     </c:if>
       <h5>
-        <a href="#" onclick="setCartItem(${itm.typ.ordinal()},${itm.itId},'${itm.nme}',${itPrice},${quan},${itm.availableQuantity},${lnId},${uomId},'${uomNm}',${itm.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-cart" title="cart" aria-hidden="true"></span>${orderedQuantity}</a>
-        <b><span>${numStr.frmt(itPrice.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</span> ${rvs.wscurr.sgn}
+        <a href="#" onclick="setCartItem(${itm.typ.ordinal()},${itm.itId},'${itm.nme}',${pri},${quan},${itm.availableQuantity},${lnId},${uomId},'${uomNm}',${itm.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-cart" title="cart" aria-hidden="true"></span>${orderedQuantity}</a>
+        <b><span>${numStr.frmt(pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</span> ${rvs.wscurr.sgn}
           <c:if test="${not empty itm.uom}">
             ${itm.uom.nme}
           </c:if>

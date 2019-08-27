@@ -96,7 +96,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,HndTrd</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>
@@ -251,7 +251,7 @@ See LICENSE in base folder
     </init-param>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs</param-value>
     </init-param>
     <init-param>
       <param-name>fileEx</param-name>
@@ -282,7 +282,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd,hnAdEnRq</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnAdEnRq</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>
@@ -313,7 +313,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd,hnAdEnRq</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnAdEnRq</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>
@@ -344,7 +344,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd,hnNtRqAd</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnNtRqAd</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>
@@ -371,7 +371,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndTrd,hnNtRqAd</param-value>
+      <param-value>HndI18nRq,HnTrVs,hnNtRqAd</param-value>
     </init-param>
     <init-param>
       <param-name>logNm</param-name>
@@ -398,7 +398,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndTrd,hnNtRqAd</param-value>
+      <param-value>HndI18nRq,HnTrVs,hnNtRqAd</param-value>
     </init-param>
     <init-param>
       <param-name>logNm</param-name>
@@ -425,7 +425,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd,hnSeEnRq</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnSeEnRq</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>
@@ -456,7 +456,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HndAcc,HndTrd,hnSeEnRq</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnSeEnRq</param-value>
     </init-param>
     <init-param>
       <param-name>dirJsp</param-name>

@@ -33,11 +33,11 @@
           </c:forEach>
           <div class="row">
             <div class="col-12 col-md-6 mb-3">
-              <label>${i18n.getMsg("lang", rvs.upf.lng.iid)}</label>
+              <label>${i18n.getMsg("lng", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
               <select name="lang" class="form-control">
-                <c:forEach var="it" items="${rvs.upf.lng.iiduages}">
+                <c:forEach var="it" items="${rvs.lngs}">
                   <c:set var="itmSel" value=""/>
                   <c:if test="${rvs.upf.lng.iid eq it.iid}">
                     <c:set var="itmSel" value="selected"/>
@@ -49,7 +49,7 @@
           </div>
           <div class="row">
             <div class="col-12 col-md-6 mb-3">
-              <label>${i18n.getMsg("decimalSep", rvs.upf.lng.iid)}</label>
+              <label>${i18n.getMsg("dcSp", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
               <select name="decSep"  class="form-control">
@@ -65,7 +65,7 @@
           </div>
           <div class="row">
             <div class="col-12 col-md-6 mb-3">
-              <label>${i18n.getMsg("decimalGroupSep", rvs.upf.lng.iid)}</label>
+              <label>${i18n.getMsg("dcGrSp", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
               <select name="decGrSep"  class="form-control">
@@ -81,7 +81,7 @@
           </div>
           <div class="row">
             <div class="col-12 col-md-6 mb-3">
-              <label>${i18n.getMsg("digitsInGroup", rvs.upf.lng.iid)}</label>
+              <label>${i18n.getMsg("dgInGr", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
               <select name="digInGr"  class="form-control">
@@ -122,10 +122,10 @@
               </select>
             </div>
           </div>
-          <c:if test="${rvs.currRates.size() gt 0}">
+          <c:if test="${rvs.currRts.size() gt 0}">
             <div class="row">
               <div class="col-12 col-md-6 mb-3">
-                <label>${i18n.getMsg("currency", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("Curr", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-6 mb-3">
                 <select name="wscurr"  class="form-control">
@@ -134,7 +134,7 @@
                     <c:set var="itmSel" value="selected"/>
                   </c:if>
                   <option value="${rvs.astg.curr.iid}" ${itmSel}>${rvs.astg.curr.nme}</option>
-                  <c:forEach var="cr" items="${rvs.currRates}">
+                  <c:forEach var="cr" items="${rvs.currRts}">
                     <c:set var="itmSel" value=""/>
                     <c:if test="${rvs.wscurr.iid.equals(cr.curr.iid)}">
                       <c:set var="itmSel" value="selected"/>

@@ -21,7 +21,7 @@
     <select multiple name="fltSp${fltSpf.catSpf.spec.iid}Val" class="form-control">
       <c:forEach var="itma" items="${fltSpf.flt.itemsAll}">
         <c:set var="itmSel" value=""/>
-        <c:forEach var="itms" items="${fltSpf.flt.items}">
+        <c:forEach var="itms" items="${fltSpf.flt.itms}">
           <c:if test="${itms.iid eq itma.iid}">
             <c:set var="itmSel" value="selected"/>
           </c:if>

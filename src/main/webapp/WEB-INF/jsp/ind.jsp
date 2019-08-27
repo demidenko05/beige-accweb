@@ -39,7 +39,7 @@
           <a href="adm/ntr?prc=PrcMngDb">${i18n.getMsg("Databases", rvs.upf.lng.iid)}</a>
         </c:if>
         <a href="adm/ntr?prc=MngSft">${i18n.getMsg("SoftwareManagement", rvs.upf.lng.iid)}</a>
-        <a href="?prc=wspg">${i18n.getMsg("WebStore", rvs.upf.lng.iid)}</a>
+        <a href="?prc=WsPg" target="_blank">${i18n.getMsg("WebStore", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="nav-right">
