@@ -5,7 +5,7 @@
     <label>${fltSpf.catSpf.spec.nme}:</label>    
     <c:set var="fltSpVal1" value="fltSp${fltSpf.catSpf.spec.iid}Val1"/>
     <c:set var="fltSpVal2" value="fltSp${fltSpf.catSpf.spec.iid}Val2"/>
-    <select name="fltSp${fltSpf.catSpf.spec.iid}Op" onchange="onFilterNumberOperChanged(this, '${fltSpVal1}', '${fltSpVal2}');" class="form-control">
+    <select name="fltSp${fltSpf.catSpf.spec.iid}Op" onchange="bsFltNumOpChg(this, '${fltSpVal1}', '${fltSpVal2}');" class="form-control">
       <c:if test="${fltSpf.flt.opr ne 'GREATER_THAN_EQUAL'}"> <c:set var="selGreater" value=""/> </c:if>
       <c:if test="${fltSpf.flt.opr eq 'GREATER_THAN_EQUAL'}"> <c:set var="selGreater" value="selected"/> </c:if>
       <c:if test="${fltSpf.flt.opr ne 'LESS_THAN_EQUAL'}"> <c:set var="selLess" value=""/> </c:if>

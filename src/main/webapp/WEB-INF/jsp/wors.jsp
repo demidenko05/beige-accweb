@@ -55,10 +55,10 @@
         <ul class="pagination justify-content-center">
           <c:forEach var="pg" items="${rvs.pgs}">
             <c:if test="${pg.cur}">
-              <li class="page-itm active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+              <li class="page-item active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
             </c:if>
             <c:if test="${!pg.cur}">
-              <li class="page-itm"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+              <li class="page-item"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
             </c:if>
           </c:forEach>
         </ul>
@@ -116,14 +116,14 @@
         <ul class="pagination justify-content-center">
           <c:forEach var="pg" items="${spgs}">
             <c:if test="${pg.cur}">
-              <li class="page-itm active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+              <li class="page-item active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
             </c:if>
             <c:if test="${!pg.cur}">
               <c:if test="${pg.val ne '...'}">
-                <li class="page-itm"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+                <li class="page-item"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
               </c:if>
               <c:if test="${pg.val eq '...'}">
-                <li class="page-itm"><a class="page-link" href="#">${pg.val}</a></li>
+                <li class="page-item"><a class="page-link" href="#">${pg.val}</a></li>
               </c:if>
             </c:if>
           </c:forEach>

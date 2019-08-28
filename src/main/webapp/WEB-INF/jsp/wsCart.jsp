@@ -7,10 +7,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="signMdlLabel"><span class="oi oi-account-login" aria-hidden="true"></span>
-            <c:if test="${empty buyr.pwd}">
+            <c:if test="${empty rvs.buyr.pwd}">
               ${i18n.getMsg("signUp", rvs.upf.lng.iid)}/${i18n.getMsg("signIn", rvs.upf.lng.iid)}
             </c:if>
-            <c:if test="${not empty buyr.pwd}">
+            <c:if test="${not empty rvs.buyr.pwd}">
               ${i18n.getMsg("signIn", rvs.upf.lng.iid)}
             </c:if>
           </h5>
@@ -22,7 +22,7 @@
             <input type="hidden" name="rndRed" value="${rndRed}">
             <input type="hidden" name="prcRed" value="${prcRed}">
             <input type="hidden" name="prc" value="PrLog">
-            <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+            <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
               <c:if test="${enr.key ne 'fltCtVal'}">
                 <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                   <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -39,23 +39,23 @@
                 </c:forEach>
               </c:if>
             </c:forEach>
-            <c:if test="${not empty buyr.pwd}">
+            <c:if test="${not empty rvs.buyr.pwd}">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3">
                   ${i18n.getMsg("nme", rvs.upf.lng.iid)}
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  ${buyr.nme}
+                  ${rvs.buyr.nme}
                 </div>
               </div>
             </c:if>
-            <c:if test="${empty buyr.pwd}">
+            <c:if test="${empty rvs.buyr.pwd}">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3">
                   <label>${i18n.getMsg("nme", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input required name="nm" class="form-control" value="${buyr.nme}">
+                  <input required name="nm" class="form-control" value="${rvs.buyr.nme}">
                 </div>
               </div>
               <div class="row">
@@ -63,7 +63,7 @@
                   <label>${i18n.getMsg("eml", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input required type="email" name="em" class="form-control" value="${buyr.regEmail}">
+                  <input required type="email" name="eml" class="form-control" value="${rvs.buyr.eml}">
                 </div>
               </div>
             </c:if>
@@ -75,10 +75,10 @@
                 <input type="password" required name="pw" class="form-control">
               </div>
             </div>
-            <c:if test="${empty buyr.pwd}">
+            <c:if test="${empty rvs.buyr.pwd}">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3">
-                  <label>${i18n.getMsg("pwd_rep", rvs.upf.lng.iid)}</label>
+                  <label>${i18n.getMsg("pwdc", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
                   <input type="password" required name="pwc" class="form-control">
@@ -87,10 +87,10 @@
             </c:if>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">
-                <c:if test="${empty buyr.pwd}">
+                <c:if test="${empty rvs.buyr.pwd}">
                   ${i18n.getMsg("signUp", rvs.upf.lng.iid)}
                 </c:if>
-                <c:if test="${not empty buyr.pwd}">
+                <c:if test="${not empty rvs.buyr.pwd}">
                   ${i18n.getMsg("signIn", rvs.upf.lng.iid)}
                 </c:if>
               </button>
@@ -98,14 +98,14 @@
             </div>
           </form>
         </div>
-        <c:if test="${empty buyr.pwd}">
+        <c:if test="${empty rvs.buyr.pwd}">
           <div class="modal-body">
             <form action="${urlPrf}?" method="POST">
               <input type="hidden" name="rnd" value="${param.rnd}">
               <input type="hidden" name="prcRed" value="${prcRed}">
               <input type="hidden" name="rndRed" value="${rndRed}">
               <input type="hidden" name="prc" value="PrLog">
-              <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+              <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
                 <c:if test="${enr.key ne 'fltCtVal'}">
                   <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                     <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -127,7 +127,7 @@
                   <label>${i18n.getMsg("eml", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input required type="email" name="em" class="form-control" value="${buyr.regEmail}">
+                  <input required type="email" name="em" class="form-control" value="${rvs.buyr.eml}">
                 </div>
               </div>
               <div class="row">
@@ -163,8 +163,8 @@
           <input type="hidden" name="rnd" value="${param.rnd}">
           <input type="hidden" name="rndRed" value="${rndRed}">
           <input type="hidden" name="prcRed" value="${prcRed}">
-          <input type="hidden" name="prc" value="PrcItemInCart">
-          <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+          <input type="hidden" name="prc" value="ItmCart">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
             <c:if test="${enr.key ne 'fltCtVal'}">
               <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                 <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -225,10 +225,10 @@
               <label>${i18n.getMsg("tot", rvs.upf.lng.iid)} (${rvs.wscurr.sgn})</label>
             </div>
             <div class="col-12 col-md-8 mb-3">
-              <input id="total" readonly class="form-control">
+              <input id="tot" readonly class="form-control">
             </div>
           </div>
-          <input type="hidden" id="unStep" name="unStep">
+          <input type="hidden" id="unSt" name="unSt">
           <input type="hidden" id="avQuan" name="avQuan">
           <input type="hidden" id="itTyp" name="itTyp">
           <input type="hidden" id="itId" name="itId">
@@ -256,8 +256,8 @@
           <input type="hidden" name="rnd" value="${param.rnd}">
           <input type="hidden" name="prcRed" value="${prcRed}">
           <input type="hidden" name="rndRed" value="${rndRed}">
-          <input type="hidden" name="prc" value="PrcItemInCart">
-          <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+          <input type="hidden" name="prc" value="ItmCart">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
             <c:if test="${enr.key ne 'fltCtVal'}">
               <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                 <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -288,7 +288,7 @@
               <label>${i18n.getMsg("pri", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-8 mb-3">
-              <input id="priceEdit" readonly class="form-control">
+              <input id="priEdit" readonly class="form-control">
             </div>
           </div>
           <div class="row">
@@ -304,13 +304,13 @@
               <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-3 col-md-1 mb-3">
-              <a href="#" onclick="$('#quantEdit').trigger('decrease').trigger('change');"><span class="oi oi-minus oi-horh" aria-hidden="true"></span></a>
+              <a href="#" onclick="$('#quanEdit').trigger('decrease').trigger('change');"><span class="oi oi-minus oi-horh" aria-hidden="true"></span></a>
             </div>
             <div class="col-6 col-md-4 mb-3">
-              <input id="quantEdit" name="quan" class="form-control">
+              <input id="quanEdit" name="quan" class="form-control">
             </div>
             <div class="col-3 col-md-1 mb-3">
-              <a href="#" onclick="$('#quantEdit').trigger('increase').trigger('change');"><span class="oi oi-plus oi-horh" aria-hidden="true"></span></a>
+              <a href="#" onclick="$('#quanEdit').trigger('increase').trigger('change');"><span class="oi oi-plus oi-horh" aria-hidden="true"></span></a>
             </div>
           </div>
           <div class="row">
@@ -318,10 +318,10 @@
               <label>${i18n.getMsg("tot", rvs.upf.lng.iid)} (${rvs.wscurr.sgn})</label>
             </div>
             <div class="col-12 col-md-8 mb-3">
-              <input id="totalEdit" readonly class="form-control">
+              <input id="totEdit" readonly class="form-control">
             </div>
           </div>
-          <input type="hidden" id="unStepEdit" name="unStep">
+          <input type="hidden" id="unStEdit" name="unSt">
           <input type="hidden" id="avQuanEdit" name="avQuan">
           <input type="hidden" id="itTypEdit" name="itTyp">
           <input type="hidden" id="itIdEdit" name="itId">
@@ -350,8 +350,9 @@
           <input type="hidden" name="rnd" value="${param.rnd}">
           <input type="hidden" name="prcRed" value="${prcRed}">
           <input type="hidden" name="rndRed" value="${rndRed}">
-          <input type="hidden" name="prc" value="PrcDelItemFromCart">
-          <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+          <input type="hidden" name="act" value="del">
+          <input type="hidden" name="prc" value="ItmCart">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
             <c:if test="${enr.key ne 'fltCtVal'}">
               <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                 <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -373,11 +374,11 @@
             <textarea id="itNmDel" readonly class="form-control">
             </textarea>
             <label>Price:</label>
-            <input id="priceDel" readonly class="form-control">
+            <input id="priDel" readonly class="form-control">
             <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}:</label>
-            <input readonly id="quantDel" class="form-control">
+            <input readonly id="quanDel" class="form-control">
             <label>${i18n.getMsg("tot", rvs.upf.lng.iid)}:</label>
-            <input id="totalDel" readonly class="form-control">
+            <input id="totDel" readonly class="form-control">
             <input type="hidden" id="lnIdDel" name="lnId">
           </div>
           <div class="modal-footer">
@@ -395,11 +396,11 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="cartMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("shopping_cart", rvs.upf.lng.iid)}</h5>
+        <h5 class="modal-title" id="cartMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("Cart", rvs.upf.lng.iid)}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <c:forEach var="cartLn" items="${cart.items}">
+        <c:forEach var="cartLn" items="${rvs.cart.items}">
           <c:if test="${!cartLn.disab}">
             <div class="row">
               <div class="col-4">
@@ -434,10 +435,10 @@
                   ${numStr.frmtNtz(cartLn.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.upf.dgInGr)}
                 </div>
                 <div class="col-2">
-                  <a href="#" data-dismiss="modal" onclick="setCartItem(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.avQuan},${cartLn.iid},${cartLn.uom.iid},'${cartLn.uom.nme}',${cartLn.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-pencil" title="${i18n.getMsg('edit', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
+                  <a href="#" data-dismiss="modal" onclick="bsSetCartItm(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.avQuan},${cartLn.iid},${cartLn.uom.iid},'${cartLn.uom.nme}',${cartLn.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-pencil" title="${i18n.getMsg('edit', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
                 </div>
                 <div class="col-2">
-                  <a href="#" data-dismiss="modal" onclick="$('#cartDelMdl').modal({keyboard: false, backdrop: false}); delCartItem(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.iid},${rvs.astg.prDp});"><span class="oi oi-x" title="${i18n.getMsg('delete', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
+                  <a href="#" data-dismiss="modal" onclick="$('#cartDelMdl').modal({keyboard: false, backdrop: false}); bsDelCartItm(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.iid},${rvs.astg.prDp});"><span class="oi oi-x" title="${i18n.getMsg('delete', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
                 </div>
               </c:if>
             </div>
@@ -451,28 +452,28 @@
             </div>
           </c:if>
         </c:forEach>
-        <c:if test="${cart.toTx.doubleValue() gt 0}">
+        <c:if test="${rvs.cart.toTx.doubleValue() gt 0}">
           <div class="row">
             <div class="col-6">
-              ${i18n.getMsg("totalTaxes", rvs.upf.lng.iid)}:
+              ${i18n.getMsg("toTx", rvs.upf.lng.iid)}:
             </div>
             <div class="col-6">
-              <b>${numStr.frmt(cart.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.sgn}</b>
+              <b>${numStr.frmt(rvs.cart.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.sgn}</b>
             </div>
           </div>
         </c:if>
         <div class="row">
           <div class="col-6">
             ${i18n.getMsg("tot", rvs.upf.lng.iid)}
-            <c:if test="${cart.toTx.doubleValue() gt 0 && rvs.tstg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)})</c:if>
-            <c:if test="${cart.toTx.doubleValue() gt 0 && !rvs.tstg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)})</c:if>:
+            <c:if test="${rvs.cart.toTx.doubleValue() gt 0 && rvs.tstg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)})</c:if>
+            <c:if test="${rvs.cart.toTx.doubleValue() gt 0 && !rvs.tstg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)})</c:if>:
           </div>
           <div class="col-6">
-            <b>${numStr.frmt(cart.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.sgn}</b>
+            <b>${numStr.frmt(rvs.cart.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.sgn}</b>
           </div>
         </div>
-        <c:if test="${cart.toTx.doubleValue() gt 0 && rvs.shTxDet}">
-          <c:forEach var="cartTxLn" items="${cart.taxes}">
+        <c:if test="${rvs.cart.toTx.doubleValue() gt 0 && rvs.shTxDet}">
+          <c:forEach var="cartTxLn" items="${rvs.cart.taxes}">
             <c:if test="${!cartTxLn.disab}">
               <c:if test="${not empty txs}">
                 <c:set var="txs" value="${txs} ${cartTxLn.tax.nme}=${cartTxLn.tot}"/>
@@ -509,7 +510,7 @@
             ${i18n.getMsg("paym", rvs.upf.lng.iid)}:
           </div>
           <div class="col-6">
-            ${cart.paym}
+            ${rvs.cart.paym}
           </div>
         </div>
       </c:if>
@@ -519,7 +520,7 @@
             ${i18n.getMsg("delv", rvs.upf.lng.iid)}:
           </div>
           <div class="col-6">
-            ${cart.delv}
+            ${rvs.cart.delv}
           </div>
         </div>
       </c:if>
@@ -530,7 +531,7 @@
             <input type="hidden" name="rndRed" value="${rndRed}">
             <input type="hidden" name="prcRed" value="${prcRed}">
             <input type="hidden" name="prc" value="PrCart">
-            <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+            <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
               <c:if test="${enr.key ne 'fltCtVal'}">
                 <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                   <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -556,7 +557,7 @@
                   <select name="paym"  class="form-control">
                     <c:forEach var="it" items="${rvs.payMts}">
                       <c:set var="itmSel" value=""/>
-                      <c:if test="${cart.paym eq it}">
+                      <c:if test="${rvs.cart.paym eq it}">
                         <c:set var="itmSel" value="selected"/>
                       </c:if>
                       <option value="${it.ordinal()}" ${itmSel}>${i18n.getMsg(it, rvs.upf.lng.iid)}</option>
@@ -574,7 +575,7 @@
                   <select name="delv"  class="form-control">
                     <c:forEach var="it" items="${rvs.dlvMts}">
                       <c:set var="itmSel" value=""/>
-                      <c:if test="${cart.delv eq it.iid}">
+                      <c:if test="${rvs.cart.delv eq it.iid}">
                         <c:set var="itmSel" value="selected"/>
                       </c:if>
                       <option value="${it.iid.ordinal()}" ${itmSel}>

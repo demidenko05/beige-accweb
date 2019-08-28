@@ -7,14 +7,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="i18nMdlLabel"><span class="oi oi-globe" aria-hidden="true"></span> ${i18n.getMsg("changeLangPreferences", rvs.upf.lng.iid)}</h5>
+        <h5 class="modal-title" id="i18nMdlLabel"><span class="oi oi-globe" aria-hidden="true"></span> ${i18n.getMsg("changeUsPrf", rvs.upf.lng.iid)}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <form action="${urlPrf}?" method="POST">
           <input type="hidden" name="rnd" value="${rndRed}">
           <input type="hidden" name="prc" value="${prcRed}">
-          <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
             <c:if test="${enr.key ne 'fltCtVal'}">
               <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                 <input type="hidden" name="${enr.key}" value="${enr.value}">

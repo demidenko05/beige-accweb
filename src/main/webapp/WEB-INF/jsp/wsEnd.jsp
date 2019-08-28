@@ -51,20 +51,20 @@
         </div>
         <div class="modal-body">
           <h5><a href="${urlPrf}?prc=PrBuOr&rnd=wors&rndRed=${rndRed}&prcRed=${prcRed}">${i18n.getMsg('CustOrders', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
-          <h5><a href="#" data-dismiss="modal" data-toggle="tooltip" title="${i18n.getMsg('shipping_address', rvs.upf.lng.iid)}" onclick="$('#buyrMdl').modal('show');">${i18n.getMsg("shipping_address", rvs.upf.lng.iid)} <span class="oi oi-pencil" aria-hidden="true"></span></a></h5>
+          <h5><a href="#" data-dismiss="modal" data-toggle="tooltip" title="${i18n.getMsg('shipping_address', rvs.upf.lng.iid)}" onclick="$('#rvs.buyrMdl').modal('show');">${i18n.getMsg("shipping_address", rvs.upf.lng.iid)} <span class="oi oi-pencil" aria-hidden="true"></span></a></h5>
         </div>
         <div class="modal-footer">
-          <a type="button" class="btn btn-outline-primary" href="${urlPrf}?rnd=${rndRed}&prc=PrLog&prcRed=${prcRed}">${buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
+          <a type="button" class="btn btn-outline-primary" href="${urlPrf}?rnd=${rndRed}&prc=PrLog&prcRed=${prcRed}">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
           <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="buyrMdl" tabindex="-1" role="dialog" aria-labelledby="buyrMdlLabel">
+  <div class="modal fade" id="rvs.buyrMdl" tabindex="-1" role="dialog" aria-labelledby="rvs.buyrMdlLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="buyrMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("shipping_address", rvs.upf.lng.iid)}</h5>
+          <h5 class="modal-title" id="rvs.buyrMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("shipping_address", rvs.upf.lng.iid)}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
@@ -73,7 +73,7 @@
             <input type="hidden" name="prcRed" value="${prcRed}">
             <input type="hidden" name="rndRed" value="${rndRed}">
             <input type="hidden" name="prc" value="PrLog">
-            <c:forEach var="enr" items="${filterUrlFrm.entrySet()}">
+            <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
               <c:if test="${enr.key ne 'fltCtVal'}">
                 <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
                   <input type="hidden" name="${enr.key}" value="${enr.value}">
@@ -95,55 +95,55 @@
                 <label>${i18n.getMsg("nme", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input required name="nm" class="form-control" value="${buyr.nme}">
+                <input required name="nm" class="form-control" value="${rvs.buyr.nme}">
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("regCountry", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("cntr", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="cnt" class="form-control" value="${buyr.regCountry}">
+                <input name="cnt" class="form-control" value="${rvs.buyr.cntr}">
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("regCity", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("city", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="cit" class="form-control" value="${buyr.regCity}">
+                <input name="cit" class="form-control" value="${rvs.buyr.city}">
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("regZip", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("zip", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input required name="zip" class="form-control" value="${buyr.regZip}">
+                <input required name="zip" class="form-control" value="${rvs.buyr.zip}">
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("regAddress1", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("addr1", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input required name="adr1" class="form-control" value="${buyr.regAddress1}">
+                <input required name="adr1" class="form-control" value="${rvs.buyr.addr1}">
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("regAddress2", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("addr2", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="adr2" class="form-control" value="${buyr.regAddress2}">
+                <input name="adr2" class="form-control" value="${rvs.buyr.addr2}">
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("regPhone", rvs.upf.lng.iid)}</label>
+                <label>${i18n.getMsg("phon", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="phn" class="form-control" value="${buyr.regPhone}">
+                <input name="phn" class="form-control" value="${rvs.buyr.phon}">
               </div>
             </div>
             <div class="modal-footer">

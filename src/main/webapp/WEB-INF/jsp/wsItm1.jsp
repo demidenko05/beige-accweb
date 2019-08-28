@@ -1,16 +1,16 @@
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:useBean id="filterUrlFrm" class="java.util.HashMap" scope="request"/>
+<jsp:useBean id="fltUrlFrm" class="java.util.HashMap" scope="request"/>
 <jsp:include page="wsSta.jsp"/>
 
-<c:set target="${filterUrlFrm}" property="itId" value="${param.itId}"/>
-<c:set target="${filterUrlFrm}" property="itTy" value="${param.itTy}"/>
-<c:set target="${filterUrlFrm}" property="avQu" value="${param.avQu}"/>
-<c:set target="${filterUrlFrm}" property="uoId" value="${param.uoId}"/>
-<c:set target="${filterUrlFrm}" property="uoNm" value="${param.uoNm}"/>
+<c:set target="${fltUrlFrm}" property="itId" value="${param.itId}"/>
+<c:set target="${fltUrlFrm}" property="itTy" value="${param.itTy}"/>
+<c:set target="${fltUrlFrm}" property="avQu" value="${param.avQu}"/>
+<c:set target="${fltUrlFrm}" property="uoId" value="${param.uoId}"/>
+<c:set target="${fltUrlFrm}" property="uoNm" value="${param.uoNm}"/>
 
 <c:if test="${rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-  <c:set var="pri" value="${rvs.itemPrice.itsPrice}"/>
+  <c:set var="pri" value="${rvs.itmPri.pri}"/>
 </c:if>
 <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
   <c:forEach var="cr" items="${rvs.currRts}">
@@ -23,24 +23,24 @@
       </c:if>
     </c:if>
   </c:forEach>
-  <c:set var="pri" value="${rvs.itemPrice.itsPrice.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
+  <c:set var="pri" value="${rvs.itmPri.pri.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
 </c:if>
 
 <div class="py-3 bg-light">
   <div class="row">
-    <c:if test="${not empty rvs.itemImage}">
+    <c:if test="${not empty rvs.itmImg}">
       <div class="col-12 col-md-6 col-lg-4">
-        <img class="img-fluid" src="${rvs.itemImage.str1}">
+        <img class="img-fluid" src="${rvs.itmImg.str1}">
       </div>
     </c:if>
-    <c:if test="${not empty rvs.itemImage}">
+    <c:if test="${not empty rvs.itmImg}">
       <div class="col-12 col-md-6 col-lg-8">
     </c:if>
-    <c:if test="${empty rvs.itemImage}">
+    <c:if test="${empty rvs.itmImg}">
       <div class="col-12">
     </c:if>
       <h5>
-        <c:if test="${not empty rvs.itemPrice}">
+        <c:if test="${not empty rvs.itmPri}">
           <b>${numStr.frmt(pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.nme}</b>
         </c:if>
         ${rvs.itmSpecLst.get(0).itm.nme}
@@ -53,8 +53,8 @@
 </div>
 
 <div class="py-1 text-center bg-light">
-  <c:if test="${empty cartItem && not empty rvs.itemPrice}">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="setCartItem(${itType}, ${rvs.itemPrice.itm.iid}, '${rvs.itemPrice.itm.nme}', ${pri}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itemPrice.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
+  <c:if test="${empty cartItem && not empty rvs.itmPri}">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="setCartItem(${itType}, ${rvs.itmPri.itm.iid}, '${rvs.itmPri.itm.nme}', ${pri}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itmPri.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
   </c:if>
   <c:if test="${not empty cartItem}">
     <button type="button" class="btn btn-primary" onclick="$('#cartMdl').modal('toggle');">${i18n.getMsg("open_cart", rvs.upf.lng.iid)} <span class="badge badge-secondary">${shoppingCart.totalItems}</span></button>
@@ -63,7 +63,7 @@
 
 <div class="py-3 bg-light">
   <div class="text-center text-muted">
-    <h4>${i18n.getMsg("ItmSpf", rvs.upf.lng.iid)}</h4>
+    <h4>${i18n.getMsg("ItmSpf", rvs.upf.lng.iid)}:</h4>
   </div>
   <div class="specifics">
     <div class="row">

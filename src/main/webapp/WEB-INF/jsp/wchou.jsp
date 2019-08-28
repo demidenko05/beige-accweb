@@ -97,8 +97,8 @@
         </c:if>
         <h6>${i18n.getMsg("paym", rvs.upf.lng.iid)}: ${i18n.getMsg(ord.paym, rvs.upf.lng.iid)}</h6>
         <h6>${i18n.getMsg("delv", rvs.upf.lng.iid)}: ${i18n.getMsg(ord.delv, rvs.upf.lng.iid)}</h6>
-        <c:if test="${not empty ord.place}">
-          <h6>${i18n.getMsg("place", rvs.upf.lng.iid)}: ${ord.place.nme}</h6>
+        <c:if test="${not empty ord.pipl}">
+          <h6>${i18n.getMsg("pipl", rvs.upf.lng.iid)}: ${ord.pipl.nme}</h6>
         </c:if>
         <c:if test="${ord.delv ne 'PICKUP'}">
           <c:set var="ifDeliv" value="${true}"/>
@@ -190,8 +190,8 @@
         </c:if>
         <h6>${i18n.getMsg("paym", rvs.upf.lng.iid)}: ${i18n.getMsg(ord.paym, rvs.upf.lng.iid)}</h6>
         <h6>${i18n.getMsg("delv", rvs.upf.lng.iid)}: ${i18n.getMsg(ord.delv, rvs.upf.lng.iid)}</h6>
-        <c:if test="${not empty ord.place}">
-          <h6>${i18n.getMsg("place", rvs.upf.lng.iid)}: ${ord.place.nme}</h6>
+        <c:if test="${not empty ord.pipl}">
+          <h6>${i18n.getMsg("pipl", rvs.upf.lng.iid)}: ${ord.pipl.nme}</h6>
         </c:if>
         <c:if test="${ord.delv ne 'PICKUP'}">
           <c:set var="ifDeliv" value="${true}"/>
@@ -206,50 +206,50 @@
           <table class="table table-sm">
             <tbody>
               <tr>
-                <td>${i18n.getMsg("Erecipient", rvs.upf.lng.iid)}</td>
-                <td>${buyr.nme}</td>
+                <td>${i18n.getMsg("Emrcp", rvs.upf.lng.iid)}</td>
+                <td>${rvs.buyr.nme}</td>
               </tr>
-              <c:if test="${not empty buyr.regCountry}">
+              <c:if test="${not empty rvs.buyr.cntr}">
                 <tr>
-                  <td>${i18n.getMsg("regCountry", rvs.upf.lng.iid)}</td>
-                  <td>${buyr.regCountry}</td>
+                  <td>${i18n.getMsg("cntr", rvs.upf.lng.iid)}</td>
+                  <td>${rvs.buyr.cntr}</td>
                 </tr>
               </c:if>
-              <c:if test="${not empty buyr.regState}">
+              <c:if test="${not empty rvs.buyr.stat}">
                 <tr>
-                  <td>${i18n.getMsg("regState", rvs.upf.lng.iid)}</td>
-                  <td>${buyr.regState}</td>
+                  <td>${i18n.getMsg("stat", rvs.upf.lng.iid)}</td>
+                  <td>${rvs.buyr.stat}</td>
                 </tr>
               </c:if>
-              <c:if test="${not empty buyr.regCity}">
+              <c:if test="${not empty rvs.buyr.city}">
                 <tr>
-                  <td>${i18n.getMsg("regCity", rvs.upf.lng.iid)}</td>
-                  <td>${buyr.regCity}</td>
+                  <td>${i18n.getMsg("city", rvs.upf.lng.iid)}</td>
+                  <td>${rvs.buyr.city}</td>
                 </tr>
               </c:if>
               <tr>
-                <td>${i18n.getMsg("regZip", rvs.upf.lng.iid)}</td>
-                <td>${buyr.regZip}</td>
+                <td>${i18n.getMsg("zip", rvs.upf.lng.iid)}</td>
+                <td>${rvs.buyr.zip}</td>
               </tr>
               <tr>
-                <td>${i18n.getMsg("regAddress1", rvs.upf.lng.iid)}</td>
-                <td>${buyr.regAddress1}</td>
+                <td>${i18n.getMsg("addr1", rvs.upf.lng.iid)}</td>
+                <td>${rvs.buyr.addr1}</td>
               </tr>
-              <c:if test="${not empty buyr.regAddress2}">
+              <c:if test="${not empty rvs.buyr.addr2}">
                 <tr>
-                  <td>${i18n.getMsg("regAddress2", rvs.upf.lng.iid)}</td>
-                  <td>${buyr.regAddress2}</td>
+                  <td>${i18n.getMsg("addr2", rvs.upf.lng.iid)}</td>
+                  <td>${rvs.buyr.addr2}</td>
                 </tr>
               </c:if>
-              <c:if test="${not empty buyr.regPhone}">
+              <c:if test="${not empty rvs.buyr.phon}">
                 <tr>
-                  <td>${i18n.getMsg("regPhone", rvs.upf.lng.iid)}</td>
-                  <td>${buyr.regPhone}</td>
+                  <td>${i18n.getMsg("phon", rvs.upf.lng.iid)}</td>
+                  <td>${rvs.buyr.phon}</td>
                 </tr>
               </c:if>
               <tr>
-                <td>${i18n.getMsg("regEmail", rvs.upf.lng.iid)}</td>
-                <td>${buyr.regEmail}</td>
+                <td>${i18n.getMsg("eml", rvs.upf.lng.iid)}</td>
+                <td>${rvs.buyr.eml}</td>
               </tr>
             </tbody>
           </table>

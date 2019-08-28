@@ -1,25 +1,25 @@
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:useBean id="filterUrlFrm" class="java.util.HashMap" scope="request"/>
+<jsp:useBean id="fltUrlFrm" class="java.util.HashMap" scope="request"/>
 
 <jsp:include page="wsSta.jsp"/>
 
 <c:if test="${not empty rvs.catl}">
-  <c:set var="filterUrl" value="&catlId=${rvs.catl.iid}" scope="request"/>
-  <c:set target="${filterUrlFrm}" property="catlId" value="${rvs.catl.iid}"/>
+  <c:set var="fltUrl" value="&catlId=${rvs.catl.iid}" scope="request"/>
+  <c:set target="${fltUrlFrm}" property="catlId" value="${rvs.catl.iid}"/>
   <c:if test="${not empty param.page}">
-    <c:set target="${filterUrlFrm}" property="page" value="${param.page}"/>
+    <c:set target="${fltUrlFrm}" property="page" value="${param.page}"/>
   </c:if>
   <c:if test="${not empty rvs.fltCatl && not empty rvs.fltCatl.opr}">
-    <c:set var="filterUrl" value="${filterUrl}&fltCtOp=${rvs.fltCatl.opr}" scope="request"/>
-    <c:set target="${filterUrlFrm}" property="fltCtOp" value="${rvs.fltCatl.opr.toString()}"/>
+    <c:set var="fltUrl" value="${fltUrl}&fltCtOp=${rvs.fltCatl.opr}" scope="request"/>
+    <c:set target="${fltUrlFrm}" property="fltCtOp" value="${rvs.fltCatl.opr.toString()}"/>
     <c:forEach var="flCtVl" items="${rvs.fltCatl.items}">
-      <c:set var="filterUrl" value="${filterUrl}&fltCtVal=${flCtVl.iid}" scope="request"/>
-      <c:if test="${not empty filterUrlFrm.get('fltCtVal')}">
-        <c:set target="${filterUrlFrm}" property="fltCtVal" value="${filterUrlFrm.get('fltCtVal')};${flCtVl.iid}"/>
+      <c:set var="fltUrl" value="${fltUrl}&fltCtVal=${flCtVl.iid}" scope="request"/>
+      <c:if test="${not empty fltUrlFrm.get('fltCtVal')}">
+        <c:set target="${fltUrlFrm}" property="fltCtVal" value="${fltUrlFrm.get('fltCtVal')};${flCtVl.iid}"/>
       </c:if>
-      <c:if test="${empty filterUrlFrm.get('fltCtVal')}">
-        <c:set target="${filterUrlFrm}" property="fltCtVal" value="${flCtVl.iid.toString()}"/>
+      <c:if test="${empty fltUrlFrm.get('fltCtVal')}">
+        <c:set target="${fltUrlFrm}" property="fltCtVal" value="${flCtVl.iid.toString()}"/>
       </c:if>
     </c:forEach>
   </c:if>
@@ -27,38 +27,38 @@
     <c:forEach var="fltSpf" items="${rvs.fltSpf}">
       <c:if test="${not empty fltSpf.flt.opr}">
         <c:set var="parPref" value="fltSp${fltSpf.catSpf.specifics.iid}"/>
-        <c:set var="filterUrl" value="${filterUrl}&${parPref}Op=${fltSpf.flt.opr}" scope="request"/>
-        <c:set target="${filterUrlFrm}" property="${parPref}Op" value="${fltSpf.flt.opr.toString()}"/>
+        <c:set var="fltUrl" value="${fltUrl}&${parPref}Op=${fltSpf.flt.opr}" scope="request"/>
+        <c:set target="${fltUrlFrm}" property="${parPref}Op" value="${fltSpf.flt.opr.toString()}"/>
         <c:if test="${fltSpf.flt.getClass().simpleName eq 'FilterItems'}">
           <c:set var="prVl" value="${parPref}Val"/>
           <c:forEach var="flSpVl" items="${fltSpf.flt.items}">
-            <c:set var="filterUrl" value="${filterUrl}&${parPref}Val=${flSpVl.iid}" scope="request"/>
-            <c:if test="${not empty filterUrlFrm.get(prVl)}">
-              <c:set target="${filterUrlFrm}" property="${prVl}" value="${filterUrlFrm.get(prVl)};${flSpVl.iid}"/>
+            <c:set var="fltUrl" value="${fltUrl}&${parPref}Val=${flSpVl.iid}" scope="request"/>
+            <c:if test="${not empty fltUrlFrm.get(prVl)}">
+              <c:set target="${fltUrlFrm}" property="${prVl}" value="${fltUrlFrm.get(prVl)};${flSpVl.iid}"/>
             </c:if>
-            <c:if test="${empty filterUrlFrm.get(prVl)}">
-              <c:set target="${filterUrlFrm}" property="${prVl}" value="${flSpVl.iid.toString()}"/>
+            <c:if test="${empty fltUrlFrm.get(prVl)}">
+              <c:set target="${fltUrlFrm}" property="${prVl}" value="${flSpVl.iid.toString()}"/>
             </c:if>
           </c:forEach>
         </c:if>
         <c:if test="${fltSpf.flt.getClass().simpleName ne 'FilterItems'}">
-          <c:set var="filterUrl" value="${filterUrl}&${parPref}Val1=${fltSpf.flt.value1}" scope="request"/>
-          <c:set target="${filterUrlFrm}" property="${parPref}Val1" value="${fltSpf.flt.value1.toString()}"/>
+          <c:set var="fltUrl" value="${fltUrl}&${parPref}Val1=${fltSpf.flt.value1}" scope="request"/>
+          <c:set target="${fltUrlFrm}" property="${parPref}Val1" value="${fltSpf.flt.value1.toString()}"/>
           <c:if test="${fltSpf.flt.opr eq 'BETWEEN_INCLUDE'}">
-            <c:set var="filterUrl" value="${filterUrl}&${parPref}Val2=${fltSpf.flt.value2}" scope="request"/>
-            <c:set target="${filterUrlFrm}" property="${parPref}Val2" value="${fltSpf.flt.value2.toString()}"/>
+            <c:set var="fltUrl" value="${fltUrl}&${parPref}Val2=${fltSpf.flt.value2}" scope="request"/>
+            <c:set target="${fltUrlFrm}" property="${parPref}Val2" value="${fltSpf.flt.value2.toString()}"/>
           </c:if>
         </c:if>
       </c:if>
     </c:forEach>
   </c:if>
   <c:if test="${not empty rvs.fltPri && not empty rvs.fltPri.opr}">
-    <c:set var="filterUrl" value="${filterUrl}&fltPriOp=${rvs.fltPri.opr}&fltPriVal1=${rvs.fltPri.value1}" scope="request"/>
-    <c:set target="${filterUrlFrm}" property="fltPriOp" value="${rvs.fltPri.opr}"/>
-    <c:set target="${filterUrlFrm}" property="fltPriVal1" value="${rvs.fltPri.value1}"/>
+    <c:set var="fltUrl" value="${fltUrl}&fltPriOp=${rvs.fltPri.opr}&fltPriVal1=${rvs.fltPri.value1}" scope="request"/>
+    <c:set target="${fltUrlFrm}" property="fltPriOp" value="${rvs.fltPri.opr}"/>
+    <c:set target="${fltUrlFrm}" property="fltPriVal1" value="${rvs.fltPri.value1}"/>
     <c:if test="${not empty rvs.fltPri.value2}">
-      <c:set var="filterUrl" value="${filterUrl}&fltPriVal2=${rvs.fltPri.value2}" scope="request"/>
-      <c:set target="${filterUrlFrm}" property="fltPriVal2" value="${rvs.fltPri.value2}"/>
+      <c:set var="fltUrl" value="${fltUrl}&fltPriVal2=${rvs.fltPri.value2}" scope="request"/>
+      <c:set target="${fltUrlFrm}" property="fltPriVal2" value="${rvs.fltPri.value2}"/>
     </c:if>
   </c:if>
 
@@ -78,7 +78,7 @@
     </c:if>
     <c:set var="andI18n" value="${i18n.getMsg('and', rvs.upf.lng.iid)}"/>
     <c:if test="${not empty rvs.fltPri && not empty rvs.fltPri.opr}">
-      <c:set var="prI18n" value="${i18n.getMsg('itsPrice', rvs.upf.lng.iid)}"/>
+      <c:set var="prI18n" value="${i18n.getMsg('pri', rvs.upf.lng.iid)}"/>
       <c:set var="listFltAp" value="${listFltAp} ${delim} ${prI18n} ${i18n.getMsg(rvs.fltPri.opr, rvs.upf.lng.iid)} ${rvs.fltPri.value1}"/>
       <c:if test="${not empty rvs.fltPri.value2}">
         <c:set var="listFltAp" value="${listFltAp} ${andI18n} ${rvs.fltPri.value2}"/>
@@ -110,16 +110,16 @@
         </c:if>
       </c:forEach>
     </c:if>
-    <c:if test="${not empty filterUrl}">
-      <c:set var="filterUrl" value="${filterUrl}&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+    <c:if test="${not empty fltUrl}">
+      <c:set var="fltUrl" value="${fltUrl}&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
-    <c:if test="${empty filterUrl}">
-      <c:set var="filterUrl" value="&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+    <c:if test="${empty fltUrl}">
+      <c:set var="fltUrl" value="&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
     <c:if test="${not empty ordb}">
-      <c:set target="${filterUrlFrm}" property="ordb" value="${ordb}"/>
+      <c:set target="${fltUrlFrm}" property="ordb" value="${ordb}"/>
     </c:if>
-    <c:set target="${filterUrlFrm}" property="ctNm" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+    <c:set target="${fltUrlFrm}" property="ctNm" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
   </c:if>
 
   <div class="card cat-name">
@@ -170,47 +170,47 @@
     <c:set var="uomId" value="1"/>
     <c:set var="uomNm" value="${i18n.getMsg('each')}"/>
     <c:if test="${rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-      <c:set var="pri" value="${itm.itsPrice}"/>
+      <c:set var="pri" value="${itm.pri}"/>
     </c:if>
     <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
-      <c:set var="pri" value="${itm.itsPrice.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
+      <c:set var="pri" value="${itm.pri.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
     </c:if>
     <c:if test="${not empty itm.uom}">
       <c:set var="uomId" value="${itm.uom.iid}"/>
       <c:set var="uomNm" value="${itm.uom.nme}"/>
     </c:if>
-    <c:set var="quan" value="${itm.unStep}"/>
+    <c:set var="quan" value="${itm.unSt}"/>
     <c:set var="lnId" value="null"/>
-    <c:set var="orderedQuantity" value=""/>
-    <c:if test="${not empty cartMap && not empty cartMap[itm.typ][itm.itId]}">
-      <c:set var="quan" value="${cartMap[itm.typ][itm.itId].quan}"/>
-      <c:set var="lnId" value="${cartMap[itm.typ][itm.itId].iid}"/>
-      <c:set target="${cartMap[itm.typ][itm.itId]}" property="avQuan" value="${itm.availableQuantity}"/>
-      <c:set var="orderedQuantity">
-        <span class="badge badge-primary">${numStr.frmtNtz(cartMap[itm.typ][itm.itId].quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.upf.dgInGr)}</span>
+    <c:set var="ordQuan" value=""/>
+    <c:if test="${not empty rvs.cartMap && not empty rvs.cartMap[itm.typ][itm.itId]}">
+      <c:set var="quan" value="${rvs.cartMap[itm.typ][itm.itId].quan}"/>
+      <c:set var="lnId" value="${rvs.cartMap[itm.typ][itm.itId].iid}"/>
+      <c:set target="${rvs.cartMap[itm.typ][itm.itId]}" property="avQuan" value="${itm.quan}"/>
+      <c:set var="ordQuan">
+        <span class="badge badge-primary">${numStr.frmtNtz(rvs.cartMap[itm.typ][itm.itId].quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.upf.dgInGr)}</span>
       </c:set>
     </c:if>
     <c:if test="${rvs.tstg.colCnt == 1 || (status.index mod 2) == 0}">
       <div class="row">
     </c:if>
-    <c:if test="${not empty itm.imageUrl}">
+    <c:if test="${not empty itm.img}">
       ${divImg}
-        <img class="card-img-top" src="${itm.imageUrl}">
+        <img class="card-img-top" src="${itm.img}">
       </div>
       ${divDscr}
     </c:if>
-    <c:if test="${empty itm.imageUrl}">
+    <c:if test="${empty itm.img}">
       ${divDscrOnly}
     </c:if>
       <h5>
-        <a href="#" onclick="setCartItem(${itm.typ.ordinal()},${itm.itId},'${itm.nme}',${pri},${quan},${itm.availableQuantity},${lnId},${uomId},'${uomNm}',${itm.unStep},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-cart" title="cart" aria-hidden="true"></span>${orderedQuantity}</a>
+        <a href="#" onclick="bsSetCartItm(${itm.typ.ordinal()},${itm.itId},'${itm.nme}',${pri},${quan},${itm.quan},${lnId},${uomId},'${uomNm}',${itm.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-cart" title="cart" aria-hidden="true"></span>${ordQuan}</a>
         <b><span>${numStr.frmt(pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</span> ${rvs.wscurr.sgn}
           <c:if test="${not empty itm.uom}">
             ${itm.uom.nme}
           </c:if>
         </b>
         <c:if test="${not empty itm.detMt}">
-          <a href="?rnd=${itm.typ}${itm.detMt}&prc=PrcItemPage&itId=${itm.itId}&itTy=${itm.typ}&avQu=${itm.availableQuantity}&uoId=${uomId}&uoNm=${uomNm}">${itm.nme}</a>
+          <a href="?rnd=${itm.typ}${itm.detMt}&prc=ItmPg&itId=${itm.itId}&itTy=${itm.typ}&avQu=${itm.quan}&uoId=${uomId}&uoNm=${uomNm}">${itm.nme}</a>
         </c:if>
         <c:if test="${empty itm.detMt}">
           ${itm.nme}
@@ -231,14 +231,14 @@
       <ul class="pagination justify-content-center">
         <c:forEach var="pg" items="${rvs.pages}">
           <c:if test="${pg.cur}">
-            <li class="page-itm active"><a class="page-link" href="?prc=WsPg&page=${pg.val}${filterUrl}">${pg.val}</a></li>
+            <li class="page-item active"><a class="page-link" href="?prc=WsPg&page=${pg.val}${fltUrl}">${pg.val}</a></li>
           </c:if>
           <c:if test="${!pg.cur}">
             <c:if test="${pg.val ne '...'}">
-              <li class="page-itm"><a class="page-link" href="?prc=WsPg&page=${pg.val}${filterUrl}">${pg.val}</a></li>
+              <li class="page-item"><a class="page-link" href="?prc=WsPg&page=${pg.val}${fltUrl}">${pg.val}</a></li>
             </c:if>
             <c:if test="${pg.val eq '...'}">
-              <li class="page-itm"><a class="page-link" href="#">${pg.val}</a></li>
+              <li class="page-item"><a class="page-link" href="#">${pg.val}</a></li>
             </c:if>
           </c:if>
         </c:forEach>
@@ -303,7 +303,7 @@
                   <label>${i18n.getMsg("rvs.fltCatl", rvs.upf.lng.iid)}:</label>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                  <select id="fltCtOp" name="fltCtOp" onchange="onCatalogOperChanged(this, 'fltCtVal', 'rowFltCat');" class="form-control">
+                  <select id="fltCtOp" name="fltCtOp" onchange="bsCatOprChg(this, 'fltCtVal', 'rowFltCat');" class="form-control">
                     <c:if test="${rvs.fltCatl.opr ne 'NOT_IN'}"> <c:set var="selNotIn" value=""/> </c:if>
                     <c:if test="${rvs.fltCatl.opr eq 'NOT_IN'}"> <c:set var="selNotIn" value="selected"/> </c:if>
                     <c:if test="${rvs.fltCatl.opr ne 'IN'}"> <c:set var="selIn" value=""/> </c:if>
@@ -316,7 +316,7 @@
                   </select>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
-                  <select multiple id="fltCtVal" ${disFltCtVal} name="fltCtVal" onchange="onCatalogValChanged(this, 'fltCtOp', 'rowFltCat');" class="form-control">
+                  <select multiple id="fltCtVal" ${disFltCtVal} name="fltCtVal" onchange="bsCatValChg(this, 'fltCtOp', 'rowFltCat');" class="form-control">
                     <c:forEach var="cata" items="${rvs.fltCatl.itemsAll}">
                       <c:set var="catSel" value=""/>
                       <c:forEach var="catc" items="${rvs.fltCatl.items}">
