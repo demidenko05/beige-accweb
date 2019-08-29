@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:if test="${not empty errMsg}">
+<c:if test="${not empty rvs.errMsg}">
   <div class="modal fade" id="errDlg" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -10,7 +10,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <h5>${i18n.getMsg(errMsg, rvs.upf.lng.iid)}</h5>
+          <h5>${i18n.getMsg(rvs.errMsg, rvs.upf.lng.iid)}</h5>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
@@ -46,12 +46,12 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><span class="oi oi-book" aria-hidden="true"></span> ${i18n.getMsg("CustOrders", rvs.upf.lng.iid)} / <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</h5>
+          <h5 class="modal-title"><span class="oi oi-book" aria-hidden="true"></span> ${i18n.getMsg("CuOrs", rvs.upf.lng.iid)} / <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <h5><a href="${urlPrf}?prc=PrBuOr&rnd=wors&rndRed=${rndRed}&prcRed=${prcRed}">${i18n.getMsg('CustOrders', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
-          <h5><a href="#" data-dismiss="modal" data-toggle="tooltip" title="${i18n.getMsg('shipping_address', rvs.upf.lng.iid)}" onclick="$('#rvs.buyrMdl').modal('show');">${i18n.getMsg("shipping_address", rvs.upf.lng.iid)} <span class="oi oi-pencil" aria-hidden="true"></span></a></h5>
+          <h5><a href="${urlPrf}?prc=PrBuOr&rnd=wors&rndRed=${rndRed}&prcRed=${prcRed}">${i18n.getMsg('CuOrs', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
+          <h5><a href="#" data-dismiss="modal" data-toggle="tooltip" title="${i18n.getMsg('shipping_address', rvs.upf.lng.iid)}" onclick="$('#buyrMdl').modal('show');">${i18n.getMsg("shipping_address", rvs.upf.lng.iid)} <span class="oi oi-pencil" aria-hidden="true"></span></a></h5>
         </div>
         <div class="modal-footer">
           <a type="button" class="btn btn-outline-primary" href="${urlPrf}?rnd=${rndRed}&prc=PrLog&prcRed=${prcRed}">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
@@ -60,11 +60,11 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="rvs.buyrMdl" tabindex="-1" role="dialog" aria-labelledby="rvs.buyrMdlLabel">
+  <div class="modal fade" id="buyrMdl" tabindex="-1" role="dialog" aria-labelledby="buyrMdlLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="rvs.buyrMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("shipping_address", rvs.upf.lng.iid)}</h5>
+          <h5 class="modal-title" id="buyrMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("shipping_address", rvs.upf.lng.iid)}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
@@ -95,7 +95,7 @@
                 <label>${i18n.getMsg("nme", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input required name="nm" class="form-control" value="${rvs.buyr.nme}">
+                <input required name="nme" class="form-control" value="${rvs.buyr.nme}">
               </div>
             </div>
             <div class="row">
@@ -103,7 +103,7 @@
                 <label>${i18n.getMsg("cntr", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="cnt" class="form-control" value="${rvs.buyr.cntr}">
+                <input name="cntr" class="form-control" value="${rvs.buyr.cntr}">
               </div>
             </div>
             <div class="row">
@@ -111,7 +111,7 @@
                 <label>${i18n.getMsg("city", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="cit" class="form-control" value="${rvs.buyr.city}">
+                <input name="city" class="form-control" value="${rvs.buyr.city}">
               </div>
             </div>
             <div class="row">
@@ -127,7 +127,7 @@
                 <label>${i18n.getMsg("addr1", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input required name="adr1" class="form-control" value="${rvs.buyr.addr1}">
+                <input required name="addr1" class="form-control" value="${rvs.buyr.addr1}">
               </div>
             </div>
             <div class="row">
@@ -135,7 +135,7 @@
                 <label>${i18n.getMsg("addr2", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="adr2" class="form-control" value="${rvs.buyr.addr2}">
+                <input name="addr2" class="form-control" value="${rvs.buyr.addr2}">
               </div>
             </div>
             <div class="row">
@@ -143,7 +143,7 @@
                 <label>${i18n.getMsg("phon", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input name="phn" class="form-control" value="${rvs.buyr.phon}">
+                <input name="phon" class="form-control" value="${rvs.buyr.phon}">
               </div>
             </div>
             <div class="modal-footer">

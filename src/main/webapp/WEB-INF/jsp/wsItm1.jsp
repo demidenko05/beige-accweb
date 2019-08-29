@@ -43,20 +43,20 @@
         <c:if test="${not empty rvs.itmPri}">
           <b>${numStr.frmt(pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.nme}</b>
         </c:if>
-        ${rvs.itmSpecLst.get(0).itm.nme}
+        ${rvs.itmSpecLs.get(0).itm.nme}
       </h5>
       <p>
-        ${utlTrdJsp.itmSpfStr(rvs, rvs.itmSpecLst)}
+        ${utlTrdJsp.itmSpfStr(rvs, rvs.itmSpecLs)}
       </p>
     </div>
   </div>
 </div>
 
 <div class="py-1 text-center bg-light">
-  <c:if test="${empty cartItem && not empty rvs.itmPri}">
+  <c:if test="${empty rvs.cartItm && not empty rvs.itmPri}">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="setCartItem(${itType}, ${rvs.itmPri.itm.iid}, '${rvs.itmPri.itm.nme}', ${pri}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itmPri.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
   </c:if>
-  <c:if test="${not empty cartItem}">
+  <c:if test="${not empty rvs.cartItm}">
     <button type="button" class="btn btn-primary" onclick="$('#cartMdl').modal('toggle');">${i18n.getMsg("open_cart", rvs.upf.lng.iid)} <span class="badge badge-secondary">${shoppingCart.totalItems}</span></button>
   </c:if>
 </div>
@@ -67,7 +67,7 @@
   </div>
   <div class="specifics">
     <div class="row">
-      <c:forEach var="itSp" items="${rvs.itmSpecLst}">
+      <c:forEach var="itSp" items="${rvs.itmSpecLs}">
         <c:if test="${itSp.spec.typ eq 'TEXT'}">
           <div class="col-12 col-md-5">
             <b>${itSp.spec.nme}: </b>
@@ -111,7 +111,7 @@
   </div>
 </div>
 
-<c:forEach var="itSp" items="${rvs.itmSpecLst}">
+<c:forEach var="itSp" items="${rvs.itmSpecLs}">
   <c:if test="${itSp.spec.typ eq 'FILE_EMBEDDED' && itSp.str1.endsWith('html')}">
     <c:set var="embhtmlnm" value="${utlJsp.evFileNmNoExt(itSp.str1)}"/>
     <c:set var="flUrl" value="${itSp.str1}"/>
@@ -126,7 +126,7 @@
 </c:forEach>
 
 <c:set var="currGroup" value=""/>
-<c:forEach var="itSp" items="${rvs.itmSpecLst}">
+<c:forEach var="itSp" items="${rvs.itmSpecLs}">
   <c:if test="${itSp.spec.typ eq 'IMAGE_IN_SET' && not empty itSp.spec.grp}">
     <c:if test="${empty currGroup || itSp.spec.grp.iid ne currGroup.iid}">
       <c:if test="${not empty currGroup}">
@@ -167,7 +167,7 @@
   <c:set var="currGroup" value=""/>
 </c:if>
 
-<c:forEach var="itSp" items="${rvs.itmSpecLst}">
+<c:forEach var="itSp" items="${rvs.itmSpecLs}">
   <c:if test="${itSp.spec.typ eq 'FILE' && not empty itSp.spec.grp}">
     <c:if test="${empty currGroup || itSp.spec.grp.iid ne currGroup.iid}">
       <c:if test="${not empty currGroup}">

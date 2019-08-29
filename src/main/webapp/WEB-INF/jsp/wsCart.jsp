@@ -55,7 +55,7 @@
                   <label>${i18n.getMsg("nme", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input required name="nm" class="form-control" value="${rvs.buyr.nme}">
+                  <input required name="nme" class="form-control" value="${rvs.buyr.nme}">
                 </div>
               </div>
               <div class="row">
@@ -72,7 +72,7 @@
                 <label>${i18n.getMsg("pwd", rvs.upf.lng.iid)}</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input type="password" required name="pw" class="form-control">
+                <input type="password" required name="pwd" class="form-control">
               </div>
             </div>
             <c:if test="${empty rvs.buyr.pwd}">
@@ -81,7 +81,7 @@
                   <label>${i18n.getMsg("pwdc", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input type="password" required name="pwc" class="form-control">
+                  <input type="password" required name="pwdc" class="form-control">
                 </div>
               </div>
             </c:if>
@@ -127,7 +127,7 @@
                   <label>${i18n.getMsg("eml", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input required type="email" name="em" class="form-control" value="${rvs.buyr.eml}">
+                  <input required type="email" name="eml" class="form-control" value="${rvs.buyr.eml}">
                 </div>
               </div>
               <div class="row">
@@ -135,7 +135,7 @@
                   <label>${i18n.getMsg("pwd", rvs.upf.lng.iid)}</label>
                 </div>
                 <div class="col-12 col-md-8 mb-3">
-                  <input type="password" required name="pw" class="form-control">
+                  <input type="password" required name="pwd" class="form-control">
                 </div>
               </div>
               <div class="modal-footer">

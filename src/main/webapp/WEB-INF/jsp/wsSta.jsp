@@ -87,7 +87,7 @@
                   </div>
                 </li>
               </c:if>
-              <c:if test="${cat1l.subcatls.size() eq 0 && cat1l.catl.used}">
+              <c:if test="${cat1l.subcatls.size() eq 0 && cat1l.catl.inMn}">
                 <li class="nav-item"><a class="nav-link" href="${urlPrf}?prc=WsPg&catlId=${cat1l.catl.iid}">${utlTrJsp.catlToStr(cat1l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</a></li>
               </c:if>
             </c:forEach>
@@ -101,7 +101,7 @@
             <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('log_in', rvs.upf.lng.iid)}" onclick="$('#signMdl').modal('toggle');"><span class="oi oi-account-login" aria-hidden="true"></span></a></li>
           </c:if>
           <c:if test="${!isUnSign}">
-            <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('log_out', rvs.upf.lng.iid)}" onclick="$('#logoutDlg').modal('toggle');">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span></a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('logout', rvs.upf.lng.iid)}" onclick="$('#logoutDlg').modal('toggle');">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span></a></li>
           </c:if>
           <c:if test="${not empty rvs.cart}">
             <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('Cart', rvs.upf.lng.iid)}" onclick="$('#cartMdl').modal('toggle');"><span class="oi oi-cart" title="cart" aria-hidden="true"></span><span class="badge badge-secondary">${numStr.frmt(rvs.cart.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${rvs.wscurr.sgn}</span></a></li>

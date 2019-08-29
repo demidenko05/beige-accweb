@@ -33,10 +33,18 @@
           </c:forEach>
           <div class="row">
             <div class="col-12 col-md-6 mb-3">
+              <label>${i18n.getMsg("pgSz", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <input type="number" class="form-control" name ="pgSz" min="5" max="100" value="${rvs.cpf.pgSz}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 mb-3">
               <label>${i18n.getMsg("lng", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
-              <select name="lang" class="form-control">
+              <select name="lng" class="form-control">
                 <c:forEach var="it" items="${rvs.lngs}">
                   <c:set var="itmSel" value=""/>
                   <c:if test="${rvs.upf.lng.iid eq it.iid}">
@@ -52,10 +60,10 @@
               <label>${i18n.getMsg("dcSp", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
-              <select name="decSep"  class="form-control">
-                <c:forEach var="it" items="${rvs.decSeps}">
+              <select name="dcSp"  class="form-control">
+                <c:forEach var="it" items="${rvs.dcSps}">
                   <c:set var="itmSel" value=""/>
-                  <c:if test="${rvs.decSep eq it.iid}">
+                  <c:if test="${rvs.upf.dcSp.iid eq it.iid}">
                     <c:set var="itmSel" value="selected"/>
                   </c:if>
                   <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme, rvs.upf.lng.iid)}</option>
@@ -68,10 +76,10 @@
               <label>${i18n.getMsg("dcGrSp", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
-              <select name="decGrSep"  class="form-control">
-                <c:forEach var="it" items="${rvs.decGrSeps}">
+              <select name="dcGrSp"  class="form-control">
+                <c:forEach var="it" items="${rvs.dcGrSps}">
                   <c:set var="itmSel" value=""/>
-                  <c:if test="${rvs.decGrSep eq it.iid}">
+                  <c:if test="${rvs.upf.dcGrSp.iid eq it.iid}">
                     <c:set var="itmSel" value="selected"/>
                   </c:if>
                   <option value="${it.iid}" ${itmSel}>${i18n.getMsg(it.nme, rvs.upf.lng.iid)}</option>
@@ -84,7 +92,7 @@
               <label>${i18n.getMsg("dgInGr", rvs.upf.lng.iid)}</label>
             </div>
             <div class="col-12 col-md-6 mb-3">
-              <select name="digInGr"  class="form-control">
+              <select name="dgInGr"  class="form-control">
                 <c:set var="itmSel" value=""/>
                 <c:if test="${rvs.upf.dgInGr == 2}">
                   <c:set var="itmSel" value="selected"/>
