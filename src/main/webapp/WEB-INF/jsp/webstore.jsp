@@ -257,7 +257,7 @@
         <div class="modal-body">
           <form action="" method="GET">
             <input type="hidden" name="rnd" value="webstore">
-            <input type="hidden" name="prc" value="PrcWebstorePage">
+            <input type="hidden" name="prc" value="WsPg">
             <input type="hidden" name="catlId" value="${rvs.catl.iid}">
             <div class="row">
               <div class="col-12 col-md-6 mb-3">

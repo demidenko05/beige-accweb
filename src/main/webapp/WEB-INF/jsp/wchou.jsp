@@ -1,10 +1,10 @@
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:if test="${orders == null && sorders == null}">
+<c:if test="${rvs.orders == null && rvs.srvs.orders == null}">
   <jsp:include page="${param.rndRed}.jsp"/>
 </c:if>
-<c:if test="${orders != null || sorders != null}">
+<c:if test="${rvs.orders != null || rvs.srvs.orders != null}">
   <jsp:include page="wsSta.jsp"/>
 
   <c:set var="ifPayPal" value="${false}"/>
@@ -14,11 +14,11 @@
       <h3>${i18n.getMsg("check_out", rvs.upf.lng.iid)}</h3>
     </div>
     <div class="card-body">
-      <c:forEach var="ord" items="${orders}">
+      <c:forEach var="ord" items="${rvs.orders}">
         <h5>${i18n.getMsg("CuOr", rvs.upf.lng.iid)}#${ord.iid}, <fmt:formatDate value="${ord.dat}" type="both" timeStyle="short"/>,
         ${i18n.getMsg("tot", rvs.upf.lng.iid)} ${ord.tot}${ord.curr.stCo}
-        <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)}),</c:if>
-        <c:if test="${ord.toTx.doubleValue() gt 0 && !tradSet.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)}),</c:if>
+        <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)}),</c:if>
+        <c:if test="${ord.toTx.doubleValue() gt 0 && !rvs.tsrg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)}),</c:if>
         ${i18n.getMsg("toTx", rvs.upf.lng.iid)} ${ord.toTx}${ord.curr.nme}:</h5>
         <div class="table-responsive">
           <table class="table table-sm">
@@ -29,7 +29,7 @@
                 <th>${i18n.getMsg("pri", rvs.upf.lng.iid)}</th>
                 <th>${i18n.getMsg("quan", rvs.upf.lng.iid)}</th>
                 <th>${i18n.getMsg("tot", rvs.upf.lng.iid)}</th>
-                <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl && !rvs.txRules.stIb}">
+                <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl && !rvs.txRules.stIb}">
                   <th>${i18n.getMsg("toTx", rvs.upf.lng.iid)}</th>
                 </c:if>
               </tr>
@@ -37,24 +37,24 @@
             <tbody>
               <c:forEach var="il" items="${ord.goods}">
                 <tr>
-                  <td>${il.nme} ${il.descr}</td>
+                  <td>${il.dscr}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
-                  <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl && !rvs.txRules.stIb}">
+                  <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl && !rvs.txRules.stIb}">
                     <td>${numStr.frmt(il.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
                   </c:if>
                 </tr>
               </c:forEach>
               <c:forEach var="il" items="${ord.servs}">
                 <tr>
-                  <td>${il.nme} ${il.descr}</td>
+                  <td>${il.dscr}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
-                  <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl && !rvs.txRules.stIb}">
+                  <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl && !rvs.txRules.stIb}">
                     <td>${numStr.frmt(il.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
                   </c:if>
                 </tr>
@@ -63,7 +63,7 @@
           </table>
         </div>
         <c:if test="${ord.toTx.doubleValue() gt 0}">
-          <h5>${i18n.getMsg("taxes", rvs.upf.lng.iid)}
+          <h5>${i18n.getMsg("Taxs", rvs.upf.lng.iid)}
           <c:if test="${not empty txRules}">
             <c:if test="${rvs.txRules.stIb}">
               (${i18n.getMsg("stIb", rvs.upf.lng.iid)},
@@ -107,11 +107,11 @@
           <c:set var="ifPayPal" value="${true}"/>
         </c:if>
       </c:forEach>
-      <c:forEach var="ord" items="${sorders}">
+      <c:forEach var="ord" items="${rvs.srvs.orders}">
         <h5>${i18n.getMsg("CuOr", rvs.upf.lng.iid)}#${ord.iid}, <fmt:formatDate value="${ord.dat}" type="both" timeStyle="short"/>,
         ${i18n.getMsg("seller", rvs.upf.lng.iid)}: ${ord.sel.seller.nme}, ${i18n.getMsg("tot", rvs.upf.lng.iid)} ${ord.tot}${ord.curr.stCo}
-        <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)}),</c:if>
-        <c:if test="${ord.toTx.doubleValue() gt 0 && !tradSet.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)}),</c:if>
+        <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)}),</c:if>
+        <c:if test="${ord.toTx.doubleValue() gt 0 && !rvs.tsrg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)}),</c:if>
         ${i18n.getMsg("toTx", rvs.upf.lng.iid)} ${ord.toTx}${ord.curr.nme}:</h5>
         <div class="table-responsive">
           <table class="table table-sm">
@@ -122,7 +122,7 @@
                 <th>${i18n.getMsg("pri", rvs.upf.lng.iid)}</th>
                 <th>${i18n.getMsg("quan", rvs.upf.lng.iid)}</th>
                 <th>${i18n.getMsg("tot", rvs.upf.lng.iid)}</th>
-                <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl && !rvs.txRules.stIb}">
+                <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl && !rvs.txRules.stIb}">
                   <th>${i18n.getMsg("toTx", rvs.upf.lng.iid)}</th>
                 </c:if>
               </tr>
@@ -130,24 +130,24 @@
             <tbody>
               <c:forEach var="il" items="${ord.goods}">
                 <tr>
-                  <td>${il.nme} ${il.descr}</td>
+                  <td>${il.dscr}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
-                  <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl && !rvs.txRules.stIb}">
+                  <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl && !rvs.txRules.stIb}">
                     <td>${numStr.frmt(il.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
                   </c:if>
                 </tr>
               </c:forEach>
               <c:forEach var="il" items="${ord.servs}">
                 <tr>
-                  <td>${il.nme} ${il.descr}</td>
+                  <td>${il.dscr}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
-                  <c:if test="${ord.toTx.doubleValue() gt 0 && tradSet.txExcl && !rvs.txRules.stIb}">
+                  <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tsrg.txExcl && !rvs.txRules.stIb}">
                     <td>${numStr.frmt(il.toTx.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}${ord.curr.nme}</td>
                   </c:if>
                 </tr>
@@ -259,7 +259,7 @@
         <div id="paypal-button"></div>
       </c:if>
       <c:if test="${!ifPayPal}">
-        <a href="ntr/?prc=PrPur&rnd=waor&rndRed=webstore&prcRed=PrcWebstorePage" type="button" class="btn btn-lg btn-block btn-primary">${i18n.getMsg("accept", rvs.upf.lng.iid)}</a>
+        <a href="?prc=PrPur&prcRed=WsPg" type="button" class="btn btn-lg btn-block btn-primary">${i18n.getMsg("accept", rvs.upf.lng.iid)}</a>
       </c:if>
     </div>
   </div>
@@ -278,7 +278,7 @@
         // 1. Add a payment callback
         payment: function(data, actions) {
           // 2. Make a request to your server
-          return actions.request.post('ntr/?prc=PrPpl&rnd=ppl&rndRed=${rndRed}&prcRed=${prcRed}&catlId=${catlId}')
+          return actions.request.post('?prc=PrPpl&rnd=ppl&prcRed=${prcRed}&catlId=${catlId}')
             .then(function(res) {
               // 3. Return res.id from the response
               return res.id;
@@ -288,13 +288,13 @@
         // 1. Add an onAuthorize callback
         onAuthorize: function(data, actions) {
           // 2. Make a request to your server
-          return actions.request.post('ntr/?prc=PrPpl&rnd=ppl&rndRed=${rndRed}&prcRed=${prcRed}&catlId=${catlId}', {
+          return actions.request.post('?prc=PrPpl&rnd=ppl&prcRed=${prcRed}&catlId=${catlId}', {
             paymentID: data.paymentID,
             payerID:   data.payerID
           })
             .then(function(res) {
               // 3. Show the buyer a confirmation message:
-              window.location.assign('ntr/?prc=PrBur&rnd=waor&pur=${orders[0].pur}&rndRed=${rndRed}&prcRed=${prcRed}&catlId=${catlId}');
+              window.location.assign('?prc=PrBur&pur=${rvs.orders[0].pur}&prcRed=${prcRed}&catlId=${catlId}');
             });
         }
       }, '#paypal-button');

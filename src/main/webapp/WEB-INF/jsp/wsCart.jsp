@@ -599,8 +599,8 @@
       </c:if>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
-        <c:if test="${!isUnSign && param.prc ne 'PrcCheckOut'}">
-          <a href="${urlPrf}?rnd=wchou&prc=PrcCheckOut&rndRed=${rndRed}&prcRed=${prcRed}" type="button" class="btn btn-primary">${i18n.getMsg("check_out", rvs.upf.lng.iid)}</a>
+        <c:if test="${!isUnSign && param.prc ne 'ChkOut'}">
+          <a href="${urlPrf}?prc=ChkOut&rndRed=${rndRed}&prcRed=${prcRed}" type="button" class="btn btn-primary">${i18n.getMsg("check_out", rvs.upf.lng.iid)}</a>
         </c:if>
       </div>
     </div>
