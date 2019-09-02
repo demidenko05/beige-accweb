@@ -32,7 +32,7 @@
           <tbody>
             <c:forEach var="il" items="${ord.goods}">
               <tr>
-                <td>${il.descr}</td>
+                <td>${il.dscr}</td>
                 <td>${il.uom.nme}</td>
                 <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                 <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
@@ -44,7 +44,7 @@
             </c:forEach>
             <c:forEach var="il" items="${ord.servs}">
               <tr>
-                <td>${il.descr}</td>
+                <td>${il.dscr}</td>
                 <td>${il.uom.nme}</td>
                 <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                 <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
@@ -58,7 +58,7 @@
         </table>
       </div>
       <c:if test="${ord.toTx.doubleValue() gt 0}">
-        <h5>${i18n.getMsg("taxes", rvs.upf.lng.iid)}
+        <h5>${i18n.getMsg("Taxs", rvs.upf.lng.iid)}
         <c:if test="${not empty txRules}">
           <c:if test="${rvs.txRules.stIb}">
             (${i18n.getMsg("stIb", rvs.upf.lng.iid)},
@@ -119,7 +119,7 @@
           <tbody>
             <c:forEach var="il" items="${ord.goods}">
               <tr>
-                <td>${il.descr}</td>
+                <td>${il.dscr}</td>
                 <td>${il.uom.nme}</td>
                 <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                 <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
@@ -131,7 +131,7 @@
             </c:forEach>
             <c:forEach var="il" items="${ord.servs}">
               <tr>
-                <td>${il.descr}</td>
+                <td>${il.dscr}</td>
                 <td>${il.uom.nme}</td>
                 <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                 <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>

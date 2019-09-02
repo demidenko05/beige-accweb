@@ -156,7 +156,7 @@
           </table>
         </div>
         <c:if test="${ord.toTx.doubleValue() gt 0}">
-          <h5>${i18n.getMsg("taxes", rvs.upf.lng.iid)}
+          <h5>${i18n.getMsg("Taxs", rvs.upf.lng.iid)}
           <c:if test="${not empty txRules}">
             <c:if test="${rvs.txRules.stIb}">
               (${i18n.getMsg("stIb", rvs.upf.lng.iid)},

@@ -50,7 +50,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <h5><a href="${urlPrf}?prc=PrBuOr&rnd=wors&rndRed=${rndRed}&prcRed=${prcRed}">${i18n.getMsg('CuOrs', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
+          <h5><a href="${urlPrf}?prc=PrBuOr&rnd=wors&prcRed=${prcRed}">${i18n.getMsg('CuOrs', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
           <h5><a href="#" data-dismiss="modal" data-toggle="tooltip" title="${i18n.getMsg('shipping_address', rvs.upf.lng.iid)}" onclick="$('#buyrMdl').modal('show');">${i18n.getMsg("shipping_address", rvs.upf.lng.iid)} <span class="oi oi-pencil" aria-hidden="true"></span></a></h5>
         </div>
         <div class="modal-footer">

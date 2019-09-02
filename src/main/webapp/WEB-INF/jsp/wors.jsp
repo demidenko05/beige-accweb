@@ -36,7 +36,7 @@
       <c:if test="${not empty ord.pipl}">
         , ${i18n.getMsg("pipl", rvs.upf.lng.iid)}: ${ord.pipl.nme}
       </c:if></h6>
-      <a href="#" onclick="window.open('?rnd=prn&prc=PrBuOr&orId=${ord.iid}&unSc=1');" type="button" class="btn btn-outline-primary">${i18n.getMsg("print", rvs.upf.lng.iid)}</a>
+      <a href="#" onclick="window.open('?rnd=prn&prc=PrBuOr&orId=${ord.iid}');" type="button" class="btn btn-outline-primary">${i18n.getMsg("print", rvs.upf.lng.iid)}</a>
     </div>
     <c:if test="${rvs.tstg.colCnt == 1 || (status.index mod 2) != 0}">
       </div>
@@ -51,10 +51,10 @@
       <ul class="pagination justify-content-center">
         <c:forEach var="pg" items="${rvs.pgs}">
           <c:if test="${pg.cur}">
-            <li class="page-item active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+            <li class="page-item active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&prcRed=${prcRed}">${pg.val}</a></li>
           </c:if>
           <c:if test="${!pg.cur}">
-            <li class="page-item"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+            <li class="page-item"><a class="page-link" href="?rnd=wors&prc=PrBuOr&pg=${pg.val}&prcRed=${prcRed}">${pg.val}</a></li>
           </c:if>
         </c:forEach>
       </ul>
@@ -97,7 +97,7 @@
       <c:if test="${not empty ord.pipl}">
         , ${i18n.getMsg("pipl", rvs.upf.lng.iid)}: ${ord.pipl.nme}
       </c:if></h6>
-      <a href="#" onclick="window.open('?rnd=printEntity&prc=PrBuOr&sorId=${ord.iid}&unSc=1');" type="button" class="btn btn-outline-primary">${i18n.getMsg("print", rvs.upf.lng.iid)}</a>
+      <a href="#" onclick="window.open('?rnd=printEntity&prc=PrBuOr&sorId=${ord.iid}');" type="button" class="btn btn-outline-primary">${i18n.getMsg("print", rvs.upf.lng.iid)}</a>
     </div>
     <c:if test="${rvs.tstg.colCnt == 1 || (status.index mod 2) != 0}">
       </div>
@@ -112,11 +112,11 @@
       <ul class="pagination justify-content-center">
         <c:forEach var="pg" items="${spgs}">
           <c:if test="${pg.cur}">
-            <li class="page-item active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+            <li class="page-item active"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&prcRed=${prcRed}">${pg.val}</a></li>
           </c:if>
           <c:if test="${!pg.cur}">
             <c:if test="${pg.val ne '...'}">
-              <li class="page-item"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&rndRed=${rndRed}&prcRed=${prcRed}">${pg.val}</a></li>
+              <li class="page-item"><a class="page-link" href="?rnd=wors&prc=PrBuOr&spg=${pg.val}&prcRed=${prcRed}">${pg.val}</a></li>
             </c:if>
             <c:if test="${pg.val eq '...'}">
               <li class="page-item"><a class="page-link" href="#">${pg.val}</a></li>

@@ -485,7 +485,7 @@
           </c:forEach>
           <div class="row">
             <div class="col-6">
-              ${i18n.getMsg("taxes", rvs.upf.lng.iid)}
+              ${i18n.getMsg("Taxs", rvs.upf.lng.iid)}
               <c:if test="${not empty rvs.txRules}">
                 <c:if test="${rvs.txRules.stIb}">
                   (${i18n.getMsg("stIb", rvs.upf.lng.iid)},
@@ -600,7 +600,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
         <c:if test="${!isUnSign && param.prc ne 'ChkOut'}">
-          <a href="${urlPrf}?prc=ChkOut&rndRed=${rndRed}&prcRed=${prcRed}" type="button" class="btn btn-primary">${i18n.getMsg("check_out", rvs.upf.lng.iid)}</a>
+          <a href="${urlPrf}?prc=ChkOut&prcRed=${prcRed}" type="button" class="btn btn-primary">${i18n.getMsg("check_out", rvs.upf.lng.iid)}</a>
         </c:if>
       </div>
     </div>
