@@ -371,7 +371,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HnTrVs,hnNtRqAd</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnNtRqAd</param-value>
     </init-param>
     <init-param>
       <param-name>logNm</param-name>
@@ -398,7 +398,7 @@ See LICENSE in base folder
     </servlet-class>
     <init-param>
       <param-name>hndNms</param-name>
-      <param-value>HndI18nRq,HnTrVs,hnNtRqAd</param-value>
+      <param-value>HndI18nRq,HndAcc,HnTrVs,hnNtRqAd</param-value>
     </init-param>
     <init-param>
       <param-name>logNm</param-name>

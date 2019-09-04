@@ -8,7 +8,6 @@
     </div>
     <form id="frmRepFrm" action="ntr" method="GET" target="_blank">
       <input type="hidden" name="prc" value="RefrLst">
-      <input type="hidden" name="rnd" value="rflst">
       <table class="tbl-fieldset">
         <tr>
           <td>

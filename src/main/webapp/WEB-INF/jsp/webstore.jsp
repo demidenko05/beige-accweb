@@ -42,23 +42,23 @@
           </c:forEach>
         </c:if>
         <c:if test="${fltSpf.flt.getClass().simpleName ne 'FilterItems'}">
-          <c:set var="fltUrl" value="${fltUrl}&${parPref}Val1=${fltSpf.flt.value1}" scope="request"/>
-          <c:set target="${fltUrlFrm}" property="${parPref}Val1" value="${fltSpf.flt.value1.toString()}"/>
+          <c:set var="fltUrl" value="${fltUrl}&${parPref}Val1=${fltSpf.flt.val1}" scope="request"/>
+          <c:set target="${fltUrlFrm}" property="${parPref}Val1" value="${fltSpf.flt.val1.toString()}"/>
           <c:if test="${fltSpf.flt.opr eq 'BETWEEN_INCLUDE'}">
-            <c:set var="fltUrl" value="${fltUrl}&${parPref}Val2=${fltSpf.flt.value2}" scope="request"/>
-            <c:set target="${fltUrlFrm}" property="${parPref}Val2" value="${fltSpf.flt.value2.toString()}"/>
+            <c:set var="fltUrl" value="${fltUrl}&${parPref}Val2=${fltSpf.flt.val2}" scope="request"/>
+            <c:set target="${fltUrlFrm}" property="${parPref}Val2" value="${fltSpf.flt.val2.toString()}"/>
           </c:if>
         </c:if>
       </c:if>
     </c:forEach>
   </c:if>
   <c:if test="${not empty rvs.fltPri && not empty rvs.fltPri.opr}">
-    <c:set var="fltUrl" value="${fltUrl}&fltPriOp=${rvs.fltPri.opr}&fltPriVal1=${rvs.fltPri.value1}" scope="request"/>
+    <c:set var="fltUrl" value="${fltUrl}&fltPriOp=${rvs.fltPri.opr}&fltPriVal1=${rvs.fltPri.val1}" scope="request"/>
     <c:set target="${fltUrlFrm}" property="fltPriOp" value="${rvs.fltPri.opr}"/>
-    <c:set target="${fltUrlFrm}" property="fltPriVal1" value="${rvs.fltPri.value1}"/>
-    <c:if test="${not empty rvs.fltPri.value2}">
-      <c:set var="fltUrl" value="${fltUrl}&fltPriVal2=${rvs.fltPri.value2}" scope="request"/>
-      <c:set target="${fltUrlFrm}" property="fltPriVal2" value="${rvs.fltPri.value2}"/>
+    <c:set target="${fltUrlFrm}" property="fltPriVal1" value="${rvs.fltPri.val1}"/>
+    <c:if test="${not empty rvs.fltPri.val2}">
+      <c:set var="fltUrl" value="${fltUrl}&fltPriVal2=${rvs.fltPri.val2}" scope="request"/>
+      <c:set target="${fltUrlFrm}" property="fltPriVal2" value="${rvs.fltPri.val2}"/>
     </c:if>
   </c:if>
 
@@ -79,9 +79,9 @@
     <c:set var="andI18n" value="${i18n.getMsg('and', rvs.upf.lng.iid)}"/>
     <c:if test="${not empty rvs.fltPri && not empty rvs.fltPri.opr}">
       <c:set var="prI18n" value="${i18n.getMsg('pri', rvs.upf.lng.iid)}"/>
-      <c:set var="listFltAp" value="${listFltAp} ${delim} ${prI18n} ${i18n.getMsg(rvs.fltPri.opr, rvs.upf.lng.iid)} ${rvs.fltPri.value1}"/>
-      <c:if test="${not empty rvs.fltPri.value2}">
-        <c:set var="listFltAp" value="${listFltAp} ${andI18n} ${rvs.fltPri.value2}"/>
+      <c:set var="listFltAp" value="${listFltAp} ${delim} ${prI18n} ${i18n.getMsg(rvs.fltPri.opr, rvs.upf.lng.iid)} ${rvs.fltPri.val1}"/>
+      <c:if test="${not empty rvs.fltPri.val2}">
+        <c:set var="listFltAp" value="${listFltAp} ${andI18n} ${rvs.fltPri.val2}"/>
       </c:if>
     </c:if>
     <c:if test="${not empty rvs.fltSpf}">
@@ -102,22 +102,22 @@
             <c:set var="listFltAp" value="${listFltAp})"/>
           </c:if>
           <c:if test="${fltSpf.flt.getClass().simpleName ne 'FilterItems'}">
-            <c:set var="listFltAp" value="${listFltAp} ${fltSpf.flt.value1}"/>
+            <c:set var="listFltAp" value="${listFltAp} ${fltSpf.flt.val1}"/>
             <c:if test="${fltSpf.flt.opr eq 'BETWEEN_INCLUDE'}">
-              <c:set var="listFltAp" value="${listFltAp} ${andI18n} ${fltSpf.flt.value2}"/>
+              <c:set var="listFltAp" value="${listFltAp} ${andI18n} ${fltSpf.flt.val2}"/>
             </c:if>
           </c:if>
         </c:if>
       </c:forEach>
     </c:if>
     <c:if test="${not empty fltUrl}">
-      <c:set var="fltUrl" value="${fltUrl}&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+      <c:set var="fltUrl" value="${fltUrl}&rvs.ordb=${rvs.ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
     <c:if test="${empty fltUrl}">
-      <c:set var="fltUrl" value="&ordb=${ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+      <c:set var="fltUrl" value="&rvs.ordb=${rvs.ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
-    <c:if test="${not empty ordb}">
-      <c:set target="${fltUrlFrm}" property="ordb" value="${ordb}"/>
+    <c:if test="${not empty rvs.ordb}">
+      <c:set target="${fltUrlFrm}" property="rvs.ordb" value="${rvs.ordb}"/>
     </c:if>
     <c:set target="${fltUrlFrm}" property="ctNm" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
   </c:if>
@@ -125,10 +125,10 @@
   <div class="card cat-name">
     <div class="card-header">
       ${listFltAp}
-      <c:if test="${ordb eq 'pa'}">
+      <c:if test="${rvs.ordb eq 'pa'}">
         / ${i18n.getMsg("OrderBy", rvs.upf.lng.iid)} ${i18n.getMsg("ord_pr_asc", rvs.upf.lng.iid)}
       </c:if>
-      <c:if test="${ordb eq 'pd'}">
+      <c:if test="${rvs.ordb eq 'pd'}">
         / ${i18n.getMsg("OrderBy", rvs.upf.lng.iid)} ${i18n.getMsg("ord_pr_dsc", rvs.upf.lng.iid)}
       </c:if>
     </div>
@@ -264,19 +264,19 @@
                 <label>${i18n.getMsg("OrderBy", rvs.upf.lng.iid)}:</label>
               </div>
               <div class="col-12 col-md-6 mb-3">
-                <select name="ordb"  class="form-control">
+                <select name="rvs.ordb"  class="form-control">
                   <c:set var="itmSel" value=""/>
-                  <c:if test="${empty ordb}">
+                  <c:if test="${empty rvs.ordb}">
                     <c:set var="itmSel" value="selected"/>
                   </c:if>
                   <option value="-" ${itmSel}>-</option>
                   <c:set var="itmSel" value=""/>
-                  <c:if test="${ordb eq 'pa'}">
+                  <c:if test="${rvs.ordb eq 'pa'}">
                     <c:set var="itmSel" value="selected"/>
                   </c:if>
                   <option value="pa" ${itmSel}>${i18n.getMsg("ord_pr_asc", rvs.upf.lng.iid)}</option>
                   <c:set var="itmSel" value=""/>
-                  <c:if test="${ordb eq 'pd'}">
+                  <c:if test="${rvs.ordb eq 'pd'}">
                     <c:set var="itmSel" value="selected"/>
                   </c:if>
                   <option value="pd" ${itmSel}>${i18n.getMsg("ord_pr_dsc", rvs.upf.lng.iid)}</option>
@@ -291,7 +291,7 @@
             </c:if>
             <div id="rowFltCat" class="row">
               <div class="col-12 col-md-4 mb-3">
-                <label>${i18n.getMsg("itsCatalog", rvs.upf.lng.iid)}:</label>
+                <label>${i18n.getMsg("catl", rvs.upf.lng.iid)}:</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
                 <input class="form-control" disabled value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}">
@@ -333,10 +333,12 @@
             <c:if test="${not empty rvs.fltPri}">
               <jsp:include page="fl/pri${rvs.catl.flPrId}.jsp"/>
             </c:if>
-            <c:forEach var="fltSpf" items="${rvs.fltSpfs}">
-              <c:set var="fltSpf" value="${fltSpf}" scope="request"/>
-              <jsp:include page="fl/sp${fltSpf.flt.getClass().simpleName}${fltSpf.catSpf.fltId}.jsp"/>
-            </c:forEach>
+            <c:if test="${not empty rvs.fltSpfs}">
+              <c:forEach var="fltSpf" items="${rvs.fltSpfs}">
+                <c:set var="fltSpf" value="${fltSpf}" scope="request"/>
+                <jsp:include page="fl/sp${fltSpf.flt.getClass().simpleName}${fltSpf.catSpf.fltId}.jsp"/>
+              </c:forEach>
+            </c:if>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
               <button type="submit" class="btn btn-primary">${i18n.getMsg("Apply", rvs.upf.lng.iid)}</button>

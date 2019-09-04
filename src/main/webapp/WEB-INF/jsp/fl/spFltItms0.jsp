@@ -19,7 +19,7 @@
   </div>
   <div class="col-12 col-md-6 mb-3">
     <select multiple name="fltSp${fltSpf.catSpf.spec.iid}Val" class="form-control">
-      <c:forEach var="itma" items="${fltSpf.flt.itemsAll}">
+      <c:forEach var="itma" items="${fltSpf.flt.all}">
         <c:set var="itmSel" value=""/>
         <c:forEach var="itms" items="${fltSpf.flt.itms}">
           <c:if test="${itms.iid eq itma.iid}">

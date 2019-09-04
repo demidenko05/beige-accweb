@@ -46,7 +46,7 @@
         ${rvs.itmSpecLs.get(0).itm.nme}
       </h5>
       <p>
-        ${utlTrdJsp.itmSpfStr(rvs, rvs.itmSpecLs)}
+        ${utlTrJsp.itmSpfStr(rvs, rvs.itmSpecLs)}
       </p>
     </div>
   </div>
@@ -113,7 +113,7 @@
 
 <c:forEach var="itSp" items="${rvs.itmSpecLs}">
   <c:if test="${itSp.spec.typ eq 'FILE_EMBEDDED' && itSp.str1.endsWith('html')}">
-    <c:set var="embhtmlnm" value="${utlJsp.evFileNmNoExt(itSp.str1)}"/>
+    <c:set var="embhtmlnm" value="${utJsp.evFileNmNoExt(itSp.str1)}"/>
     <c:set var="flUrl" value="${itSp.str1}"/>
     <c:set var="flNsf" value="_${rvs.upf.lng.iid}.html"/>
     <c:if test="${not empty itSp.str3 && itSp.str3.contains(rvs.upf.lng.iid)}">

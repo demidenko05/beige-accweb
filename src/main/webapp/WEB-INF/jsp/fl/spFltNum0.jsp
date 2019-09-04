@@ -24,12 +24,12 @@
     <c:if test="${empty selGreater && empty selLess && empty selBetween}"> <c:set var="disbV1" value="disabled"/> </c:if>
     <c:if test="${!(empty selGreater && empty selLess && empty selBetween)}"> <c:set var="disbV1" value=""/> </c:if>
     <label style="padding-left: 1rem;">${i18n.getMsg("Value1", rvs.upf.lng.iid)}:</label>
-    <input id="${fltSpVal1}" name="${fltSpVal1}" type="text" ${inpAdd} ${disbV1} value="${fltSpf.flt.value1}">
+    <input id="${fltSpVal1}" name="${fltSpVal1}" type="text" ${inpAdd} ${disbV1} value="${fltSpf.flt.val1}">
   </div>
   <div class="col-12 col-md-4 mb-3">
     <c:if test="${fltSpf.flt.opr ne 'BETWEEN_INCLUDE'}"> <c:set var="disbV2" value="disabled"/> </c:if>
     <c:if test="${fltSpf.flt.opr eq 'BETWEEN_INCLUDE'}"> <c:set var="disbV2" value=""/> </c:if>
     <label style="padding-left: 1rem;">${i18n.getMsg("Value2", rvs.upf.lng.iid)}:</label>
-    <input id="${fltSpVal2}" name="${fltSpVal2}" type="text" ${inpAdd} ${disbV2} value="${fltSpf.flt.value2}">
+    <input id="${fltSpVal2}" name="${fltSpVal2}" type="text" ${inpAdd} ${disbV2} value="${fltSpf.flt.val2}">
   </div>
 </div>
