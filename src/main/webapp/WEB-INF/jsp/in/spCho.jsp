@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <tr>
   <td>
-    <label for="${cls.simpleName}.lng2">${i18n.getMsg("typ", rvs.upf.lng.iid)}</label>
+    <label for="${cls.simpleName}.lng2">${i18n.getMsg("choTy", rvs.upf.lng.iid)}</label>
   </td>
   <td>
     <div class="input-line">
@@ -21,7 +21,7 @@
       <input class="picked-appearence" id="${cls.simpleName}chSpApVsb" disabled="disabled" type="text" value="${ent.str1}" onchange="bsInpChn(this);">
       <input id="${cls.simpleName}chSpId" required type="hidden" name="${cls.simpleName}.lng1" value="${ent.lng1}">
       <input id="${cls.simpleName}chSpAp" type="hidden" name="${cls.simpleName}.str1" value="${ent.str1}">
-      <c:set var="filterType" value="&foptypOpr=eq&foptypVlId=${ent.lng2}&foptypVlAp=${ent.str2}&fopfrcd=typ"/>
+      <c:set var="filterType" value="&fopchoTyOpr=eq&fopchoTyVlId=${ent.lng2}&fopchoTyVlAp=${ent.str2}&fopfrcd=choTy"/>
       <button type="button" class="btn" onclick="bsPick('ChoSp','${cls.simpleName}', 'chSp','&flyPi=spCho${filterType}');">...</button>
       <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}chSp');">X</button>
     </div>
