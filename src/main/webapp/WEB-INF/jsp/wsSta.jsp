@@ -98,7 +98,7 @@
         </ul>
         <ul class="navbar-nav navbar-right">
           <c:if test="${isUnSign}">
-            <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('log_in', rvs.upf.lng.iid)}" onclick="$('#signMdl').modal('toggle');"><span class="oi oi-account-login" aria-hidden="true"></span></a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('login', rvs.upf.lng.iid)}" onclick="$('#signMdl').modal('toggle');"><span class="oi oi-account-login" aria-hidden="true"></span></a></li>
           </c:if>
           <c:if test="${!isUnSign}">
             <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('logout', rvs.upf.lng.iid)}" onclick="$('#logoutDlg').modal('toggle');">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span></a></li>

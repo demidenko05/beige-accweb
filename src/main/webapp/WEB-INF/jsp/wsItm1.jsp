@@ -54,7 +54,7 @@
 
 <div class="py-1 text-center bg-light">
   <c:if test="${empty rvs.cartItm && not empty rvs.itmPri}">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="setCartItem(${itType}, ${rvs.itmPri.itm.iid}, '${rvs.itmPri.itm.nme}', ${pri}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itmPri.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartAddMdl" onclick="bsSetCartItm(${itType}, ${rvs.itmPri.itm.iid}, '${rvs.itmPri.itm.nme}', ${pri}, 1, ${param.avQu}, null,${param.uoId},'${param.uoNm}',${rvs.itmPri.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()})">${i18n.getMsg("buy_it", rvs.upf.lng.iid)}</button>
   </c:if>
   <c:if test="${not empty rvs.cartItm}">
     <button type="button" class="btn btn-primary" onclick="$('#cartMdl').modal('toggle');">${i18n.getMsg("open_cart", rvs.upf.lng.iid)} <span class="badge badge-secondary">${shoppingCart.totalItems}</span></button>
