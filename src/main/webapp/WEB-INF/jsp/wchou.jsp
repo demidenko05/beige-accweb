@@ -37,7 +37,7 @@
             <tbody>
               <c:forEach var="il" items="${ord.goods}">
                 <tr>
-                  <td>${il.dscr}</td>
+                  <td>${il.nme}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
@@ -49,7 +49,7 @@
               </c:forEach>
               <c:forEach var="il" items="${ord.servs}">
                 <tr>
-                  <td>${il.dscr}</td>
+                  <td>${il.nme}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
@@ -130,7 +130,7 @@
             <tbody>
               <c:forEach var="il" items="${ord.goods}">
                 <tr>
-                  <td>${il.dscr}</td>
+                  <td>${il.nme}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>
@@ -142,7 +142,7 @@
               </c:forEach>
               <c:forEach var="il" items="${ord.servs}">
                 <tr>
-                  <td>${il.dscr}</td>
+                  <td>${il.nme}</td>
                   <td>${il.uom.nme}</td>
                   <td>${numStr.frmt(il.pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</td>
                   <td>${numStr.frmt(il.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.quDp,rvs.upf.dgInGr)}</td>

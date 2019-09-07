@@ -8,11 +8,11 @@ It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.
 Default configuration is PostgreSQL (web.xml) and context.xml for Tomcat JEE JDBC authentication. For MySql rename web-mysql.xml and context-mysql.xml respectively.
 
-Tested/works OK on last Java8 (and last Android 29), Tomcat 7.0.82, Maven 3.5.2, Ant 1.10.6, PostgreSQL 9.6.12, MySQL 5.5.5-10.1.38-MariaDB
-!Doesn't work on Tomcat 8.5.43, error: ...An invalid character [44] was present in the Cookie value...!
-!Maven 3.6.1 gives error findbugs!
+Tested/works OK on last Java8 (and last Android 29), Tomcat 7.0.82/8.5.43, Maven 3.5.2, Ant 1.10.6, PostgreSQL 9.6.12, MySQL 5.5.5-10.1.38-MariaDB
+Fixed Tomcat 8.5.43, error: ...An invalid character [44] was present in the Cookie value... COMMA
+!Maven 3.6.1 gives error findbugs (but not yet checked for spotbugs)!
 
-To install application on Apache Tomcat 7:
+To install application on Apache Tomcat 7/8:
 1. you should have MySql server with created user and empty database
 2. make sure that Tomcat has libraries: HikariCP-2.4.3.jar, postgresql-9.4-1206-jdbc4.jar (or mysql-connector-java-5.1.40.jar), slf4j-api-1.7.12.jar (versions may be different)
 3. Unpack WAR file and change user/password/database with yours ones in WEB-INF/classes/potrgres(or mysql)/cmnst.xml:
@@ -40,7 +40,7 @@ insert into USRLTMC (USR, ROL, VER)  values ('[useruser]', '[role2]', 1);
 
 This is "cloud" version i.e. it's available through network (WEB), so you must make sure that it's used reliable encrypted (HTTPS) connection.
 
-If you has different JEE server, then you have to make JEE-authentication by yourself. E.g. Jetty uses different database tables (USERJETTY ...). You may need to reassemble WAR with new XML settings.
+If you has different JEE server, then you have to make JEE-authentication by yourself. E.g. Jetty uses different database tables (USERJETTY ...). You might need to reassemble WAR with new XML settings.
 
 for generating servlets from JSP/JSTL for beige-accjet:
 1. Install a-tomcat-all

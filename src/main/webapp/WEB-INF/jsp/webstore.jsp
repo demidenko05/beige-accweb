@@ -13,7 +13,7 @@
   <c:if test="${not empty rvs.fltCatl && not empty rvs.fltCatl.opr}">
     <c:set var="fltUrl" value="${fltUrl}&fltCtOp=${rvs.fltCatl.opr}" scope="request"/>
     <c:set target="${fltUrlFrm}" property="fltCtOp" value="${rvs.fltCatl.opr.toString()}"/>
-    <c:forEach var="flCtVl" items="${rvs.fltCatl.items}">
+    <c:forEach var="flCtVl" items="${rvs.fltCatl.itms}">
       <c:set var="fltUrl" value="${fltUrl}&fltCtVal=${flCtVl.iid}" scope="request"/>
       <c:if test="${not empty fltUrlFrm.get('fltCtVal')}">
         <c:set target="${fltUrlFrm}" property="fltCtVal" value="${fltUrlFrm.get('fltCtVal')};${flCtVl.iid}"/>
@@ -69,7 +69,7 @@
     <c:if test="${not empty rvs.fltCatl && not empty rvs.fltCatl.opr}">
       <c:set var="listFltAp" value="${listFltAp} ${i18n.getMsg(rvs.fltCatl.opr, rvs.upf.lng.iid)} ("/>
       <c:set var="delim" value=""/>
-      <c:forEach var="cat" items="${rvs.fltCatl.items}">
+      <c:forEach var="cat" items="${rvs.fltCatl.itms}">
         <c:set var="listFltAp" value="${listFltAp}${delim}${utlTrJsp.catlToStr(cat, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
         <c:set var="delim" value=", "/>
       </c:forEach>
@@ -300,7 +300,7 @@
             <c:if test="${not empty rvs.fltCatl}">
               <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                  <label>${i18n.getMsg("rvs.fltCatl", rvs.upf.lng.iid)}:</label>
+                  <label>${i18n.getMsg("filterCatalog", rvs.upf.lng.iid)}:</label>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
                   <select id="fltCtOp" name="fltCtOp" onchange="bsCatOprChg(this, 'fltCtVal', 'rowFltCat');" class="form-control">
@@ -317,9 +317,9 @@
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                   <select multiple id="fltCtVal" ${disFltCtVal} name="fltCtVal" onchange="bsCatValChg(this, 'fltCtOp', 'rowFltCat');" class="form-control">
-                    <c:forEach var="cata" items="${rvs.fltCatl.itemsAll}">
+                    <c:forEach var="cata" items="${rvs.fltCatl.all}">
                       <c:set var="catSel" value=""/>
-                      <c:forEach var="catc" items="${rvs.fltCatl.items}">
+                      <c:forEach var="catc" items="${rvs.fltCatl.itms}">
                         <c:if test="${catc.iid eq cata.iid}">
                           <c:set var="catSel" value="selected"/>
                         </c:if>
