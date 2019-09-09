@@ -18,8 +18,6 @@
         </div>
         <div class="modal-body">
           <form action="${urlPrf}?" method="POST">
-            <input type="hidden" name="rnd" value="${param.rnd}">
-            <input type="hidden" name="rndRed" value="${rndRed}">
             <input type="hidden" name="prcRed" value="${prcRed}">
             <input type="hidden" name="prc" value="PrLog">
             <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
@@ -101,9 +99,7 @@
         <c:if test="${empty rvs.buyr.pwd}">
           <div class="modal-body">
             <form action="${urlPrf}?" method="POST">
-              <input type="hidden" name="rnd" value="${param.rnd}">
               <input type="hidden" name="prcRed" value="${prcRed}">
-              <input type="hidden" name="rndRed" value="${rndRed}">
               <input type="hidden" name="prc" value="PrLog">
               <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
                 <c:if test="${enr.key ne 'fltCtVal'}">
@@ -160,8 +156,6 @@
       </div>
       <div class="modal-body">
         <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="rnd" value="${param.rnd}">
-          <input type="hidden" name="rndRed" value="${rndRed}">
           <input type="hidden" name="prcRed" value="${prcRed}">
           <input type="hidden" name="prc" value="ItmCart">
           <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
@@ -253,9 +247,7 @@
       </div>
       <div class="modal-body">
         <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="rnd" value="${param.rnd}">
           <input type="hidden" name="prcRed" value="${prcRed}">
-          <input type="hidden" name="rndRed" value="${rndRed}">
           <input type="hidden" name="prc" value="ItmCart">
           <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
             <c:if test="${enr.key ne 'fltCtVal'}">
@@ -347,9 +339,7 @@
       </div>
       <div class="modal-body">
         <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="rnd" value="${param.rnd}">
           <input type="hidden" name="prcRed" value="${prcRed}">
-          <input type="hidden" name="rndRed" value="${rndRed}">
           <input type="hidden" name="act" value="del">
           <input type="hidden" name="prc" value="ItmCart">
           <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
@@ -527,8 +517,6 @@
       <c:if test="${rvs.payMts.size() gt 1 || rvs.dlvMts.size() gt 1}">
         <div class="modal-body">
           <form action="${urlPrf}?" method="POST">
-            <input type="hidden" name="rnd" value="${param.rnd}">
-            <input type="hidden" name="rndRed" value="${rndRed}">
             <input type="hidden" name="prcRed" value="${prcRed}">
             <input type="hidden" name="prc" value="PrCart">
             <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">

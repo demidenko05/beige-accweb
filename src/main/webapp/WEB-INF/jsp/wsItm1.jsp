@@ -3,6 +3,7 @@
 <jsp:useBean id="fltUrlFrm" class="java.util.HashMap" scope="request"/>
 <jsp:include page="wsSta.jsp"/>
 
+<c:set target="${fltUrlFrm}" property="detMt" value="${param.detMt}"/>
 <c:set target="${fltUrlFrm}" property="itId" value="${param.itId}"/>
 <c:set target="${fltUrlFrm}" property="itTy" value="${param.itTy}"/>
 <c:set target="${fltUrlFrm}" property="avQu" value="${param.avQu}"/>

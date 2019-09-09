@@ -210,7 +210,7 @@
           </c:if>
         </b>
         <c:if test="${not empty itm.detMt}">
-          <a href="?rnd=${itm.typ}${itm.detMt}&prc=ItmPg&itId=${itm.itId}&itTy=${itm.typ}&avQu=${itm.quan}&uoId=${uomId}&uoNm=${uomNm}">${itm.nme}</a>
+          <a href="?detMt=${itm.detMt}&prc=ItmPg&itId=${itm.itId}&itTy=${itm.typ}&avQu=${itm.quan}&uoId=${uomId}&uoNm=${uomNm}">${itm.nme}</a>
         </c:if>
         <c:if test="${empty itm.detMt}">
           ${itm.nme}
@@ -256,7 +256,6 @@
         </div>
         <div class="modal-body">
           <form action="" method="GET">
-            <input type="hidden" name="rnd" value="webstore">
             <input type="hidden" name="prc" value="WsPg">
             <input type="hidden" name="catlId" value="${rvs.catl.iid}">
             <div class="row">

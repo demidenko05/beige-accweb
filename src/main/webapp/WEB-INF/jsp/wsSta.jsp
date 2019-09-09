@@ -15,12 +15,6 @@
 <c:if test="${empty param.prcRed}">
   <c:set var="prcRed" value="${param.prc}" scope="request"/>
 </c:if>
-<c:if test="${not empty param.rndRed}">
-  <c:set var="rndRed" value="${param.rndRed}" scope="request"/>
-</c:if>
-<c:if test="${empty param.rndRed}">
-  <c:set var="rndRed" value="${param.rnd}" scope="request"/>
-</c:if>
 <!DOCTYPE html>
 <html lang="en">
   <head>

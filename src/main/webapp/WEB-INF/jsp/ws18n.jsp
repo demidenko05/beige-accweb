@@ -12,7 +12,6 @@
       </div>
       <div class="modal-body">
         <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="rnd" value="${rndRed}">
           <input type="hidden" name="prc" value="${prcRed}">
           <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
             <c:if test="${enr.key ne 'fltCtVal'}">

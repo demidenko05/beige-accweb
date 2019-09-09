@@ -50,11 +50,11 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <h5><a href="${urlPrf}?prc=PrBuOr&rnd=wors&prcRed=${prcRed}">${i18n.getMsg('CuOrs', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
+          <h5><a href="${urlPrf}?prc=PrBuOr&prcRed=${prcRed}">${i18n.getMsg('CuOrs', rvs.upf.lng.iid)} <span class="oi oi-book" aria-hidden="true"></span></a></h5>
           <h5><a href="#" data-dismiss="modal" data-toggle="tooltip" title="${i18n.getMsg('shipping_address', rvs.upf.lng.iid)}" onclick="$('#buyrMdl').modal('show');">${i18n.getMsg("shipping_address", rvs.upf.lng.iid)} <span class="oi oi-pencil" aria-hidden="true"></span></a></h5>
         </div>
         <div class="modal-footer">
-          <a type="button" class="btn btn-outline-primary" href="${urlPrf}?rnd=${rndRed}&prc=PrLog&prcRed=${prcRed}">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
+          <a type="button" class="btn btn-outline-primary" href="${urlPrf}?prc=PrLog&prcRed=${prcRed}">${rvs.buyr.nme} <span class="oi oi-account-logout" aria-hidden="true"></span> ${i18n.getMsg("logout", rvs.upf.lng.iid)}</a>
           <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
         </div>
       </div>
@@ -69,9 +69,7 @@
         </div>
         <div class="modal-body">
           <form action="${urlPrf}?" method="POST">
-            <input type="hidden" name="rnd" value="${param.rnd}">
             <input type="hidden" name="prcRed" value="${prcRed}">
-            <input type="hidden" name="rndRed" value="${rndRed}">
             <input type="hidden" name="prc" value="PrLog">
             <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
               <c:if test="${enr.key ne 'fltCtVal'}">
