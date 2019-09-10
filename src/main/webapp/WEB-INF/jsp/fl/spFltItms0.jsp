@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
   <div class="col-12 col-md-3 mb-3">
-    <label>${fltSpf.catSpf.spec.nme}:</label>
+    <label>${utlTrJsp.specToStr(fltSpf.catSpf.spec, rvs.i18ItmSps, rvs.upf.lng.iid)}:</label>
   </div>
   <div class="col-12 col-md-3 mb-3">
     <select name="fltSp${fltSpf.catSpf.spec.iid}Op" class="form-control">
@@ -26,7 +26,7 @@
             <c:set var="itmSel" value="selected"/>
           </c:if>
         </c:forEach>
-        <option value="${itma.iid}" ${itmSel}>${itma.nme}</option>
+        <option value="${itma.iid}" ${itmSel}>${utlTrJsp.choSpToStr(itma, rvs.i18ChoSps, rvs.upf.lng.iid)}</option>
       </c:forEach>
     </select>
   </div>

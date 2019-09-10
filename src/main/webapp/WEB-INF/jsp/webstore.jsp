@@ -64,13 +64,13 @@
 
   <c:set var="listFltAp" value=""/>
   <c:if test="${not empty rvs.catl}">
-    <c:set var="listFltAp" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+    <c:set var="listFltAp" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18Cats, rvs.upf.lng.iid)}"/>
     <c:set var="delim" value="/"/>
     <c:if test="${not empty rvs.fltCatl && not empty rvs.fltCatl.opr}">
       <c:set var="listFltAp" value="${listFltAp} ${i18n.getMsg(rvs.fltCatl.opr, rvs.upf.lng.iid)} ("/>
       <c:set var="delim" value=""/>
       <c:forEach var="cat" items="${rvs.fltCatl.itms}">
-        <c:set var="listFltAp" value="${listFltAp}${delim}${utlTrJsp.catlToStr(cat, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+        <c:set var="listFltAp" value="${listFltAp}${delim}${utlTrJsp.catlToStr(cat, rvs.i18Cats, rvs.upf.lng.iid)}"/>
         <c:set var="delim" value=", "/>
       </c:forEach>
       <c:set var="listFltAp" value="${listFltAp})"/>
@@ -87,16 +87,16 @@
     <c:if test="${not empty rvs.fltSpfs}">
       <c:forEach var="fltSpf" items="${rvs.fltSpfs}">
         <c:if test="${not empty fltSpf.flt.opr}">
-          <c:set var="listFltAp" value="${listFltAp} ${delim} ${fltSpf.catSpf.spec.nme} ${i18n.getMsg(fltSpf.flt.opr, rvs.upf.lng.iid)}"/>
+          <c:set var="listFltAp" value="${listFltAp} ${delim} ${utlTrJsp.specToStr(fltSpf.catSpf.spec, rvs.i18ItmSps, rvs.upf.lng.iid)} ${i18n.getMsg(fltSpf.flt.opr, rvs.upf.lng.iid)}"/>
           <c:set var="delim" value="/"/>
           <c:if test="${fltSpf.flt.getClass().simpleName eq 'FltItms'}">
             <c:set var="listFltAp" value="${listFltAp} ("/>
             <c:forEach var="flSpVl" items="${fltSpf.flt.itms}" varStatus="status">
               <c:if test="${status.index == 0}">
-                <c:set var="listFltAp" value="${listFltAp}${flSpVl.nme}"/>
+                <c:set var="listFltAp" value="${listFltAp}${utlTrJsp.choSpToStr(flSpVl, rvs.i18ChoSps, rvs.upf.lng.iid)}"/>
               </c:if>
               <c:if test="${status.index != 0}">
-                <c:set var="listFltAp" value="${listFltAp}, ${flSpVl.nme}"/>
+                <c:set var="listFltAp" value="${listFltAp}, ${utlTrJsp.choSpToStr(flSpVl, rvs.i18ChoSps, rvs.upf.lng.iid)}"/>
               </c:if>
             </c:forEach>
             <c:set var="listFltAp" value="${listFltAp})"/>
@@ -111,15 +111,15 @@
       </c:forEach>
     </c:if>
     <c:if test="${not empty fltUrl}">
-      <c:set var="fltUrl" value="${fltUrl}&ordb=${rvs.ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+      <c:set var="fltUrl" value="${fltUrl}&ordb=${rvs.ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18Cats, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
     <c:if test="${empty fltUrl}">
-      <c:set var="fltUrl" value="&ordb=${rvs.ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}" scope="request"/>
+      <c:set var="fltUrl" value="&ordb=${rvs.ordb}&ctNm=${utlTrJsp.catlToStr(rvs.catl, rvs.i18Cats, rvs.upf.lng.iid)}" scope="request"/>
     </c:if>
     <c:if test="${not empty rvs.ordb}">
       <c:set target="${fltUrlFrm}" property="ordb" value="${rvs.ordb}"/>
     </c:if>
-    <c:set target="${fltUrlFrm}" property="ctNm" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}"/>
+    <c:set target="${fltUrlFrm}" property="ctNm" value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18Cats, rvs.upf.lng.iid)}"/>
   </c:if>
 
   <div class="card cat-name">
@@ -293,7 +293,7 @@
                 <label>${i18n.getMsg("catl", rvs.upf.lng.iid)}:</label>
               </div>
               <div class="col-12 col-md-8 mb-3">
-                <input class="form-control" disabled value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}">
+                <input class="form-control" disabled value="${utlTrJsp.catlToStr(rvs.catl, rvs.i18Cats, rvs.upf.lng.iid)}">
               </div>
             </div>
             <c:if test="${not empty rvs.fltCatl}">
@@ -323,7 +323,7 @@
                           <c:set var="catSel" value="selected"/>
                         </c:if>
                       </c:forEach>
-                      <option value="${cata.iid}" ${catSel}>${utlTrJsp.catlToStr(cata, rvs.i18nCatalogs, rvs.upf.lng.iid)}</option>
+                      <option value="${cata.iid}" ${catSel}>${utlTrJsp.catlToStr(cata, rvs.i18Cats, rvs.upf.lng.iid)}</option>
                     </c:forEach>
                   </select>
                 </div>
@@ -356,22 +356,22 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="subcatalogsMdl${cat2l.catl.iid}Label"><span class="oi oi-folder" aria-hidden="true"></span> ${utlTrJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</h5>
+                <h5 class="modal-title" id="subcatalogsMdl${cat2l.catl.iid}Label"><span class="oi oi-folder" aria-hidden="true"></span> ${utlTrJsp.catlToStr(cat2l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <h5><a href="?prc=WsPg&catlId=${cat2l.catl.iid}">${utlTrJsp.catlToStr(cat2l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></h5>
+                <h5><a href="?prc=WsPg&catlId=${cat2l.catl.iid}">${utlTrJsp.catlToStr(cat2l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</a></h5>
                 <ul><c:forEach var="cat3l" items="${cat2l.subcatls}">
-                  <li><a href="?prc=WsPg&catlId=${cat3l.catl.iid}">${utlTrJsp.catlToStr(cat3l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                  <li><a href="?prc=WsPg&catlId=${cat3l.catl.iid}">${utlTrJsp.catlToStr(cat3l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</a>
                   <c:if test="${cat3l.subcatls.size() gt 0}">
                     <ul><c:forEach var="cat4l" items="${cat3l.subcatls}">
-                      <li><a href="?prc=WsPg&catlId=${cat4l.catl.iid}">${utlTrJsp.catlToStr(cat4l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                      <li><a href="?prc=WsPg&catlId=${cat4l.catl.iid}">${utlTrJsp.catlToStr(cat4l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</a>
                         <c:if test="${cat4l.subcatls.size() gt 0}">
                           <ul><c:forEach var="cat5l" items="${cat4l.subcatls}">
-                            <li><a href="?prc=WsPg&catlId=${cat5l.catl.iid}">${utlTrJsp.catlToStr(cat5l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a>
+                            <li><a href="?prc=WsPg&catlId=${cat5l.catl.iid}">${utlTrJsp.catlToStr(cat5l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</a>
                               <c:if test="${cat5l.subcatls.size() gt 0}">
                                 <ul><c:forEach var="cat6l" items="${cat5l.subcatls}">
-                                  <li><a href="?prc=WsPg&catlId=${cat6l.catl.iid}">${utlTrJsp.catlToStr(cat6l.catl, rvs.i18nCatalogs, rvs.upf.lng.iid)}</a></li>
+                                  <li><a href="?prc=WsPg&catlId=${cat6l.catl.iid}">${utlTrJsp.catlToStr(cat6l.catl, rvs.i18Cats, rvs.upf.lng.iid)}</a></li>
                                 </c:forEach></ul>
                               </c:if>
                             </li>

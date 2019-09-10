@@ -88,7 +88,7 @@
     </c:if>
     ${divCnt}
       <h6>${i18n.getMsg("CuOrSe", rvs.upf.lng.iid)}#${ord.iid}, <fmt:formatDate value="${ord.dat}" type="both" timeStyle="short"/>,
-      ${i18n.getMsg("dbcr", rvs.upf.lng.iid)}: ${ord.selr.dbcr.nme}, ${i18n.getMsg(ord.stas, rvs.upf.lng.iid)}, ${i18n.getMsg("tot", rvs.upf.lng.iid)} ${ord.tot}${ord.curr.stCo}
+      ${i18n.getMsg("selr", rvs.upf.lng.iid)}: ${ord.selr.dbcr.nme}, ${i18n.getMsg(ord.stas, rvs.upf.lng.iid)}, ${i18n.getMsg("tot", rvs.upf.lng.iid)} ${ord.tot}${ord.curr.stCo}
       <c:if test="${ord.toTx.doubleValue() gt 0 && rvs.tstg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)}),</c:if>
       <c:if test="${ord.toTx.doubleValue() gt 0 && !rvs.tstg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)}),</c:if>
       ${i18n.getMsg("toTx", rvs.upf.lng.iid)} ${ord.toTx}${ord.curr.nme},

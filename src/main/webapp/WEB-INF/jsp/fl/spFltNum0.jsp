@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
   <div class="col-12 col-md-4 mb-3">
-    <label>${fltSpf.catSpf.spec.nme}:</label>    
+    <label>${utlTrJsp.specToStr(fltSpf.catSpf.spec, rvs.i18ItmSps, rvs.upf.lng.iid)}:</label>    
     <c:set var="fltSpVal1" value="fltSp${fltSpf.catSpf.spec.iid}Val1"/>
     <c:set var="fltSpVal2" value="fltSp${fltSpf.catSpf.spec.iid}Val2"/>
     <select name="fltSp${fltSpf.catSpf.spec.iid}Op" onchange="bsFltNumOpChg(this, '${fltSpVal1}', '${fltSpVal2}');" class="form-control">

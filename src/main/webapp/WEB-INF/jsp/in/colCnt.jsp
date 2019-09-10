@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <tr>
   <td>
-    <label for="${cls.simpleName}.${fdNm}">${srvI18n.getMsg(fdNm, rvs.upf.lng.iid)}</label>
+    <label for="${cls.simpleName}.${fdNm}">${i18n.getMsg(fdNm, rvs.upf.lng.iid)}</label>
   </td>
   <td>
     <div class="input-line">
