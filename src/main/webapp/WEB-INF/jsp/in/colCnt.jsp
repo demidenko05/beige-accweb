@@ -8,10 +8,10 @@
     <div class="input-line">
       <select name="${cls.simpleName}.${fdNm}" onchange="bsInpChn(this);">
         <c:set var="sel1" value=""/>
-        <c:if test="${entity[fdNm] == 1}"> <c:set var="sel1" value="selected"/> </c:if>
+        <c:if test="${ent[fdNm] == 1}"> <c:set var="sel1" value="selected"/> </c:if>
         <option value="1" ${sel1}>1</option>
         <c:set var="sel1" value=""/>
-        <c:if test="${entity[fdNm] == 2}"> <c:set var="sel2" value="selected"/> </c:if>
+        <c:if test="${ent[fdNm] == 2}"> <c:set var="sel2" value="selected"/> </c:if>
         <option value="2" ${sel2}>2</option>
       </select>
     </div>
