@@ -6,30 +6,30 @@
 <c:if test="${not empty ent.cuFr}">
   ${hldUvd.toStr(rvs,cls,'paFc',ent.paFc)},
 </c:if>
-<c:if test="${ent.toPa.doubleValue() eq 0 && ent.toPa.doubleValue() eq 0}">
+<c:if test="${ent.toPa.unscaledValue() eq 0 && ent.toPa.unscaledValue() eq 0}">
   ${i18n.getMsg("unpaid", rvs.upf.lng.iid)}
 </c:if>
-<c:if test="${empty ent.cuFr && (ent.toPa.doubleValue() eq ent.tot.doubleValue() && ent.tot.doubleValue() gt 0)
-  || (ent.toPa.doubleValue() eq -ent.tot.doubleValue() && ent.tot.doubleValue() lt 0)}">
+<c:if test="${empty ent.cuFr && (ent.tot.unscaledValue() gt 0 && ent.toPa.compareTo(ent.tot) eq 0)
+  || (ent.tot.unscaledValue() lt 0 && ent.toPa.compareTo(ent.tot.negate()) eq 0)}">
   ${i18n.getMsg("paid", rvs.upf.lng.iid)}
 </c:if>
-<c:if test="${empty ent.cuFr && (ent.toPa.doubleValue() gt ent.tot.doubleValue() && ent.tot.doubleValue() gt 0)
-    || (ent.toPa.doubleValue() gt -ent.tot.doubleValue() && ent.tot.doubleValue() lt 0)}">
+<c:if test="${empty ent.cuFr && (ent.tot.unscaledValue() gt 0 && ent.toPa.compareTo(ent.tot) gt 0)
+    || (ent.tot.unscaledValue() lt 0 && ent.toPa.compareTo(ent.tot.negate()) gt 0)}">
   ${i18n.getMsg("overpaid", rvs.upf.lng.iid)}
 </c:if>
-<c:if test="${empty ent.cuFr && (ent.toPa.doubleValue() gt 0 && ent.toPa.doubleValue() lt ent.tot.doubleValue() && ent.tot.doubleValue() gt 0)
-    || (ent.toPa.doubleValue() gt 0 && ent.toPa.doubleValue() lt -ent.tot.doubleValue() && ent.tot.doubleValue() lt 0)}">
+<c:if test="${empty ent.cuFr && (ent.tot.unscaledValue() gt 0 && ent.toPa.unscaledValue() gt 0 && ent.toPa.compareTo(ent.tot) lt 0)
+    || (ent.tot.unscaledValue() lt 0 && ent.toPa.unscaledValue() gt 0 && ent.toPa.compareTo(ent.tot.negate()) lt 0)}">
   ${i18n.getMsg("partially_paid", rvs.upf.lng.iid)}
 </c:if>
-<c:if test="${not empty ent.cuFr && (ent.paFc.doubleValue() eq ent.toFc.doubleValue() && ent.toFc.doubleValue() gt 0)
-  || (ent.paFc.doubleValue() eq -ent.toFc.doubleValue() && ent.toFc.doubleValue() lt 0)}">
+<c:if test="${not empty ent.cuFr && (ent.toFc.unscaledValue() gt 0 && ent.paFc.compareTo(ent.toFc) eq 0)
+  || (ent.toFc.unscaledValue() lt 0 && ent.paFc.compareTo(ent.toFc.negate()) eq 0)}">
   ${i18n.getMsg("paid", rvs.upf.lng.iid)}
 </c:if>
-<c:if test="${not empty ent.cuFr && (ent.paFc.doubleValue() gt ent.toFc.doubleValue() && ent.toFc.doubleValue() gt 0)
-    || (ent.paFc.doubleValue() gt -ent.toFc.doubleValue() && ent.toFc.doubleValue() lt 0)}">
+<c:if test="${not empty ent.cuFr && (ent.toFc.unscaledValue() gt 0 && ent.paFc.compareTo(ent.toFc) gt 0)
+    || (ent.toFc.unscaledValue() lt 0 && ent.paFc.compareTo(ent.toFc.negate()) gt 0)}">
   ${i18n.getMsg("overpaid", rvs.upf.lng.iid)}
 </c:if>
-<c:if test="${not empty ent.cuFr && (ent.paFc.doubleValue() gt 0 && ent.paFc.doubleValue() lt ent.toFc.doubleValue() && ent.toFc.doubleValue() gt 0)
-    || (ent.paFc.doubleValue() gt 0 && ent.paFc.doubleValue() lt -ent.toFc.doubleValue() && ent.toFc.doubleValue() lt 0)}">
+<c:if test="${not empty ent.cuFr && (ent.toFc.unscaledValue() gt 0 && ent.paFc.unscaledValue() gt 0 && ent.paFc.compareTo(ent.toFc) lt 0)
+    || (ent.toFc.unscaledValue() lt 0 && ent.paFc.unscaledValue() gt 0 && ent.paFc.compareTo(ent.toFc.negate()) lt 0)}">
   ${i18n.getMsg("partially_paid", rvs.upf.lng.iid)}
 </c:if>

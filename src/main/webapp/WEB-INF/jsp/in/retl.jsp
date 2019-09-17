@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="txbl" value="${ent.ownr.inv.toTx.compareTo(java.math.BigDecimal.ZERO) eq 1}" scope="request"/>
+<c:set var="txbl" value="${ent.ownr.inv.toTx.unscaledValue() gt 0}" scope="request"/>
 <c:if test="${txbl && empty ent.ownr.dbcr.txDs}">
   <c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
   <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>

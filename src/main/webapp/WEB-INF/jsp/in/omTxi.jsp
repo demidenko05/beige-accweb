@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${extTx}">
-  <c:if test="${ent.tot.doubleValue() == 0}">
+  <c:if test="${ent.tot.unscaledValue() == 0}">
     <tr>
       <td>
         <label>${i18n.getMsg("omTx", rvs.upf.lng.iid)}</label>
@@ -41,7 +41,7 @@
       </tr>
     </c:if>
   </c:if>
-  <c:if test="${ent.tot.doubleValue() != 0}">
+  <c:if test="${ent.tot.unscaledValue() != 0}">
     <tr>
       <td>
         <label>${i18n.getMsg("omTx", rvs.upf.lng.iid)}

@@ -29,10 +29,10 @@
       </table>
       <c:if test="${not empty rvs.preps}">
         <table class="tbl-fieldset" id="bslPrepMtc">
-          <c:if test="${ent.amnt.doubleValue() gt 0}">
+          <c:if test="${ent.amnt.unscaledValue() gt 0}">
             <c:set var="prepnm" value="${i18n.getMsg('PrepFr', rvs.upf.lng.iid)}"/>
           </c:if>
-          <c:if test="${ent.amnt.doubleValue() lt 0}">
+          <c:if test="${ent.amnt.unscaledValue() lt 0}">
             <c:set var="prepnm" value="${i18n.getMsg('PrepTo', rvs.upf.lng.iid)}"/>
           </c:if>
           <tr>
@@ -66,10 +66,10 @@
       </c:if>
       <c:if test="${not empty rvs.payms}">
         <table class="tbl-fieldset" id="bslPayMtc">
-          <c:if test="${ent.amnt.doubleValue() gt 0}">
+          <c:if test="${ent.amnt.unscaledValue() gt 0}">
             <c:set var="paynm" value="${i18n.getMsg('PaymFr', rvs.upf.lng.iid)}"/>
           </c:if>
-          <c:if test="${ent.amnt.doubleValue() lt 0}">
+          <c:if test="${ent.amnt.unscaledValue() lt 0}">
             <c:set var="paynm" value="${i18n.getMsg('PaymTo', rvs.upf.lng.iid)}"/>
           </c:if>
           <tr>
@@ -185,10 +185,10 @@
               <div class="input-line">
                 <input class="picked-appearence" id="invoiceApVsb" disabled="disabled" type="text">
                 <input id="invoiceId" type="hidden" name="invoice">
-                <c:if test="${ent.amnt.doubleValue() gt 0}">
+                <c:if test="${ent.amnt.unscaledValue() gt 0}">
                   <c:set var="invoiceType" value="SalInv"/>
                 </c:if>
-                <c:if test="${ent.amnt.doubleValue() lt 0}">
+                <c:if test="${ent.amnt.unscaledValue() lt 0}">
                   <c:set var="invoiceType" value="PurInv"/>
                 </c:if>
                 <button type="button" class="btn" onclick="bsPick('${invoiceType}','','invoice','&fopmdEnrVl=true&foptoPaVl=TOPA lt TOT&foprvIdOpr1=isnull&fopfrcd=mdEnr,toPa,rvId&mbl=${param.mbl}');">...</button>

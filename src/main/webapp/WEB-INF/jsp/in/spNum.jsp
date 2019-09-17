@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${empty ent.num1}">
-  <c:set var="nm1" value="${java.math.BigDecimal.ZERO}"/>
+  <c:set var="nm1" value="${0}"/>
 </c:if>
 <c:if test="${not empty ent.num1}">
   <c:set var="nm1" value="${ent.num1}"/>

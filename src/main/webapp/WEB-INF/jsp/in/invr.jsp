@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="txbl" value="${ent.inv != null && ent.inv.toTx.compareTo(java.math.BigDecimal.ZERO) eq 1}" scope="request"/>
+<c:set var="txbl" value="${ent.inv != null && ent.inv.toTx.unscaledValue() gt 0}" scope="request"/>
 <c:if test="${txbl && empty ent.dbcr.txDs}">
   <c:set var="stIb" value="${rvs.astg.stIb}" scope="request"/>
   <c:set var="stAg" value="${rvs.astg.stAg}" scope="request"/>
@@ -36,7 +36,7 @@
       </c:if>
       <input class="picked-appearence" id="${cls.simpleName}${fdNm}ApVsb" disabled="disabled" type="text" value="${prApr}">
       <input id="${cls.simpleName}${fdNm}Id" required type="hidden" name="${cls.simpleName}.${fdNm}" value="${ent[fdNm].iid}">
-      <c:if test="${ent.tot.compareTo(java.math.BigDecimal.ZERO) eq 0}">
+      <c:if test="${ent.tot.unscaledValue() eq 0}">
         <button type="button" class="btn" onclick="bsPick('${hldUvd.fldCls(cls,fdNm).simpleName}','${cls.simpleName}','${fdNm}','&fopmdEnrVl=true&foprvIdOpr1=isnull&fopfrcd=mdEnr,rvId&mbl=${param.mbl}');">...</button>
         <button type="button" class="btn" onclick="bsClrSelEnt('${cls.simpleName}${fdNm}');">X</button>
       </c:if>

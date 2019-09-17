@@ -442,7 +442,7 @@
             </div>
           </c:if>
         </c:forEach>
-        <c:if test="${rvs.cart.toTx.doubleValue() gt 0}">
+        <c:if test="${rvs.cart.toTx.unscaledValue() gt 0}">
           <div class="row">
             <div class="col-6">
               ${i18n.getMsg("toTx", rvs.upf.lng.iid)}:
@@ -455,14 +455,14 @@
         <div class="row">
           <div class="col-6">
             ${i18n.getMsg("tot", rvs.upf.lng.iid)}
-            <c:if test="${rvs.cart.toTx.doubleValue() gt 0 && rvs.tstg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)})</c:if>
-            <c:if test="${rvs.cart.toTx.doubleValue() gt 0 && !rvs.tstg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)})</c:if>:
+            <c:if test="${rvs.cart.toTx.unscaledValue() gt 0 && rvs.tstg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)})</c:if>
+            <c:if test="${rvs.cart.toTx.unscaledValue() gt 0 && !rvs.tstg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)})</c:if>:
           </div>
           <div class="col-6">
             <b>${numStr.frmt(rvs.cart.tot.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)} ${rvs.wscurr.sgn}</b>
           </div>
         </div>
-        <c:if test="${rvs.cart.toTx.doubleValue() gt 0 && rvs.shTxDet}">
+        <c:if test="${rvs.cart.toTx.unscaledValue() gt 0 && rvs.shTxDet}">
           <c:forEach var="cartTxLn" items="${rvs.cart.taxes}">
             <c:if test="${!cartTxLn.disab}">
               <c:if test="${not empty txs}">

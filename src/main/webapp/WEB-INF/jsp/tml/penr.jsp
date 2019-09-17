@@ -32,18 +32,18 @@
       <c:if test="${empty param.mbl}">
         <td>${ent.acDb.nme}</td><td>${ent.sadNm}</td>
         <td>${ent.acCr.nme}</td><td>${ent.sacNm}</td>
-        <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) == 0}">
+        <c:if test="${ent.cred.unscaledValue() == 0}">
           <td style="text-align: right;">${hldUvd.toStr(rvs,cls,'debt',ent.debt)}</td>
         </c:if>
-        <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) != 0}">
+        <c:if test="${ent.cred.unscaledValue() != 0}">
           <td style="text-align: right;">${hldUvd.toStr(rvs,cls,'cred',ent.cred)}</td>
         </c:if>
         <td>${ent.dscr}</td>
       </c:if>
       <c:if test="${not empty param.mbl}">
         <td>| ${ent.acDb.nme} | ${ent.sadNm}| ${ent.acCr.nme} | ${ent.sacNm}
-        |<c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) == 0}">${hldUvd.toStr(rvs,cls,'debt',ent.debt)}</c:if>
-         <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) != 0}">${hldUvd.toStr(rvs,cls,'cred',ent.cred)}</c:if>
+        |<c:if test="${ent.cred.unscaledValue() == 0}">${hldUvd.toStr(rvs,cls,'debt',ent.debt)}</c:if>
+         <c:if test="${ent.cred.unscaledValue() != 0}">${hldUvd.toStr(rvs,cls,'cred',ent.cred)}</c:if>
         | ${ent.dscr}</td>
       </c:if>
     </tr>

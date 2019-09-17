@@ -32,9 +32,7 @@
         </c:if>
         <c:if test="${fn ne 'iid' && fn ne 'rvId' && fn ne 'dscr' && fn ne 'ownr'}">
           <c:set var="fdNm" value="${fn}" scope="request"/>
-          <c:set var="mdl" value="${ent[fn]}" scope="request"/>
-          ${i18n.getMsg(fn, rvs.upf.lng.iid)}:
-          <jsp:include page="../st/${hldUvd.stgNn(cls,fn,'str')}.jsp"/><br>
+          <jsp:include page="../in/reo.jsp"/>
         </c:if>
       </c:forEach>
       </table>

@@ -110,8 +110,8 @@
           </c:if>
             <td>
               <div class="input-line">
-                <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) == 0}">${hldUvd.toStr(rvs,cls,'debt',ent.debt.negate())}</c:if>
-                <c:if test="${ent.cred.compareTo(java.math.Bigdecimal.ZERO) != 0}">${hldUvd.toStr(rvs,cls,'cred',ent.cred.negate())}</c:if>
+                <c:if test="${ent.cred.unscaledValue() == 0}">${hldUvd.toStr(rvs,cls,'debt',ent.debt.negate())}</c:if>
+                <c:if test="${ent.cred.unscaledValue() != 0}">${hldUvd.toStr(rvs,cls,'cred',ent.cred.negate())}</c:if>
               </div>
             </td>
           </tr>

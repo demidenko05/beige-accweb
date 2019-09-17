@@ -14,7 +14,7 @@
   <c:set var="stRm" value="${ent.dbcr.txDs.stRm}" scope="request"/>
 </c:if>
 <c:set var="inTx" value="${ent.inTx}" scope="request"/>
-<c:if test="${empty ent.prep && (ent.tot.compareTo(java.math.BigDecimal.ZERO) eq 0 || empty ent.dbcr.txDs)}">
+<c:if test="${empty ent.prep && (ent.tot.unscaledValue() eq 0 || empty ent.dbcr.txDs)}">
   <tr>
     <td>
       <label for="${cls.simpleName}${fdNm}ApVsb">${i18n.getMsg(fdNm, rvs.upf.lng.iid)}</label>
@@ -30,10 +30,10 @@
     </td>
   </tr>
 </c:if>
-<c:if test="${!(empty ent.prep && (ent.tot.compareTo(java.math.BigDecimal.ZERO) eq 0 || empty ent.dbcr.txDs))}">
+<c:if test="${!(empty ent.prep && (ent.tot.unscaledValue() eq 0 || empty ent.dbcr.txDs))}">
   <jsp:include page="reo.jsp"/>
 </c:if>
-<c:if test="${ent.tot.compareTo(java.math.BigDecimal.ZERO) eq 0}">
+<c:if test="${ent.tot.unscaledValue() eq 0}">
   <c:set var="fdNm" value="cuFr" scope="request"/>
   <jsp:include page="nme.jsp"/>
   <c:set var="fdNm" value="exRt" scope="request"/>

@@ -16,12 +16,7 @@
 <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
   <c:forEach var="cr" items="${rvs.currRts}">
     <c:if test="${rvs.wscurr.iid.equals(cr.curr.iid)}">
-      <c:if test="${cr.rate.doubleValue() gt 0}">
-        <c:set var="curRate" value="${cr.rate}"/>
-      </c:if>
-      <c:if test="${cr.rate.doubleValue() lt 0}">
-        <c:set var="curRate" value="${java.math.BigDecimal.ONE.divide(cr.rate, 15, java.math.RoundingMode.HALF_UP)}"/>
-      </c:if>
+      <c:set var="curRate" value="${utlTrJsp.mkRate(cr.rate)}"/>
     </c:if>
   </c:forEach>
   <c:set var="pri" value="${rvs.itmPri.pri.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>

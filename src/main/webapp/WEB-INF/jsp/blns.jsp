@@ -30,10 +30,10 @@
             ${rvs.blnSht.lns.get(currIdx - 1).accName}
           </td>
           <td align="right">
-            <c:if test="${rvs.blnSht.lns.get(currIdx - 1).debit.doubleValue() != 0}">
+            <c:if test="${rvs.blnSht.lns.get(currIdx - 1).debit.unscaledValue() != 0}">
               ${numStr.frmt(rvs.blnSht.lns.get(currIdx - 1).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}
             </c:if>
-            <c:if test="${rvs.blnSht.lns.get(currIdx - 1).credit.doubleValue() != 0}">
+            <c:if test="${rvs.blnSht.lns.get(currIdx - 1).credit.unscaledValue() != 0}">
               (${numStr.frmt(rvs.blnSht.lns.get(currIdx - 1).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)})
             </c:if>
           </td>
@@ -48,10 +48,10 @@
             ${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).accName}
           </td>
           <td align="right">
-            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).credit.doubleValue() != 0}">
+            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).credit.unscaledValue() != 0}">
               ${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}
             </c:if>
-            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).debit.doubleValue() != 0}">
+            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).debit.unscaledValue() != 0}">
               (${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 1).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)})
             </c:if>
           </td>
@@ -68,10 +68,10 @@
             ${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).accName}
           </td>
           <td align="right">
-            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).credit.doubleValue() != 0}">
+            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).credit.unscaledValue() != 0}">
               ${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).credit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)}
             </c:if>
-            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).debit.doubleValue() != 0}">
+            <c:if test="${rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).debit.unscaledValue() != 0}">
               (${numStr.frmt(rvs.blnSht.lns.get(rvs.blnSht.toLnAs + currIdx - 3).debit.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.rpDp,rvs.upf.dgInGr)})
             </c:if>
           </td>
