@@ -39,3 +39,9 @@
   <c:set var="fdNm" value="exRt" scope="request"/>
   <jsp:include page="max.jsp"/>
 </c:if>
+<c:if test="${ent.tot.unscaledValue() ne 0 && not empty ent.cuFr}">
+  <c:set var="fdNm" value="cuFr" scope="request"/>
+  <jsp:include page="dis.jsp"/>
+  <c:set var="fdNm" value="exRt" scope="request"/>
+  <jsp:include page="dis.jsp"/>
+</c:if>
