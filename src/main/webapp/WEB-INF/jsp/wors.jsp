@@ -107,10 +107,10 @@
     </div>
   </c:if>
 
-  <c:if test="${not empty pgs}">
+  <c:if test="${not empty rvs.spgs}">
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
-        <c:forEach var="pg" items="${spgs}">
+        <c:forEach var="pg" items="${rvs.spgs}">
           <c:if test="${pg.cur}">
             <li class="page-item active"><a class="page-link" href="?prc=PrBuOr&spg=${pg.val}&prcRed=${prcRed}">${pg.val}</a></li>
           </c:if>

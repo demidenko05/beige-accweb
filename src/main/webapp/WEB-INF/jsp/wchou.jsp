@@ -104,9 +104,9 @@
         <c:set var="ifPayPal" value="${true}"/>
       </c:if>
     </c:forEach>
-    <c:forEach var="ord" items="${rvs.srvs.orders}">
+    <c:forEach var="ord" items="${rvs.sorders}">
       <h5>${i18n.getMsg("CuOr", rvs.upf.lng.iid)}#${ord.iid}, <fmt:formatDate value="${ord.dat}" type="both" timeStyle="short"/>,
-      ${i18n.getMsg("selr", rvs.upf.lng.iid)}: ${ord.sel.seller.nme}, ${i18n.getMsg("tot", rvs.upf.lng.iid)} ${ord.tot}${ord.curr.stCo}
+      ${i18n.getMsg("selr", rvs.upf.lng.iid)}: ${ord.selr.dbcr.nme}, ${i18n.getMsg("tot", rvs.upf.lng.iid)} ${ord.tot}${ord.curr.stCo}
       <c:if test="${ord.toTx.unscaledValue() gt 0 && rvs.tsrg.txExcl}">(${i18n.getMsg("txExcl", rvs.upf.lng.iid)}),</c:if>
       <c:if test="${ord.toTx.unscaledValue() gt 0 && !rvs.tsrg.txExcl}">(${i18n.getMsg("txIncl", rvs.upf.lng.iid)}),</c:if>
       ${i18n.getMsg("toTx", rvs.upf.lng.iid)} ${ord.toTx}${ord.curr.nme}:</h5>
@@ -203,7 +203,7 @@
         <table class="table table-sm">
           <tbody>
             <tr>
-              <td>${i18n.getMsg("Emrcp", rvs.upf.lng.iid)}</td>
+              <td>${i18n.getMsg("EmRcp", rvs.upf.lng.iid)}</td>
               <td>${rvs.buyr.nme}</td>
             </tr>
             <c:if test="${not empty rvs.buyr.cntr}">
