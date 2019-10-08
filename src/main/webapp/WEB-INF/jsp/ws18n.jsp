@@ -146,7 +146,7 @@
                     <c:if test="${rvs.wscurr.iid.equals(cr.curr.iid)}">
                       <c:set var="itmSel" value="selected"/>
                     </c:if>
-                    <option value="${cr.curr.iid}" ${itmSel}>${cr.curr.nme} ${i18n.getMsg("crate", rvs.upf.lng.iid)} ${numStr.frmt(cr.rate.toString(), rvs.cpf.dcSpv, rvs.cpf.dcGrSpv, 4, rvs.upf.dgInGr)}</option>
+                    <option value="${cr.curr.iid}" ${itmSel}>${cr.curr.nme} ${i18n.getMsg("exRt", rvs.upf.lng.iid)} ${numStr.frmt(cr.exRt.toString(), rvs.cpf.dcSpv, rvs.cpf.dcGrSpv, 4, rvs.upf.dgInGr)}</option>
                   </c:forEach>
                 </select>
               </div>
