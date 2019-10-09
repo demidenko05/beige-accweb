@@ -52,6 +52,9 @@
         <c:forEach var="ent" items="${ent.entrs}">
           <c:set var="ent" value="${ent}" scope="request"/>
           <tr>
+            <c:if test="${not empty param.mbl}">
+              <td>
+            </c:if>
             <c:set var="isFst" value="${true}" scope="request"/>
             <c:set var="fdNm" value="iid" scope="request"/>
             <c:set var="mdl" value="${ent.iid}" scope="request"/>
@@ -72,7 +75,7 @@
               <td>${ent.dscr}</td>
             </c:if>
             <c:if test="${not empty param.mbl}">
-              <td>| ${ent.acDb.nme} | ${ent.sadNm}| ${ent.acCr.nme} | ${ent.sacNm}
+              | ${ent.acDb.nme} | ${ent.sadNm}| ${ent.acCr.nme} | ${ent.sacNm}
               |<c:if test="${ent.cred.unscaledValue() == 0}">${hldUvd.toStr(rvs,cls,'debt',ent.debt)}</c:if>
                <c:if test="${ent.cred.unscaledValue() != 0}">${hldUvd.toStr(rvs,cls,'cred',ent.cred)}</c:if>
               | ${ent.dscr}</td>
