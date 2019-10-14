@@ -165,7 +165,7 @@
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-acc</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <exclusions>
         <exclusion>
           <groupId>com.zaxxer</groupId>
@@ -176,7 +176,7 @@
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-web-jar</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.taglibs</groupId>
@@ -191,7 +191,7 @@
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-web</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <type>war</type>
       <scope>runtime</scope>
     </dependency>
