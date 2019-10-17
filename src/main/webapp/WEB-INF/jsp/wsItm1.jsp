@@ -16,7 +16,7 @@
 <c:if test="${!rvs.wscurr.iid.equals(rvs.astg.curr.iid)}">
   <c:forEach var="cr" items="${rvs.currRts}">
     <c:if test="${rvs.wscurr.iid.equals(cr.curr.iid)}">
-      <c:set var="curRate" value="${utlTrJsp.mkRate(cr.rate)}"/>
+      <c:set var="curRate" value="${utlTrJsp.mkRate(cr.exRt)}"/>
     </c:if>
   </c:forEach>
   <c:set var="pri" value="${rvs.itmPri.pri.multiply(curRate).setScale(rvs.astg.prDp,rvs.astg.rndm)}"/>
