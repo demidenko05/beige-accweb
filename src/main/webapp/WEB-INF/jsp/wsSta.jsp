@@ -29,7 +29,7 @@
     <link href="${urlPrf}css/theme.css" rel="stylesheet">
     <link href="${urlPrf}css/open-iconic-bootstrap.min.css" rel="stylesheet">
     <link href="${urlPrf}css/flag-icon.min.css" rel="stylesheet">
-    <script src="${urlPrf}js/jquery-3.3.1.min.js"></script>
+    <script src="${urlPrf}js/jquery-3.4.1.min.js"></script>
     <script src="${urlPrf}js/bsNum.js"></script>
     <script src="${urlPrf}js/bsInpNum.js"></script>
     <script src="${urlPrf}js/bsWeSt.js"></script>
@@ -109,7 +109,7 @@
               <c:set var="countryFlag" value="${rvs.upf.lng.iid}"/>
             </c:if>
           </c:if>
-          <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('lang', rvs.upf.lng.iid)}" onclick="$('#i18nMdl').modal('toggle');"><span class="flag-icon flag-icon-${countryFlag}"></span></a></li>
+          <li class="nav-item"><a href="#" class="nav-link" data-toggle="tooltip" title="${i18n.getMsg('Lng', rvs.upf.lng.iid)}" onclick="$('#i18nMdl').modal('toggle');"><span class="flag-icon flag-icon-${countryFlag}"></span></a></li>
         </ul>
       </div>
     </nav>

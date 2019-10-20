@@ -27,6 +27,7 @@
         <a href="sec/srv">${i18n.getMsg("Desktop", rvs.upf.lng.iid)}</a>
         <a href="sec/srv?rnd=mbl&mbl=mbl">${i18n.getMsg("Mobile", rvs.upf.lng.iid)}</a>
         <a href="privacypolicy-${rvs.upf.lng.iid}.html" target="_blank">${i18n.getMsg("privacy_policy", rvs.upf.lng.iid)}</a>
+        <a href="license.html" target="_blank">${i18n.getMsg("license", rvs.upf.lng.iid)}</a>
       </div>
     </div>
     <div class="dropdown">
