@@ -8,14 +8,14 @@ It's WEB interface based on standard JEE MVC servlet, JSP, JSTL.
 It's based on previous beigesoft-webcrud and weboio projects.
 Default configuration is PostgreSQL (web.xml) and context.xml for Tomcat JEE JDBC authentication. For MySql rename web-mysql.xml and context-mysql.xml respectively.
 
-Tested/works OK on last Java8 (and last Android 29), Tomcat 7.0.82/8.5.43, Maven 3.5.2, Ant 1.10.6, PostgreSQL 9.6.12, MySQL 5.5.5-10.1.38-MariaDB
-Fixed Tomcat 8.5.43, error: ...An invalid character [44] was present in the Cookie value... COMMA
-!Maven 3.6.1 gives error findbugs (but not yet checked for spotbugs)!
+Tested/works OK on last Java8 (and last Android 30), Tomcat 7.0.105, Maven 3.6.3, Ant 1.10.8, PostgreSQL 11.7, MySQL 5.5.5-10.3.23-MariaDB (Debian 10)
 !!!Tomcat8 can load JARs in different orders, so you should reassemble WAR to use beige-acc.jar XML resources that override beige-blc.jar ones!!!
+or make own org.apache.tomcat.JarScanner implementation
 
 To install application on Apache Tomcat 7 (8! jars order loading problem):
-1. you should have MySql server with created user and empty database
-2. make sure that Tomcat has libraries: HikariCP-2.4.3.jar, postgresql-9.4-1206-jdbc4.jar (or mysql-connector-java-5.1.40.jar), slf4j-api-1.7.12.jar (versions may be different)
+1. you should have [postgres/mysql/sqlite] server with created user and empty database
+  * default is Postgres, change web.xml and context.xml to other RDBMS if you want
+2. make sure that Tomcat has libraries: HikariCP-3.4.5.jar, postgresql-42.2.16.jar/mysql-connector-java-8.0.21.jar/sqlite-jdbc-3.32.3.2.jar, slf4j-api-1.7.30.jar (versions may be different)
 3. Unpack WAR file and change user/password/database with yours ones in WEB-INF/classes/potrgres(or mysql)/cmnst.xml:
 ...
 <entry key="dbUrl">[yourdb]</entry>
