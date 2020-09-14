@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/bsNum.js"></script>
   <script type="text/javascript" src="../js/bsInpNum.js"></script>
   <script type="text/javascript" src="../js/bsAjax.js"></script>

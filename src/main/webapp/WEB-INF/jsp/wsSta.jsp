@@ -29,7 +29,7 @@
     <link href="${urlPrf}css/theme.css" rel="stylesheet">
     <link href="${urlPrf}css/open-iconic-bootstrap.min.css" rel="stylesheet">
     <link href="${urlPrf}css/flag-icon.min.css" rel="stylesheet">
-    <script src="${urlPrf}js/jquery-3.5.1.min.js"></script>
+    <script src="${urlPrf}js/jquery.min.js"></script>
     <script src="${urlPrf}js/bsNum.js"></script>
     <script src="${urlPrf}js/bsInpNum.js"></script>
     <script src="${urlPrf}js/bsWeSt.js"></script>
