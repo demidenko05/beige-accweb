@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:if test="${not empty rvs.errMsg}">
-  <div class="modal fade" id="errDlg" tabindex="-1" role="dialog">
+  <div class="modal" id="errDlg" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -23,7 +23,7 @@
   </script>
 </c:if>
 
-<div class="modal fade" id="infoDlg" tabindex="-1" role="dialog">
+<div class="modal" id="infoDlg" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -42,7 +42,7 @@
 </div>
 
 <c:if test="${!isUnSign}">
-  <div class="modal fade" id="logoutDlg" tabindex="-1" role="dialog">
+  <div class="modal" id="logoutDlg" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="buyrMdl" tabindex="-1" role="dialog" aria-labelledby="buyrMdlLabel">
+  <div class="modal" id="buyrMdl" tabindex="-1" role="dialog" aria-labelledby="buyrMdlLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

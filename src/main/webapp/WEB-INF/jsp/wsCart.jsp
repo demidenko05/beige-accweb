@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:if test="${isUnSign}">
 <!-- Buyer sign-in/up -->
-  <div class="modal fade" id="signMdl" tabindex="-1" role="dialog" aria-labelledby="signMdlLabel">
+  <div class="modal" id="signMdl" tabindex="-1" role="dialog" aria-labelledby="signMdlLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -146,243 +146,8 @@
   </div>
 </c:if>
 
-<!-- Modal cart item adder -->
-<div class="modal fade" id="cartAddMdl" tabindex="-1" role="dialog" aria-labelledby="cartAddMdlLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cartAddMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("add_item_to_cart", rvs.upf.lng.iid)}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="prcRed" value="${prcRed}">
-          <input type="hidden" name="prc" value="ItmCart">
-          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
-            <c:if test="${enr.key ne 'fltCtVal'}">
-              <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
-                <input type="hidden" name="${enr.key}" value="${enr.value}">
-              </c:if>
-              <c:if test="${enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1}">
-                <c:forEach var="cv" items="${enr.value.split(';')}">
-                  <input type="hidden" name="${enr.key}" value="${cv}">
-                </c:forEach>
-              </c:if>
-            </c:if>
-            <c:if test="${enr.key eq 'fltCtVal'}">
-              <c:forEach var="cv" items="${enr.value.split(';')}">
-                <input type="hidden" name="fltCtVal" value="${cv}">
-              </c:forEach>
-            </c:if>
-          </c:forEach>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("itm", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <textarea id="itNm" readonly class="form-control">
-              </textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("pri", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <input id="pri" readonly class="form-control">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("uom", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <input id="uomNm" readonly class="form-control">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-3 mb-3">
-              <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-3 col-md-1 mb-3">
-              <a href="#" onclick="$('#quan').trigger('decrease').trigger('change');"><span class="oi oi-minus oi-horh" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-6 col-md-4 mb-3">
-              <input id="quan" name="quan" class="form-control">
-            </div>
-            <div class="col-3 col-md-1 mb-3">
-              <a href="#" onclick="$('#quan').trigger('increase').trigger('change');"><span class="oi oi-plus oi-horh" aria-hidden="true"></span></a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("tot", rvs.upf.lng.iid)} (${rvs.wscurr.sgn})</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <input id="tot" readonly class="form-control">
-            </div>
-          </div>
-          <input type="hidden" id="unSt" name="unSt">
-          <input type="hidden" id="avQuan" name="avQuan">
-          <input type="hidden" id="itTyp" name="itTyp">
-          <input type="hidden" id="itId" name="itId">
-          <input type="hidden" id="uomId" name="uomId">
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal cart item edit -->
-<div class="modal fade" id="cartEditMdl" tabindex="-1" role="dialog" aria-labelledby="cartEditMdlLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cartEditMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("item_change_quantity", rvs.upf.lng.iid)}</h5>
-        <button type="button" class="close" data-dismiss="modal" onclick="$('#cartMdl').modal('show');" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="prcRed" value="${prcRed}">
-          <input type="hidden" name="prc" value="ItmCart">
-          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
-            <c:if test="${enr.key ne 'fltCtVal'}">
-              <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
-                <input type="hidden" name="${enr.key}" value="${enr.value}">
-              </c:if>
-              <c:if test="${enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1}">
-                <c:forEach var="cv" items="${enr.value.split(';')}">
-                  <input type="hidden" name="${enr.key}" value="${cv}">
-                </c:forEach>
-              </c:if>
-            </c:if>
-            <c:if test="${enr.key eq 'fltCtVal'}">
-              <c:forEach var="cv" items="${enr.value.split(';')}">
-                <input type="hidden" name="fltCtVal" value="${cv}">
-              </c:forEach>
-            </c:if>
-          </c:forEach>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("itm", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <textarea id="itNmEdit" readonly class="form-control">
-              </textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("pri", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <input id="priEdit" readonly class="form-control">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("uom", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <input id="uomNmEdit" readonly class="form-control">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-3 mb-3">
-              <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
-            </div>
-            <div class="col-3 col-md-1 mb-3">
-              <a href="#" onclick="$('#quanEdit').trigger('decrease').trigger('change');"><span class="oi oi-minus oi-horh" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-6 col-md-4 mb-3">
-              <input id="quanEdit" name="quan" class="form-control">
-            </div>
-            <div class="col-3 col-md-1 mb-3">
-              <a href="#" onclick="$('#quanEdit').trigger('increase').trigger('change');"><span class="oi oi-plus oi-horh" aria-hidden="true"></span></a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-              <label>${i18n.getMsg("tot", rvs.upf.lng.iid)} (${rvs.wscurr.sgn})</label>
-            </div>
-            <div class="col-12 col-md-8 mb-3">
-              <input id="totEdit" readonly class="form-control">
-            </div>
-          </div>
-          <input type="hidden" id="unStEdit" name="unSt">
-          <input type="hidden" id="avQuanEdit" name="avQuan">
-          <input type="hidden" id="itTypEdit" name="itTyp">
-          <input type="hidden" id="itIdEdit" name="itId">
-          <input type="hidden" id="lnIdEdit" name="lnId">
-          <input type="hidden" id="uomIdEdit" name="uomId">
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$('#cartMdl').modal('show');">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal cart item remove -->
-<div class="modal fade" id="cartDelMdl" tabindex="-1" role="dialog" aria-labelledby="cartDelMdlLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cartDelMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("item_remove", rvs.upf.lng.iid)}</h5>
-        <button type="button" class="close" data-dismiss="modal" onclick="$('#cartMdl').modal('show');" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <form action="${urlPrf}?" method="POST">
-          <input type="hidden" name="prcRed" value="${prcRed}">
-          <input type="hidden" name="act" value="del">
-          <input type="hidden" name="prc" value="ItmCart">
-          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
-            <c:if test="${enr.key ne 'fltCtVal'}">
-              <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
-                <input type="hidden" name="${enr.key}" value="${enr.value}">
-              </c:if>
-              <c:if test="${enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1}">
-                <c:forEach var="cv" items="${enr.value.split(';')}">
-                  <input type="hidden" name="${enr.key}" value="${cv}">
-                </c:forEach>
-              </c:if>
-            </c:if>
-            <c:if test="${enr.key eq 'fltCtVal'}">
-              <c:forEach var="cv" items="${enr.value.split(';')}">
-                <input type="hidden" name="fltCtVal" value="${cv}">
-              </c:forEach>
-            </c:if>
-          </c:forEach>
-          <div class="form-group">
-            <label>${i18n.getMsg("itm", rvs.upf.lng.iid)}:</label>
-            <textarea id="itNmDel" readonly class="form-control">
-            </textarea>
-            <label>Price:</label>
-            <input id="priDel" readonly class="form-control">
-            <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}:</label>
-            <input readonly id="quanDel" class="form-control">
-            <label>${i18n.getMsg("tot", rvs.upf.lng.iid)}:</label>
-            <input id="totDel" readonly class="form-control">
-            <input type="hidden" id="lnIdDel" name="lnId">
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">${i18n.getMsg("Delete", rvs.upf.lng.iid)}</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$('#cartMdl').modal('show');">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Modal cart -->
-<div class="modal fade" id="cartMdl" tabindex="-1" role="dialog" aria-labelledby="cartMdlLabel">
+<div class="modal" id="cartMdl" tabindex="-1" role="dialog" aria-labelledby="cartMdlLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -425,10 +190,10 @@
                   ${numStr.frmtNtz(cartLn.quan.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.upf.dgInGr)}
                 </div>
                 <div class="col-2">
-                  <a href="#" data-dismiss="modal" onclick="bsSetCartItm(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.avQuan},${cartLn.iid},${cartLn.uom.iid},'${cartLn.uom.nme}',${cartLn.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-pencil" title="${i18n.getMsg('edit', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
+                  <a data-dismiss="modal" data-toggle="modal" href="#cartEditMdl" onclick="bsSetCartItm(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.avQuan},${cartLn.iid},${cartLn.uom.iid},'${cartLn.uom.nme}',${cartLn.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-pencil" title="${i18n.getMsg('Edit', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
                 </div>
                 <div class="col-2">
-                  <a href="#" data-dismiss="modal" onclick="$('#cartDelMdl').modal({keyboard: false, backdrop: false}); bsDelCartItm(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.iid},${rvs.astg.prDp});"><span class="oi oi-x" title="${i18n.getMsg('delete', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
+                  <a data-dismiss="modal" data-toggle="modal" href="#cartDelMdl" onclick="bsDelCartItm(${cartLn.itTyp.ordinal()},${cartLn.itId},'${cartLn.nme}',${cartLn.pri},${cartLn.quan},${cartLn.iid},${rvs.astg.prDp});"><span class="oi oi-x" title="${i18n.getMsg('Delete', rvs.upf.lng.iid)}" aria-hidden="true"></span></a>
                 </div>
               </c:if>
             </div>
@@ -590,6 +355,241 @@
         <c:if test="${!isUnSign && param.prc ne 'ChkOut'}">
           <a href="${urlPrf}?prc=ChkOut&prcRed=${prcRed}" type="button" class="btn btn-primary">${i18n.getMsg("check_out", rvs.upf.lng.iid)}</a>
         </c:if>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal cart item adder -->
+<div class="modal" id="cartAddMdl" tabindex="-1" role="dialog" aria-labelledby="cartAddMdlLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartAddMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("add_item_to_cart", rvs.upf.lng.iid)}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form action="${urlPrf}?" method="POST">
+          <input type="hidden" name="prcRed" value="${prcRed}">
+          <input type="hidden" name="prc" value="ItmCart">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
+            <c:if test="${enr.key ne 'fltCtVal'}">
+              <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
+                <input type="hidden" name="${enr.key}" value="${enr.value}">
+              </c:if>
+              <c:if test="${enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1}">
+                <c:forEach var="cv" items="${enr.value.split(';')}">
+                  <input type="hidden" name="${enr.key}" value="${cv}">
+                </c:forEach>
+              </c:if>
+            </c:if>
+            <c:if test="${enr.key eq 'fltCtVal'}">
+              <c:forEach var="cv" items="${enr.value.split(';')}">
+                <input type="hidden" name="fltCtVal" value="${cv}">
+              </c:forEach>
+            </c:if>
+          </c:forEach>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("itm", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <textarea id="itNm" readonly class="form-control">
+              </textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("pri", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <input id="pri" readonly class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("uom", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <input id="uomNm" readonly class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3 mb-3">
+              <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-3 col-md-1 mb-3">
+              <a href="#" onclick="$('#quan').trigger('decrease').trigger('change');"><span class="oi oi-minus oi-horh" aria-hidden="true"></span></a>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+              <input id="quan" name="quan" class="form-control">
+            </div>
+            <div class="col-3 col-md-1 mb-3">
+              <a href="#" onclick="$('#quan').trigger('increase').trigger('change');"><span class="oi oi-plus oi-horh" aria-hidden="true"></span></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("tot", rvs.upf.lng.iid)} (${rvs.wscurr.sgn})</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <input id="tot" readonly class="form-control">
+            </div>
+          </div>
+          <input type="hidden" id="unSt" name="unSt">
+          <input type="hidden" id="avQuan" name="avQuan">
+          <input type="hidden" id="itTyp" name="itTyp">
+          <input type="hidden" id="itId" name="itId">
+          <input type="hidden" id="uomId" name="uomId">
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal cart item edit -->
+<div class="modal" id="cartEditMdl" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="cartEditMdlLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartEditMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("item_change_quantity", rvs.upf.lng.iid)}</h5>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#cartMdl" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form action="${urlPrf}?" method="POST">
+          <input type="hidden" name="prcRed" value="${prcRed}">
+          <input type="hidden" name="prc" value="ItmCart">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
+            <c:if test="${enr.key ne 'fltCtVal'}">
+              <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
+                <input type="hidden" name="${enr.key}" value="${enr.value}">
+              </c:if>
+              <c:if test="${enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1}">
+                <c:forEach var="cv" items="${enr.value.split(';')}">
+                  <input type="hidden" name="${enr.key}" value="${cv}">
+                </c:forEach>
+              </c:if>
+            </c:if>
+            <c:if test="${enr.key eq 'fltCtVal'}">
+              <c:forEach var="cv" items="${enr.value.split(';')}">
+                <input type="hidden" name="fltCtVal" value="${cv}">
+              </c:forEach>
+            </c:if>
+          </c:forEach>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("itm", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <textarea id="itNmEdit" readonly class="form-control">
+              </textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("pri", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <input id="priEdit" readonly class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("uom", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <input id="uomNmEdit" readonly class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3 mb-3">
+              <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}</label>
+            </div>
+            <div class="col-3 col-md-1 mb-3">
+              <a href="#" onclick="$('#quanEdit').trigger('decrease').trigger('change');"><span class="oi oi-minus oi-horh" aria-hidden="true"></span></a>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+              <input id="quanEdit" name="quan" class="form-control">
+            </div>
+            <div class="col-3 col-md-1 mb-3">
+              <a href="#" onclick="$('#quanEdit').trigger('increase').trigger('change');"><span class="oi oi-plus oi-horh" aria-hidden="true"></span></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label>${i18n.getMsg("tot", rvs.upf.lng.iid)} (${rvs.wscurr.sgn})</label>
+            </div>
+            <div class="col-12 col-md-8 mb-3">
+              <input id="totEdit" readonly class="form-control">
+            </div>
+          </div>
+          <input type="hidden" id="unStEdit" name="unSt">
+          <input type="hidden" id="avQuanEdit" name="avQuan">
+          <input type="hidden" id="itTypEdit" name="itTyp">
+          <input type="hidden" id="itIdEdit" name="itId">
+          <input type="hidden" id="lnIdEdit" name="lnId">
+          <input type="hidden" id="uomIdEdit" name="uomId">
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">${i18n.getMsg("Save", rvs.upf.lng.iid)}</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#cartMdl">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal cart item remove -->
+<div class="modal" id="cartDelMdl" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="cartDelMdlLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartDelMdlLabel"><span class="oi oi-cart" aria-hidden="true"></span> ${i18n.getMsg("item_remove", rvs.upf.lng.iid)}</h5>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#cartMdl" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form action="${urlPrf}?" method="POST">
+          <input type="hidden" name="prcRed" value="${prcRed}">
+          <input type="hidden" name="act" value="del">
+          <input type="hidden" name="prc" value="ItmCart">
+          <c:forEach var="enr" items="${fltUrlFrm.entrySet()}">
+            <c:if test="${enr.key ne 'fltCtVal'}">
+              <c:if test="${!(enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1)}">
+                <input type="hidden" name="${enr.key}" value="${enr.value}">
+              </c:if>
+              <c:if test="${enr.key.startsWith('fltSp') && enr.value.indexOf(';') != -1}">
+                <c:forEach var="cv" items="${enr.value.split(';')}">
+                  <input type="hidden" name="${enr.key}" value="${cv}">
+                </c:forEach>
+              </c:if>
+            </c:if>
+            <c:if test="${enr.key eq 'fltCtVal'}">
+              <c:forEach var="cv" items="${enr.value.split(';')}">
+                <input type="hidden" name="fltCtVal" value="${cv}">
+              </c:forEach>
+            </c:if>
+          </c:forEach>
+          <div class="form-group">
+            <label>${i18n.getMsg("itm", rvs.upf.lng.iid)}:</label>
+            <textarea id="itNmDel" readonly class="form-control">
+            </textarea>
+            <label>Price:</label>
+            <input id="priDel" readonly class="form-control">
+            <label>${i18n.getMsg("quan", rvs.upf.lng.iid)}:</label>
+            <input readonly id="quanDel" class="form-control">
+            <label>${i18n.getMsg("tot", rvs.upf.lng.iid)}:</label>
+            <input id="totDel" readonly class="form-control">
+            <input type="hidden" id="lnIdDel" name="lnId">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">${i18n.getMsg("Delete", rvs.upf.lng.iid)}</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#cartMdl">${i18n.getMsg("Close", rvs.upf.lng.iid)}</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

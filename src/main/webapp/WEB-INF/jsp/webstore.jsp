@@ -177,7 +177,9 @@
     <c:set var="quan" value="${itm.unSt}"/>
     <c:set var="lnId" value="null"/>
     <c:set var="ordQuan" value=""/>
+    <c:set var="mdlDlgId" value="cartAddMdl"/>
     <c:if test="${not empty rvs.cartMap && not empty rvs.cartMap[itm.typ][itm.itId]}">
+      <c:set var="mdlDlgId" value="cartEditMdl"/>
       <c:set var="quan" value="${rvs.cartMap[itm.typ][itm.itId].quan}"/>
       <c:set var="lnId" value="${rvs.cartMap[itm.typ][itm.itId].iid}"/>
       <c:set target="${rvs.cartMap[itm.typ][itm.itId]}" property="avQuan" value="${itm.quan}"/>
@@ -198,7 +200,7 @@
       ${divDscrOnly}
     </c:if>
       <h5>
-        <a href="#" onclick="bsSetCartItm(${itm.typ.ordinal()},${itm.itId},'${itm.nme}',${pri},${quan},${itm.quan},${lnId},${uomId},'${uomNm}',${itm.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-cart" title="cart" aria-hidden="true"></span>${ordQuan}</a>
+        <a data-toggle="modal" href="#${mdlDlgId}" onclick="bsSetCartItm(${itm.typ.ordinal()},${itm.itId},'${itm.nme}',${pri},${quan},${itm.quan},${lnId},${uomId},'${uomNm}',${itm.unSt},${rvs.astg.prDp},${rvs.astg.rndm.ordinal()});"><span class="oi oi-cart" title="cart" aria-hidden="true"></span>${ordQuan}</a>
         <b><span>${numStr.frmt(pri.toString(),rvs.cpf.dcSpv,rvs.cpf.dcGrSpv,rvs.astg.prDp,rvs.upf.dgInGr)}</span> ${rvs.wscurr.sgn}
           <c:if test="${not empty itm.uom}">
             ${itm.uom.nme}
@@ -242,7 +244,7 @@
   </c:if>
 
   <!-- Modal filter -->
-  <div class="modal fade" id="filterMdl" tabindex="-1" role="dialog" aria-labelledby="filterMdlLabel">
+  <div class="modal" id="filterMdl" tabindex="-1" role="dialog" aria-labelledby="filterMdlLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -347,7 +349,7 @@
   <c:forEach var="cat1l" items="${rvs.catls}">
     <c:forEach var="cat2l" items="${cat1l.subcatls}">
       <c:if test="${cat2l.subcatls.size() gt 0}">
-        <div class="modal fade" id="subcatalogsMdl${cat2l.catl.iid}" tabindex="-1" role="dialog" aria-labelledby="subcatalogsMdl${cat2l.catl.iid}Label">
+        <div class="modal" id="subcatalogsMdl${cat2l.catl.iid}" tabindex="-1" role="dialog" aria-labelledby="subcatalogsMdl${cat2l.catl.iid}Label">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
