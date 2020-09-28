@@ -10,7 +10,7 @@ Default configuration is PostgreSQL (web.xml) and context.xml for Tomcat JEE JDB
 
 Tested/works OK on last Java8 (and last Android 30), Tomcat 7.0.105, Maven 3.6.3, Ant 1.10.8, PostgreSQL 11.7, MySQL 5.5.5-10.3.23-MariaDB (Debian 10)
 !!!Tomcat8 can load JARs in different orders, so you should reassemble WAR to use beige-acc.jar XML resources that override beige-blc.jar ones!!!
-or make own org.apache.tomcat.JarScanner implementation
+making own org.apache.tomcat.JarScanner implementation is non-optimal!
 
 To install application on Apache Tomcat 7 (8! jars order loading problem):
 1. you should have [postgres/mysql/sqlite] server with created user and empty database
@@ -30,7 +30,8 @@ or MySql:
 
 change security roles in web.xml
 
-  Pack new WAR file (it is actually ZIP archive).
+  3.1 !remove duplicates - just unpack beige-acc.jar then beige-blc.jar into WEB-INF/classes without overwriting, then delete them from lib folder
+  3.2 Pack new WAR file (it is actually ZIP archive).
 4. copy WAR file inside "[tomcat_home]/webapps"
 5. type in browser address same as WAR file i.e. "https://[server-address]/beige-accweb"
 6. after creating database add users with SQL query:
@@ -51,3 +52,5 @@ for generating servlets from JSP/JSTL for beige-accjet:
 licenses:
 BSD 2-Clause License
 https://sites.google.com/site/beigesoftware/bsd2csl
+
+TODO: remove duplicates automatically with proguard

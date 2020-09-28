@@ -27,7 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 /**
- * <p>Consists of final factories for deployable WAR.</p>
+ * <p>Consists of final factories for deployable WAR JDBC.</p>
  *
  * @author Yury Demidenko
  */
