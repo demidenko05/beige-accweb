@@ -49,8 +49,32 @@ for generating servlets from JSP/JSTL for beige-accjet:
 2. Run $ANT_HOME/bin/ant -Dtomcat.home=$TOMCATA_HOME -Dwebapp.path=target/beige-accweb
 3. Copy generated servlets and web.xml config into beige-accjet, reinstall it and beige-accandr
 
-licenses:
+TODO: remove duplicates automatically with proguard
+
+-------------------------------------------------------------------------------
+license/лицензия:
 BSD 2-Clause License
 https://sites.google.com/site/beigesoftware/bsd2csl
 
-TODO: remove duplicates automatically with proguard
+3-D PARTY LICENSES / лицензии стороннего ПО:
+
+CSS/Javascript framework Bootstrap by Twitter, Inc and the Bootstrap Authors:
+MIT License
+https://github.com/twbs/bootstrap/blob/master/LICENSE
+
+JQuery by JS Foundation and other contributors:
+MIT license
+https://jquery.org/license
+
+Open Iconic icon fonts by Waybury:
+SIL OPEN FONT LICENSE Version 1.1
+http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web
+
+Open Iconic to Bootstrap CSS by Waybury:
+MIT License
+https://github.com/iconic/open-iconic/blob/master/ICON-LICENSE
+
+flag-icon-css collection of all country flags in SVG by Panayiotis Lipiridis
+MIT License
+https://github.com/lipis/flag-icon-css
+
