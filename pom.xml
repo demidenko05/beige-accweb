@@ -184,7 +184,7 @@
     </dependency>
     <dependency>
       <groupId>org.beigesoft</groupId>
-      <artifactId>beige-web-jar</artifactId><!--TODO check diff 1.0 vs 1.1 -->
+      <artifactId>beige-web-jar</artifactId><!--checked srs 1.0 = 1.1 -->
       <version>1.0</version>
       <exclusions>
         <exclusion>
