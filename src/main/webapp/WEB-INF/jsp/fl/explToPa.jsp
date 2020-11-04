@@ -42,7 +42,7 @@
 </c:if>
 <c:set var="flApLt100" value="&lt; 100%"/>
 <c:set var="valLtTotal" value="TOPA lt ${invNm}.TOT"/>
-<c:set var="valLt100" value="${invNm}.TOT 0 and TOPA/${invNm}.TOT lt 1"/>
+<c:set var="valLt100" value="${invNm}.TOT gt 0 and TOPA/${invNm}.TOT lt 1"/>
 <c:if test="${parValue eq valLt100 || parValue eq valLtTotal}">
   <c:set var="selectedLt100" value="selected"/>
   <c:set var="selDis1" value=""/>
