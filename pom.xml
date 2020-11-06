@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.beigesoft</groupId>
-  <version>1.1</version>
+  <version>1.2-SNAPSHOT</version>
   <artifactId>beige-accweb</artifactId>
   <packaging>war</packaging>
 
@@ -321,7 +321,7 @@
     <url>https://github.com/demidenko05/beige-accweb.git</url>
     <connection>scm:git:git@github.com:demidenko05/beige-accweb.git</connection>
     <developerConnection>scm:git:git@github.com:demidenko05/beige-accweb.git</developerConnection>
-    <tag>beige-accweb-1.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
 </project>
